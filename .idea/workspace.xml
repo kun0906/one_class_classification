@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3328596d-b116-4f8c-8c06-719cdaa432ba" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="3328596d-b116-4f8c-8c06-719cdaa432ba" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -105,8 +103,8 @@
       <file leaf-file-name="Readme" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Readme">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="112">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -578,7 +576,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539215202441</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="modify &quot;requirements&quot;.">
+      <created>1539215504583</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1539215504583</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -586,15 +591,15 @@
     <layout>
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5024233" side_tool="true" weight="0.2735294" />
-      <window_info anchor="right" x="0" y="0" width="270" height="577" id="Documentation" order="5" sideWeight="0.39117646" side_tool="true" visible="true" weight="0.13166398" />
+      <window_info anchor="right" x="0" y="0" width="270" height="577" id="Documentation" order="5" sideWeight="0.39884394" side_tool="true" visible="true" weight="0.13166398" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49757674" weight="0.37058824" />
       <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.4983845" weight="0.32941177" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.3514706" />
-      <window_info anchor="bottom" id="Terminal" order="5" weight="0.3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23021002" />
+      <window_info anchor="bottom" id="Terminal" order="5" visible="true" weight="0.74558824" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33198708" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" sideWeight="0.60882354" visible="true" weight="0.13166398" />
+      <window_info anchor="right" id="Database" order="3" sideWeight="0.60115606" visible="true" weight="0.13166398" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.32794118" />
       <window_info anchor="right" id="SciView" order="4" sideWeight="0.6882353" weight="0.2746365" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -625,7 +630,8 @@
     <MESSAGE value="modify OCSVM" />
     <MESSAGE value="init commit" />
     <MESSAGE value="Add os.makedirs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add os.makedirs" />
+    <MESSAGE value="modify &quot;requirements&quot;." />
+    <option name="LAST_COMMIT_MESSAGE" value="modify &quot;requirements&quot;." />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -737,8 +743,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Readme">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="112">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
