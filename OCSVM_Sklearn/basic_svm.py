@@ -8,6 +8,10 @@
     Version:
         0.1.0
 
+     Requirements:
+        python 3.x
+        pytorch 0.4.1
+
     Author:
 """
 

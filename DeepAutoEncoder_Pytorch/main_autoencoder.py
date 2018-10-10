@@ -8,6 +8,10 @@
     Version:
         0.1.0
 
+    Requirements:
+        python 3.x
+        Sklearn 0.20.0
+
     Author:
 
 """

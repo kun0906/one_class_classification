@@ -8,13 +8,17 @@
     Version:
         0.1.0
 
+    Requirements:
+        python 3.x
+        Sklearn 0.20.0
+
     Author:
 
 """
 import time
 
+from OCSVM_Sklearn.basic_svm import OCSVM
 from Utilities.common_funcs import load_data, dump_model, load_model
-from basic_svm import OCSVM
 
 
 def ocsvm_main(input_data='csv', kernel='rbf', out_path='./log', **kwargs):
