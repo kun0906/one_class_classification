@@ -165,7 +165,7 @@ class AutoEncoder(nn.Module):
         X = torch.Tensor(test_set[0])
         y_true = test_set[1]
 
-        self.T= torch.Tensor([0.0004452318244148046])  # based on the training loss.
+        self.T = torch.Tensor([0.0004452318244148046])  # based on the training loss.
         ### predict output
         AE_outs = self.forward(X)
 

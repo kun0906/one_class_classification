@@ -2,7 +2,7 @@
 """
     useful tools
 """
-
+import os
 import pickle
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -75,6 +75,10 @@ def dump_model(model, out_file):
     :param out_file:
     :return:
     """
+    out_dir = os.path.split(out_file)[0]
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+
     with open(out_file, 'wb') as f:
         pickle.dump(model, f)
 
