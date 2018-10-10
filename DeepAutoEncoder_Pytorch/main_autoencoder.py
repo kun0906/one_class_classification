@@ -1,13 +1,18 @@
 # -*- coding: utf-8 -*-
 """
-   @ autoencoder:
-           abnormal detection by reconstruction errors
+    "abnormal detection by reconstruction errors"
+
+     Created at :
+        2018/10/04
+
+    Version:
+        0.1.0
+
+    Author:
 
 """
 from sklearn.metrics import confusion_matrix
-from Utilities.utilies import load_data
-
-__author__ = 'Learn-Live'
+from Utilities.common_funcs import load_data
 
 import time
 import numpy as np
@@ -130,7 +135,7 @@ class AutoEncoder(nn.Module):
             print('epoch [{:d}/{:d}], loss:{:.4f}'
                   .format(epoch + 1, self.epochs, loss.data))
             # if epoch % 10 == 0:
-            #     # pic = to_img(output.cpu().data)
+            #     # pic = to_img(output.cpu().Data)
             #     # save_image(pic, './mlp_img/image_{}.png'.format(epoch))
 
         self.T = self.loss[-1]
@@ -160,6 +165,7 @@ class AutoEncoder(nn.Module):
         X = torch.Tensor(test_set[0])
         y_true = test_set[1]
 
+        self.T= torch.Tensor([0.0004452318244148046])  # based on the training loss.
         ### predict output
         AE_outs = self.forward(X)
 
@@ -196,8 +202,8 @@ def main(input_file, epochs=2):
     st = time.time()
     print('It starts at ', start_time)
 
-    # step 1 load data and do preprocessing
-    train_set, val_set, test_set = load_data(input_file, norm_flg=0)
+    # step 1 load Data and do preprocessing
+    train_set, val_set, test_set = load_data(input_file, norm_flg=True)
 
     # step 2.1 model initialization
     AE_model = AutoEncoder(train_set, epochs=epochs)
@@ -228,6 +234,6 @@ def main(input_file, epochs=2):
 
 
 if __name__ == '__main__':
-    input_file = '../data/Wednesday-workingHours-withoutInfinity-Sampled.pcap_ISCX.csv'
-    epochs = 1000
+    input_file = '../Data/Wednesday-workingHours-withoutInfinity-Sampled.pcap_ISCX.csv'
+    epochs = 500
     main(input_file, epochs)
