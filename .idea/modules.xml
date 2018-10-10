@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Deep_SVDD_20181006.iml" filepath="$PROJECT_DIR$/.idea/Deep_SVDD_20181006.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/OneClassClassification_20181006.iml" filepath="$PROJECT_DIR$/.idea/OneClassClassification_20181006.iml" />
     </modules>
   </component>
