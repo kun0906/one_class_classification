@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3328596d-b116-4f8c-8c06-719cdaa432ba" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utilities/common_funcs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities/common_funcs.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,7 +20,7 @@
     <SUITE FILE_PATH="coverage/Deep_SVDD_20181006$svm.coverage" NAME="svm Coverage Results" MODIFIED="1538924648968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Deep_SVDD_Pytorch" />
     <SUITE FILE_PATH="coverage/Deep_SVDD_20181006$mnist_loader.coverage" NAME="mnist_loader Coverage Results" MODIFIED="1538929281627" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Deep-SVDD-master" />
     <SUITE FILE_PATH="coverage/Deep_SVDD_20181006$baseline_ocsvm.coverage" NAME="baseline_ocsvm Coverage Results" MODIFIED="1538953750334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Deep_SVDD_Pytorch" />
-    <SUITE FILE_PATH="coverage/OneClassClassification_20181010$autoencoder.coverage" NAME="autoencoder Coverage Results" MODIFIED="1539213439789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
+    <SUITE FILE_PATH="coverage/OneClassClassification_20181010$autoencoder.coverage" NAME="autoencoder Coverage Results" MODIFIED="1539213761745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
     <SUITE FILE_PATH="coverage/Deep_SVDD_20181006$baseline.coverage" NAME="baseline Coverage Results" MODIFIED="1538868745833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Deep-SVDD-master/src" />
   </component>
   <component name="DatabaseView">
@@ -523,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539207376193</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add os.makedirs">
+      <created>1539213505498</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1539213505498</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -531,15 +536,15 @@
     <layout>
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5024233" side_tool="true" weight="0.2735294" />
-      <window_info anchor="right" x="0" y="0" width="270" height="577" id="Documentation" order="5" sideWeight="0.3901809" side_tool="true" visible="true" weight="0.13166398" />
+      <window_info anchor="right" x="0" y="0" width="270" height="577" id="Documentation" order="5" sideWeight="0.39142856" side_tool="true" visible="true" weight="0.13166398" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49757674" visible="true" weight="0.43088236" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49757674" weight="0.55" />
       <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.4983845" weight="0.32941177" />
-      <window_info anchor="bottom" id="Python Console" order="4" weight="0.35280898" />
-      <window_info anchor="bottom" id="Terminal" order="5" weight="0.3494382" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27786753" />
+      <window_info anchor="bottom" id="Python Console" order="4" weight="0.3514706" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="5" visible="true" weight="0.4852941" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27786753" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" sideWeight="0.6098191" visible="true" weight="0.13166398" />
+      <window_info anchor="right" id="Database" order="3" sideWeight="0.6085714" visible="true" weight="0.13166398" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.32794118" />
       <window_info anchor="right" id="SciView" order="4" sideWeight="0.6904762" weight="0.27534685" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -569,7 +574,8 @@
     <MESSAGE value="add train_set and val_set evaluate in training phase" />
     <MESSAGE value="modify OCSVM" />
     <MESSAGE value="init commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="init commit" />
+    <MESSAGE value="Add os.makedirs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add os.makedirs" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

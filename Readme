@@ -1,7 +1,7 @@
 Requirements:
     python 3.x
-    pytorch
-    sklearn
+    pytorch 0.4.1
+    sklearn 0.20.0
 
 
 
