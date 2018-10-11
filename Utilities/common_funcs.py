@@ -34,11 +34,12 @@ def split_data():
     pass
 
 
-def load_data(input_data='', norm_flg=True):
+def load_data(input_data='', norm_flg=True, train_val_test_percent=[0.7 * 0.9, 0.7 * 0.1, 0.3]):
     """
 
     :param input_data:
-    :param normalization_flg:
+    :param norm_flg: default True
+    :param train_val_test_percent: train_set = 0.7*0.9, val_set = 0.7*0.1, test_set = 0.3
     :return:
     """
     if 'mnist' in input_data:
@@ -52,8 +53,9 @@ def load_data(input_data='', norm_flg=True):
         (X, y) = csv_dataloader(input_data)
         if norm_flg:
             X = normalizate_data(X)
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1)
-        X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.2, random_state=1)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=train_val_test_percent[-1], random_state=1)
+        X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=train_val_test_percent[1],
+                                                          random_state=1)
         train_set, val_set, test_set = (X_train, y_train), (X_val, y_val), (X_test, y_test)
 
     else:
