@@ -33,7 +33,7 @@ def csv_dataloader(input_file):
 
     X = np.asarray(X, dtype=float)
     y = np.asarray(y, dtype=int)
-    print(Counter(y))
+    print('input_data size is ', Counter(y))
 
     return (X, y)
 
@@ -87,5 +87,7 @@ def mix_normal_attack_and_label(normal_file, attack_file, out_file='./mix_data.c
         for i in range(len(y)):
             line = ','.join(X[i]) + ',' + y[i] + '\n'
             file_out.write(line)
+
+        file_out.flush()
 
     return (X, y), out_file

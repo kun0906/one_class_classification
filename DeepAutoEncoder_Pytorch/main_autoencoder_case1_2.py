@@ -20,6 +20,7 @@
 
 """
 import os
+from collections import Counter
 
 from sklearn.metrics import confusion_matrix
 
@@ -217,6 +218,7 @@ def main(input_file, epochs=2):
     # step 1 load Data and do preprocessing
     train_set, val_set, test_set = load_data(input_file, norm_flg=True,
                                              train_val_test_percent=[0.7 * 0.9, 0.7 * 0.1, 0.3])
+    print('train_set:%s,val_set:%s,test_set:%s' % (Counter(train_set[1]), Counter(val_set[1]), Counter(test_set[1])))
 
     # step 2.1 model initialization
     AE_model = AutoEncoder(train_set, epochs=epochs)
@@ -225,7 +227,10 @@ def main(input_file, epochs=2):
     AE_model.train(val_set)
 
     # step 3.1 dump model
-    model_path = './log/autoencoder.pth'
+    out_dir = '../log'
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+    model_path = os.path.join(out_dir, 'autoencoder.pth')
     torch.save(AE_model, model_path)
 
     # step 3.2 load model
@@ -250,6 +255,7 @@ if __name__ == '__main__':
     # input_file = '../Data/Wednesday-workingHours-withoutInfinity-Sampled.pcap_ISCX.csv'
     normal_file = '../Data/sess_normal_0.txt'
     attack_file = '../Data/sess_TDL4_HTTP_Requests_0.txt'
+    attack_file = '../Data/sess_Rcv_Wnd_Size_0_0.txt'
     if 'TDL4' in attack_file:
         out_file = '../Data/case1.csv'
     elif 'Rcv_Wnd' in attack_file:
@@ -262,5 +268,5 @@ if __name__ == '__main__':
         print('mix dataset takes %.2f(s)' % (time.time() - st))
     else:
         input_file = out_file
-    epochs = 500
+    epochs = 10
     main(input_file, epochs)
