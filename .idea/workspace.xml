@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3328596d-b116-4f8c-8c06-719cdaa432ba" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/OneClassClassification_20181006.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OneClassClassification_20181006.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utilities/CSV_Dataloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities/CSV_Dataloader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utilities/common_funcs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities/common_funcs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -45,13 +42,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main_autoencoder_case1_2.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main_autoencoder_case1_2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="217" column="114" selection-start-line="217" selection-start-column="114" selection-end-line="217" selection-end-column="114" />
+            <state relative-caret-position="457">
+              <caret line="218" column="96" lean-forward="true" selection-start-line="217" selection-start-column="3" selection-end-line="218" selection-end-column="96" />
               <folding>
                 <element signature="e#325#334#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main_ocsvm.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="47" column="36" lean-forward="true" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+              <folding>
+                <element signature="e#244#255#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -95,6 +104,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="453">
               <caret line="18459" column="9" selection-start-line="18459" selection-start-column="9" selection-end-line="18459" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main_autoencoder.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="393">
+              <caret line="210" column="96" selection-start-line="210" selection-start-column="96" selection-end-line="210" selection-end-column="96" />
             </state>
           </provider>
         </entry>
@@ -148,14 +166,14 @@
         <option value="$PROJECT_DIR$/Deep_SVDD_Pytorch/main_baseline_ocsvm.py" />
         <option value="$PROJECT_DIR$/Utilities/utilies.py" />
         <option value="$PROJECT_DIR$/OCSVM_Sklearn/basic_svm.py" />
-        <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder.py" />
-        <option value="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm.py" />
         <option value="$PROJECT_DIR$/Readme" />
         <option value="$PROJECT_DIR$/Utilities/CSV_Dataloader.py" />
         <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1.py" />
         <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case2.py" />
         <option value="$PROJECT_DIR$/Utilities/common_funcs.py" />
         <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2.py" />
+        <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder.py" />
+        <option value="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm.py" />
       </list>
     </option>
   </component>
@@ -195,6 +213,11 @@
               <item name="OneClassClassification_20181010" type="b2602c69:ProjectViewProjectNode" />
               <item name="OneClassClassification_20181010" type="462c0819:PsiDirectoryNode" />
               <item name="DeepAutoEncoder_Pytorch" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OneClassClassification_20181010" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OneClassClassification_20181010" type="462c0819:PsiDirectoryNode" />
+              <item name="OCSVM_Sklearn" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="OneClassClassification_20181010" type="b2602c69:ProjectViewProjectNode" />
@@ -605,7 +628,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539217145897</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="add train_val_test_percent in main">
+      <created>1539220334313</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1539220334314</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -615,11 +645,11 @@
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5024233" side_tool="true" weight="0.2735294" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49757674" visible="true" weight="0.2752809" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49757674" visible="true" weight="0.2752809" />
       <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.4983845" weight="0.18764044" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.3514706" />
       <window_info anchor="bottom" id="Terminal" order="5" weight="0.40807176" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24066168" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24066168" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" sideWeight="0.6069652" weight="0.36499467" />
       <window_info anchor="right" id="SciView" order="4" sideWeight="0.6882353" weight="0.2746365" />
@@ -670,7 +700,8 @@
     <MESSAGE value="Add os.makedirs" />
     <MESSAGE value="modify &quot;requirements&quot;." />
     <MESSAGE value="remove &quot;__pycache__&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove &quot;__pycache__&quot;" />
+    <MESSAGE value="add train_val_test_percent in main" />
+    <option name="LAST_COMMIT_MESSAGE" value="add train_val_test_percent in main" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -732,13 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Utilities/Mnist_data_loader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -757,13 +781,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="563">
           <caret line="254" selection-start-line="254" selection-end-line="254" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="241" column="16" lean-forward="true" selection-start-line="241" selection-start-column="16" selection-end-line="241" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -803,10 +820,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="217" column="114" selection-start-line="217" selection-start-column="114" selection-end-line="217" selection-end-column="114" />
+        <state relative-caret-position="457">
+          <caret line="218" column="96" lean-forward="true" selection-start-line="217" selection-start-column="3" selection-end-line="218" selection-end-column="96" />
           <folding>
             <element signature="e#325#334#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="210" column="96" selection-start-line="210" selection-start-column="96" selection-end-line="210" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="47" column="36" lean-forward="true" selection-start-line="47" selection-start-column="36" selection-end-line="47" selection-end-column="36" />
+          <folding>
+            <element signature="e#244#255#0" expanded="true" />
           </folding>
         </state>
       </provider>

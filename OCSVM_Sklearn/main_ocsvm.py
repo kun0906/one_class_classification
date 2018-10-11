@@ -35,7 +35,8 @@ def ocsvm_main(input_data='csv', kernel='rbf', out_path='./log', **kwargs):
     print('It starts at ', start_time)
 
     # step 1. load Data
-    train_set, val_set, test_set = load_data(input_data, norm_flg=True)
+    train_set, val_set, test_set = load_data(input_file, norm_flg=True,
+                                             train_val_test_percent=[0.7 * 0.9, 0.7 * 0.1, 0.3])
 
     # step 2.1 initialize OC-SVM
     ocsvm = OCSVM(train_set=train_set, kernel=kernel, grid_search_cv_flg=False, val_set=val_set)

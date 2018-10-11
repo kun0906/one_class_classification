@@ -207,7 +207,8 @@ def main(input_file, epochs=2):
     print('It starts at ', start_time)
 
     # step 1 load Data and do preprocessing
-    train_set, val_set, test_set = load_data(input_file, norm_flg=True)
+    train_set, val_set, test_set = load_data(input_file, norm_flg=True,
+                                             train_val_test_percent=[0.7 * 0.9, 0.7 * 0.1, 0.3])
 
     # step 2.1 model initialization
     AE_model = AutoEncoder(train_set, epochs=epochs)
