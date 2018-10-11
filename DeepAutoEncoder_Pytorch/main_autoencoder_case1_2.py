@@ -251,13 +251,15 @@ if __name__ == '__main__':
     normal_file = '../Data/sess_normal_0.txt'
     attack_file = '../Data/sess_TDL4_HTTP_Requests_0.txt'
     if 'TDL4' in attack_file:
-        out_file = '../Data/case1.txt'
+        out_file = '../Data/case1.csv'
     elif 'Rcv_Wnd' in attack_file:
-        out_file = '../Data/case2.txt'
+        out_file = '../Data/case2.csv'
     else:
         pass
     if not os.path.exists(out_file):
+        st = time.time()
         (_, _), input_file = mix_normal_attack_and_label(normal_file, attack_file, out_file)
+        print('mix dataset takes %.2f(s)' % (time.time() - st))
     else:
         input_file = out_file
     epochs = 500
