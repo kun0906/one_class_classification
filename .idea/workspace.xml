@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3328596d-b116-4f8c-8c06-719cdaa432ba" name="Default" comment="" />
+    <list default="true" id="3328596d-b116-4f8c-8c06-719cdaa432ba" name="Default" comment="modify &quot;requirements&quot;.">
+      <change beforePath="$PROJECT_DIR$/Readme" beforeDir="false" afterPath="$PROJECT_DIR$/Readme" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,8 +105,8 @@
       <file leaf-file-name="Readme" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Readme">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="207">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
@@ -583,23 +585,31 @@
       <option name="project" value="LOCAL" />
       <updated>1539215504583</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="modify &quot;requirements&quot;.">
+      <created>1539215925299</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1539215925299</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5024233" side_tool="true" weight="0.2735294" />
-      <window_info anchor="right" x="0" y="0" width="270" height="577" id="Documentation" order="5" sideWeight="0.39884394" side_tool="true" visible="true" weight="0.13166398" />
+      <window_info anchor="right" x="0" y="0" width="270" height="577" id="Documentation" order="5" sideWeight="0.39333335" side_tool="true" visible="true" weight="0.13166398" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49757674" weight="0.37058824" />
       <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.4983845" weight="0.32941177" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.3514706" />
-      <window_info anchor="bottom" id="Terminal" order="5" visible="true" weight="0.74558824" />
+      <window_info anchor="bottom" id="Terminal" order="5" visible="true" weight="0.5588235" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33198708" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" sideWeight="0.60115606" visible="true" weight="0.13166398" />
+      <window_info anchor="right" id="Database" order="3" sideWeight="0.6066667" visible="true" weight="0.13166398" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.32794118" />
       <window_info anchor="right" id="SciView" order="4" sideWeight="0.6882353" weight="0.2746365" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -743,8 +753,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Readme">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="207">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
