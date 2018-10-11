@@ -12,7 +12,6 @@
         Val_set: 0.1*all_normal_data + 0.1*all_abnormal_data
         Test_set: 0.3*all_normal_data+ 0.9*all_abnormal_data
 
-
     Created at :
         2018/10/04
 
@@ -28,10 +27,11 @@
 """
 import os
 import time
+from collections import Counter
 
 from OCSVM_Sklearn.basic_svm import OCSVM
 from Utilities.CSV_Dataloader import mix_normal_attack_and_label
-from Utilities.common_funcs import load_data, dump_model, load_model
+from Utilities.common_funcs import load_data, dump_model, load_model, load_data_with_new_principle
 
 
 def ocsvm_main(input_file='csv', kernel='rbf', out_dir='./log', **kwargs):
@@ -48,11 +48,13 @@ def ocsvm_main(input_file='csv', kernel='rbf', out_dir='./log', **kwargs):
     print('It starts at ', start_time)
 
     # step 1. load Data
-    train_set, val_set, test_set = load_data(input_file, norm_flg=True,
-                                             train_val_test_percent=[0.7 * 0.9, 0.7 * 0.1, 0.3])
-
+    # train_set, val_set, test_set = load_data(input_file, norm_flg=True,
+    # train_val_test_percent=[0.7 * 0.9, 0.7 * 0.1, 0.3])
+    train_set, val_set, test_set = load_data_with_new_principle(input_file, norm_flg=True,
+                                                                train_val_test_percent=[0.7 * 0.9, 0.7 * 0.1, 0.3])
+    print('train_set:%s,val_set:%s,test_set:%s' % (Counter(train_set[1]), Counter(val_set[1]), Counter(test_set[1])))
     # step 2.1 initialize OC-SVM
-    ocsvm = OCSVM(train_set=train_set, kernel=kernel, grid_search_cv_flg=True, val_set=val_set)
+    ocsvm = OCSVM(train_set=train_set, kernel=kernel, grid_search_cv_flg=False, val_set=val_set)
 
     # step 2.2 train OC-SVM model
     ocsvm.train()

@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3328596d-b116-4f8c-8c06-719cdaa432ba" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case1_2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2_train_set_without_abnormal_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2_train_set_without_abnormal_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCSVM_Sklearn/basic_svm.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCSVM_Sklearn/basic_svm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case1_2_train_set_without_abnormal_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case1_2_train_set_without_abnormal_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Utilities/common_funcs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities/common_funcs.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,17 +16,19 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/OneClassClassification_20181006$autoencoder.coverage" NAME="autoencoder Coverage Results" MODIFIED="1539178369448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
     <SUITE FILE_PATH="coverage/OneClassClassification_20181006$main_baseline_ocsvm.coverage" NAME="main_baseline_ocsvm Coverage Results" MODIFIED="1539184110606" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Deep_SVDD_Pytorch" />
-    <SUITE FILE_PATH="coverage/Deep_SVDD_20181006$Deep_SVDD_main.coverage" NAME="Deep_SVDD_main Coverage Results" MODIFIED="1538927247053" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Deep_SVDD_Pytorch" />
     <SUITE FILE_PATH="coverage/Deep_SVDD_20181006$svm.coverage" NAME="svm Coverage Results" MODIFIED="1538924648968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Deep_SVDD_Pytorch" />
+    <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_ocsvm_case1_2_train_set_without_abnormal_data.coverage" NAME="main_ocsvm_case1_2_train_set_without_abnormal_data Coverage Results" MODIFIED="1539282267961" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCSVM_Sklearn" />
+    <SUITE FILE_PATH="coverage/OneClassClassification_20181006$autoencoder.coverage" NAME="autoencoder Coverage Results" MODIFIED="1539178369448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
+    <SUITE FILE_PATH="coverage/Deep_SVDD_20181006$Deep_SVDD_main.coverage" NAME="Deep_SVDD_main Coverage Results" MODIFIED="1538927247053" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Deep_SVDD_Pytorch" />
     <SUITE FILE_PATH="coverage/Deep_SVDD_20181006$baseline_ocsvm__1_.coverage" NAME="baseline_ocsvm (1) Coverage Results" MODIFIED="1538929305600" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Deep-SVDD-master/src" />
     <SUITE FILE_PATH="coverage/Deep_SVDD_20181006$mnist_loader.coverage" NAME="mnist_loader Coverage Results" MODIFIED="1538929281627" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Deep-SVDD-master" />
     <SUITE FILE_PATH="coverage/Deep_SVDD_20181006$autoencoder.coverage" NAME="autoencoder Coverage Results" MODIFIED="1538963172517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
-    <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_autoencoder_case1.coverage" NAME="main_autoencoder_case1 Coverage Results" MODIFIED="1539223215560" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
-    <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_ocsvm_case1_2.coverage" NAME="main_ocsvm_case1_2 Coverage Results" MODIFIED="1539223780370" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCSVM_Sklearn" />
+    <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_autoencoder_case1.coverage" NAME="main_autoencoder_case1 Coverage Results" MODIFIED="1539224217169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
+    <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_ocsvm_case1_2.coverage" NAME="main_ocsvm_case1_2 Coverage Results" MODIFIED="1539274255375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCSVM_Sklearn" />
     <SUITE FILE_PATH="coverage/OneClassClassification_20181010$autoencoder.coverage" NAME="autoencoder Coverage Results" MODIFIED="1539213761745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
     <SUITE FILE_PATH="coverage/Deep_SVDD_20181006$baseline_ocsvm.coverage" NAME="baseline_ocsvm Coverage Results" MODIFIED="1538953750334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Deep_SVDD_Pytorch" />
+    <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_autoencoder_case1_2_train_set_without_abnormal_data.coverage" NAME="main_autoencoder_case1_2_train_set_without_abnormal_data Coverage Results" MODIFIED="1539279774011" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
     <SUITE FILE_PATH="coverage/Deep_SVDD_20181006$baseline.coverage" NAME="baseline Coverage Results" MODIFIED="1538868745833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Deep-SVDD-master/src" />
   </component>
   <component name="DatabaseView">
@@ -48,8 +50,8 @@
       <file leaf-file-name="main_autoencoder_case1_2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="232" column="57" lean-forward="true" selection-start-line="229" selection-start-column="4" selection-end-line="232" selection-end-column="57" />
+            <state relative-caret-position="322">
+              <caret line="248" column="50" selection-start-line="248" selection-start-column="50" selection-end-line="248" selection-end-column="50" />
               <folding>
                 <element signature="e#325#334#0" expanded="true" />
               </folding>
@@ -57,32 +59,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main_ocsvm_case1_2.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case1_2.py">
+      <file leaf-file-name="main_ocsvm_case1_2_train_set_without_abnormal_data.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case1_2_train_set_without_abnormal_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="43" column="17" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="17" />
+            <state relative-caret-position="157">
+              <caret line="72" selection-start-line="72" selection-end-line="72" />
               <folding>
-                <element signature="e#244#253#0" expanded="true" />
+                <element signature="e#551#560#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="serialization.py" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/local/lib/python3.5/dist-packages/torch/serialization.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="181" column="4" selection-start-line="181" selection-start-column="4" selection-end-line="181" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="case1.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Data/case1.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -90,8 +74,8 @@
       <file leaf-file-name="common_funcs.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Utilities/common_funcs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="54" column="31" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="31" />
+            <state relative-caret-position="-1187">
+              <caret line="74" column="4" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="4" />
               <folding>
                 <element signature="e#49#58#0" expanded="true" />
               </folding>
@@ -99,11 +83,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="main_autoencoder_case1_2_train_set_without_abnormal_data.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2_train_set_without_abnormal_data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="353">
+              <caret line="278" column="16" selection-start-line="278" selection-start-column="16" selection-end-line="278" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="CSV_Dataloader.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Utilities/CSV_Dataloader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-180">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="465">
+              <caret line="34" column="32" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
               <folding>
                 <element signature="e#60#69#0" expanded="true" />
               </folding>
@@ -114,8 +107,8 @@
       <file leaf-file-name="basic_svm.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/basic_svm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="128" column="16" selection-start-line="128" selection-start-column="16" selection-end-line="128" selection-end-column="16" />
+            <state relative-caret-position="351">
+              <caret line="176" column="18" selection-start-line="176" selection-start-column="18" selection-end-line="176" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -132,7 +125,7 @@
       <file leaf-file-name="main_autoencoder.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3015">
+            <state relative-caret-position="393">
               <caret line="210" column="96" selection-start-line="210" selection-start-column="96" selection-end-line="210" selection-end-column="96" />
             </state>
           </provider>
@@ -190,11 +183,13 @@
         <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1.py" />
         <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case2.py" />
         <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder.py" />
-        <option value="$PROJECT_DIR$/Utilities/common_funcs.py" />
         <option value="$PROJECT_DIR$/Utilities/CSV_Dataloader.py" />
-        <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2.py" />
         <option value="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm.py" />
+        <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2.py" />
         <option value="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case1_2.py" />
+        <option value="$PROJECT_DIR$/Utilities/common_funcs.py" />
+        <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2_train_set_without_abnormal_data.py" />
+        <option value="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case1_2_train_set_without_abnormal_data.py" />
         <option value="$PROJECT_DIR$/OCSVM_Sklearn/basic_svm.py" />
       </list>
     </option>
@@ -280,26 +275,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main_ocsvm_case1_2">
-    <configuration name="CSV_Dataloader" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="OneClassClassification_20181006" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Utilities" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Utilities/CSV_Dataloader.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
+  <component name="RunManager" selected="Python.main_ocsvm_case1_2_train_set_without_abnormal_data">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="OneClassClassification" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -395,20 +371,20 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="main_baseline_ocsvm" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="main_autoencoder_case1_2_train_set_without_abnormal_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="OneClassClassification_20181006" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="/usr/bin/python3.5" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Deep_SVDD_Pytorch" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Deep_SVDD_Pytorch/main_baseline_ocsvm.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2_train_set_without_abnormal_data.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -452,23 +428,42 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="main_ocsvm_case1_2_train_set_without_abnormal_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="OneClassClassification_20181006" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/OCSVM_Sklearn" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case1_2_train_set_without_abnormal_data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <list>
       <item itemvalue="Python.autoencoder" />
       <item itemvalue="Python.baseline" />
       <item itemvalue="Python.baseline_ocsvm (1)" />
-      <item itemvalue="Python.main_baseline_ocsvm" />
       <item itemvalue="Python.main_ocsvm" />
       <item itemvalue="Python.main_autoencoder_case1" />
-      <item itemvalue="Python.CSV_Dataloader" />
       <item itemvalue="Python.main_ocsvm_case1_2" />
+      <item itemvalue="Python.main_autoencoder_case1_2_train_set_without_abnormal_data" />
+      <item itemvalue="Python.main_ocsvm_case1_2_train_set_without_abnormal_data" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main_ocsvm_case1_2_train_set_without_abnormal_data" />
+        <item itemvalue="Python.main_autoencoder_case1_2_train_set_without_abnormal_data" />
         <item itemvalue="Python.main_ocsvm_case1_2" />
-        <item itemvalue="Python.main_ocsvm" />
         <item itemvalue="Python.main_autoencoder_case1" />
-        <item itemvalue="Python.CSV_Dataloader" />
-        <item itemvalue="Python.main_baseline_ocsvm" />
+        <item itemvalue="Python.main_ocsvm" />
       </list>
     </recent_temporary>
   </component>
@@ -679,28 +674,41 @@
       <option name="project" value="LOCAL" />
       <updated>1539223227469</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="modify Common_funcs.py load_data">
+      <created>1539223916639</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1539223916639</updated>
+    </task>
+    <task id="LOCAL-00030" summary="modify &quot;train_val_tset&quot; split standard">
+      <created>1539269844786</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1539269844786</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1021" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5024233" side_tool="true" weight="0.2735294" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.4983845" weight="0.32941177" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.3514706" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49757674" weight="0.33370787" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49757674" visible="true" weight="0.37865168" />
       <window_info anchor="bottom" id="Terminal" order="5" weight="0.26067415" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18890075" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18890075" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" sideWeight="0.6044776" visible="true" weight="0.14034152" />
+      <window_info anchor="right" id="Database" order="3" sideWeight="0.6044776" weight="0.14461046" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.3269663" />
-      <window_info anchor="right" id="SciView" order="4" sideWeight="0.6882353" weight="0.27427962" />
+      <window_info anchor="right" id="SciView" order="4" sideWeight="0.6882353" visible="true" weight="0.29669157" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="9" sideWeight="0.4994664" visible="true" weight="0.41235954" />
+      <window_info anchor="bottom" id="Debug" order="9" sideWeight="0.4994664" weight="0.3494382" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -756,7 +764,8 @@
     <MESSAGE value="remove &quot;__pycache__&quot;" />
     <MESSAGE value="add train_val_test_percent in main" />
     <MESSAGE value="modify Common_funcs.py load_data" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify Common_funcs.py load_data" />
+    <MESSAGE value="modify &quot;train_val_tset&quot; split standard" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify &quot;train_val_tset&quot; split standard" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -764,12 +773,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2.py</url>
-          <line>220</line>
+          <line>227</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2.py</url>
-          <line>230</line>
+          <line>237</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -777,42 +786,71 @@
           <line>124</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Utilities/common_funcs.py</url>
+          <line>158</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Utilities/common_funcs.py</url>
+          <line>104</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="8" />
+      <option name="time" value="11" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
-        <expression-string>pairwise_distances(X_train)</expression-string>
+        <expression-string>list(lab)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>(np.max(pairwise_distances(X_train)) ** 2)</expression-string>
+        <expression-string>lab[0]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>list(Counter(train_set[1]))</expression-string>
+        <expression-string>lab['0']</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>Counter(train_set[1])</expression-string>
+        <expression-string>len_normal[0]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>list(Counter(train_set[1])</expression-string>
+        <expression-string>len_normal['0']</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>len_normal[0], len_abnormal[1] = Counter(y)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>Counter(y)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>y_abnormal[:len_test_set].extend(y_normal[len_train_set:])
+y_abnormal</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>y_abnormal[:len_test_set].extend(y_normal[len_train_set:])</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Deep-SVDD-master/src/scripts/mnist_svdd.sh" />
-    <entry file="file://$PROJECT_DIR$/Deep_SVDD_Pytorch/NeuralNet.py" />
     <entry file="file:///usr/local/lib/python3.5/dist-packages/sklearn/utils/extmath.py" />
     <entry file="file://$PROJECT_DIR$/Deep_SVDD_Pytorch/mnist_loader.py" />
     <entry file="file://$PROJECT_DIR$/Deep-SVDD-master/src/datasets/main.py" />
@@ -875,13 +913,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3015">
-          <caret line="210" column="96" selection-start-line="210" selection-start-column="96" selection-end-line="210" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Data/case1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -893,33 +924,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="77987" column="3" selection-start-line="77987" selection-start-column="3" selection-end-line="77987" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/case1.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utilities/common_funcs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="54" column="31" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="31" />
-          <folding>
-            <element signature="e#49#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Utilities/CSV_Dataloader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-          <folding>
-            <element signature="e#60#69#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -937,30 +941,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2.py">
+    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="232" column="57" lean-forward="true" selection-start-line="229" selection-start-column="4" selection-end-line="232" selection-end-column="57" />
-          <folding>
-            <element signature="e#325#334#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="393">
+          <caret line="210" column="96" selection-start-line="210" selection-start-column="96" selection-end-line="210" selection-end-column="96" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case1_2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="43" column="17" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="17" />
+        <state relative-caret-position="60">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
           <folding>
             <element signature="e#244#253#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Data/case1.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utilities/CSV_Dataloader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="34" column="32" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
+          <folding>
+            <element signature="e#60#69#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="248" column="50" selection-start-line="248" selection-start-column="50" selection-end-line="248" selection-end-column="50" />
+          <folding>
+            <element signature="e#325#334#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utilities/common_funcs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1187">
+          <caret line="74" column="4" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="4" />
+          <folding>
+            <element signature="e#49#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2_train_set_without_abnormal_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="278" column="16" selection-start-line="278" selection-start-column="16" selection-end-line="278" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case1_2_train_set_without_abnormal_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+          <folding>
+            <element signature="e#551#560#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/basic_svm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="128" column="16" selection-start-line="128" selection-start-column="16" selection-end-line="128" selection-end-column="16" />
+        <state relative-caret-position="351">
+          <caret line="176" column="18" selection-start-line="176" selection-start-column="18" selection-end-line="176" selection-end-column="18" />
         </state>
       </provider>
     </entry>
