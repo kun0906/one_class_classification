@@ -19,6 +19,7 @@ import os
 import time
 
 from OCSVM_Sklearn.basic_svm import OCSVM
+from Utilities.CSV_Dataloader import mix_normal_attack_and_label
 from Utilities.common_funcs import load_data, dump_model, load_model
 
 
@@ -46,11 +47,14 @@ def ocsvm_main(input_file='csv', kernel='rbf', out_dir='./log', **kwargs):
     ocsvm.train()
 
     # step 3.1 dump model
-    out_file = out_dir + "/model.p"
-    dump_model(ocsvm, out_file)
+    out_dir = '../log'
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+    model_path = os.path.join(out_dir, 'model.p')
+    dump_model(ocsvm, model_path)
 
     # step 3.2 load model
-    model = load_model(input_file=out_file)
+    model = load_model(input_file=model_path)
 
     # step 4 evaluate model
     model.evaluate(train_set, name='train_set')
@@ -62,6 +66,25 @@ def ocsvm_main(input_file='csv', kernel='rbf', out_dir='./log', **kwargs):
 
 
 if __name__ == '__main__':
-    dataset = 'mnist'
-    dataset = '../Data/Wednesday-workingHours-withoutInfinity-Sampled.pcap_ISCX.csv'
-    ocsvm_main(dataset, kernel='rbf')
+    # dataset = 'mnist'
+    # dataset = '../Data/Wednesday-workingHours-withoutInfinity-Sampled.pcap_ISCX.csv'
+    # ocsvm_main(dataset, kernel='rbf')
+
+    # input_file = '../Data/Wednesday-workingHours-withoutInfinity-Sampled.pcap_ISCX.csv'
+    normal_file = '../Data/sess_normal_0.txt'
+    attack_file = '../Data/sess_TDL4_HTTP_Requests_0.txt'
+    attack_file = '../Data/sess_Rcv_Wnd_Size_0_0.txt'
+    if 'TDL4' in attack_file:
+        out_file = '../Data/case1.csv'
+    elif 'Rcv_Wnd' in attack_file:
+        out_file = '../Data/case2.csv'
+    else:
+        pass
+    if not os.path.exists(out_file):
+        st = time.time()
+        (_, _), input_file = mix_normal_attack_and_label(normal_file, attack_file, out_file)
+        print('mix dataset takes %.2f(s)' % (time.time() - st))
+    else:
+        input_file = out_file
+    epochs = 10
+    ocsvm_main(input_file, kernel='rbf')

@@ -204,7 +204,7 @@ class AutoEncoder(nn.Module):
         return acc, cm
 
 
-def main(input_file, epochs=2):
+def ae_main(input_file, epochs=2, out_dir='./log'):
     """
 
     :param input_file: CSV
@@ -269,4 +269,4 @@ if __name__ == '__main__':
     else:
         input_file = out_file
     epochs = 10
-    main(input_file, epochs)
+    ae_main(input_file, epochs)

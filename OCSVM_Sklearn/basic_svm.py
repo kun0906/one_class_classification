@@ -121,7 +121,12 @@ class OCSVM(object):
             self.ocsvm = self.best_ocsvm
         else:
             # if rbf-kernel, re-initialize svm with gamma minimizing the numerical error
-            gamma = 1 / (np.max(pairwise_distances(X_train)) ** 2)
+            try:
+                max_distance = (np.max(pairwise_distances(X_train)) ** 2)
+            except:
+                gamma = 0.9
+            else:
+                gamma = 1 / max_distance
             print('gamma:', gamma)
             # gamma = 0.7
             self.ocsvm = svm.OneClassSVM(kernel=self.kernel, nu=self.nu, gamma=gamma)  # construction function
