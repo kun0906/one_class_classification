@@ -8,9 +8,9 @@
         sess_normal_0  + sess_Rcv_Wnd_Size_0_0
 
     Case1 and Case 2:
-        Train set : (0.7 * all_normal_data  + 0.7* all_abnormal_data)*0.9
-        Val_set: (0.7*all_normal_data + 0.7*all_abnormal_data)*0.1
-        Test_set: 0.3*all_normal_data+ 0.3*all_abnormal_data
+        Train set : 0.6 * all_normal_data
+        Val_set: 0.1*all_normal_data + 0.1*all_abnormal_data
+        Test_set: 0.3*all_normal_data+ 0.9*all_abnormal_data
 
 
     Created at :
