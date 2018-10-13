@@ -5,10 +5,12 @@
 import os
 import pickle
 from collections import Counter
+from random import shuffle
+
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.model_selection import train_test_split
-from Utilities.CSV_Dataloader import csv_dataloader
+from Utilities.CSV_Dataloader import csv_dataloader, open_file
 
 
 def normalizate_data(np_arr, eplison=10e-4):
@@ -178,6 +180,49 @@ def load_data_with_new_principle(input_data='', norm_flg=True, train_val_test_pe
 
     return train_set, val_set, test_set
 
+
+def achieve_train_val_test_from_files(files_dict={'normal_files': [], 'attack_files': []}, norm_flg=True,
+                                      train_val_test_percent=[0.7, '', 0.3]):
+    """
+
+    :param files_dict:  # 0 is normal, 1 is abnormal
+    :param norm_flg:
+    :param train_val_test_percent: train_set=0.7*normal*0.9, test_set = 0.7*(abnormal+ 0.3*normal), val_set = 0.3*(abnormal+0.7*normal)
+    :return:
+    """
+    X_normal = []
+    y_normal = []
+    for normal_file in files_dict['normal_files']:
+        X_tmp, y_tmp = open_file(normal_file, label='0')
+        X_normal.extend(X_tmp)
+        y_normal.extend(y_tmp)
+    X_attack = []
+    y_attack = []
+    for attack_file in files_dict['attack_files']:
+        X_tmp, y_tmp = open_file(attack_file, label='1')
+        X_attack.extend(X_tmp)
+        y_attack.extend(y_tmp)
+    if norm_flg:
+        X_normal = normalizate_data(np.asarray(X_normal, dtype=float), eplison=10e-4)
+        X_attack = normalizate_data(np.asarray(X_attack, dtype=float), eplison=10e-4)
+    print('normal_data:', X_normal.shape, ', attack_data:', X_attack.shape)
+    # normal_data = (X_normal,y_normal)
+    normal_data = np.hstack((X_normal, np.reshape(np.asarray(y_normal, dtype=int), (len(y_normal), 1))))
+    shuffle(normal_data)
+    train_set_len = int(len(y_normal) * train_val_test_percent[0])
+    train_set = (normal_data[:train_set_len, :-1], normal_data[:train_set_len, -1])  # (X, y)
+
+    attack_data = np.hstack((X_attack, np.reshape(np.asarray(y_attack, dtype=int), (len(y_attack), 1))))
+    mix_data = np.concatenate((normal_data[train_set_len:, :], attack_data), axis=0)
+    X, y = mix_data[:, :-1], mix_data[:, -1]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=(1 - train_val_test_percent[-1]),
+                                                        random_state=1)
+    val_set = (X_train, y_train)
+    test_set = (X_test, y_test)
+
+    return train_set, val_set, test_set
+
+
 def dump_model(model, out_file):
     """
         save model to disk
@@ -235,7 +280,7 @@ def evaluate_model(model, test_set, iters=10,
         thres = model.T.data
         print("\nEvaluation:%d/%d threshold = %f" % (1, iters, thres))
         test_set_acc, test_set_cm = model.evaluate(test_set, threshold=thres)
-        max_acc_thres = (test_set_acc, thres)
+        max_acc_thres = (test_set_acc, thres, 1)
     else:
         i = 0
         test_acc_lst = []
@@ -248,13 +293,13 @@ def evaluate_model(model, test_set, iters=10,
             test_acc_lst.append(test_set_acc)
             thres_lst.append(thres)
             if test_set_acc > max_acc_thres[0]:
-                max_acc_thres = (test_set_acc, thres)
+                max_acc_thres = (test_set_acc, thres, i)
 
         if model.show_flg:
-            show_data(data=test_acc_lst, x_label=fig_params['x_label'], y_label=fig_params['y_label'], fig_label='acc',
-                      title=fig_params['title'])
             show_data(data=thres_lst, x_label='evluation times', y_label='threshold', fig_label='thresholds',
                       title='thresholds variation')
+            show_data(data=test_acc_lst, x_label=fig_params['x_label'], y_label=fig_params['y_label'], fig_label='acc',
+                      title=fig_params['title'])
 
     return max_acc_thres
 

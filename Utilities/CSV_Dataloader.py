@@ -56,7 +56,7 @@ def open_file(input_file, label='0'):
                 continue
 
             line_arr = line.strip().split(',')
-            X.append(line_arr[3:])
+            X.append(line_arr[5:])
             y.append(label)
             line = file_in.readline()
 
