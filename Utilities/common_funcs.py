@@ -220,11 +220,18 @@ def show_data(data, x_label='epochs', y_label='y', fig_label='', title=''):
 
 
 def evaluate_model(model, test_set, iters=10):
+    """
+
+    :param model:
+    :param test_set:
+    :param iters: evluation times
+    :return:
+    """
     assert len(test_set) > 0
 
     if iters == 1:
         thres = model.T.data
-        print("Evaluation:%d/%d threshold = %f" % (1, iters, thres))
+        print("\nEvaluation:%d/%d threshold = %f" % (1, iters, thres))
         test_set_acc, test_set_cm = model.evaluate(test_set, threshold=thres)
         max_acc_thres = (test_set_acc, thres)
     else:
@@ -234,7 +241,7 @@ def evaluate_model(model, test_set, iters=10):
         max_acc_thres = (0.0, 0.0)  # (acc, thres)
         for thres in np.linspace(start=10e-3, stop=(model.T.data) * 5, num=iters, endpoint=True):
             i += 1
-            print("Evaluation:%d/%d threshold = %f" % (i, iters, thres))
+            print("\nEvaluation:%d/%d threshold = %f" % (i, iters, thres))
             test_set_acc, test_set_cm = model.evaluate(test_set, threshold=thres)
             test_acc_lst.append(test_set_acc)
             thres_lst.append(thres)

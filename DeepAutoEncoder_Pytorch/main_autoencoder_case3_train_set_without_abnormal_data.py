@@ -163,8 +163,6 @@ class AutoEncoder(nn.Module):
         :param threshold:
         :return:
         """
-
-        print()
         X = torch.Tensor(test_set[0])
         y_true = test_set[1]
 
@@ -252,7 +250,7 @@ def ae_main(input_file, epochs=2, out_dir='./log'):
     # step 4 evaluate model
     max_acc_thres = evaluate_model(AE_model, val_set,
                                    iters=10)  # re-evaluation on val_set to choose the best threshold.
-    AE_model.T = torch.Tensor(max_acc_thres[1])  #
+    AE_model.T = torch.Tensor([max_acc_thres[1]])  #
     print('the final threshold is ', AE_model.T.data)
     evaluate_model(AE_model, test_set, iters=1)
 
