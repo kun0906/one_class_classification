@@ -5,7 +5,7 @@
 import os
 import pickle
 from collections import Counter
-
+import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.model_selection import train_test_split
 from Utilities.CSV_Dataloader import csv_dataloader
@@ -208,6 +208,15 @@ def load_model(input_file):
 
     return model
 
+
+def show_data(data, x_label='epochs', y_label='y', fig_label='', title=''):
+    plt.figure()
+    plt.plot(data, 'r', alpha=0.5, label=fig_label)
+    plt.legend(loc='upper right')
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.title(title)
+    plt.show()
 
 def get_variable_name(data_var):
     """

@@ -54,7 +54,7 @@ def ocsvm_main(input_file='csv', kernel='rbf', out_dir='./log', **kwargs):
                                                                 train_val_test_percent=[0.7 * 0.9, 0.7 * 0.1, 0.3])
     print('train_set:%s,val_set:%s,test_set:%s' % (Counter(train_set[1]), Counter(val_set[1]), Counter(test_set[1])))
     # step 2.1 initialize OC-SVM
-    ocsvm = OCSVM(train_set=train_set, kernel=kernel, grid_search_cv_flg=False, val_set=val_set)
+    ocsvm = OCSVM(train_set=train_set, kernel=kernel, grid_search_cv_flg=True, val_set=val_set)
 
     # step 2.2 train OC-SVM model
     ocsvm.train()

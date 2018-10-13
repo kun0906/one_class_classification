@@ -174,7 +174,7 @@ class OCSVM(object):
             auc = roc_auc_score(y, scores.flatten())
             self.diag[name]['auc'][0] = auc
         else:
-            acc = -1
+            auc = -1
         print('Evaluation finished, it takes %.2fs' % (time.time() - start_time))
 
         return auc, acc, cm

@@ -31,11 +31,11 @@ from collections import Counter
 from sklearn.metrics import confusion_matrix
 
 from Utilities.CSV_Dataloader import mix_normal_attack_and_label
-from Utilities.common_funcs import load_data, load_data_with_new_principle
+from Utilities.common_funcs import load_data, load_data_with_new_principle, show_data
 
 import time
 import numpy as np
-import matplotlib.pyplot as plt
+
 import torch
 import torch.utils.data as Data
 from torch import nn
@@ -58,7 +58,7 @@ def print_net(net, describe_str='Net'):
 
 
 class AutoEncoder(nn.Module):
-    def __init__(self, train_set, epochs=2):
+    def __init__(self, in_dim, epochs=2):
         """
 
         :param X: Features
@@ -66,11 +66,12 @@ class AutoEncoder(nn.Module):
         :param epochs:
         """
         super().__init__()
-        self.train_set_with_labels = train_set  # used for evaluation
-        X = np.asarray([x_t for (x_t, y_t) in zip(*train_set) if y_t == 0], dtype=float)
-        print('X.shape: ', X.shape)
-        # self.dataset = Data.TensorDataset(torch.Tensor(X), torch.Tensor(y))
-        self.train_set = Data.TensorDataset(torch.Tensor(X), torch.Tensor(X))  # used for train autoencoder
+        # self.train_set_with_labels = train_set  # used for evaluation
+        # X = np.asarray([x_t for (x_t, y_t) in zip(*train_set) if y_t == 0], dtype=float)
+        # print('X.shape: ', X.shape)
+        # # self.dataset = Data.TensorDataset(torch.Tensor(X), torch.Tensor(y))
+
+
 
         self.epochs = epochs
         self.learning_rate = 1e-3
@@ -78,7 +79,7 @@ class AutoEncoder(nn.Module):
 
         self.show_flg = True
 
-        self.num_features_in = len(X[0])
+        self.num_features_in = in_dim
         self.h_size = 16
         self.num_latent_features = 10
         self.num_features_out = self.num_features_in
@@ -120,19 +121,21 @@ class AutoEncoder(nn.Module):
         x = self.decoder(x1)
         return x
 
-    def train(self, val_set):
+    def train(self, train_set, val_set):
         """
 
         :param val_set:
         :return:
         """
+        if len(train_set) == 0 or len(val_set) == 0:
+            print('data set is not right.')
+            return -1
+        X = train_set[0]
+        self.train_set = Data.TensorDataset(torch.Tensor(X),
+                                            torch.Tensor(X))  # only use features data to train autoencoder
         dataloader = DataLoader(self.train_set, batch_size=self.batch_size, shuffle=True)
 
-        self.results = {}
-        self.results['train_set'] = {}
-        self.results['train_set']['acc'] = []
-        self.results['val_set'] = {}
-        self.results['val_set']['acc'] = []
+        self.results = {'train_set': {'acc': [], 'auc': []}, 'val_set': {'acc': [], 'auc': []}}
         self.loss = []
         for epoch in range(self.epochs):
             for iter, (batch_X, _) in enumerate(dataloader):
@@ -146,36 +149,20 @@ class AutoEncoder(nn.Module):
 
             self.loss.append(loss.data)
             self.T = self.loss[-1]
-            train_set_acc, train_set_cm = self.evaluate(self.train_set_with_labels)
-            self.results['train_set']['acc'].append(train_set_acc)
-            val_set_acc, val_set_cm = self.evaluate(val_set)
+            val_set_acc, val_set_cm = self.evaluate(val_set, Threshold=self.T.data)
             self.results['val_set']['acc'].append(val_set_acc)
             # ===================log========================
-            print('epoch [{:d}/{:d}], loss:{:.4f}'
-                  .format(epoch + 1, self.epochs, loss.data))
+            print('epoch [{:d}/{:d}], loss:{:.4f}'.format(epoch + 1, self.epochs, loss.data))
             # if epoch % 10 == 0:
             #     # pic = to_img(output.cpu().Data)
             #     # save_image(pic, './mlp_img/image_{}.png'.format(epoch))
-
         self.T = self.loss[-1]
+
         if self.show_flg:
-            plt.figure()
-            plt.plot(self.loss, 'r', alpha=0.5, label='loss')
-            # plt.plot(G_loss, 'g', alpha=0.5, label='G_loss')
-            plt.legend(loc='upper right')
-            plt.xlabel('epochs')
-            plt.ylabel('loss')
-            plt.show()
+            show_data(self.loss, x_label='epochs', y_label='loss', fig_label='loss',
+                      title='val_set evaluation on training process')
 
-            plt.figure()
-            plt.plot(self.results['train_set']['acc'], 'r', alpha=0.5, label='train_set_acc')
-            plt.plot(self.results['val_set']['acc'], 'g', alpha=0.5, label='val_set_acc')
-            plt.legend(loc='upper right')
-            plt.xlabel('epochs')
-            plt.ylabel('acc')
-            plt.show()
-
-    def evaluate(self, test_set):
+    def evaluate(self, test_set, Threshold=0.1):
         """
 
         :param test_set:
@@ -184,7 +171,8 @@ class AutoEncoder(nn.Module):
         X = torch.Tensor(test_set[0])
         y_true = test_set[1]
 
-        self.T = torch.Tensor([0.0004452318244148046])  # based on the training loss.
+        # self.T = torch.Tensor([0.0004452318244148046])  # based on the training loss.
+        self.T = torch.Tensor([Threshold])
         ### predict output
         AE_outs = self.forward(X)
 
@@ -210,6 +198,22 @@ class AutoEncoder(nn.Module):
         return acc, cm
 
 
+def save_model(model, out_file='../log/autoencoder.pth'):
+    out_dir = os.path.split(out_file)[0]
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+    torch.save(model, out_file)
+
+    return out_file
+
+
+def evaluate_model(AE_model, test_set, iters=10):
+    i = 0
+    for thres in np.linspace(start=0, stop=(AE_model.T.data) * 5, num=iters, endpoint=True):
+        print("Evaluation:%d/%d threshold = %f" % (i, iters, thres))
+        test_set_acc, test_set_cm = AE_model.evaluate(test_set, Threshold=thres)
+        i += 1
+
 def ae_main(input_file, epochs=2, out_dir='./log'):
     """
 
@@ -229,31 +233,20 @@ def ae_main(input_file, epochs=2, out_dir='./log'):
     print('train_set:%s,val_set:%s,test_set:%s' % (Counter(train_set[1]), Counter(val_set[1]), Counter(test_set[1])))
 
     # step 2.1 model initialization
-    AE_model = AutoEncoder(train_set, epochs=epochs)
+    AE_model = AutoEncoder(in_dim=train_set[0].shape[1], epochs=epochs)  # train_set (no_label and no abnormal traffic)
 
     # step 2.2 train model
-    AE_model.train(val_set)
+    AE_model.train(train_set, val_set)
 
     # step 3.1 dump model
-    out_dir = '../log'
-    if not os.path.exists(out_dir):
-        os.makedirs(out_dir)
-    model_path = os.path.join(out_dir, 'autoencoder.pth')
-    torch.save(AE_model, model_path)
+    model_file = save_model(AE_model, out_file='../log/autoencoder.pth')
 
     # step 3.2 load model
-    AE_model = torch.load(model_path)
+    AE_model = torch.load(model_file)
 
     # step 4 evaluate model
-    train_set_acc, train_set_cm = AE_model.evaluate(train_set)
-    print('train_set: cm: \n', train_set_cm)
-    print('train_set: acc=%.2f%%' % train_set_acc)
+    evaluate_model(AE_model, test_set, iters=1)
 
-    test_set_acc, test_set_cm = AE_model.evaluate(test_set)
-    print('test_set: cm: \n', test_set_cm)
-    print('test_set: acc=%.2f%%' % test_set_acc)
-
-    ###
     end_time = time.strftime('%Y-%h-%d %H:%M:%S', time.localtime())
     print('It ends at ', end_time)
     print('All takes %.4f s' % (time.time() - st))
@@ -276,5 +269,5 @@ if __name__ == '__main__':
         print('mix dataset takes %.2f(s)' % (time.time() - st))
     else:
         input_file = out_file
-    epochs = 500
+    epochs = 5
     ae_main(input_file, epochs)
