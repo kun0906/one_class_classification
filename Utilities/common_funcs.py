@@ -218,6 +218,37 @@ def show_data(data, x_label='epochs', y_label='y', fig_label='', title=''):
     plt.title(title)
     plt.show()
 
+
+def evaluate_model(model, test_set, iters=10):
+    assert len(test_set) > 0
+
+    if iters == 1:
+        thres = model.T.data
+        print("Evaluation:%d/%d threshold = %f" % (1, iters, thres))
+        test_set_acc, test_set_cm = model.evaluate(test_set, threshold=thres)
+        max_acc_thres = (test_set_acc, thres)
+    else:
+        i = 0
+        test_acc_lst = []
+        thres_lst = []
+        max_acc_thres = (0.0, 0.0)  # (acc, thres)
+        for thres in np.linspace(start=10e-3, stop=(model.T.data) * 5, num=iters, endpoint=True):
+            i += 1
+            print("Evaluation:%d/%d threshold = %f" % (i, iters, thres))
+            test_set_acc, test_set_cm = model.evaluate(test_set, threshold=thres)
+            test_acc_lst.append(test_set_acc)
+            thres_lst.append(thres)
+            if test_set_acc > max_acc_thres[0]:
+                max_acc_thres = (test_set_acc, thres)
+
+        if model.show_flg:
+            show_data(data=test_acc_lst, x_label='evluation times', y_label='accuracy on test set', fig_label='acc',
+                      title='accuracy on test set')
+            show_data(data=thres_lst, x_label='evluation times', y_label='threshold', fig_label='acc',
+                      title='thresholds variation')
+
+    return max_acc_thres
+
 def get_variable_name(data_var):
     """
         get variable name as string

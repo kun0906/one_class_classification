@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3328596d-b116-4f8c-8c06-719cdaa432ba" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2_train_set_without_abnormal_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2_train_set_without_abnormal_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCSVM_Sklearn/basic_svm.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCSVM_Sklearn/basic_svm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case1_2_train_set_without_abnormal_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case1_2_train_set_without_abnormal_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Utilities/common_funcs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities/common_funcs.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +26,9 @@
     <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_autoencoder_case1.coverage" NAME="main_autoencoder_case1 Coverage Results" MODIFIED="1539224217169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
     <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_ocsvm_case1_2.coverage" NAME="main_ocsvm_case1_2 Coverage Results" MODIFIED="1539274255375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCSVM_Sklearn" />
     <SUITE FILE_PATH="coverage/OneClassClassification_20181010$autoencoder.coverage" NAME="autoencoder Coverage Results" MODIFIED="1539213761745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
+    <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_autoencoder_case3_train_set_without_abnormal_data.coverage" NAME="main_autoencoder_case3_train_set_without_abnormal_data Coverage Results" MODIFIED="1539456336175" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
     <SUITE FILE_PATH="coverage/Deep_SVDD_20181006$baseline_ocsvm.coverage" NAME="baseline_ocsvm Coverage Results" MODIFIED="1538953750334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Deep_SVDD_Pytorch" />
-    <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_autoencoder_case1_2_train_set_without_abnormal_data.coverage" NAME="main_autoencoder_case1_2_train_set_without_abnormal_data Coverage Results" MODIFIED="1539452572466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
+    <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_autoencoder_case1_2_train_set_without_abnormal_data.coverage" NAME="main_autoencoder_case1_2_train_set_without_abnormal_data Coverage Results" MODIFIED="1539454801846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
     <SUITE FILE_PATH="coverage/Deep_SVDD_20181006$baseline.coverage" NAME="baseline Coverage Results" MODIFIED="1538868745833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Deep-SVDD-master/src" />
   </component>
   <component name="DatabaseView">
@@ -47,32 +47,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main_autoencoder_case1_2.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2.py">
+      <file leaf-file-name="main_autoencoder_case3_train_set_without_abnormal_data.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="248" column="50" selection-start-line="248" selection-start-column="50" selection-end-line="248" selection-end-column="50" />
+            <state relative-caret-position="388">
+              <caret line="273" column="12" lean-forward="true" selection-start-line="264" selection-start-column="3" selection-end-line="273" selection-end-column="12" />
               <folding>
-                <element signature="e#325#334#0" expanded="true" />
+                <element signature="e#526#535#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main_autoencoder_case1_2_train_set_without_abnormal_data.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2_train_set_without_abnormal_data.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="37" selection-start-line="37" selection-end-line="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common_funcs.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="common_funcs.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Utilities/common_funcs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+            <state relative-caret-position="198">
+              <caret line="227" column="66" selection-start-line="227" selection-start-column="61" selection-end-line="227" selection-end-column="66" />
+              <folding>
+                <element signature="e#49#58#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -176,6 +170,7 @@
         <option value="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case1_2_train_set_without_abnormal_data.py" />
         <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2_train_set_without_abnormal_data.py" />
         <option value="$PROJECT_DIR$/Utilities/common_funcs.py" />
+        <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py" />
       </list>
     </option>
   </component>
@@ -242,8 +237,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/OCSVM_Sklearn" />
       <recent name="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
+      <recent name="$PROJECT_DIR$/OCSVM_Sklearn" />
       <recent name="$PROJECT_DIR$/Data" />
       <recent name="$PROJECT_DIR$/Utilities" />
     </key>
@@ -260,7 +255,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main_autoencoder_case1_2_train_set_without_abnormal_data">
+  <component name="RunManager" selected="Python.main_autoencoder_case3_train_set_without_abnormal_data">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="OneClassClassification" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -375,20 +370,20 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="main_ocsvm" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="main_autoencoder_case3_train_set_without_abnormal_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="OneClassClassification_20181006" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="/usr/bin/python3.5" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/OCSVM_Sklearn" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -436,19 +431,19 @@
       <item itemvalue="Python.autoencoder" />
       <item itemvalue="Python.baseline" />
       <item itemvalue="Python.baseline_ocsvm (1)" />
-      <item itemvalue="Python.main_ocsvm" />
       <item itemvalue="Python.main_autoencoder_case1" />
       <item itemvalue="Python.main_ocsvm_case1_2" />
       <item itemvalue="Python.main_autoencoder_case1_2_train_set_without_abnormal_data" />
       <item itemvalue="Python.main_ocsvm_case1_2_train_set_without_abnormal_data" />
+      <item itemvalue="Python.main_autoencoder_case3_train_set_without_abnormal_data" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main_autoencoder_case3_train_set_without_abnormal_data" />
         <item itemvalue="Python.main_autoencoder_case1_2_train_set_without_abnormal_data" />
         <item itemvalue="Python.main_ocsvm_case1_2_train_set_without_abnormal_data" />
         <item itemvalue="Python.main_ocsvm_case1_2" />
         <item itemvalue="Python.main_autoencoder_case1" />
-        <item itemvalue="Python.main_ocsvm" />
       </list>
     </recent_temporary>
   </component>
@@ -680,28 +675,34 @@
       <option name="project" value="LOCAL" />
       <updated>1539282805433</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="modify the Auto_Encoder class">
+      <created>1539452652037</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1539452652037</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1021" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5024233" side_tool="true" weight="0.2735294" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.4983845" weight="0.32941177" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.3505618" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49757674" visible="true" weight="0.29438204" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49757674" visible="true" weight="0.26516855" />
       <window_info anchor="bottom" id="Terminal" order="5" weight="0.26067415" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18890075" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19797225" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" sideWeight="0.6044776" weight="0.14461046" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.3269663" />
-      <window_info anchor="right" id="SciView" order="4" sideWeight="0.6882353" visible="true" weight="0.22465315" />
+      <window_info anchor="right" id="SciView" order="4" sideWeight="0.6882353" visible="true" weight="0.22678763" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="9" sideWeight="0.4994664" weight="0.3494382" />
+      <window_info anchor="bottom" id="Debug" order="9" sideWeight="0.4994664" weight="0.46966293" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -759,7 +760,8 @@
     <MESSAGE value="modify Common_funcs.py load_data" />
     <MESSAGE value="modify &quot;train_val_tset&quot; split standard" />
     <MESSAGE value="add &quot;load_data_with_new_principle()&quot; in common funcs" />
-    <option name="LAST_COMMIT_MESSAGE" value="add &quot;load_data_with_new_principle()&quot; in common funcs" />
+    <MESSAGE value="modify the Auto_Encoder class" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify the Auto_Encoder class" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -786,16 +788,41 @@
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/Utilities/common_funcs.py</url>
-          <line>104</line>
-          <option name="timeStamp" value="10" />
+          <url>file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2_train_set_without_abnormal_data.py</url>
+          <line>223</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2_train_set_without_abnormal_data.py</url>
+          <line>128</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py</url>
+          <line>254</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="14" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>AE_model.T=torch.Tensor([0.1])</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>AE_model.T.data=0.1</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>train_set_without_abnormal_data[0].shape</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>list(lab)</expression-string>
         <language-id>Python</language-id>
@@ -826,26 +853,9 @@
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>Counter(y)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>y_abnormal[:len_test_set].extend(y_normal[len_train_set:])
-y_abnormal</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>y_abnormal[:len_test_set].extend(y_normal[len_train_set:])</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Deep_SVDD_Pytorch/mnist_loader.py" />
     <entry file="file://$PROJECT_DIR$/Deep-SVDD-master/src/datasets/main.py" />
     <entry file="file://$PROJECT_DIR$/Deep-SVDD-master/src/datasets/mnist.py" />
     <entry file="file://$PROJECT_DIR$/Deep-SVDD-master/src/svm.py" />
@@ -961,16 +971,6 @@ y_abnormal</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="248" column="50" selection-start-line="248" selection-start-column="50" selection-end-line="248" selection-end-column="50" />
-          <folding>
-            <element signature="e#325#334#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/-1247971764/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="948">
@@ -1004,15 +1004,41 @@ y_abnormal</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2_train_set_without_abnormal_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="390">
+          <caret line="26" column="3" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
+          <folding>
+            <element signature="e#569#578#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="246" column="50" lean-forward="true" selection-end-line="279" />
+          <folding>
+            <element signature="e#325#334#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Utilities/common_funcs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+        <state relative-caret-position="198">
+          <caret line="227" column="66" selection-start-line="227" selection-start-column="61" selection-end-line="227" selection-end-column="66" />
+          <folding>
+            <element signature="e#49#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="273" column="12" lean-forward="true" selection-start-line="264" selection-start-column="3" selection-end-line="273" selection-end-column="12" />
+          <folding>
+            <element signature="e#526#535#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

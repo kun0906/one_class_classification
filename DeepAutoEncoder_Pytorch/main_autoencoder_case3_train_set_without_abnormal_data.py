@@ -2,12 +2,10 @@
 """
     "abnormal detection by reconstruction errors"
 
-    Case1:
-        sess_normal_0 + sess_TDL4_HTTP_Requests_0
-    Case2:
-        sess_normal_0  + sess_Rcv_Wnd_Size_0_0
+    Case3:
+        sess_normal_0 + all_abnormal_data(sess_TDL4_HTTP_Requests_0 +sess_Rcv_Wnd_Size_0_0)
 
-    Case1 and Case 2:
+    Case1 and Case 3:
         Train set : (0.7 * all_normal_data)*0.9
         Val_set: (0.7*all_normal_data)*0.1 + 0.1*all_abnormal_data
         Test_set: 0.3*all_normal_data+ 0.9*all_abnormal_data
@@ -26,20 +24,18 @@
 
 """
 import os
+import time
 from collections import Counter
 
-from sklearn.metrics import confusion_matrix
-
-from Utilities.CSV_Dataloader import mix_normal_attack_and_label
-from Utilities.common_funcs import load_data
-
-import time
 import numpy as np
-import matplotlib.pyplot as plt
 import torch
 import torch.utils.data as Data
+from sklearn.metrics import confusion_matrix
 from torch import nn
 from torch.utils.data import DataLoader
+
+from Utilities.CSV_Dataloader import mix_normal_attack_and_label
+from Utilities.common_funcs import load_data_with_new_principle, show_data, evaluate_model
 
 
 def print_net(net, describe_str='Net'):
@@ -58,7 +54,7 @@ def print_net(net, describe_str='Net'):
 
 
 class AutoEncoder(nn.Module):
-    def __init__(self, train_set, epochs=2):
+    def __init__(self, in_dim, epochs=2):
         """
 
         :param X: Features
@@ -66,11 +62,6 @@ class AutoEncoder(nn.Module):
         :param epochs:
         """
         super().__init__()
-        self.train_set_with_labels = train_set  # used for evaluation
-        X = np.asarray([x_t for (x_t, y_t) in zip(*train_set) if y_t == 0], dtype=float)
-        print('X.shape: ', X.shape)
-        # self.dataset = Data.TensorDataset(torch.Tensor(X), torch.Tensor(y))
-        self.train_set = Data.TensorDataset(torch.Tensor(X), torch.Tensor(X))  # used for train autoencoder
 
         self.epochs = epochs
         self.learning_rate = 1e-3
@@ -78,7 +69,7 @@ class AutoEncoder(nn.Module):
 
         self.show_flg = True
 
-        self.num_features_in = len(X[0])
+        self.num_features_in = in_dim
         self.h_size = 16
         self.num_latent_features = 10
         self.num_features_out = self.num_features_in
@@ -120,19 +111,25 @@ class AutoEncoder(nn.Module):
         x = self.decoder(x1)
         return x
 
-    def train(self, val_set):
+    def train(self, train_set, val_set):
         """
 
+        :param train_set:
         :param val_set:
         :return:
         """
+        if len(train_set) == 0 or len(val_set) == 0:
+            print('data set is not right.')
+            return -1
+        print('train_set shape is %s, val_set size is %s' % (train_set[0].shape, val_set[0].shape))
+        assert self.num_features_in == train_set[0].shape[1]
+
+        X = train_set[0]
+        self.train_set = Data.TensorDataset(torch.Tensor(X),
+                                            torch.Tensor(X))  # only use features data to train autoencoder
         dataloader = DataLoader(self.train_set, batch_size=self.batch_size, shuffle=True)
 
-        self.results = {}
-        self.results['train_set'] = {}
-        self.results['train_set']['acc'] = []
-        self.results['val_set'] = {}
-        self.results['val_set']['acc'] = []
+        self.results = {'train_set': {'acc': [], 'auc': []}, 'val_set': {'acc': [], 'auc': []}}
         self.loss = []
         for epoch in range(self.epochs):
             for iter, (batch_X, _) in enumerate(dataloader):
@@ -146,48 +143,37 @@ class AutoEncoder(nn.Module):
 
             self.loss.append(loss.data)
             self.T = self.loss[-1]
-            train_set_acc, train_set_cm = self.evaluate(self.train_set_with_labels)
-            self.results['train_set']['acc'].append(train_set_acc)
-            val_set_acc, val_set_cm = self.evaluate(val_set)
+            val_set_acc, val_set_cm = self.evaluate(val_set, threshold=self.T.data)
             self.results['val_set']['acc'].append(val_set_acc)
             # ===================log========================
-            print('epoch [{:d}/{:d}], loss:{:.4f}'
-                  .format(epoch + 1, self.epochs, loss.data))
+            print('epoch [{:d}/{:d}], loss:{:.4f}'.format(epoch + 1, self.epochs, loss.data))
             # if epoch % 10 == 0:
             #     # pic = to_img(output.cpu().Data)
             #     # save_image(pic, './mlp_img/image_{}.png'.format(epoch))
-
         self.T = self.loss[-1]
+
         if self.show_flg:
-            plt.figure()
-            plt.plot(self.loss, 'r', alpha=0.5, label='loss')
-            # plt.plot(G_loss, 'g', alpha=0.5, label='G_loss')
-            plt.legend(loc='upper right')
-            plt.xlabel('epochs')
-            plt.ylabel('loss')
-            plt.show()
+            show_data(self.loss, x_label='epochs', y_label='loss', fig_label='loss',
+                      title='val_set evaluation on training process')
 
-            plt.figure()
-            plt.plot(self.results['train_set']['acc'], 'r', alpha=0.5, label='train_set_acc')
-            plt.plot(self.results['val_set']['acc'], 'g', alpha=0.5, label='val_set_acc')
-            plt.legend(loc='upper right')
-            plt.xlabel('epochs')
-            plt.ylabel('acc')
-            plt.show()
-
-    def evaluate(self, test_set):
+    def evaluate(self, test_set, threshold=0.1):
         """
 
         :param test_set:
+        :param threshold:
         :return:
         """
+
+        print()
         X = torch.Tensor(test_set[0])
         y_true = test_set[1]
 
-        self.T = torch.Tensor([0.0004452318244148046])  # based on the training loss.
-        ### predict output
+        # self.T = torch.Tensor([0.0004452318244148046])  # based on the training loss.
+        self.T = torch.Tensor([threshold])
+        # Step 1. predict output
         AE_outs = self.forward(X)
 
+        # Step 2. comparison with Threshold.
         y_preds = []
         num_abnormal = 0
         print('Threshold(T) is ', self.T.data.tolist())
@@ -200,6 +186,8 @@ class AutoEncoder(nn.Module):
                 num_abnormal += 1
             else:
                 y_preds.append('0')
+
+        # Step 3. achieve the evluation standards.
         print('No. of abnormal sample is ', num_abnormal)
         y_preds = np.asarray(y_preds, dtype=int)
         cm = confusion_matrix(y_pred=y_preds, y_true=y_true)
@@ -210,10 +198,27 @@ class AutoEncoder(nn.Module):
         return acc, cm
 
 
+def save_model(model, out_file='../log/autoencoder.pth'):
+    """
+
+    :param model:
+    :param out_file:
+    :return:
+    """
+    out_dir = os.path.split(out_file)[0]
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+    torch.save(model, out_file)
+
+    return out_file
+
+
 def ae_main(input_file, epochs=2, out_dir='./log'):
     """
 
-    :param input_file: CSV
+    :param input_file:
+    :param epochs:
+    :param out_dir:
     :return:
     """
     torch.manual_seed(1)
@@ -222,36 +227,35 @@ def ae_main(input_file, epochs=2, out_dir='./log'):
     print('It starts at ', start_time)
 
     # step 1 load Data and do preprocessing
-    train_set, val_set, test_set = load_data(input_file, norm_flg=True,
-                                             train_val_test_percent=[0.7 * 0.9, 0.7 * 0.1, 0.3])
-    print('train_set:%s,val_set:%s,test_set:%s' % (Counter(train_set[1]), Counter(val_set[1]), Counter(test_set[1])))
+    # train_set, val_set, test_set = load_data(input_file, norm_flg=True,
+    #                                          train_val_test_percent=[0.7 * 0.9, 0.7 * 0.1, 0.3])
+    train_set_without_abnormal_data, val_set, test_set = load_data_with_new_principle(input_file, norm_flg=True,
+                                                                                      train_val_test_percent=[0.7 * 0.9,
+                                                                                                              0.7 * 0.1,
+                                                                                                              0.3])
+    print('train_set:%s,val_set:%s,test_set:%s' % (
+        Counter(train_set_without_abnormal_data[1]), Counter(val_set[1]), Counter(test_set[1])))
 
     # step 2.1 model initialization
-    AE_model = AutoEncoder(train_set, epochs=epochs)
+    AE_model = AutoEncoder(in_dim=train_set_without_abnormal_data[0].shape[1],
+                           epochs=epochs)  # train_set (no_label and no abnormal traffic)
 
     # step 2.2 train model
-    AE_model.train(val_set)
+    AE_model.train(train_set_without_abnormal_data, val_set)
 
     # step 3.1 dump model
-    out_dir = '../log'
-    if not os.path.exists(out_dir):
-        os.makedirs(out_dir)
-    model_path = os.path.join(out_dir, 'autoencoder.pth')
-    torch.save(AE_model, model_path)
+    model_file = save_model(AE_model, out_file='../log/autoencoder.pth')
 
     # step 3.2 load model
-    AE_model = torch.load(model_path)
+    AE_model = torch.load(model_file)
 
     # step 4 evaluate model
-    train_set_acc, train_set_cm = AE_model.evaluate(train_set)
-    print('train_set: cm: \n', train_set_cm)
-    print('train_set: acc=%.2f%%' % train_set_acc)
+    max_acc_thres = evaluate_model(AE_model, val_set,
+                                   iters=10)  # re-evaluation on val_set to choose the best threshold.
+    AE_model.T = torch.Tensor(max_acc_thres[1])  #
+    print('the final threshold is ', AE_model.T.data)
+    evaluate_model(AE_model, test_set, iters=1)
 
-    test_set_acc, test_set_cm = AE_model.evaluate(test_set)
-    print('test_set: cm: \n', test_set_cm)
-    print('test_set: acc=%.2f%%' % test_set_acc)
-
-    ###
     end_time = time.strftime('%Y-%h-%d %H:%M:%S', time.localtime())
     print('It ends at ', end_time)
     print('All takes %.4f s' % (time.time() - st))
@@ -261,7 +265,7 @@ if __name__ == '__main__':
     # input_file = '../Data/Wednesday-workingHours-withoutInfinity-Sampled.pcap_ISCX.csv'
     normal_file = '../Data/sess_normal_0.txt'
     attack_file = '../Data/sess_TDL4_HTTP_Requests_0.txt'
-    attack_file = '../Data/sess_Rcv_Wnd_Size_0_0.txt'
+    # attack_file = '../Data/sess_Rcv_Wnd_Size_0_0.txt'
     if 'TDL4' in attack_file:
         out_file = '../Data/case1.csv'
     elif 'Rcv_Wnd' in attack_file:
@@ -274,5 +278,5 @@ if __name__ == '__main__':
         print('mix dataset takes %.2f(s)' % (time.time() - st))
     else:
         input_file = out_file
-    epochs = 1000
+    epochs = 2
     ae_main(input_file, epochs)
