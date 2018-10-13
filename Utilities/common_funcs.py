@@ -219,7 +219,9 @@ def show_data(data, x_label='epochs', y_label='y', fig_label='', title=''):
     plt.show()
 
 
-def evaluate_model(model, test_set, iters=10):
+def evaluate_model(model, test_set, iters=10,
+                   fig_params={'x_label': 'evluation times', 'y_label': 'accuracy on val set',
+                               'fig_label': 'acc', 'title': 'accuracy on val set'}):
     """
 
     :param model:
@@ -249,9 +251,9 @@ def evaluate_model(model, test_set, iters=10):
                 max_acc_thres = (test_set_acc, thres)
 
         if model.show_flg:
-            show_data(data=test_acc_lst, x_label='evluation times', y_label='accuracy on test set', fig_label='acc',
-                      title='accuracy on test set')
-            show_data(data=thres_lst, x_label='evluation times', y_label='threshold', fig_label='acc',
+            show_data(data=test_acc_lst, x_label=fig_params['x_label'], y_label=fig_params['y_label'], fig_label='acc',
+                      title=fig_params['title'])
+            show_data(data=thres_lst, x_label='evluation times', y_label='threshold', fig_label='thresholds',
                       title='thresholds variation')
 
     return max_acc_thres

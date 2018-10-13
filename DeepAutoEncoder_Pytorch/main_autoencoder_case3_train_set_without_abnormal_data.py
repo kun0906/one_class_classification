@@ -248,11 +248,15 @@ def ae_main(input_file, epochs=2, out_dir='./log'):
     AE_model = torch.load(model_file)
 
     # step 4 evaluate model
-    max_acc_thres = evaluate_model(AE_model, val_set,
-                                   iters=10)  # re-evaluation on val_set to choose the best threshold.
+    # re-evaluation on val_set to choose the best threshold.
+    max_acc_thres = evaluate_model(AE_model, val_set, iters=10,
+                                   fig_params={'x_label': 'evluation times', 'y_label': 'accuracy on val set',
+                                               'fig_label': 'acc', 'title': 'accuracy on val set'})
     AE_model.T = torch.Tensor([max_acc_thres[1]])  #
-    print('the best result on val_set is %s', max_acc_thres)
-    evaluate_model(AE_model, test_set, iters=1)
+    print('the best result on val_set is ', max_acc_thres)
+    evaluate_model(AE_model, test_set, iters=1,
+                   fig_params={'x_label': 'evluation times', 'y_label': 'accuracy on test set',
+                               'fig_label': 'acc', 'title': 'accuracy on test set'})
 
     end_time = time.strftime('%Y-%h-%d %H:%M:%S', time.localtime())
     print('It ends at ', end_time)
