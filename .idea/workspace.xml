@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3328596d-b116-4f8c-8c06-719cdaa432ba" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2_train_set_without_abnormal_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2_train_set_without_abnormal_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Utilities/common_funcs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities/common_funcs.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,11 +45,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main_autoencoder_case3_train_set_without_abnormal_data.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main_autoencoder_case3_train_set_without_abnormal_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="273" column="12" lean-forward="true" selection-start-line="264" selection-start-column="3" selection-end-line="273" selection-end-column="12" />
+            <state relative-caret-position="238">
+              <caret line="164" column="11" selection-start-line="164" selection-start-column="11" selection-end-line="164" selection-end-column="11" />
               <folding>
                 <element signature="e#526#535#0" expanded="true" />
               </folding>
@@ -59,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common_funcs.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="common_funcs.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Utilities/common_funcs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="227" column="66" selection-start-line="227" selection-start-column="61" selection-end-line="227" selection-end-column="66" />
+            <state relative-caret-position="241">
+              <caret line="226" column="33" selection-start-line="226" selection-start-column="33" selection-end-line="226" selection-end-column="33" />
               <folding>
                 <element signature="e#49#58#0" expanded="true" />
               </folding>
@@ -169,8 +167,8 @@
         <option value="$PROJECT_DIR$/OCSVM_Sklearn/basic_svm.py" />
         <option value="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case1_2_train_set_without_abnormal_data.py" />
         <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case1_2_train_set_without_abnormal_data.py" />
-        <option value="$PROJECT_DIR$/Utilities/common_funcs.py" />
         <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py" />
+        <option value="$PROJECT_DIR$/Utilities/common_funcs.py" />
       </list>
     </option>
   </component>
@@ -682,20 +680,28 @@
       <option name="project" value="LOCAL" />
       <updated>1539452652037</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="add function to selection best threshold on val_set">
+      <created>1539456520803</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1539456520803</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-4" width="1920" height="1021" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5024233" side_tool="true" weight="0.2735294" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.4983845" weight="0.32941177" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.3505618" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49757674" visible="true" weight="0.26516855" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49757674" visible="true" weight="0.38089886" />
       <window_info anchor="bottom" id="Terminal" order="5" weight="0.26067415" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19797225" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19797225" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" sideWeight="0.6044776" weight="0.14461046" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.3269663" />
@@ -761,7 +767,8 @@
     <MESSAGE value="modify &quot;train_val_tset&quot; split standard" />
     <MESSAGE value="add &quot;load_data_with_new_principle()&quot; in common funcs" />
     <MESSAGE value="modify the Auto_Encoder class" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify the Auto_Encoder class" />
+    <MESSAGE value="add function to selection best threshold on val_set" />
+    <option name="LAST_COMMIT_MESSAGE" value="add function to selection best threshold on val_set" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -799,7 +806,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py</url>
-          <line>254</line>
+          <line>252</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
@@ -1022,22 +1029,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Utilities/common_funcs.py">
+    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="227" column="66" selection-start-line="227" selection-start-column="61" selection-end-line="227" selection-end-column="66" />
+        <state relative-caret-position="238">
+          <caret line="164" column="11" selection-start-line="164" selection-start-column="11" selection-end-line="164" selection-end-column="11" />
           <folding>
-            <element signature="e#49#58#0" expanded="true" />
+            <element signature="e#526#535#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py">
+    <entry file="file://$PROJECT_DIR$/Utilities/common_funcs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="273" column="12" lean-forward="true" selection-start-line="264" selection-start-column="3" selection-end-line="273" selection-end-column="12" />
+        <state relative-caret-position="241">
+          <caret line="226" column="33" selection-start-line="226" selection-start-column="33" selection-end-line="226" selection-end-column="33" />
           <folding>
-            <element signature="e#526#535#0" expanded="true" />
+            <element signature="e#49#58#0" expanded="true" />
           </folding>
         </state>
       </provider>

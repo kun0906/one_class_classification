@@ -251,7 +251,7 @@ def ae_main(input_file, epochs=2, out_dir='./log'):
     max_acc_thres = evaluate_model(AE_model, val_set,
                                    iters=10)  # re-evaluation on val_set to choose the best threshold.
     AE_model.T = torch.Tensor([max_acc_thres[1]])  #
-    print('the final threshold is ', AE_model.T.data)
+    print('the best result on val_set is %s', max_acc_thres)
     evaluate_model(AE_model, test_set, iters=1)
 
     end_time = time.strftime('%Y-%h-%d %H:%M:%S', time.localtime())
