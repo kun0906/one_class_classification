@@ -6,9 +6,11 @@
         sess_normal_0 + all_abnormal_data(sess_TDL4_HTTP_Requests_0 +sess_Rcv_Wnd_Size_0_0)
 
     Case1 and Case 3:
-        Train set : (0.7 * all_normal_data)*0.9
-        Val_set: (0.7*all_normal_data)*0.1 + 0.1*all_abnormal_data
-        Test_set: 0.3*all_normal_data+ 0.9*all_abnormal_data
+        Train set : (0.7 * all_normal_data)
+        Val_set: 0.3*(all_normal_data*0.3 + all_abnormal_data)
+        Test_set: 0.7*(all_normal_data*0.3+ all_abnormal_data)
+
+        ### train_set=0.7*normal*0.9, test_set = 0.7*(abnormal+ 0.3*normal), val_set = 0.3*(abnormal+0.7*normal)
 
      Created at :
         2018/10/04
@@ -26,16 +28,18 @@
 import os
 import time
 from collections import Counter
+from random import shuffle
 
 import numpy as np
 import torch
 import torch.utils.data as Data
 from sklearn.metrics import confusion_matrix
+from sklearn.model_selection import train_test_split
 from torch import nn
 from torch.utils.data import DataLoader
 
-from Utilities.CSV_Dataloader import mix_normal_attack_and_label
-from Utilities.common_funcs import load_data_with_new_principle, show_data, evaluate_model
+from Utilities.CSV_Dataloader import open_file
+from Utilities.common_funcs import show_data, evaluate_model, normalizate_data
 
 
 def print_net(net, describe_str='Net'):
@@ -154,7 +158,9 @@ class AutoEncoder(nn.Module):
 
         if self.show_flg:
             show_data(self.loss, x_label='epochs', y_label='loss', fig_label='loss',
-                      title='val_set evaluation on training process')
+                      title='training loss')
+            show_data(self.results['val_set']['acc'], x_label='epochs', y_label='acc', fig_label='acc',
+                      title='val_set evaluation accuracy on training process')
 
     def evaluate(self, test_set, threshold=0.1):
         """
@@ -227,10 +233,11 @@ def ae_main(input_file, epochs=2, out_dir='./log'):
     # step 1 load Data and do preprocessing
     # train_set, val_set, test_set = load_data(input_file, norm_flg=True,
     #                                          train_val_test_percent=[0.7 * 0.9, 0.7 * 0.1, 0.3])
-    train_set_without_abnormal_data, val_set, test_set = load_data_with_new_principle(input_file, norm_flg=True,
-                                                                                      train_val_test_percent=[0.7 * 0.9,
-                                                                                                              0.7 * 0.1,
-                                                                                                              0.3])
+    train_set_without_abnormal_data, val_set, test_set = achieve_train_val_test_from_files(input_file, norm_flg=True,
+                                                                                           train_val_test_percent=[
+                                                                                               0.7 * 0.9,
+                                                                                               0.7 * 0.1,
+                                                                                               0.3])
     print('train_set:%s,val_set:%s,test_set:%s' % (
         Counter(train_set_without_abnormal_data[1]), Counter(val_set[1]), Counter(test_set[1])))
 
@@ -249,36 +256,66 @@ def ae_main(input_file, epochs=2, out_dir='./log'):
 
     # step 4 evaluate model
     # re-evaluation on val_set to choose the best threshold.
-    max_acc_thres = evaluate_model(AE_model, val_set, iters=10,
+    max_acc_thres = evaluate_model(AE_model, val_set, iters=100,
                                    fig_params={'x_label': 'evluation times', 'y_label': 'accuracy on val set',
-                                               'fig_label': 'acc', 'title': 'accuracy on val set'})
+                                               'fig_label': 'acc',
+                                               'title': 'accuracy on val set with different thresholds.'})
     AE_model.T = torch.Tensor([max_acc_thres[1]])  #
     print('the best result on val_set is ', max_acc_thres)
-    evaluate_model(AE_model, test_set, iters=1,
-                   fig_params={'x_label': 'evluation times', 'y_label': 'accuracy on test set',
-                               'fig_label': 'acc', 'title': 'accuracy on test set'})
+    evaluate_model(AE_model, test_set, iters=1)
 
     end_time = time.strftime('%Y-%h-%d %H:%M:%S', time.localtime())
     print('It ends at ', end_time)
     print('All takes %.4f s' % (time.time() - st))
 
 
+def achieve_train_val_test_from_files(files_dict={'normal_files': [], 'attack_files': []}, norm_flg=True,
+                                      train_val_test_percent=[0.7, '', 0.3]):
+    """
+
+    :param files_dict:
+    :param norm_flg:
+    :param train_val_test_percent: train_set=0.7*normal*0.9, test_set = 0.7*(abnormal+ 0.3*normal), val_set = 0.3*(abnormal+0.7*normal)
+    :return:
+    """
+    X_normal = []
+    y_normal = []
+    for normal_file in files_dict['normal_files']:
+        X_tmp, y_tmp = open_file(normal_file, label='0')
+        X_normal.extend(X_tmp)
+        y_normal.extend(y_tmp)
+    X_attack = []
+    y_attack = []
+    for attack_file in files_dict['attack_files']:
+        X_tmp, y_tmp = open_file(attack_file, label='1')
+        X_attack.extend(X_tmp)
+        y_attack.extend(y_tmp)
+    if norm_flg:
+        X_normal = normalizate_data(np.asarray(X_normal, dtype=float), eplison=10e-4)
+        X_attack = normalizate_data(np.asarray(X_attack, dtype=float), eplison=10e-4)
+
+    # normal_data = (X_normal,y_normal)
+    normal_data = np.hstack((X_normal, np.reshape(np.asarray(y_normal, dtype=int), (len(y_normal), 1))))
+    shuffle(normal_data)
+    train_set_len = int(len(y_normal) * train_val_test_percent[0])
+    train_set = (normal_data[:train_set_len, :-1], normal_data[:train_set_len, -1])  # (X, y)
+
+    attack_data = np.hstack((X_attack, np.reshape(np.asarray(y_attack, dtype=int), (len(y_attack), 1))))
+    mix_data = np.concatenate((normal_data[train_set_len:, :], attack_data), axis=0)
+    X, y = mix_data[:, :-1], mix_data[:, -1]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=(1 - train_val_test_percent[-1]),
+                                                        random_state=1)
+    val_set = (X_train, y_train)
+    test_set = (X_test, y_test)
+
+    return train_set, val_set, test_set
+
+
 if __name__ == '__main__':
     # input_file = '../Data/Wednesday-workingHours-withoutInfinity-Sampled.pcap_ISCX.csv'
     normal_file = '../Data/sess_normal_0.txt'
-    attack_file = '../Data/sess_TDL4_HTTP_Requests_0.txt'
-    # attack_file = '../Data/sess_Rcv_Wnd_Size_0_0.txt'
-    if 'TDL4' in attack_file:
-        out_file = '../Data/case1.csv'
-    elif 'Rcv_Wnd' in attack_file:
-        out_file = '../Data/case2.csv'
-    else:
-        pass
-    if not os.path.exists(out_file):
-        st = time.time()
-        (_, _), input_file = mix_normal_attack_and_label(normal_file, attack_file, out_file)
-        print('mix dataset takes %.2f(s)' % (time.time() - st))
-    else:
-        input_file = out_file
+    attack_file_1 = '../Data/sess_TDL4_HTTP_Requests_0.txt'
+    attack_file_2 = '../Data/sess_Rcv_Wnd_Size_0_0.txt'
+    input_file = {'normal_files': [normal_file], 'attack_files': [attack_file_1, attack_file_2]}
     epochs = 2
     ae_main(input_file, epochs)

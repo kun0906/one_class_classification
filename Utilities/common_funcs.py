@@ -241,7 +241,7 @@ def evaluate_model(model, test_set, iters=10,
         test_acc_lst = []
         thres_lst = []
         max_acc_thres = (0.0, 0.0)  # (acc, thres)
-        for thres in np.linspace(start=10e-3, stop=(model.T.data) * 5, num=iters, endpoint=True):
+        for thres in np.linspace(start=10e-3, stop=(model.T.data) * 10, num=iters, endpoint=True):
             i += 1
             print("\nEvaluation:%d/%d threshold = %f" % (i, iters, thres))
             test_set_acc, test_set_cm = model.evaluate(test_set, threshold=thres)
