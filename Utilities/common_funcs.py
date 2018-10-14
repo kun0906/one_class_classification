@@ -187,7 +187,7 @@ def achieve_train_val_test_from_files(files_dict={'normal_files': [], 'attack_fi
 
     :param files_dict:  # 0 is normal, 1 is abnormal
     :param norm_flg:
-    :param train_val_test_percent: train_set=0.7*normal*0.9, test_set = 0.7*(abnormal+ 0.3*normal), val_set = 0.3*(abnormal+0.7*normal)
+    :param train_val_test_percent: train_set=0.7*normal, test_set = 0.7*(abnormal+ 0.3*normal), val_set = 0.3*(abnormal+0.3*normal)
     :return:
     """
     X_normal = []

@@ -12,7 +12,6 @@
         Val_set: 0.3*(all_normal_data*0.3 + all_abnormal_data)
         Test_set: 0.7*(all_normal_data*0.3+ all_abnormal_data)
 
-        ### train_set=0.7*normal*0.9, test_set = 0.7*(abnormal+ 0.3*normal), val_set = 0.3*(abnormal+0.7*normal)
 
      Created at :
         2018/10/04
@@ -143,16 +142,17 @@ class OCSVM(object):
 
         # Step 1. predict output values
         # change label (-1 (abnormal) and +1 (normal)) outputed by ocsvm to '1 and 0' (-1->1, +1->0)
-        y_pred = (self.ocsvm.predict(X) == -1) * 1  # For an one-class model, +1 or -1 is returned.
+        y_pred = (self.ocsvm.predict(X) == -1) * 1  # True=1, False=0,For an one-class model, +1 or -1 is returned.
 
         # Step 2. achieve the evluation standards.
         cm = confusion_matrix(y, y_pred)
         print(name + ' confusion matrix:\n', cm)
         acc = 100.0 * sum(y == y_pred) / len(y)
         print(name + ' Acc: %.2f%% ' % (acc))
-        self.results[name]['acc'][0] = acc
+        # self.results[name]['acc'][0] = acc
         y_pred_scores = (-1.0) * self.ocsvm.decision_function(X)  # Signed distance to the separating hyperplane.
-        auc = roc_auc_score(y, y_pred_scores.flatten())
+        # auc = roc_auc_score(y, y_pred_scores.flatten(),pos_label=0) # label 0 is considered as positive and others are considered as negative
+        auc = roc_auc_score(y, y_pred_scores.flatten())  # not very clear, if possible, please do not use it.
 
         return auc, acc, cm
 
@@ -176,14 +176,14 @@ def ocsvm_main(input_files_dict, kernel='rbf', out_dir='./log', **kwargs):
     train_set_without_abnormal_data, val_set, test_set = achieve_train_val_test_from_files(input_files_dict,
                                                                                            norm_flg=True,
                                                                                            train_val_test_percent=[
-                                                                                               0.7 * 0.9,
-                                                                                               0.7 * 0.1,
+                                                                                               0.7,
+                                                                                               '',
                                                                                                0.3])
     print('train_set:%s,val_set:%s,test_set:%s' % (
         Counter(train_set_without_abnormal_data[1]), Counter(val_set[1]), Counter(test_set[1])))
 
     # step 2.1 initialize OC-SVM
-    ocsvm = OCSVM(kernel=kernel, grid_search_cv_flg=False)
+    ocsvm = OCSVM(kernel=kernel, grid_search_cv_flg=True)
 
     # step 2.2 train OC-SVM model
     ocsvm.train(train_set_without_abnormal_data, val_set)
@@ -205,7 +205,7 @@ def ocsvm_main(input_files_dict, kernel='rbf', out_dir='./log', **kwargs):
 
 if __name__ == '__main__':
     # input_file = '../Data/Wednesday-workingHours-withoutInfinity-Sampled.pcap_ISCX.csv'
-    test_flg = 1
+    test_flg = 0
     if test_flg:
         normal_file = '../Data/normal_demo.txt'
         attack_file = '../Data/attack_demo.txt'

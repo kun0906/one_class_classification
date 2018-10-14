@@ -12,8 +12,6 @@
         Val_set: 0.3*(all_normal_data*0.3 + all_abnormal_data)
         Test_set: 0.7*(all_normal_data*0.3+ all_abnormal_data)
 
-        ### train_set=0.7*normal*0.9, test_set = 0.7*(abnormal+ 0.3*normal), val_set = 0.3*(abnormal+0.7*normal)
-
      Created at :
         2018/10/04
 
@@ -237,7 +235,7 @@ def evaluate_model(model, test_set, iters=10,
         test_acc_lst = []
         thres_lst = []
         max_acc_thres = (0.0, 0.0)  # (acc, thres)
-        for thres in np.linspace(start=10e-3, stop=(model.T.data) * 10, num=iters, endpoint=True):
+        for thres in np.linspace(start=10e-3, stop=(model.T.data) * 1, num=iters, endpoint=True):
             i += 1
             print("\nEvaluation:%d/%d threshold = %f" % (i, iters, thres))
             test_set_acc, test_set_cm = model.evaluate(test_set, threshold=thres)
@@ -274,8 +272,8 @@ def ae_main(input_files_dict, epochs=2, out_dir='./log', **kwargs):
     train_set_without_abnormal_data, val_set, test_set = achieve_train_val_test_from_files(input_files_dict,
                                                                                            norm_flg=True,
                                                                                            train_val_test_percent=[
-                                                                                               0.7 * 0.9,
-                                                                                               0.7 * 0.1,
+                                                                                               0.7,
+                                                                                               '',
                                                                                                0.3])
     print('train_set:%s,val_set:%s,test_set:%s' % (
         Counter(train_set_without_abnormal_data[1]), Counter(val_set[1]), Counter(test_set[1])))
@@ -314,5 +312,5 @@ if __name__ == '__main__':
     attack_file_1 = '../Data/sess_TDL4_HTTP_Requests_0.txt'
     attack_file_2 = '../Data/sess_Rcv_Wnd_Size_0_0.txt'
     input_files_dict = {'normal_files': [normal_file], 'attack_files': [attack_file_1, attack_file_2]}
-    epochs = 50
+    epochs = 200
     ae_main(input_files_dict, epochs, out_dir='../log')
