@@ -36,7 +36,6 @@ from sklearn import svm
 from sklearn.metrics import roc_auc_score, confusion_matrix
 from sklearn.metrics.pairwise import pairwise_distances
 
-from OCSVM_Sklearn.basic_svm import OCSVM
 from Utilities.common_funcs import dump_model, load_model, achieve_train_val_test_from_files
 
 

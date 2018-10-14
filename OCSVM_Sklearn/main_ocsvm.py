@@ -15,10 +15,9 @@
     Author:
 
 """
-import os
 import time
 
-from OCSVM_Sklearn.basic_svm import OCSVM
+from history_files.basic_svm import OCSVM
 from Utilities.common_funcs import load_data, dump_model, load_model
 
 

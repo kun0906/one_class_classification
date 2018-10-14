@@ -29,9 +29,9 @@ import os
 import time
 from collections import Counter
 
-from OCSVM_Sklearn.basic_svm import OCSVM
+from history_files.basic_svm import OCSVM
 from Utilities.CSV_Dataloader import mix_normal_attack_and_label
-from Utilities.common_funcs import load_data, dump_model, load_model, load_data_with_new_principle
+from Utilities.common_funcs import dump_model, load_model, load_data_with_new_principle
 
 
 def ocsvm_main(input_file='csv', kernel='rbf', out_dir='./log', **kwargs):
