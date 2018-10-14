@@ -230,5 +230,8 @@ if __name__ == '__main__':
         input_file = {'normal_files': [normal_file], 'attack_files': [attack_file_1, attack_file_2]}
         # input_files_dict={'normal_files': ['../Data/sess_normal_0.txt'], 'attack_files': ['../Data/sess_TDL4_HTTP_Requests_0.txt', '../Data/sess_Rcv_Wnd_Size_0_0.txt']}
     args = parse_params()
-    input_files_dict = args['input_files_dict'], epochs = args['epochs'], out_dir = args['out_dir']
+    # input_files_dict = args['input_files_dict'], epochs = args['epochs'], out_dir = args['out_dir']
+    input_files_dict = eval(args['input_files_dict'])
+    epochs = args['kernel']
+    out_dir = args['out_dir']
     ocsvm_main(input_file, kernel='rbf', out_dir='../log')

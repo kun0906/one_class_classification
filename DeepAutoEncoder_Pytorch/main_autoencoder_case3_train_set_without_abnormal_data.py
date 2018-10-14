@@ -329,5 +329,7 @@ if __name__ == '__main__':
     # epochs = 200
     # input_files_dict={'normal_files': ['../Data/sess_normal_0.txt'], 'attack_files': ['../Data/sess_TDL4_HTTP_Requests_0.txt', '../Data/sess_Rcv_Wnd_Size_0_0.txt']}
     args = parse_params()
-    input_files_dict = args['input_files_dict'], epochs = args['epochs'], out_dir = args['out_dir']
+    input_files_dict = eval(args['input_files_dict'])
+    epochs = args['epochs']
+    out_dir = args['out_dir']
     ae_main(input_files_dict, epochs, out_dir='../log')
