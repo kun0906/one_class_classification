@@ -25,6 +25,7 @@
     Author:
 
 """
+import argparse
 import os
 import time
 from collections import Counter
@@ -306,11 +307,26 @@ def ae_main(input_files_dict, epochs=2, out_dir='./log', **kwargs):
     print('All takes %.4f s' % (time.time() - st))
 
 
+def parse_params():
+    parser = argparse.ArgumentParser(prog='AE_Case3')
+    parser.add_argument('-i', '--input_files_dict', type=str, dest='input_files_dict',
+                        help='{\'normal_files\': [normal_file,...], \'attack_files\': [attack_file_1, attack_file_2,...]}',
+                        default='../Data/normal_demo.txt', required=True)  # '-i' short name, '--input_dir' full name
+    parser.add_argument('-e', '--epochs', dest='epochs', help="num of epochs", default=10)
+    parser.add_argument('-o', '--out_dir', dest='out_dir', help="the output information of this scripts",
+                        default='../log')
+    args = vars(parser.parse_args())
+
+    return args
+
+
 if __name__ == '__main__':
     # input_file = '../Data/Wednesday-workingHours-withoutInfinity-Sampled.pcap_ISCX.csv'
-    normal_file = '../Data/sess_normal_0.txt'
-    attack_file_1 = '../Data/sess_TDL4_HTTP_Requests_0.txt'
-    attack_file_2 = '../Data/sess_Rcv_Wnd_Size_0_0.txt'
-    input_files_dict = {'normal_files': [normal_file], 'attack_files': [attack_file_1, attack_file_2]}
-    epochs = 200
+    # normal_file = '../Data/sess_normal_0.txt'
+    # attack_file_1 = '../Data/sess_TDL4_HTTP_Requests_0.txt'
+    # attack_file_2 = '../Data/sess_Rcv_Wnd_Size_0_0.txt'
+    # input_files_dict = {'normal_files': [normal_file], 'attack_files': [attack_file_1, attack_file_2]}
+    # epochs = 200
+    args = parse_params()
+    input_files_dict = args['input_files_dict'], epochs = args['epochs'], out_dir = args['out_dir']
     ae_main(input_files_dict, epochs, out_dir='../log')
