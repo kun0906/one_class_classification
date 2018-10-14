@@ -38,7 +38,7 @@ from sklearn.metrics import confusion_matrix
 from torch import nn
 from torch.utils.data import DataLoader
 
-from Utilities.common_funcs import show_data, evaluate_model, achieve_train_val_test_from_files
+from Utilities.common_funcs import show_data, achieve_train_val_test_from_files
 
 
 def print_net(net, describe_str='Net'):
@@ -126,9 +126,9 @@ class AutoEncoder(nn.Module):
         print('train_set shape is %s, val_set size is %s' % (train_set[0].shape, val_set[0].shape))
         assert self.num_features_in == train_set[0].shape[1]
 
-        X = train_set[0]
-        self.train_set = Data.TensorDataset(torch.Tensor(X),
-                                            torch.Tensor(X))  # only use features data to train autoencoder
+        X_train = train_set[0]
+        self.train_set = Data.TensorDataset(torch.Tensor(X_train),
+                                            torch.Tensor(X_train))  # only use features data to train autoencoder
         dataloader = DataLoader(self.train_set, batch_size=self.batch_size, shuffle=True)
 
         self.results = {'train_set': {'acc': [], 'auc': []}, 'val_set': {'acc': [], 'auc': []}}
@@ -148,7 +148,7 @@ class AutoEncoder(nn.Module):
             val_set_acc, val_set_cm = self.evaluate(val_set, threshold=self.T.data)
             self.results['val_set']['acc'].append(val_set_acc)
             # ===================log========================
-            print('epoch [{:d}/{:d}], loss:{:.4f}'.format(epoch + 1, self.epochs, loss.data))
+            print('epoch [{:d}/{:d}], loss:{:.4f}\n'.format(epoch + 1, self.epochs, loss.data))
             # if epoch % 10 == 0:
             #     # pic = to_img(output.cpu().Data)
             #     # save_image(pic, './mlp_img/image_{}.png'.format(epoch))
@@ -215,10 +215,50 @@ def save_model(model, out_file='../log/autoencoder.pth'):
     return out_file
 
 
-def ae_main(input_file, epochs=2, out_dir='./log', **kwargs):
+def evaluate_model(model, test_set, iters=10,
+                   fig_params={'x_label': 'evluation times', 'y_label': 'accuracy on val set',
+                               'fig_label': 'acc', 'title': 'accuracy on val set'}):
     """
 
-    :param input_file:
+    :param model:
+    :param test_set:
+    :param iters: evluation times
+    :return:
+    """
+    assert len(test_set) > 0
+
+    if iters == 1:
+        thres = model.T.data
+        print("\nEvaluation:%d/%d threshold = %f" % (1, iters, thres))
+        test_set_acc, test_set_cm = model.evaluate(test_set, threshold=thres)
+        max_acc_thres = (test_set_acc, thres, 1)
+    else:
+        i = 0
+        test_acc_lst = []
+        thres_lst = []
+        max_acc_thres = (0.0, 0.0)  # (acc, thres)
+        for thres in np.linspace(start=10e-3, stop=(model.T.data) * 10, num=iters, endpoint=True):
+            i += 1
+            print("\nEvaluation:%d/%d threshold = %f" % (i, iters, thres))
+            test_set_acc, test_set_cm = model.evaluate(test_set, threshold=thres)
+            test_acc_lst.append(test_set_acc)
+            thres_lst.append(thres)
+            if test_set_acc > max_acc_thres[0]:
+                max_acc_thres = (test_set_acc, thres, i)
+
+        if model.show_flg:
+            show_data(data=thres_lst, x_label='evluation times', y_label='threshold', fig_label='thresholds',
+                      title='thresholds variation')
+            show_data(data=test_acc_lst, x_label=fig_params['x_label'], y_label=fig_params['y_label'], fig_label='acc',
+                      title=fig_params['title'])
+
+    return max_acc_thres
+
+
+def ae_main(input_files_dict, epochs=2, out_dir='./log', **kwargs):
+    """
+
+    :param input_files_dict:
     :param epochs:
     :param out_dir:
     :return:
@@ -231,7 +271,8 @@ def ae_main(input_file, epochs=2, out_dir='./log', **kwargs):
     # step 1 load Data and do preprocessing
     # train_set, val_set, test_set = load_data(input_file, norm_flg=True,
     #                                          train_val_test_percent=[0.7 * 0.9, 0.7 * 0.1, 0.3])
-    train_set_without_abnormal_data, val_set, test_set = achieve_train_val_test_from_files(input_file, norm_flg=True,
+    train_set_without_abnormal_data, val_set, test_set = achieve_train_val_test_from_files(input_files_dict,
+                                                                                           norm_flg=True,
                                                                                            train_val_test_percent=[
                                                                                                0.7 * 0.9,
                                                                                                0.7 * 0.1,
@@ -247,7 +288,7 @@ def ae_main(input_file, epochs=2, out_dir='./log', **kwargs):
     AE_model.train(train_set_without_abnormal_data, val_set)
 
     # step 3.1 dump model
-    model_file = save_model(AE_model, out_file='../log/autoencoder.pth')
+    model_file = save_model(AE_model, os.path.join(out_dir, 'autoencoder_model.pth'))
 
     # step 3.2 load model
     AE_model = torch.load(model_file)
@@ -272,6 +313,6 @@ if __name__ == '__main__':
     normal_file = '../Data/sess_normal_0.txt'
     attack_file_1 = '../Data/sess_TDL4_HTTP_Requests_0.txt'
     attack_file_2 = '../Data/sess_Rcv_Wnd_Size_0_0.txt'
-    input_file = {'normal_files': [normal_file], 'attack_files': [attack_file_1, attack_file_2]}
+    input_files_dict = {'normal_files': [normal_file], 'attack_files': [attack_file_1, attack_file_2]}
     epochs = 50
-    ae_main(input_file, epochs)
+    ae_main(input_files_dict, epochs, out_dir='../log')

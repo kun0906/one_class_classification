@@ -239,6 +239,8 @@ def dump_model(model, out_file):
 
     print("Model saved in %s" % out_file)
 
+    return out_file
+
 
 def load_model(input_file):
     """
@@ -263,45 +265,6 @@ def show_data(data, x_label='epochs', y_label='y', fig_label='', title=''):
     plt.title(title)
     plt.show()
 
-
-def evaluate_model(model, test_set, iters=10,
-                   fig_params={'x_label': 'evluation times', 'y_label': 'accuracy on val set',
-                               'fig_label': 'acc', 'title': 'accuracy on val set'}):
-    """
-
-    :param model:
-    :param test_set:
-    :param iters: evluation times
-    :return:
-    """
-    assert len(test_set) > 0
-
-    if iters == 1:
-        thres = model.T.data
-        print("\nEvaluation:%d/%d threshold = %f" % (1, iters, thres))
-        test_set_acc, test_set_cm = model.evaluate(test_set, threshold=thres)
-        max_acc_thres = (test_set_acc, thres, 1)
-    else:
-        i = 0
-        test_acc_lst = []
-        thres_lst = []
-        max_acc_thres = (0.0, 0.0)  # (acc, thres)
-        for thres in np.linspace(start=10e-3, stop=(model.T.data) * 10, num=iters, endpoint=True):
-            i += 1
-            print("\nEvaluation:%d/%d threshold = %f" % (i, iters, thres))
-            test_set_acc, test_set_cm = model.evaluate(test_set, threshold=thres)
-            test_acc_lst.append(test_set_acc)
-            thres_lst.append(thres)
-            if test_set_acc > max_acc_thres[0]:
-                max_acc_thres = (test_set_acc, thres, i)
-
-        if model.show_flg:
-            show_data(data=thres_lst, x_label='evluation times', y_label='threshold', fig_label='thresholds',
-                      title='thresholds variation')
-            show_data(data=test_acc_lst, x_label=fig_params['x_label'], y_label=fig_params['y_label'], fig_label='acc',
-                      title=fig_params['title'])
-
-    return max_acc_thres
 
 def get_variable_name(data_var):
     """
