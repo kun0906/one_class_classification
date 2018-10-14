@@ -209,7 +209,7 @@ def parse_params():
     parser.add_argument('-i', '--input_files_dict', type=str, dest='input_files_dict',
                         help='{\'normal_files\': [normal_file,...], \'attack_files\': [attack_file_1, attack_file_2,...]}',
                         default='../Data/normal_demo.txt', required=True)  # '-i' short name, '--input_dir' full name
-    parser.add_argument('-e', '--epochs', dest='epochs', help="num of epochs", default=10)
+    parser.add_argument('-k', '--kernel', dest='kernel', help="kernel", default='rbf')
     parser.add_argument('-o', '--out_dir', dest='out_dir', help="the output information of this scripts",
                         default='../log')
     args = vars(parser.parse_args())
@@ -229,6 +229,7 @@ if __name__ == '__main__':
         attack_file_1 = '../Data/sess_TDL4_HTTP_Requests_0.txt'
         attack_file_2 = '../Data/sess_Rcv_Wnd_Size_0_0.txt'
         input_file = {'normal_files': [normal_file], 'attack_files': [attack_file_1, attack_file_2]}
+        # input_files_dict={'normal_files': ['../Data/sess_normal_0.txt'], 'attack_files': ['../Data/sess_TDL4_HTTP_Requests_0.txt', '../Data/sess_Rcv_Wnd_Size_0_0.txt']}
     args = parse_params()
     input_files_dict = args['input_files_dict'], epochs = args['epochs'], out_dir = args['out_dir']
     ocsvm_main(input_file, kernel='rbf', out_dir='../log')
