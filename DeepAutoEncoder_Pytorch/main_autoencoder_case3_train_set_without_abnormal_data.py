@@ -8,15 +8,14 @@
 
     Case3:
         Train set : (0.7 * all_normal_data)
-        using "train_test_split(test_size = 0.7)" in sklearn to split "val_set and test_set"
-        Val_set: 0.3*(all_normal_data*0.3 + all_abnormal_data)
-        Test_set: 0.7*(all_normal_data*0.3+ all_abnormal_data)
+        Val_set:  (0.1*all_normal_data)
+        Test_set: (0.2*all_normal_data+ 1.0*all_abnormal_data)
 
      Created at :
         2018/10/04
 
     Version:
-        0.1.0
+        0.2.0
 
     Requirements:
         python 3.x
@@ -129,9 +128,10 @@ class AutoEncoder(nn.Module):
         self.train_set = Data.TensorDataset(torch.Tensor(X_train),
                                             torch.Tensor(X_train))  # only use features data to train autoencoder
         dataloader = DataLoader(self.train_set, batch_size=self.batch_size, shuffle=True)
-
+        X_val = val_set[0]
+        self.val_set = Data.TensorDataset(torch.Tensor(X_val), torch.Tensor(X_val))
         self.results = {'train_set': {'acc': [], 'auc': []}, 'val_set': {'acc': [], 'auc': []}}
-        self.loss = []
+        self.loss = {'train_loss': [], 'val_loss': []}
         for epoch in range(self.epochs):
             for iter, (batch_X, _) in enumerate(dataloader):
                 # # ===================forward=====================
@@ -142,22 +142,22 @@ class AutoEncoder(nn.Module):
                 loss.backward()
                 self.optimizer.step()
 
-            self.loss.append(loss.data)
-            self.T = self.loss[-1]
-            val_set_acc, val_set_cm = self.evaluate(val_set, threshold=self.T.data)
-            self.results['val_set']['acc'].append(val_set_acc)
-            # ===================log========================
-            print('epoch [{:d}/{:d}], loss:{:.4f}\n'.format(epoch + 1, self.epochs, loss.data))
+            self.loss['train_loss'].append(loss.data)
+            val_output = self.forward(self.val_set.tensors[0])
+            val_loss = self.criterion(val_output, self.val_set.tensors[1])
+            self.loss['val_loss'].append(val_loss.data)
+            print('epoch [{:d}/{:d}], train_loss:{:.4f}, val_loss:{:.4f}\n'.format(epoch + 1, self.epochs, loss.data,
+                                                                                   val_loss.data))
             # if epoch % 10 == 0:
             #     # pic = to_img(output.cpu().Data)
             #     # save_image(pic, './mlp_img/image_{}.png'.format(epoch))
-        self.T = self.loss[-1]
-
+        self.T = torch.Tensor([np.min(self.loss['val_loss'])])
+        print('the minimunal loss on val_set is ', self.T)
         if self.show_flg:
-            show_data(self.loss, x_label='epochs', y_label='loss', fig_label='loss',
-                      title='training loss')
-            show_data(self.results['val_set']['acc'], x_label='epochs', y_label='acc', fig_label='acc',
-                      title='val_set evaluation accuracy on training process')
+            show_data(self.loss['train_loss'], x_label='epochs', y_label='Train_loss', fig_label='Train_loss',
+                      title='training loss on training process')
+            show_data(self.loss['val_loss'], x_label='epochs', y_label='Val_loss', fig_label='Val_loss',
+                      title='val_set loss on training process')
 
     def evaluate(self, test_set, threshold=0.1):
         """
@@ -268,23 +268,21 @@ def ae_main(input_files_dict, epochs=2, out_dir='./log', **kwargs):
     print('It starts at ', start_time)
 
     # step 1 load Data and do preprocessing
-    # train_set, val_set, test_set = load_data(input_file, norm_flg=True,
-    #                                          train_val_test_percent=[0.7 * 0.9, 0.7 * 0.1, 0.3])
-    train_set_without_abnormal_data, val_set, test_set = achieve_train_val_test_from_files(input_files_dict,
-                                                                                           norm_flg=True,
-                                                                                           train_val_test_percent=[
+    train_set_without_abnormal_data, val_set_without_abnormal_data, test_set = achieve_train_val_test_from_files(
+        input_files_dict, norm_flg=True,
+        train_val_test_percent=[
                                                                                                0.7,
-                                                                                               '',
-                                                                                               0.3])
+            0.1,
+            0.2], shuffle_flg=False)
     print('train_set:%s,val_set:%s,test_set:%s' % (
-        Counter(train_set_without_abnormal_data[1]), Counter(val_set[1]), Counter(test_set[1])))
+        Counter(train_set_without_abnormal_data[1]), Counter(val_set_without_abnormal_data[1]), Counter(test_set[1])))
 
     # step 2.1 model initialization
     AE_model = AutoEncoder(in_dim=train_set_without_abnormal_data[0].shape[1],
                            epochs=epochs)  # train_set (no_label and no abnormal traffic)
 
     # step 2.2 train model
-    AE_model.train(train_set_without_abnormal_data, val_set)
+    AE_model.train(train_set_without_abnormal_data, val_set_without_abnormal_data)
 
     # step 3.1 dump model
     model_file = save_model(AE_model, os.path.join(out_dir, 'autoencoder_model.pth'))
@@ -293,13 +291,13 @@ def ae_main(input_files_dict, epochs=2, out_dir='./log', **kwargs):
     AE_model = torch.load(model_file)
 
     # step 4 evaluate model
-    # re-evaluation on val_set to choose the best threshold.
-    max_acc_thres = evaluate_model(AE_model, val_set, iters=100,
-                                   fig_params={'x_label': 'evluation times', 'y_label': 'accuracy on val set',
-                                               'fig_label': 'acc',
-                                               'title': 'accuracy on val set with different thresholds.'})
-    AE_model.T = torch.Tensor([max_acc_thres[1]])  #
-    print('the best result on val_set is ', max_acc_thres)
+    # # re-evaluation on val_set to choose the best threshold.
+    # max_acc_thres = evaluate_model(AE_model, val_set_without_abnormal_data, iters=100,
+    #                                fig_params={'x_label': 'evluation times', 'y_label': 'accuracy on val set',
+    #                                            'fig_label': 'acc',
+    #                                            'title': 'accuracy on val set with different thresholds.'})
+    # AE_model.T = torch.Tensor([max_acc_thres[1]])  #
+    # print('the best result on val_set is ', max_acc_thres)
     evaluate_model(AE_model, test_set, iters=1)
 
     end_time = time.strftime('%Y-%h-%d %H:%M:%S', time.localtime())

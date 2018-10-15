@@ -33,6 +33,20 @@ def normalizate_data(np_arr, eplison=10e-4):
     return norm_data
 
 
+def normalizate_data_with_u_std(np_arr, u_std_dict={'u': 0.5, 'std': 1.0}):
+    """
+
+    :param np_arr:
+    :param u_std_dict: {'u':0.5,'std':1.0}
+    :return:
+    """
+    # u_val = np.mean(np_arr, axis=0)  # X
+    # std_val = np.std(np_arr, axis=0)
+
+    norm_data = (np_arr - u_std_dict['u']) / u_std_dict['std']
+
+    return norm_data
+
 def split_data():
     # train_tset_split()
     pass
@@ -182,12 +196,12 @@ def load_data_with_new_principle(input_data='', norm_flg=True, train_val_test_pe
 
 
 def achieve_train_val_test_from_files(files_dict={'normal_files': [], 'attack_files': []}, norm_flg=True,
-                                      train_val_test_percent=[0.7, '', 0.3]):
+                                      train_val_test_percent=[0.7, 0.1, 0.2], shuffle_flg=False):
     """
 
     :param files_dict:  # 0 is normal, 1 is abnormal
     :param norm_flg:
-    :param train_val_test_percent: train_set=0.7*normal, test_set = 0.7*(abnormal+ 0.3*normal), val_set = 0.3*(abnormal+0.3*normal)
+    :param train_val_test_percent: train_set=0.7*normal, val_set = 0.1*normal test_set = (0.2*normal +1*abnormal),
     :return:
     """
     X_normal = []
@@ -202,23 +216,42 @@ def achieve_train_val_test_from_files(files_dict={'normal_files': [], 'attack_fi
         X_tmp, y_tmp = open_file(attack_file, label='1')
         X_attack.extend(X_tmp)
         y_attack.extend(y_tmp)
-    if norm_flg:
-        X_normal = normalizate_data(np.asarray(X_normal, dtype=float), eplison=10e-4)
-        X_attack = normalizate_data(np.asarray(X_attack, dtype=float), eplison=10e-4)
-    print('normal_data:', X_normal.shape, ', attack_data:', X_attack.shape)
-    # normal_data = (X_normal,y_normal)
-    normal_data = np.hstack((X_normal, np.reshape(np.asarray(y_normal, dtype=int), (len(y_normal), 1))))
-    shuffle(normal_data)
-    train_set_len = int(len(y_normal) * train_val_test_percent[0])
-    train_set = (normal_data[:train_set_len, :-1], normal_data[:train_set_len, -1])  # (X, y)
 
-    attack_data = np.hstack((X_attack, np.reshape(np.asarray(y_attack, dtype=int), (len(y_attack), 1))))
-    mix_data = np.concatenate((normal_data[train_set_len:, :], attack_data), axis=0)
-    X, y = mix_data[:, :-1], mix_data[:, -1]
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=(1 - train_val_test_percent[-1]),
-                                                        random_state=1)
-    val_set = (X_train, y_train)
-    test_set = (X_test, y_test)
+    print('normal_data:', len(X_normal), ', attack_data:', len(X_attack))
+    X_normal = np.asarray(X_normal, dtype=float)
+    y_normal = np.asarray(y_normal, dtype=int)
+    if shuffle_flg:
+        print('not implement yet.')
+    else:
+        if norm_flg:
+            # train set only includes 0.7*normal_data
+            train_set_len = int(len(y_normal) * train_val_test_percent[0])
+            X_train_normal = X_normal[:train_set_len, :]
+            u_normal = np.mean(X_train_normal, axis=0)
+            std_normal = np.std(X_train_normal, axis=0)
+            print('u_normal:', u_normal)
+            print('std_normal:', std_normal)
+            for i in range(std_normal.shape[0]):
+                if std_normal[i] == 0:
+                    std_normal[i] += 10e-4
+            print('std_normal_modified:', std_normal)
+            X_train_normal = (X_train_normal - u_normal) / std_normal
+            y_train_normal = y_normal[:train_set_len]
+            train_set = (X_train_normal, y_train_normal)
+
+            # val set only includes 0.1* normal_data
+            val_set_len = int(len(y_normal) * train_val_test_percent[1])
+            X_val_normal = (X_normal[train_set_len:train_set_len + val_set_len, :] - u_normal) / std_normal
+            val_set = (X_val_normal, y_normal[train_set_len:train_set_len + val_set_len])
+
+            # test set includes (0.2*normal_data + 1*abnormal_data)
+            # test_set_len = len(y_normal)-train_set_len-val_set_len
+            X_test_normal = X_normal[train_set_len + val_set_len:, :]
+            X_test = np.concatenate((X_test_normal, np.asarray(X_attack, dtype=float)), axis=0)
+            X_test = (X_test - u_normal) / std_normal
+            y_test = np.concatenate((np.reshape(y_normal[train_set_len + val_set_len:], (-1, 1)),
+                                     np.reshape(np.asarray(y_attack, dtype=int), (len(y_attack), 1))))
+            test_set = (X_test, y_test.flatten())
 
     return train_set, val_set, test_set
 

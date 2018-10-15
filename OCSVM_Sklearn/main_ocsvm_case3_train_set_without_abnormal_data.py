@@ -6,18 +6,17 @@
     Case3:
         sess_normal_0 + all_abnormal_data(sess_TDL4_HTTP_Requests_0 +sess_Rcv_Wnd_Size_0_0)
 
-    Case1 and Case 3:
+    Case3:
         Train set : (0.7 * all_normal_data)
-        using "train_test_split(test_size = 0.7)" in sklearn to split "val_set and test_set"
-        Val_set: 0.3*(all_normal_data*0.3 + all_abnormal_data)
-        Test_set: 0.7*(all_normal_data*0.3+ all_abnormal_data)
+        Val_set:  (0.1*all_normal_data)
+        Test_set: (0.2*all_normal_data+ 1.0*all_abnormal_data)
 
 
      Created at :
         2018/10/04
 
     Version:
-        0.1.0
+        0.2.0
 
     Requirements:
         python 3.x
