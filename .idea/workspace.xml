@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3328596d-b116-4f8c-8c06-719cdaa432ba" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_sklearn.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/sys_path_export.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/sys_path_export.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,8 +50,8 @@
       <file leaf-file-name="main_autoencoder_case3_train_set_without_abnormal_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="76" lean-forward="true" selection-start-line="38" selection-start-column="76" selection-end-line="38" selection-end-column="76" />
+            <state relative-caret-position="120">
+              <caret line="38" column="126" lean-forward="true" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="126" />
             </state>
           </provider>
         </entry>
@@ -64,20 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sys_path_export.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sys_path_export.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/sys_path_export.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="97" selection-start-line="3" selection-start-column="97" selection-end-line="3" selection-end-column="97" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+              <caret line="3" column="2" lean-forward="true" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="97" />
             </state>
           </provider>
         </entry>
@@ -85,8 +77,26 @@
       <file leaf-file-name="main_ocsvm_case3_train_set_without_abnormal_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case3_train_set_without_abnormal_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="38" column="33" lean-forward="true" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
+            <state relative-caret-position="390">
+              <caret line="38" column="126" selection-start-line="38" selection-start-column="126" selection-end-line="38" selection-end-column="126" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run_OCSVM_sklearn.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_sklearn.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="382">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run_AE_pytorch.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="427">
+              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
             </state>
           </provider>
         </entry>
@@ -130,9 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Deep-SVDD-master/src/utils/log.py" />
-        <option value="$PROJECT_DIR$/Deep-SVDD-master/src/utils/diag.py" />
-        <option value="$PROJECT_DIR$/Deep-SVDD-master/src/datasets/base.py" />
         <option value="$PROJECT_DIR$/Deep_SVDD_Pytorch/NerualNet.py" />
         <option value="$PROJECT_DIR$/Deep-SVDD-master/src/utils/visualization/mosaic_plot.py" />
         <option value="$PROJECT_DIR$/Deep-SVDD-master/src/opt/sgd/train.py" />
@@ -178,9 +185,12 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/sys_path_export.py" />
         <option value="$PROJECT_DIR$/OCSVM_Sklearn/sys_path_export.py" />
-        <option value="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case3_train_set_without_abnormal_data.py" />
-        <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py" />
         <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/sys_path_export.py" />
+        <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py" />
+        <option value="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case3_train_set_without_abnormal_data.py" />
+        <option value="$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_Sklearn.sh" />
+        <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh" />
+        <option value="$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_sklearn.sh" />
       </list>
     </option>
   </component>
@@ -777,7 +787,21 @@
       <option name="project" value="LOCAL" />
       <updated>1539564305333</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary=" add 'parent path' to system path so that the script can call 'parent directory'">
+      <created>1539564433982</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1539564433982</updated>
+    </task>
+    <task id="LOCAL-00047" summary=" add 'parent path' to system path so that the script can call 'parent directory'">
+      <created>1539564524202</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1539564524202</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -789,7 +813,7 @@
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.4983845" weight="0.32941177" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.37078652" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49757674" visible="true" weight="0.41348314" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49757674" visible="true" weight="0.3730337" />
       <window_info anchor="bottom" id="Terminal" order="5" weight="0.26067415" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21611527" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
@@ -943,8 +967,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/history_files/CSV_Dataloaer.py" />
-    <entry file="file://$PROJECT_DIR$/Deep-SVDD-master/src/baseline_ocsvm.py" />
     <entry file="file://$PROJECT_DIR$/Deep_SVDD_Pytorch/main_Deep_SVDD.py" />
     <entry file="file://$PROJECT_DIR$/Deep_SVDD_Pytorch/mnist_ocsvm.sh" />
     <entry file="file://$USER_HOME$/.PyCharm2018.1/system/python_stubs/-1247971764/numpy/core/multiarray.py" />
@@ -1198,6 +1220,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/sys_path_export.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="2" lean-forward="true" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="38" column="126" lean-forward="true" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case3_train_set_without_abnormal_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="38" column="126" selection-start-line="38" selection-start-column="126" selection-end-line="38" selection-end-column="126" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/sys_path_export.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1205,24 +1255,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py">
+    <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_sklearn.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="76" lean-forward="true" selection-start-line="38" selection-start-column="76" selection-end-line="38" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case3_train_set_without_abnormal_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="38" column="33" lean-forward="true" selection-start-line="38" selection-start-column="33" selection-end-line="38" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/sys_path_export.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="97" selection-start-line="3" selection-start-column="97" selection-end-line="3" selection-end-column="97" />
+        <state relative-caret-position="382">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
         </state>
       </provider>
     </entry>
