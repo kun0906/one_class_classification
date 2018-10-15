@@ -38,4 +38,4 @@ pip3 install sklearn
 
 #source py3.6.3/bin/activate /home/ky13/py3.6.3
 cd /scratch/ky13/Experiments/OneClassClassification_20181010/DeepAutoEncoder_Pytorch/
-python3 main_autoencoder_case3_train_set_without_abnormal_data.py -i "{'normal_files': ['../Data/sess_normal_0.txt'], 'attack_files': ['../Data/sess_TDL4_HTTP_Requests_0.txt', '../Data/sess_Rcv_Wnd_Size_0_0.txt']}" -o '../log'
+python3 main_autoencoder_case3_train_set_without_abnormal_data.py -i "{'normal_files': ['../Data/sess_normal_0.txt'], 'attack_files': ['../Data/sess_TDL4_HTTP_Requests_0.txt', '../Data/sess_Rcv_Wnd_Size_0_0.txt']}" -e 1000 -o '../log'
