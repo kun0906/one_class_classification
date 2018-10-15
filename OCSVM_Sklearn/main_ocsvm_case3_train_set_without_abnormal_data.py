@@ -25,6 +25,7 @@
     Author:
 
 """
+
 import argparse
 import os
 import time
@@ -34,8 +35,8 @@ import numpy as np
 from sklearn import svm
 from sklearn.metrics import roc_auc_score, confusion_matrix
 from sklearn.metrics.pairwise import pairwise_distances
-
 from sys_path_export import *  # it is no need to do in IDE environment, however, it must be done in shell/command environment
+
 from Utilities.common_funcs import dump_model, load_model, achieve_train_val_test_from_files
 
 
@@ -150,9 +151,12 @@ class OCSVM(object):
         acc = 100.0 * sum(y == y_pred) / len(y)
         print(name + ' Acc: %.2f%% ' % (acc))
         # self.results[name]['acc'][0] = acc
-        y_pred_scores = (-1.0) * self.ocsvm.decision_function(X)  # Signed distance to the separating hyperplane.
-        # auc = roc_auc_score(y, y_pred_scores.flatten(),pos_label=0) # label 0 is considered as positive and others are considered as negative
-        auc = roc_auc_score(y, y_pred_scores.flatten())  # not very clear, if possible, please do not use it.
+        if len(list(Counter(y))) > 1:
+            y_pred_scores = (-1.0) * self.ocsvm.decision_function(X)  # Signed distance to the separating hyperplane.
+            # auc = roc_auc_score(y, y_pred_scores.flatten(),pos_label=0) # label 0 is considered as positive and others are considered as negative
+            auc = roc_auc_score(y, y_pred_scores.flatten())  # not very clear, if possible, please do not use it.
+        else:  # Only one class present in y_true. ROC AUC score is not defined in that case.
+            auc = -1
 
         return auc, acc, cm
 
@@ -171,22 +175,16 @@ def ocsvm_main(input_files_dict, kernel='rbf', out_dir='./log', **kwargs):
     print('It starts at ', start_time)
 
     # step 1 load Data and do preprocessing
-    # train_set, val_set, test_set = load_data(input_file, norm_flg=True,
-    #                                          train_val_test_percent=[0.7 * 0.9, 0.7 * 0.1, 0.3])
-    train_set_without_abnormal_data, val_set, test_set = achieve_train_val_test_from_files(input_files_dict,
-                                                                                           norm_flg=True,
-                                                                                           train_val_test_percent=[
-                                                                                               0.7,
-                                                                                               '',
-                                                                                               0.3])
+    train_set_without_abnormal_data, val_set_without_abnormal_data, test_set = achieve_train_val_test_from_files(
+        input_files_dict, norm_flg=True, train_val_test_percent=[0.7, 0.1, 0.2], shuffle_flg=False)
     print('train_set:%s,val_set:%s,test_set:%s' % (
-        Counter(train_set_without_abnormal_data[1]), Counter(val_set[1]), Counter(test_set[1])))
+        Counter(train_set_without_abnormal_data[1]), Counter(val_set_without_abnormal_data[1]), Counter(test_set[1])))
 
     # step 2.1 initialize OC-SVM
     ocsvm = OCSVM(kernel=kernel, grid_search_cv_flg=True)
 
     # step 2.2 train OC-SVM model
-    ocsvm.train(train_set_without_abnormal_data, val_set)
+    ocsvm.train(train_set_without_abnormal_data, val_set_without_abnormal_data)
 
     # step 3.1 dump model
     model_file = dump_model(ocsvm, os.path.join(out_dir, 'ocsvm_model.p'))
@@ -195,7 +193,7 @@ def ocsvm_main(input_files_dict, kernel='rbf', out_dir='./log', **kwargs):
     ocsvm_model = load_model(model_file)
 
     # step 4 evaluate model
-    ocsvm_model.evaluate(val_set, name='val_set')
+    # ocsvm_model.evaluate(val_set_without_abnormal_data, name='val_set')
     ocsvm_model.evaluate(test_set, name='test_set')
 
     end_time = time.strftime('%Y-%h-%d %H:%M:%S', time.localtime())
@@ -223,6 +221,8 @@ if __name__ == '__main__':
         normal_file = '../Data/normal_demo.txt'
         attack_file = '../Data/attack_demo.txt'
         input_file = {'normal_files': [normal_file], 'attack_files': [attack_file]}
+        # input_files_dict={'normal_files': ['../Data/normal_demo.txt'], 'attack_files': ['../Data/attack_demo.txt', '../Data/attack_demo.txt']}
+
     else:
         normal_file = '../Data/sess_normal_0.txt'
         attack_file_1 = '../Data/sess_TDL4_HTTP_Requests_0.txt'
