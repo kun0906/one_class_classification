@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # the above line tells the shell how to execute this script
 #
 # job-name
