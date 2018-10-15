@@ -36,7 +36,7 @@ import torch.utils.data as Data
 from sklearn.metrics import confusion_matrix
 from torch import nn
 from torch.utils.data import DataLoader
-
+from sys_path_export import *  # this is must be done in command environment
 from Utilities.common_funcs import show_data, achieve_train_val_test_from_files
 
 

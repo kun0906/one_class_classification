@@ -36,6 +36,7 @@ from sklearn import svm
 from sklearn.metrics import roc_auc_score, confusion_matrix
 from sklearn.metrics.pairwise import pairwise_distances
 
+from sys_path_export import *  # this is must be done in command environment
 from Utilities.common_funcs import dump_model, load_model, achieve_train_val_test_from_files
 
 
@@ -49,8 +50,8 @@ class OCSVM(object):
         :param kwargs:
         """
         self.kernel = kernel
-        self.nu = 0.5
-        self.gamma = 0.9
+        self.nu = 0.5  # nu : An upper bound on the fraction of training errors and a lower bound of the fraction of support vectors. Should be in the interval (0, 1]. By default 0.5 will be taken.
+        self.gamma = 0.9  # Kernel coefficient for ‘rbf’, ‘poly’ and ‘sigmoid’.
         self.grid_search_cv_flg = grid_search_cv_flg
         self.show_flg = True
         self.results = {'val_set': {'acc': [0.0], 'auc': [0.0]}, 'test_set': {'acc': [0.0], 'auc': [0.0]}}
