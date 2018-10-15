@@ -35,6 +35,7 @@ pip3 install pillow
 pip3 install scapy
 pip3 install torch
 pip3 install sklearn
+pip3 install matplotlib
 
 #source py3.6.3/bin/activate /home/ky13/py3.6.3
 cd /scratch/ky13/Experiments/OneClassClassification_20181010/DeepAutoEncoder_Pytorch/

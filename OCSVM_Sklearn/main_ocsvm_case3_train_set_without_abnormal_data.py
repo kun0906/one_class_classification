@@ -140,10 +140,14 @@ class OCSVM(object):
 
         X = test_set[0]
         y = test_set[1]
-
+        self.false_alarm_lst = []
         # Step 1. predict output values
         # change label (-1 (abnormal) and +1 (normal)) outputed by ocsvm to '1 and 0' (-1->1, +1->0)
         y_pred = (self.ocsvm.predict(X) == -1) * 1  # True=1, False=0,For an one-class model, +1 or -1 is returned.
+
+        for i in range(len(y_pred)):
+            if y[i] == 1:  # save predict error: normal are recognized as attack
+                self.false_alarm_lst.append([i, 1])
 
         # Step 2. achieve the evluation standards.
         cm = confusion_matrix(y, y_pred)
@@ -195,6 +199,11 @@ def ocsvm_main(input_files_dict, kernel='rbf', out_dir='./log', **kwargs):
     # step 4 evaluate model
     # ocsvm_model.evaluate(val_set_without_abnormal_data, name='val_set')
     ocsvm_model.evaluate(test_set, name='test_set')
+
+    # step 4.2 out predicted values in descending order
+    false_samples_lst = sorted(ocsvm_model.false_alarm_lst, key=lambda l: l[1],
+                               reverse=True)  # for second dims, sorted(li,key=lambda l:l[1], reverse=True)
+    print('the normal samples are recognized as attack samples are as follow:\n', false_samples_lst)
 
     end_time = time.strftime('%Y-%h-%d %H:%M:%S', time.localtime())
     print('It ends at ', end_time)

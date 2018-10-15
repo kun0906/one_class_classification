@@ -189,14 +189,18 @@ class AutoEncoder(nn.Module):
         # Step 2. comparison with Threshold.
         y_preds = []
         num_abnormal = 0
+        self.false_alarm_lst = []
         print('Threshold(T) is ', self.T.data.tolist())
         for i in range(X.shape[0]):
             # if torch.dist(AE_outs, X, 2) > self.T:
             # if torch.norm((AE_outs[i] - X[i]), 2) > self.T:
-            if self.criterion(AE_outs[i], X[i]) > self.T:
+            distance_error = self.criterion(AE_outs[i], X[i])
+            if distance_error > self.T:
                 # print('abnormal sample.')
                 y_preds.append('1')  # 0 is normal, 1 is abnormal
                 num_abnormal += 1
+                if y_true[i] == 0:  # save predict error: normal are recognized as attack
+                    self.false_alarm_lst.append([i, distance_error])
             else:
                 y_preds.append('0')
 
@@ -307,6 +311,11 @@ def ae_main(input_files_dict, epochs=2, out_dir='./log', **kwargs):
     # AE_model.T = torch.Tensor([max_acc_thres[1]])  #
     # print('the best result on val_set is ', max_acc_thres)
     evaluate_model(AE_model, test_set, iters=1)
+
+    # step 4.2 out predicted values in descending order
+    false_samples_lst = sorted(AE_model.false_alarm_lst, key=lambda l: l[1],
+                               reverse=True)  # for second dims, sorted(li,key=lambda l:l[1], reverse=True)
+    print('the normal samples are recognized as attack samples are as follow:\n', false_samples_lst)
 
     end_time = time.strftime('%Y-%h-%d %H:%M:%S', time.localtime())
     print('It ends at ', end_time)
