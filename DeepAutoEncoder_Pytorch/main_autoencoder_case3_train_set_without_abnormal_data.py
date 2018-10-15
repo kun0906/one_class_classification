@@ -66,6 +66,7 @@ class AutoEncoder(nn.Module):
         self.epochs = epochs
         self.learning_rate = 1e-3
         self.batch_size = 64
+        self.tolerance_cnt = 10  # stop training
 
         self.show_flg = True
 
@@ -132,6 +133,7 @@ class AutoEncoder(nn.Module):
         self.val_set = Data.TensorDataset(torch.Tensor(X_val), torch.Tensor(X_val))
         self.results = {'train_set': {'acc': [], 'auc': []}, 'val_set': {'acc': [], 'auc': []}}
         self.loss = {'train_loss': [], 'val_loss': []}
+        cnt = 0
         for epoch in range(self.epochs):
             for iter, (batch_X, _) in enumerate(dataloader):
                 # # ===================forward=====================
@@ -146,13 +148,24 @@ class AutoEncoder(nn.Module):
             val_output = self.forward(self.val_set.tensors[0])
             val_loss = self.criterion(val_output, self.val_set.tensors[1])
             self.loss['val_loss'].append(val_loss.data)
+            accumulate_flg = False
+            if val_loss > loss:
+                accumulate_flg = True
+                if accumulate_flg:
+                    accumulate_cnt += 1
+                else:
+                    accumulate_cnt = 0
+                if self.tolerance_cnt < accumulate_cnt:
+                    print('training stop in advance.')
+                    break
+
             print('epoch [{:d}/{:d}], train_loss:{:.4f}, val_loss:{:.4f}\n'.format(epoch + 1, self.epochs, loss.data,
                                                                                    val_loss.data))
             # if epoch % 10 == 0:
             #     # pic = to_img(output.cpu().Data)
             #     # save_image(pic, './mlp_img/image_{}.png'.format(epoch))
-        self.T = torch.Tensor([np.min(self.loss['val_loss'])])
-        print('the minimunal loss on val_set is ', self.T)
+        self.T = torch.Tensor([np.min(self.loss['train_loss'])])
+        print('the minimunal loss on val_set is ', self.T.data)
         if self.show_flg:
             show_data(self.loss['train_loss'], x_label='epochs', y_label='Train_loss', fig_label='Train_loss',
                       title='training loss on training process')
@@ -269,11 +282,7 @@ def ae_main(input_files_dict, epochs=2, out_dir='./log', **kwargs):
 
     # step 1 load Data and do preprocessing
     train_set_without_abnormal_data, val_set_without_abnormal_data, test_set = achieve_train_val_test_from_files(
-        input_files_dict, norm_flg=True,
-        train_val_test_percent=[
-                                                                                               0.7,
-            0.1,
-            0.2], shuffle_flg=False)
+        input_files_dict, norm_flg=True, train_val_test_percent=[0.7, 0.1, 0.2], shuffle_flg=False)
     print('train_set:%s,val_set:%s,test_set:%s' % (
         Counter(train_set_without_abnormal_data[1]), Counter(val_set_without_abnormal_data[1]), Counter(test_set[1])))
 

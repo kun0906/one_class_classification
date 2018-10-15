@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3328596d-b116-4f8c-8c06-719cdaa432ba" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Data/case1.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Data/case2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/history_files/common_funcs_20181015.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/history_files/main_autoencoder_case3_train_set_without_abnormal_data_20181014.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/history_files/main_ocsvm_case3_train_set_without_abnormal_data_20181014.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/autoencoder_model.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/ocsvm_model.p" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case1_2_train_set_without_abnormal_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case1_2_train_set_without_abnormal_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case3_train_set_without_abnormal_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case3_train_set_without_abnormal_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utilities/common_funcs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities/common_funcs.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -59,8 +49,8 @@
       <file leaf-file-name="main_autoencoder_case3_train_set_without_abnormal_data.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+            <state relative-caret-position="517">
+              <caret line="156" column="20" selection-start-line="156" selection-start-column="20" selection-end-line="156" selection-end-column="20" />
               <folding>
                 <element signature="e#635#650#0" expanded="true" />
               </folding>
@@ -437,13 +427,6 @@
       <option name="presentableId" value="Default" />
       <updated>1538853984536</updated>
     </task>
-    <task id="LOCAL-00002" summary="add grid_search_cv for one class svm">
-      <created>1538950685307</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1538950685307</updated>
-    </task>
     <task id="LOCAL-00003" summary="add csv file process">
       <created>1538953748336</created>
       <option name="number" value="00003" />
@@ -780,7 +763,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539566043329</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="    &quot;abnormal detection by reconstruction errors&quot;&#10;    # 0 is normal, 1 is abnormal&#10;&#10;    Case3:&#10;        sess_normal_0 + all_abnormal_data(sess_TDL4_HTTP_Requests_0 +sess_Rcv_Wnd_Size_0_0)&#10;&#10;    Case3:&#10;        Train set : (0.7 * all_normal_data)&#10;        Val_set:  (0.1*all_normal_data)&#10;        Test_set: (0.2*all_normal_data+ 1.0*all_abnormal_data)">
+      <created>1539637964707</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1539637964708</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -792,13 +782,13 @@
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.4983845" weight="0.32941177" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.37078652" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49757674" visible="true" weight="0.3022472" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49757674" visible="true" weight="0.27415732" />
       <window_info anchor="bottom" id="Terminal" order="5" weight="0.26067415" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19743863" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" sideWeight="0.6044776" weight="0.14461046" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.3269663" />
-      <window_info anchor="right" id="SciView" order="4" sideWeight="0.6882353" visible="true" weight="0.28175026" />
+      <window_info active="true" anchor="right" id="SciView" order="4" sideWeight="0.6882353" visible="true" weight="0.23052295" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="9" sideWeight="0.4994664" weight="0.447191" />
@@ -842,7 +832,8 @@
     <MESSAGE value="add parse_parameters func" />
     <MESSAGE value=" add 'parent path' to system path so that the script can call 'parent directory'" />
     <MESSAGE value="modify run_AE_pytorch.sh -e 1000" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify run_AE_pytorch.sh -e 1000" />
+    <MESSAGE value="    &quot;abnormal detection by reconstruction errors&quot;&#10;    # 0 is normal, 1 is abnormal&#10;&#10;    Case3:&#10;        sess_normal_0 + all_abnormal_data(sess_TDL4_HTTP_Requests_0 +sess_Rcv_Wnd_Size_0_0)&#10;&#10;    Case3:&#10;        Train set : (0.7 * all_normal_data)&#10;        Val_set:  (0.1*all_normal_data)&#10;        Test_set: (0.2*all_normal_data+ 1.0*all_abnormal_data)" />
+    <option name="LAST_COMMIT_MESSAGE" value="    &quot;abnormal detection by reconstruction errors&quot;&#10;    # 0 is normal, 1 is abnormal&#10;&#10;    Case3:&#10;        sess_normal_0 + all_abnormal_data(sess_TDL4_HTTP_Requests_0 +sess_Rcv_Wnd_Size_0_0)&#10;&#10;    Case3:&#10;        Train set : (0.7 * all_normal_data)&#10;        Val_set:  (0.1*all_normal_data)&#10;        Test_set: (0.2*all_normal_data+ 1.0*all_abnormal_data)" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -875,7 +866,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py</url>
-          <line>296</line>
+          <line>307</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -900,7 +891,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py</url>
-          <line>145</line>
+          <line>147</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
@@ -1253,8 +1244,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+        <state relative-caret-position="517">
+          <caret line="156" column="20" selection-start-line="156" selection-start-column="20" selection-end-line="156" selection-end-column="20" />
           <folding>
             <element signature="e#635#650#0" expanded="true" />
           </folding>
