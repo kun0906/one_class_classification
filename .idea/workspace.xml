@@ -25,7 +25,7 @@
     <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_ocsvm_case1_2.coverage" NAME="main_ocsvm_case1_2 Coverage Results" MODIFIED="1539274255375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCSVM_Sklearn" />
     <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_ocsvm_case3_train_set_without_abnormal_data.coverage" NAME="main_ocsvm_case3_train_set_without_abnormal_data Coverage Results" MODIFIED="1539564123735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCSVM_Sklearn" />
     <SUITE FILE_PATH="coverage/OneClassClassification_20181010$autoencoder.coverage" NAME="autoencoder Coverage Results" MODIFIED="1539213761745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
-    <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_autoencoder_case3_train_set_without_abnormal_data.coverage" NAME="main_autoencoder_case3_train_set_without_abnormal_data Coverage Results" MODIFIED="1539637130105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
+    <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_autoencoder_case3_train_set_without_abnormal_data.coverage" NAME="main_autoencoder_case3_train_set_without_abnormal_data Coverage Results" MODIFIED="1539639348668" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
     <SUITE FILE_PATH="coverage/Deep_SVDD_20181006$baseline_ocsvm.coverage" NAME="baseline_ocsvm Coverage Results" MODIFIED="1538953750334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Deep_SVDD_Pytorch" />
     <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_autoencoder_case1_2_train_set_without_abnormal_data.coverage" NAME="main_autoencoder_case1_2_train_set_without_abnormal_data Coverage Results" MODIFIED="1539454801846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
     <SUITE FILE_PATH="coverage/Deep_SVDD_20181006$baseline.coverage" NAME="baseline Coverage Results" MODIFIED="1538868745833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Deep-SVDD-master/src" />
@@ -49,8 +49,8 @@
       <file leaf-file-name="main_autoencoder_case3_train_set_without_abnormal_data.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
-              <caret line="156" column="20" selection-start-line="156" selection-start-column="20" selection-end-line="156" selection-end-column="20" />
+            <state relative-caret-position="266">
+              <caret line="68" column="35" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="35" />
               <folding>
                 <element signature="e#635#650#0" expanded="true" />
               </folding>
@@ -427,13 +427,6 @@
       <option name="presentableId" value="Default" />
       <updated>1538853984536</updated>
     </task>
-    <task id="LOCAL-00003" summary="add csv file process">
-      <created>1538953748336</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1538953748336</updated>
-    </task>
     <task id="LOCAL-00004" summary="add csv file process">
       <created>1538963670788</created>
       <option name="number" value="00004" />
@@ -770,7 +763,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539637964708</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="add 'tolerance_cnt' to control training process">
+      <created>1539638909414</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1539638909415</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -782,7 +782,7 @@
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.4983845" weight="0.32941177" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.37078652" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49757674" visible="true" weight="0.27415732" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49757674" visible="true" weight="0.2988764" />
       <window_info anchor="bottom" id="Terminal" order="5" weight="0.26067415" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19743863" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
@@ -833,7 +833,8 @@
     <MESSAGE value=" add 'parent path' to system path so that the script can call 'parent directory'" />
     <MESSAGE value="modify run_AE_pytorch.sh -e 1000" />
     <MESSAGE value="    &quot;abnormal detection by reconstruction errors&quot;&#10;    # 0 is normal, 1 is abnormal&#10;&#10;    Case3:&#10;        sess_normal_0 + all_abnormal_data(sess_TDL4_HTTP_Requests_0 +sess_Rcv_Wnd_Size_0_0)&#10;&#10;    Case3:&#10;        Train set : (0.7 * all_normal_data)&#10;        Val_set:  (0.1*all_normal_data)&#10;        Test_set: (0.2*all_normal_data+ 1.0*all_abnormal_data)" />
-    <option name="LAST_COMMIT_MESSAGE" value="    &quot;abnormal detection by reconstruction errors&quot;&#10;    # 0 is normal, 1 is abnormal&#10;&#10;    Case3:&#10;        sess_normal_0 + all_abnormal_data(sess_TDL4_HTTP_Requests_0 +sess_Rcv_Wnd_Size_0_0)&#10;&#10;    Case3:&#10;        Train set : (0.7 * all_normal_data)&#10;        Val_set:  (0.1*all_normal_data)&#10;        Test_set: (0.2*all_normal_data+ 1.0*all_abnormal_data)" />
+    <MESSAGE value="add 'tolerance_cnt' to control training process" />
+    <option name="LAST_COMMIT_MESSAGE" value="add 'tolerance_cnt' to control training process" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -866,7 +867,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py</url>
-          <line>307</line>
+          <line>306</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -1244,8 +1245,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="156" column="20" selection-start-line="156" selection-start-column="20" selection-end-line="156" selection-end-column="20" />
+        <state relative-caret-position="266">
+          <caret line="68" column="35" selection-start-line="68" selection-start-column="35" selection-end-line="68" selection-end-column="35" />
           <folding>
             <element signature="e#635#650#0" expanded="true" />
           </folding>

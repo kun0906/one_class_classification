@@ -66,7 +66,7 @@ class AutoEncoder(nn.Module):
         self.epochs = epochs
         self.learning_rate = 1e-3
         self.batch_size = 64
-        self.tolerance_cnt = 10  # stop training
+        self.stop_early_flg = False  # stop training
 
         self.show_flg = True
 
@@ -148,16 +148,15 @@ class AutoEncoder(nn.Module):
             val_output = self.forward(self.val_set.tensors[0])
             val_loss = self.criterion(val_output, self.val_set.tensors[1])
             self.loss['val_loss'].append(val_loss.data)
-            accumulate_flg = False
-            if val_loss > loss:
-                accumulate_flg = True
-                if accumulate_flg:
-                    accumulate_cnt += 1
-                else:
-                    accumulate_cnt = 0
-                if self.tolerance_cnt < accumulate_cnt:
-                    print('training stop in advance.')
-                    break
+            if self.stop_early_flg:
+                accumulate_flg = False
+                if len(self.loss['val_loss']) > 5:
+                    if val_loss > self.loss['val_loss'][-2]:
+                        accumulate_flg = True
+                        accumulate_cnt = accumulate_cnt + 1 if accumulate_flg else 0
+                        if accumulate_cnt > 20:
+                            print('training stop in advance.')
+                            break
 
             print('epoch [{:d}/{:d}], train_loss:{:.4f}, val_loss:{:.4f}\n'.format(epoch + 1, self.epochs, loss.data,
                                                                                    val_loss.data))
