@@ -248,12 +248,13 @@ def achieve_train_val_test_from_files(files_dict={'normal_files': [], 'attack_fi
             # test_set_len = len(y_normal)-train_set_len-val_set_len
             X_test_normal = X_normal[train_set_len + val_set_len:, :]
             X_test = np.concatenate((X_test_normal, np.asarray(X_attack, dtype=float)), axis=0)
-            X_test = (X_test - u_normal) / std_normal
             y_test = np.concatenate((np.reshape(y_normal[train_set_len + val_set_len:], (-1, 1)),
                                      np.reshape(np.asarray(y_attack, dtype=int), (len(y_attack), 1))))
+            test_set_original = (X_test, y_test.flatten())
+            X_test = (X_test - u_normal) / std_normal
             test_set = (X_test, y_test.flatten())
 
-    return train_set, val_set, test_set
+    return train_set, val_set, test_set, u_normal, std_normal, test_set_original
 
 
 def dump_model(model, out_file):
@@ -297,7 +298,6 @@ def show_data(data, x_label='epochs', y_label='y', fig_label='', title=''):
     plt.ylabel(y_label)
     plt.title(title)
     plt.show()
-
 
 def get_variable_name(data_var):
     """

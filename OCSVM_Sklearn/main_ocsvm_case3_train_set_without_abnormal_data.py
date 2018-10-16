@@ -146,8 +146,8 @@ class OCSVM(object):
         y_pred = (self.ocsvm.predict(X) == -1) * 1  # True=1, False=0,For an one-class model, +1 or -1 is returned.
 
         for i in range(len(y_pred)):
-            if y[i] == 1:  # save predict error: normal are recognized as attack
-                self.false_alarm_lst.append([i, 1])
+            if y[i] == 0:  # save predict error: normal are recognized as attack
+                self.false_alarm_lst.append([i, 0, X[i]])
 
         # Step 2. achieve the evluation standards.
         cm = confusion_matrix(y, y_pred)
@@ -179,13 +179,13 @@ def ocsvm_main(input_files_dict, kernel='rbf', out_dir='./log', **kwargs):
     print('It starts at ', start_time)
 
     # step 1 load Data and do preprocessing
-    train_set_without_abnormal_data, val_set_without_abnormal_data, test_set = achieve_train_val_test_from_files(
+    train_set_without_abnormal_data, val_set_without_abnormal_data, test_set, u_normal, std_normal, test_set_original = achieve_train_val_test_from_files(
         input_files_dict, norm_flg=True, train_val_test_percent=[0.7, 0.1, 0.2], shuffle_flg=False)
     print('train_set:%s,val_set:%s,test_set:%s' % (
         Counter(train_set_without_abnormal_data[1]), Counter(val_set_without_abnormal_data[1]), Counter(test_set[1])))
 
     # step 2.1 initialize OC-SVM
-    ocsvm = OCSVM(kernel=kernel, grid_search_cv_flg=True)
+    ocsvm = OCSVM(kernel=kernel, grid_search_cv_flg=False)
 
     # step 2.2 train OC-SVM model
     ocsvm.train(train_set_without_abnormal_data, val_set_without_abnormal_data)
@@ -203,7 +203,14 @@ def ocsvm_main(input_files_dict, kernel='rbf', out_dir='./log', **kwargs):
     # step 4.2 out predicted values in descending order
     false_samples_lst = sorted(ocsvm_model.false_alarm_lst, key=lambda l: l[1],
                                reverse=True)  # for second dims, sorted(li,key=lambda l:l[1], reverse=True)
-    print('the normal samples are recognized as attack samples are as follow:\n', false_samples_lst)
+    print('the normal samples are recognized as attack samples are as follow in the first 10 samples:')
+    num_print = 100
+    if len(false_samples_lst) < num_print:
+        num_print = len(false_samples_lst)
+    for i in range(num_print):
+        print('i=%d' % i, ' <index in test_set, distance_error, norm_vale>:', false_samples_lst[i], ' v*std+u:',
+              false_samples_lst[i][2] * std_normal + u_normal, '=>original vaule in test set:',
+              test_set_original[0][false_samples_lst[i][0]], test_set_original[1][false_samples_lst[i][0]])
 
     end_time = time.strftime('%Y-%h-%d %H:%M:%S', time.localtime())
     print('It ends at ', end_time)
@@ -243,4 +250,4 @@ if __name__ == '__main__':
     input_files_dict = eval(args['input_files_dict'])
     epochs = args['kernel']
     out_dir = args['out_dir']
-    ocsvm_main(input_file, kernel='rbf', out_dir='../log')
+    ocsvm_main(input_files_dict, kernel='rbf', out_dir='../log')
