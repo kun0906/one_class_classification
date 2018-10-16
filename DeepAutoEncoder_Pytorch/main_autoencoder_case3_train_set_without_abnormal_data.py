@@ -6,7 +6,7 @@
     Case3:
         sess_normal_0 + all_abnormal_data(sess_TDL4_HTTP_Requests_0 +sess_Rcv_Wnd_Size_0_0)
 
-    Case3:
+    Case3:  (no shuffle)
         Train set : (0.7 * all_normal_data)
         Val_set:  (0.1*all_normal_data)
         Test_set: (0.2*all_normal_data+ 1.0*all_abnormal_data)
@@ -164,7 +164,7 @@ class AutoEncoder(nn.Module):
             #     # pic = to_img(output.cpu().Data)
             #     # save_image(pic, './mlp_img/image_{}.png'.format(epoch))
         self.T = torch.Tensor([np.min(self.loss['train_loss'])])
-        print('the minimunal loss on val_set is ', self.T.data)
+        print('the minimunal loss on train_set is ', self.T.data)
         if self.show_flg:
             show_data(self.loss['train_loss'], x_label='epochs', y_label='Train_loss', fig_label='Train_loss',
                       title='training loss on training process')
@@ -205,7 +205,7 @@ class AutoEncoder(nn.Module):
                 y_preds.append('0')
 
         # Step 3. achieve the evluation standards.
-        print('No. of abnormal sample is ', num_abnormal)
+        print('No. of abnormal samples (false alarm) is ', num_abnormal)
         y_preds = np.asarray(y_preds, dtype=int)
         cm = confusion_matrix(y_pred=y_preds, y_true=y_true)
         print('Confusion matrix:\n', cm)

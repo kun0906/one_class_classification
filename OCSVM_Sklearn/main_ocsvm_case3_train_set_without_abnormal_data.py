@@ -6,7 +6,7 @@
     Case3:
         sess_normal_0 + all_abnormal_data(sess_TDL4_HTTP_Requests_0 +sess_Rcv_Wnd_Size_0_0)
 
-    Case3:
+    Case3: (no shuffle)
         Train set : (0.7 * all_normal_data)
         Val_set:  (0.1*all_normal_data)
         Test_set: (0.2*all_normal_data+ 1.0*all_abnormal_data)
