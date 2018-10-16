@@ -146,7 +146,7 @@ class OCSVM(object):
         y_pred = (self.ocsvm.predict(X) == -1) * 1  # True=1, False=0,For an one-class model, +1 or -1 is returned.
 
         for i in range(len(y_pred)):
-            if y[i] == 0:  # save predict error: normal are recognized as attack
+            if y_pred[i] == 1 and y[i] == 0:  # save predict error: normal are recognized as attack
                 self.false_alarm_lst.append([i, 0, X[i]])
 
         # Step 2. achieve the evluation standards.
@@ -203,8 +203,8 @@ def ocsvm_main(input_files_dict, kernel='rbf', out_dir='./log', **kwargs):
     # step 4.2 out predicted values in descending order
     false_samples_lst = sorted(ocsvm_model.false_alarm_lst, key=lambda l: l[1],
                                reverse=True)  # for second dims, sorted(li,key=lambda l:l[1], reverse=True)
-    print('the normal samples are recognized as attack samples are as follow in the first 10 samples:')
     num_print = 100
+    print('the normal samples are recognized as attack samples are as follow in the first %d samples:', num_print)
     if len(false_samples_lst) < num_print:
         num_print = len(false_samples_lst)
     for i in range(num_print):
