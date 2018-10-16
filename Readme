@@ -19,3 +19,5 @@ Utilities
     CSV_Dataloder.py
     common_funcs.py
 
+Note:
+    since 10/13, we focus on case3, please read the codes related to case3.
