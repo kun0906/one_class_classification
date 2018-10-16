@@ -185,7 +185,7 @@ def ocsvm_main(input_files_dict, kernel='rbf', out_dir='./log', **kwargs):
         Counter(train_set_without_abnormal_data[1]), Counter(val_set_without_abnormal_data[1]), Counter(test_set[1])))
 
     # step 2.1 initialize OC-SVM
-    ocsvm = OCSVM(kernel=kernel, grid_search_cv_flg=False)
+    ocsvm = OCSVM(kernel=kernel, grid_search_cv_flg=True)
 
     # step 2.2 train OC-SVM model
     ocsvm.train(train_set_without_abnormal_data, val_set_without_abnormal_data)
