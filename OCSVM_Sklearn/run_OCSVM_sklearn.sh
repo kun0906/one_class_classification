@@ -5,14 +5,15 @@
 #SBATCH --job-name=OCSVM_Sklearn
 #
 # need 4 nodes
-#SBATCH --nodes=4
-#SBATCH --cpus-per-task=2
+##SBATCH --nodes=4 # if you write the code based on tensor, maybe you can use
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=4
 #
 # expect the job to finish within 5 hours. If it takes longer than 5 hours, SLURM can kill it
 #SBATCH --time=20:00:00
 #
 # expect the job to use no more than 24GB of memory
-#SBATCH --mem=24GB
+#SBATCH --mem=40GB
 #
 # once job ends, send me an email
 #SBATCH --mail-type=END
