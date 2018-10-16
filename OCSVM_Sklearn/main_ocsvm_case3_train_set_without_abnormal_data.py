@@ -142,11 +142,12 @@ class OCSVM(object):
         y = test_set[1]
         self.false_alarm_lst = []
         # Step 1. predict output values
+        # For an one-class model, +1 (inlier) or -1 (outlier) is returned.
         # change label (-1 (abnormal) and +1 (normal)) outputed by ocsvm to '1 and 0' (-1->1, +1->0)
         y_pred = (self.ocsvm.predict(X) == -1) * 1  # True=1, False=0,For an one-class model, +1 or -1 is returned.
 
         for i in range(len(y_pred)):
-            if y_pred[i] == 1 and y[i] == 0:  # save predict error: normal are recognized as attack
+            if y_pred[i] == True and y[i] == 0:  # save predict error: normal are recognized as attack
                 self.false_alarm_lst.append([i, 0, X[i]])
 
         # Step 2. achieve the evluation standards.
