@@ -147,7 +147,7 @@ class AutoEncoder(nn.Module):
                 loss_epoch += loss
 
             # self.loss['train_loss'].append(loss.data)  #
-            self.loss['train_loss'].append(loss_epoch.data / len(X_train.shape[0]))
+            self.loss['train_loss'].append(loss_epoch.data / len(dataloader))
             val_output = self.forward(self.val_set.tensors[0])
             val_loss = self.criterion(val_output, self.val_set.tensors[1])
             self.loss['val_loss'].append(val_loss.data)
