@@ -318,7 +318,7 @@ def ae_main(input_files_dict, epochs=2, out_dir='./log', **kwargs):
     # step 4.2 out predicted values in descending order
     false_samples_lst = sorted(AE_model.false_alarm_lst, key=lambda l: l[1],
                                reverse=True)  # for second dims, sorted(li,key=lambda l:l[1], reverse=True)
-    num_print = 100
+    num_print = 10
     print('the normal samples are recognized as attack samples are as follow in the first %d samples:', num_print)
     if len(false_samples_lst) < num_print:
         num_print = len(false_samples_lst)
