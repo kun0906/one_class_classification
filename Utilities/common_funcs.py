@@ -195,7 +195,7 @@ def load_data_with_new_principle(input_data='', norm_flg=True, train_val_test_pe
     return train_set, val_set, test_set
 
 
-def split_normal2train_val_test_from_files(files_dict={'normal_files': []}, norm_flg=True,
+def split_normal2train_val_test_from_files(file_list, norm_flg=True,
                                            train_val_test_percent=[0.7, 0.1, 0.2], shuffle_flg=False):
     """
         only split normal_data to train, val, test (only includes 0.2*normal and not normlized in this function, )
@@ -204,17 +204,18 @@ def split_normal2train_val_test_from_files(files_dict={'normal_files': []}, norm
     :param train_val_test_percent: train_set=0.7*normal, val_set = 0.1*normal, test_set = 0.2*normal,
     :return:
     """
-    print('file_dict:', files_dict)
+    np.set_printoptions(suppress=True)  # Suppresses the use of scientific notation for small numbers in numpy array
+    print('file_list:', file_list)
     X_normal = []
     y_normal = []
-    for normal_file in files_dict['normal_files']:
+    for normal_file in file_list:
         X_tmp, y_tmp = open_file(normal_file, label='0')
         X_normal.extend(X_tmp)
         y_normal.extend(y_tmp)
-
-    print('normal_data:', len(X_normal))
     X_normal = np.asarray(X_normal, dtype=float)
     y_normal = np.asarray(y_normal, dtype=int)
+    print('normal_data:', X_normal.shape)
+
     if shuffle_flg:
         print('not implement yet.')
     else:

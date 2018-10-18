@@ -47,12 +47,12 @@ import numpy as np
 import torch
 import torch.utils.data as Data
 from sklearn.metrics import confusion_matrix
+from sys_path_export import *  # it is no need to do in IDE environment, however, it must be done in shell/command environment
 from torch import nn
 from torch.utils.data import DataLoader
-from sys_path_export import *  # it is no need to do in IDE environment, however, it must be done in shell/command environment
 
 from Utilities.CSV_Dataloader import open_file
-from Utilities.common_funcs import show_data, achieve_train_val_test_from_files, split_normal2train_val_test_from_files
+from Utilities.common_funcs import show_data, split_normal2train_val_test_from_files
 
 
 def print_net(net, describe_str='Net'):
@@ -178,13 +178,13 @@ class AutoEncoder(nn.Module):
                             print('training stop in advance.')
                             break
 
-            print('epoch [{:d}/{:d}], train_loss:{:.4f}, val_loss:{:.4f}\n'.format(epoch + 1, self.epochs, loss.data,
-                                                                                   val_loss.data))
+            print('epoch [{:d}/{:d}], train_loss:{:.4f}, val_loss:{:.4f}'.format(epoch + 1, self.epochs, loss.data,
+                                                                                 val_loss.data))
             # if epoch % 10 == 0:
             #     # pic = to_img(output.cpu().Data)
             #     # save_image(pic, './mlp_img/image_{}.png'.format(epoch))
         self.T = torch.Tensor([np.min(self.loss['train_loss'])])
-        print('the minimunal loss on train_set is ', self.T.data)
+        print('the minimunal loss on train_set is %f\n' % self.T.data)
         if self.show_flg:
             show_data(self.loss['train_loss'], x_label='epochs', y_label='Train_loss', fig_label='Train_loss',
                       title='training loss on training process')
@@ -218,8 +218,8 @@ class AutoEncoder(nn.Module):
             if distance_error > self.T:
                 # print('abnormal sample.')
                 y_preds.append('1')  # 0 is normal, 1 is abnormal
-                num_abnormal += 1
                 if y_true[i] == 0:  # save predict error: normal are recognized as attack
+                    num_abnormal += 1
                     self.false_alarm_lst.append([i, distance_error.data, X[i].data])
             else:
                 y_preds.append('0')
@@ -305,17 +305,19 @@ def ae_main(input_files_dict, epochs=2, out_dir='./log', **kwargs):
 
     # step 1 load Data and do preprocessing
     train_set_without_abnormal_data, val_set_without_abnormal_data, test_set_without_abnormal_data, u_normal, std_normal = split_normal2train_val_test_from_files(
-        input_files_dict, norm_flg=True, train_val_test_percent=[0.7, 0.1, 0.2], shuffle_flg=False)
+        input_files_dict['normal_files'], norm_flg=True, train_val_test_percent=[0.7, 0.1, 0.2], shuffle_flg=False)
     print('train_set:%s,val_set:%s,test_set:%s' % (
         Counter(train_set_without_abnormal_data[1]), Counter(val_set_without_abnormal_data[1]),
-        Counter(val_set_without_abnormal_data[1])))
+        Counter(test_set_without_abnormal_data[1])))
 
     # step 2.1 model initialization
     AE_model = AutoEncoder(in_dim=train_set_without_abnormal_data[0].shape[1],
                            epochs=epochs)  # train_set (no_label and no abnormal traffic)
 
     # step 2.2 train model
+    print('\nTraining begins ...')
     AE_model.train(train_set_without_abnormal_data, val_set_without_abnormal_data)
+    print('\nTrain finished.')
 
     # step 3.1 dump model
     model_file = save_model(AE_model, os.path.join(out_dir, 'autoencoder_model.pth'))
@@ -331,7 +333,7 @@ def ae_main(input_files_dict, epochs=2, out_dir='./log', **kwargs):
     #                                            'title': 'accuracy on val set with different thresholds.'})
     # AE_model.T = torch.Tensor([max_acc_thres[1]])  #
     # print('the best result on val_set is ', max_acc_thres)
-
+    print('\nEvaluting ...')
     for test_file_tmp in input_files_dict['attack_files']:
         (X_attack_data, y_attack_data) = test_set_without_abnormal_data
         (X_tmp, y_tmp) = open_file(test_file_tmp, label='1')
@@ -339,23 +341,26 @@ def ae_main(input_files_dict, epochs=2, out_dir='./log', **kwargs):
         y_attack_data = np.concatenate(
             (np.reshape(y_attack_data, (len(y_attack_data))), np.reshape(np.asarray(y_tmp, dtype=int), (len(y_tmp)))))
         test_set_original = (X_attack_data, y_attack_data)
-        print('test_set includes 0.2 normal_data (%d) + 1.0*attack_data (%d) which comes from %s' % (
-        len(test_set_without_abnormal_data[1]), len(X_attack_data), test_file_tmp))
+        print('\'test_set\' includes 0.2 normal_data (%d) + 1.0*attack_data (%d) which comes from \'%s\'' % (
+            len(test_set_without_abnormal_data[1]), len(X_attack_data), test_file_tmp))
         test_set = ((X_attack_data - u_normal) / std_normal, y_attack_data)
+        print('test_set:%s' % Counter(test_set_without_abnormal_data[1]))
         evaluate_model(AE_model, test_set, iters=1)
 
         # step 4.2 out predicted values in descending order
         false_samples_lst = sorted(AE_model.false_alarm_lst, key=lambda l: l[1],
                                    reverse=True)  # for second dims, sorted(li,key=lambda l:l[1], reverse=True)
         num_print = 10
-        print('the normal samples are recognized as attack samples are as follow in the first %d samples:', num_print)
+        print('The normal samples are recognized as attack samples are as follow in the first %d samples:', num_print)
         if len(false_samples_lst) < num_print:
             num_print = len(false_samples_lst)
+        np.set_printoptions(suppress=True)  # Suppresses the use of scientific notation for small numbers in numpy array
         for i in range(num_print):
             v_by_std_u = np.asarray(false_samples_lst[i][2].data.tolist(), dtype=float) * std_normal + u_normal
             print('i=%d' % i, ' <index in test_set, distance_error, norm_vale>', false_samples_lst[i], ' v*std+u:',
                   v_by_std_u, '=>original vaule in test set:', test_set_original[0][false_samples_lst[i][0]],
                   test_set_original[1][false_samples_lst[i][0]])
+    print('\nEvaluation finished.')
 
     end_time = time.strftime('%Y-%h-%d %H:%M:%S', time.localtime())
     print('It ends at ', end_time)
