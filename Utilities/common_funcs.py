@@ -195,6 +195,57 @@ def load_data_with_new_principle(input_data='', norm_flg=True, train_val_test_pe
     return train_set, val_set, test_set
 
 
+def split_normal2train_val_test_from_files(files_dict={'normal_files': []}, norm_flg=True,
+                                           train_val_test_percent=[0.7, 0.1, 0.2], shuffle_flg=False):
+    """
+        only split normal_data to train, val, test (only includes 0.2*normal and not normlized in this function, )
+    :param files_dict:  # 0 is normal, 1 is abnormal
+    :param norm_flg:
+    :param train_val_test_percent: train_set=0.7*normal, val_set = 0.1*normal, test_set = 0.2*normal,
+    :return:
+    """
+    print('file_dict:', files_dict)
+    X_normal = []
+    y_normal = []
+    for normal_file in files_dict['normal_files']:
+        X_tmp, y_tmp = open_file(normal_file, label='0')
+        X_normal.extend(X_tmp)
+        y_normal.extend(y_tmp)
+
+    print('normal_data:', len(X_normal))
+    X_normal = np.asarray(X_normal, dtype=float)
+    y_normal = np.asarray(y_normal, dtype=int)
+    if shuffle_flg:
+        print('not implement yet.')
+    else:
+        if norm_flg:
+            # train set only includes 0.7*normal_data
+            train_set_len = int(len(y_normal) * train_val_test_percent[0])
+            X_train_normal = X_normal[:train_set_len, :]
+            u_normal = np.mean(X_train_normal, axis=0)
+            std_normal = np.std(X_train_normal, axis=0)
+            print('u_normal:', u_normal)
+            print('std_normal:', std_normal)
+            for i in range(std_normal.shape[0]):
+                if std_normal[i] == 0:
+                    std_normal[i] += 10e-4
+            print('std_normal_modified:', std_normal)
+            X_train_normal = (X_train_normal - u_normal) / std_normal
+            y_train_normal = y_normal[:train_set_len]
+            train_set = (X_train_normal, y_train_normal)
+
+            # val set only includes 0.1* normal_data
+            val_set_len = int(len(y_normal) * train_val_test_percent[1])
+            X_val_normal = (X_normal[train_set_len:train_set_len + val_set_len, :] - u_normal) / std_normal
+            val_set = (X_val_normal, y_normal[train_set_len:train_set_len + val_set_len])
+
+            X_normal_test = X_normal[train_set_len + val_set_len:, :]
+            y_normal_test = y_normal[train_set_len + val_set_len:]
+            test_normal_set = (X_normal_test, y_normal_test)
+
+    return train_set, val_set, test_normal_set, u_normal, std_normal
+
+
 def achieve_train_val_test_from_files(files_dict={'normal_files': [], 'attack_files': []}, norm_flg=True,
                                       train_val_test_percent=[0.7, 0.1, 0.2], shuffle_flg=False):
     """

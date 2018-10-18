@@ -45,6 +45,7 @@ def open_file(input_file, label='0'):
     :param label:
     :return:
     """
+    print('input_file:', input_file)
     X = []
     y = []
     with open(input_file, 'r') as file_in:
