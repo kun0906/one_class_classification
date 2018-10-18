@@ -13,7 +13,7 @@
 #SBATCH --time=20:00:00
 #
 # expect the job to use no more than 24GB of memory
-#SBATCH --mem=40GB
+#SBATCH --mem=60GB
 #
 # once job ends, send me an email
 #SBATCH --mail-type=END
@@ -38,4 +38,10 @@ pip3 install sklearn
 
 #source py3.6.3/bin/activate /home/ky13/py3.6.3
 cd /scratch/ky13/Experiments/OneClassClassification_20181010/OCSVM_Sklearn/
-python3 main_ocsvm_case3_train_set_without_abnormal_data.py -i "{'normal_files': ['../Data/sess_normal_0.txt'], 'attack_files': ['../Data/sess_TDL4_HTTP_Requests_0.txt', '../Data/sess_Rcv_Wnd_Size_0_0.txt']}" -k 'rbf' -o '../log'
+#python3 main_ocsvm_case3_train_set_without_abnormal_data.py -i "{'normal_files': ['../Data/sess_normal_0.txt'], 'attack_files': ['../Data/sess_TDL4_HTTP_Requests_0.txt', '../Data/sess_Rcv_Wnd_Size_0_0.txt']}" -k 'rbf' -o '../log'
+#python3 main_ocsvm_case3_train_set_without_abnormal_data.py -i "{'normal_files': ['../Data/sess_normal_0.txt'], 'attack_files': ['../Data/sess_TDL4_HTTP_Requests_0.txt', '../Data/sess_Rcv_Wnd_Size_0_0.txt']}" -e 1000 -o '../log'
+python3 main_ocsvm_case3_train_set_without_abnormal_data.py -i "{'normal_files': ['../Data/sess_normal_0.txt'], 'attack_files': ['../Data/sess_DDoS_Excessive_GET_POST']}" -k 'rbf' -o '../log'
+python3 main_ocsvm_case3_train_set_without_abnormal_data.py -i "{'normal_files': ['../Data/sess_normal_0.txt'], 'attack_files': ['../Data/sess_DDoS_Multi_VERB_Single_Request']}" -k 'rbf' -o '../log'
+python3 main_ocsvm_case3_train_set_without_abnormal_data.py -i "{'normal_files': ['../Data/sess_normal_0.txt'], 'attack_files': ['../Data/sess_DDoS_Recursive_GET']}" -k 'rbf' -o '../log'
+python3 main_ocsvm_case3_train_set_without_abnormal_data.py -i "{'normal_files': ['../Data/sess_normal_0.txt'], 'attack_files': ['../Data/sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait']}" -k 'rbf' -o '../log'
+python3 main_ocsvm_case3_train_set_without_abnormal_data.py -i "{'normal_files': ['../Data/sess_normal_0.txt'], 'attack_files': ['../Data/sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait']}" -k 'rbf' -o '../log'

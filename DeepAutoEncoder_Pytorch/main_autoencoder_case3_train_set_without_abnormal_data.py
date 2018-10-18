@@ -135,7 +135,7 @@ class AutoEncoder(nn.Module):
         self.loss = {'train_loss': [], 'val_loss': []}
         cnt = 0
         for epoch in range(self.epochs):
-            loss_epoch = torch.Tensor([0.0])
+            loss_epoch = torch.tensor(0.0)
             for iter, (batch_X, _) in enumerate(dataloader):
                 # # ===================forward=====================
                 output = self.forward(batch_X)
@@ -147,7 +147,8 @@ class AutoEncoder(nn.Module):
                 loss_epoch += loss
 
             # self.loss['train_loss'].append(loss.data)  #
-            self.loss['train_loss'].append(loss_epoch.data / len(dataloader))
+            loss = loss_epoch.data / len(dataloader)
+            self.loss['train_loss'].append(loss.data)
             val_output = self.forward(self.val_set.tensors[0])
             val_loss = self.criterion(val_output, self.val_set.tensors[1])
             self.loss['val_loss'].append(val_loss.data)

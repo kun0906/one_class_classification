@@ -4,6 +4,8 @@
     <list default="true" id="3328596d-b116-4f8c-8c06-719cdaa432ba" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_sklearn.sh" beforeDir="false" afterPath="$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_sklearn.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/autoencoder_model.pth" beforeDir="false" afterPath="$PROJECT_DIR$/log/autoencoder_model.pth" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,7 +27,7 @@
     <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_ocsvm_case1_2.coverage" NAME="main_ocsvm_case1_2 Coverage Results" MODIFIED="1539274255375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCSVM_Sklearn" />
     <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_ocsvm_case3_train_set_without_abnormal_data.coverage" NAME="main_ocsvm_case3_train_set_without_abnormal_data Coverage Results" MODIFIED="1539734692145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/OCSVM_Sklearn" />
     <SUITE FILE_PATH="coverage/OneClassClassification_20181010$autoencoder.coverage" NAME="autoencoder Coverage Results" MODIFIED="1539213761745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
-    <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_autoencoder_case3_train_set_without_abnormal_data.coverage" NAME="main_autoencoder_case3_train_set_without_abnormal_data Coverage Results" MODIFIED="1539816319430" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
+    <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_autoencoder_case3_train_set_without_abnormal_data.coverage" NAME="main_autoencoder_case3_train_set_without_abnormal_data Coverage Results" MODIFIED="1539824600274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
     <SUITE FILE_PATH="coverage/Deep_SVDD_20181006$baseline_ocsvm.coverage" NAME="baseline_ocsvm Coverage Results" MODIFIED="1538953750334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Deep_SVDD_Pytorch" />
     <SUITE FILE_PATH="coverage/OneClassClassification_20181010$main_autoencoder_case1_2_train_set_without_abnormal_data.coverage" NAME="main_autoencoder_case1_2_train_set_without_abnormal_data Coverage Results" MODIFIED="1539454801846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
     <SUITE FILE_PATH="coverage/OneClassClassification_20181010$read_log_show.coverage" NAME="read_log_show Coverage Results" MODIFIED="1539720373689" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/DeepAutoEncoder_Pytorch" />
@@ -50,8 +52,8 @@
       <file leaf-file-name="main_autoencoder_case3_train_set_without_abnormal_data.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="144" column="31" lean-forward="true" selection-start-line="144" selection-start-column="31" selection-end-line="144" selection-end-column="31" />
+            <state relative-caret-position="31">
+              <caret line="137" column="35" selection-start-line="137" selection-start-column="29" selection-end-line="137" selection-end-column="35" />
               <folding>
                 <element signature="e#635#650#0" expanded="true" />
               </folding>
@@ -59,37 +61,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Readme" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Readme">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="75" selection-start-line="22" selection-start-column="75" selection-end-line="22" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="outlog_9299217_4294967294.out" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/outlog_9299217_4294967294.out">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="2063" column="26" selection-start-line="2063" selection-start-column="26" selection-end-line="2063" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="read_log_show.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/read_log_show.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="main_ocsvm_case3_train_set_without_abnormal_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case3_train_set_without_abnormal_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
+            <state relative-caret-position="-2626">
               <caret line="39" selection-start-line="39" selection-end-line="39" />
             </state>
           </provider>
@@ -98,15 +73,6 @@
       <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/__init__.py">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="classes.py" pinned="false" current-in-tab="false">
-        <entry file="file:///usr/local/lib/python3.5/dist-packages/sklearn/svm/classes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="1120" column="44" selection-start-line="1120" selection-start-column="37" selection-end-line="1120" selection-end-column="44" />
-            </state>
-          </provider>
         </entry>
       </file>
       <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
@@ -138,6 +104,11 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>tensor</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -189,12 +160,12 @@
         <option value="$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_Sklearn.sh" />
         <option value="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case1_2_train_set_without_abnormal_data.py" />
         <option value="$PROJECT_DIR$/Utilities/common_funcs.py" />
-        <option value="$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_sklearn.sh" />
-        <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh" />
         <option value="$PROJECT_DIR$/Readme" />
         <option value="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case3_train_set_without_abnormal_data.py" />
         <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/read_log_show.py" />
         <option value="$PROJECT_DIR$/Utilities/__init__.py" />
+        <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh" />
+        <option value="$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_sklearn.sh" />
         <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py" />
       </list>
     </option>
@@ -395,7 +366,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py" />
-      <option name="PARAMETERS" value="-i &quot;{'normal_files': ['../Data/sess_normal_0.txt'], 'attack_files': ['../Data/sess_TDL4_HTTP_Requests_0.txt', '../Data/sess_Rcv_Wnd_Size_0_0.txt']}&quot; -e 1" />
+      <option name="PARAMETERS" value="-i &quot;{'normal_files': ['../Data/sess_normal_0.txt'], 'attack_files': ['../Data/sess_DDoS_Excessive_GET_POST']}&quot; -e 10" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -507,27 +478,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1538853984536</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Add os.makedirs">
-      <created>1539213505498</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1539213505498</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Add os.makedirs">
-      <created>1539213889508</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1539213889508</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Add os.makedirs">
-      <created>1539214472226</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1539214472226</updated>
     </task>
     <task id="LOCAL-00018" summary="Add os.makedirs">
       <created>1539215202441</created>
@@ -851,7 +801,28 @@
       <option name="project" value="LOCAL" />
       <updated>1539720518800</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="modify autoencoder loss for all training data.">
+      <created>1539816497409</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1539816497410</updated>
+    </task>
+    <task id="LOCAL-00065" summary=" modify autoencoder training loss to self.loss['train_loss'].append(loss_epoch.data / len(dataloader))">
+      <created>1539816726726</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1539816726726</updated>
+    </task>
+    <task id="LOCAL-00066" summary="modify 'run_AE_pytorch.sh'">
+      <created>1539817986456</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1539817986458</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -861,17 +832,17 @@
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5024233" side_tool="true" weight="0.2735294" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.4983845" weight="0.32921347" />
-      <window_info anchor="bottom" id="Python Console" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49757674" weight="0.2797753" />
+      <window_info anchor="bottom" id="Python Console" order="3" weight="0.37191013" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49757674" visible="true" weight="0.38426965" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.22134832" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18890075" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23105656" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" sideWeight="0.6044776" visible="true" weight="0.14461046" />
+      <window_info anchor="right" id="Database" order="3" sideWeight="0.6044776" weight="0.14461046" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.3269663" />
-      <window_info anchor="right" id="SciView" order="4" sideWeight="0.6882353" weight="0.20971185" />
+      <window_info anchor="right" id="SciView" order="4" sideWeight="0.6882353" visible="true" weight="0.20704375" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.4994664" visible="true" weight="0.38089886" />
+      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.4994664" weight="0.36741573" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -890,9 +861,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="SHOW_UNVERSIONED_FILES_WHILE_COMMIT" value="false" />
-    <MESSAGE value="add val_set evaluate in training phase" />
-    <MESSAGE value="add train_set and val_set evaluate in training phase" />
-    <MESSAGE value="modify OCSVM" />
     <MESSAGE value="init commit" />
     <MESSAGE value="Add os.makedirs" />
     <MESSAGE value="modify &quot;requirements&quot;." />
@@ -915,7 +883,10 @@
     <MESSAGE value="modified .sh --nodes=1" />
     <MESSAGE value="modified readme" />
     <MESSAGE value="For an one-class model(OCSVM) ,  +1 (inlier) or -1 (outlier) is returned." />
-    <option name="LAST_COMMIT_MESSAGE" value="For an one-class model(OCSVM) ,  +1 (inlier) or -1 (outlier) is returned." />
+    <MESSAGE value="modify autoencoder loss for all training data." />
+    <MESSAGE value=" modify autoencoder training loss to self.loss['train_loss'].append(loss_epoch.data / len(dataloader))" />
+    <MESSAGE value="modify 'run_AE_pytorch.sh'" />
+    <option name="LAST_COMMIT_MESSAGE" value="modify 'run_AE_pytorch.sh'" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -948,7 +919,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py</url>
-          <line>313</line>
+          <line>314</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -968,75 +939,68 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py</url>
-          <line>149</line>
-          <option name="timeStamp" value="38" />
+          <line>164</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py</url>
+          <line>137</line>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="39" />
+      <option name="time" value="41" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
-        <expression-string>X_train.shape[0]</expression-string>
+        <expression-string>torch.tensor(2.5)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>X_train</expression-string>
+        <expression-string>torch.</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.train_set</expression-string>
+        <expression-string>torch.zeros(0)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>(self.ocsvm.predict(X) == -1)</expression-string>
+        <expression-string>torch.zeros()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>(self.ocsvm.predict(X) == -1) * 1</expression-string>
+        <expression-string>torch.zero(1)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.ocsvm.predict(X) == -1</expression-string>
+        <expression-string>torch.zeros(1)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>test_set_original[0][false_samples_lst[i][0]]</expression-string>
+        <expression-string>torch.Tensor()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>test_set_original[1][false_samples_lst[i][0]]</expression-string>
+        <expression-string>val_loss</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>false_samples_lst[i][2]*std_normal+u_normal</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>test_set_original</expression-string>
+        <expression-string>loss_epoch.data.flatten()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Data/Wednesday-workingHours-withoutInfinity-Sampled.pcap_ISCX.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="113" selection-start-line="4" selection-start-column="113" selection-end-line="4" selection-end-column="113" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Deep-SVDD-master/src/datasets/base.py" />
     <entry file="file://$PROJECT_DIR$/Deep_SVDD_Pytorch/mnist_loader.py" />
     <entry file="file://$PROJECT_DIR$/Utilities/CSV_Dataloaer.py" />
@@ -1116,24 +1080,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/local/lib/python3.5/dist-packages/torch/nn/functional.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75">
-          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Data/sess_TDL4_HTTP_Requests_0.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="31">
           <caret line="28" column="45" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/local/lib/python3.5/dist-packages/torch/nn/modules/loss.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="420" column="25" selection-start-line="420" selection-start-column="17" selection-end-line="420" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1263,20 +1213,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="47" lean-forward="true" selection-start-line="4" selection-start-column="27" selection-end-line="42" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_sklearn.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Readme">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1330,15 +1266,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case3_train_set_without_abnormal_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="-2626">
           <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="48" selection-start-line="39" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_sklearn.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-74">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/torch/nn/functional.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="695">
+          <caret line="1671" column="25" selection-start-line="1671" selection-start-column="21" selection-end-line="1671" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/torch/nn/modules/loss.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="420" column="25" selection-start-line="420" selection-start-column="17" selection-end-line="420" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.5/dist-packages/torch/tensor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="144" column="31" lean-forward="true" selection-start-line="144" selection-start-column="31" selection-end-line="144" selection-end-column="31" />
+        <state relative-caret-position="31">
+          <caret line="137" column="35" selection-start-line="137" selection-start-column="29" selection-end-line="137" selection-end-column="35" />
           <folding>
             <element signature="e#635#650#0" expanded="true" />
           </folding>
