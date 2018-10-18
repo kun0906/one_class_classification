@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3328596d-b116-4f8c-8c06-719cdaa432ba" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case4_train_set_without_abnormal_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case4_train_set_without_abnormal_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case4_train_set_without_abnormal_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh" beforeDir="false" afterPath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_sklearn.sh" beforeDir="false" afterPath="$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_sklearn.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utilities/common_funcs.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utilities/common_funcs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/autoencoder_model.pth" beforeDir="false" afterPath="$PROJECT_DIR$/log/autoencoder_model.pth" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/ocsvm_model.p" beforeDir="false" afterPath="$PROJECT_DIR$/log/ocsvm_model.p" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -85,17 +80,26 @@
       <file leaf-file-name="run_OCSVM_sklearn.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_sklearn.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="39" column="75" selection-start-line="39" selection-start-column="75" selection-end-line="39" selection-end-column="75" />
+            <state relative-caret-position="730">
+              <caret line="53" column="123" selection-start-line="53" selection-start-column="123" selection-end-line="53" selection-end-column="123" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main_ocsvm_case4_train_set_without_abnormal_data.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="run_AE_pytorch.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="730">
+              <caret line="55" column="109" selection-start-line="55" selection-start-column="109" selection-end-line="55" selection-end-column="109" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main_ocsvm_case4_train_set_without_abnormal_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case4_train_set_without_abnormal_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="283" lean-forward="true" selection-start-line="283" selection-end-line="283" />
+            <state relative-caret-position="663">
+              <caret line="288" column="27" selection-start-line="288" selection-start-column="27" selection-end-line="288" selection-end-column="27" />
               <folding>
                 <element signature="e#900#915#0" expanded="true" />
               </folding>
@@ -106,8 +110,8 @@
       <file leaf-file-name="main_autoencoder_case4_train_set_without_abnormal_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case4_train_set_without_abnormal_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="409" column="29" lean-forward="true" selection-start-line="404" selection-start-column="2" selection-end-line="409" selection-end-column="29" />
+            <state relative-caret-position="5925">
+              <caret line="409" column="29" selection-start-line="404" selection-start-column="2" selection-end-line="409" selection-end-column="29" />
               <folding>
                 <element signature="e#876#891#0" expanded="true" />
               </folding>
@@ -118,7 +122,7 @@
       <file leaf-file-name="common_funcs.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Utilities/common_funcs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="3600">
               <caret line="248" selection-start-line="248" selection-end-line="248" />
               <folding>
                 <element signature="e#49#58#0" expanded="true" />
@@ -195,11 +199,11 @@
         <option value="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case3_train_set_without_abnormal_data.py" />
         <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py" />
         <option value="$PROJECT_DIR$/Utilities/CSV_Dataloader.py" />
-        <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh" />
-        <option value="$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_sklearn.sh" />
         <option value="$PROJECT_DIR$/Utilities/common_funcs.py" />
         <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case4_train_set_without_abnormal_data.py" />
         <option value="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case4_train_set_without_abnormal_data.py" />
+        <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh" />
+        <option value="$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_sklearn.sh" />
       </list>
     </option>
   </component>
@@ -213,9 +217,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="24" />
+    <option name="x" value="61" />
+    <option name="y" value="31" />
     <option name="width" value="1270" />
-    <option name="height" value="773" />
+    <option name="height" value="769" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -511,13 +516,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1538853984536</updated>
-    </task>
-    <task id="LOCAL-00023" summary="remove &quot;__pycache__&quot;">
-      <created>1539216816555</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1539216816555</updated>
     </task>
     <task id="LOCAL-00024" summary="remove &quot;__pycache__&quot;">
       <created>1539217145897</created>
@@ -855,21 +853,28 @@
       <option name="project" value="LOCAL" />
       <updated>1539888940407</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="add OCSVM Case4 and modify .sh">
+      <created>1539893001117</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1539893001117</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="61" y="27" width="1859" height="1053" extended-state="6" />
+    <frame x="0" y="25" width="1920" height="1010" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5024233" side_tool="true" weight="0.2735294" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49757674" visible="true" weight="0.4318182" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49757674" weight="0.45809415" />
       <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.4983845" weight="0.32921347" />
       <window_info anchor="bottom" id="Python Console" order="3" weight="0.37121212" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.4199134" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2421401" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23692636" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" sideWeight="0.6044776" weight="0.14451186" />
       <window_info anchor="right" id="SciView" order="4" sideWeight="0.6882353" weight="0.14065085" />
@@ -895,7 +900,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="SHOW_UNVERSIONED_FILES_WHILE_COMMIT" value="false" />
-    <MESSAGE value="modify &quot;requirements&quot;." />
     <MESSAGE value="remove &quot;__pycache__&quot;" />
     <MESSAGE value="add train_val_test_percent in main" />
     <MESSAGE value="modify Common_funcs.py load_data" />
@@ -920,7 +924,8 @@
     <MESSAGE value="modify 'run_AE_pytorch.sh'" />
     <MESSAGE value="Add 'Case4' in AutoEncoder" />
     <MESSAGE value=" np.set_printoptions(suppress=True)  # Suppresses the use of scientific notation for small numbers in numpy array" />
-    <option name="LAST_COMMIT_MESSAGE" value=" np.set_printoptions(suppress=True)  # Suppresses the use of scientific notation for small numbers in numpy array" />
+    <MESSAGE value="add OCSVM Case4 and modify .sh" />
+    <option name="LAST_COMMIT_MESSAGE" value="add OCSVM Case4 and modify .sh" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1268,9 +1273,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1343,16 +1345,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_sklearn.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="39" column="75" selection-start-line="39" selection-start-column="75" selection-end-line="39" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Utilities/common_funcs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
+        <state relative-caret-position="3600">
           <caret line="248" selection-start-line="248" selection-end-line="248" />
           <folding>
             <element signature="e#49#58#0" expanded="true" />
@@ -1360,17 +1355,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case4_train_set_without_abnormal_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="409" column="29" lean-forward="true" selection-start-line="404" selection-start-column="2" selection-end-line="409" selection-end-column="29" />
+        <state relative-caret-position="5925">
+          <caret line="409" column="29" selection-start-line="404" selection-start-column="2" selection-end-line="409" selection-end-column="29" />
           <folding>
             <element signature="e#876#891#0" expanded="true" />
           </folding>
@@ -1379,11 +1367,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case4_train_set_without_abnormal_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="283" lean-forward="true" selection-start-line="283" selection-end-line="283" />
+        <state relative-caret-position="663">
+          <caret line="288" column="27" selection-start-line="288" selection-start-column="27" selection-end-line="288" selection-end-column="27" />
           <folding>
             <element signature="e#900#915#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_sklearn.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="730">
+          <caret line="53" column="123" selection-start-line="53" selection-start-column="123" selection-end-line="53" selection-end-column="123" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="730">
+          <caret line="55" column="109" selection-start-line="55" selection-start-column="109" selection-end-line="55" selection-end-column="109" />
         </state>
       </provider>
     </entry>
