@@ -184,7 +184,7 @@ class AutoEncoder(nn.Module):
             #     # pic = to_img(output.cpu().Data)
             #     # save_image(pic, './mlp_img/image_{}.png'.format(epoch))
         self.T = torch.Tensor([np.min(self.loss['train_loss'])])
-        print('the minimunal loss on train_set is %f\n' % self.T.data)
+        print('the minimunal loss on train_set is %f' % self.T.data)
         if self.show_flg:
             show_data(self.loss['train_loss'], x_label='epochs', y_label='Train_loss', fig_label='Train_loss',
                       title='training loss on training process')
@@ -251,20 +251,21 @@ def save_model(model, out_file='../log/autoencoder.pth'):
 
 
 def evaluate_model(model, test_set, iters=10,
-                   fig_params={'x_label': 'evluation times', 'y_label': 'accuracy on val set',
-                               'fig_label': 'acc', 'title': 'accuracy on val set'}):
+                   fig_params={'x_label': 'evluation times', 'y_label': 'accuracy on val set', 'fig_label': 'acc',
+                               'title': 'accuracy on val set'}):
     """
 
     :param model:
     :param test_set:
-    :param iters: evluation times
+    :param iters:
+    :param fig_params:
     :return:
     """
     assert len(test_set) > 0
 
     if iters == 1:
         thres = model.T.data
-        print("\nEvaluation:%d/%d threshold = %f" % (1, iters, thres))
+        print("Evaluation:%d/%d threshold = %f" % (1, iters, thres))
         test_set_acc, test_set_cm = model.evaluate(test_set, threshold=thres)
         max_acc_thres = (test_set_acc, thres, 1)
     else:
@@ -288,6 +289,49 @@ def evaluate_model(model, test_set, iters=10,
                       title=fig_params['title'])
 
     return max_acc_thres
+
+
+def evaluate_model_new(model, test_set_without_abnormal_data, u_normal, std_normal, test_files_lst):
+    """
+
+    :param AE_model:
+    :param test_set_without_abnormal_data:
+    :param u_normal:
+    :param std_normal:
+    :param test_files_lst:
+    :return:
+    """
+    idx_f = 1
+    for test_file_tmp in test_files_lst:
+        print('\n[%d/%d] test_file:%s' % (idx_f, len(test_files_lst), test_file_tmp))
+        (X_attack_data, y_attack_data) = test_set_without_abnormal_data
+        (X_tmp, y_tmp) = open_file(test_file_tmp, label='1')
+        X_attack_data = np.concatenate((X_attack_data, np.asarray(X_tmp, dtype=float)), axis=0)
+        y_attack_data = np.concatenate(
+            (np.reshape(y_attack_data, (len(y_attack_data))), np.reshape(np.asarray(y_tmp, dtype=int), (len(y_tmp)))))
+        test_set_original = (X_attack_data, y_attack_data)
+        print('\'test_set\' includes 0.2 normal_data (%d) + 1.0*attack_data (%d) which comes from \'%s\'' % (
+            len(test_set_without_abnormal_data[1]), len(X_attack_data), test_file_tmp))
+        test_set = ((X_attack_data - u_normal) / std_normal, y_attack_data)
+        print('test_set:%s' % Counter(test_set_without_abnormal_data[1]))
+        evaluate_model(model, test_set, iters=1)  # for autoencoder
+        # model.evaluate(test_set, name='test_set')
+
+        # step 4.2 out predicted values in descending order
+        false_samples_lst = sorted(model.false_alarm_lst, key=lambda l: l[1],
+                                   reverse=True)  # for second dims, sorted(li,key=lambda l:l[1], reverse=True)
+        num_print = 10
+        print('The normal samples are recognized as attack samples are as follow in the first %d samples:', num_print)
+        if len(false_samples_lst) < num_print:
+            num_print = len(false_samples_lst)
+        np.set_printoptions(suppress=True)  # Suppresses the use of scientific notation for small numbers in numpy array
+        for i in range(num_print):
+            v_by_std_u = np.asarray(false_samples_lst[i][2].data.tolist(), dtype=float) * std_normal + u_normal
+            print('i=%d' % i, ' <index in test_set, distance_error, norm_vale>', false_samples_lst[i], ' v*std+u:',
+                  v_by_std_u, '=>original vaule in test set:', test_set_original[0][false_samples_lst[i][0]],
+                  test_set_original[1][false_samples_lst[i][0]])
+
+        idx_f += 1
 
 
 def ae_main(input_files_dict, epochs=2, out_dir='./log', **kwargs):
@@ -317,7 +361,7 @@ def ae_main(input_files_dict, epochs=2, out_dir='./log', **kwargs):
     # step 2.2 train model
     print('\nTraining begins ...')
     AE_model.train(train_set_without_abnormal_data, val_set_without_abnormal_data)
-    print('\nTrain finished.')
+    print('Train finished.')
 
     # step 3.1 dump model
     model_file = save_model(AE_model, os.path.join(out_dir, 'autoencoder_model.pth'))
@@ -333,42 +377,19 @@ def ae_main(input_files_dict, epochs=2, out_dir='./log', **kwargs):
     #                                            'title': 'accuracy on val set with different thresholds.'})
     # AE_model.T = torch.Tensor([max_acc_thres[1]])  #
     # print('the best result on val_set is ', max_acc_thres)
-    print('\nEvaluting ...')
-    for test_file_tmp in input_files_dict['attack_files']:
-        (X_attack_data, y_attack_data) = test_set_without_abnormal_data
-        (X_tmp, y_tmp) = open_file(test_file_tmp, label='1')
-        X_attack_data = np.concatenate((X_attack_data, np.asarray(X_tmp, dtype=float)), axis=0)
-        y_attack_data = np.concatenate(
-            (np.reshape(y_attack_data, (len(y_attack_data))), np.reshape(np.asarray(y_tmp, dtype=int), (len(y_tmp)))))
-        test_set_original = (X_attack_data, y_attack_data)
-        print('\'test_set\' includes 0.2 normal_data (%d) + 1.0*attack_data (%d) which comes from \'%s\'' % (
-            len(test_set_without_abnormal_data[1]), len(X_attack_data), test_file_tmp))
-        test_set = ((X_attack_data - u_normal) / std_normal, y_attack_data)
-        print('test_set:%s' % Counter(test_set_without_abnormal_data[1]))
-        evaluate_model(AE_model, test_set, iters=1)
-
-        # step 4.2 out predicted values in descending order
-        false_samples_lst = sorted(AE_model.false_alarm_lst, key=lambda l: l[1],
-                                   reverse=True)  # for second dims, sorted(li,key=lambda l:l[1], reverse=True)
-        num_print = 10
-        print('The normal samples are recognized as attack samples are as follow in the first %d samples:', num_print)
-        if len(false_samples_lst) < num_print:
-            num_print = len(false_samples_lst)
-        np.set_printoptions(suppress=True)  # Suppresses the use of scientific notation for small numbers in numpy array
-        for i in range(num_print):
-            v_by_std_u = np.asarray(false_samples_lst[i][2].data.tolist(), dtype=float) * std_normal + u_normal
-            print('i=%d' % i, ' <index in test_set, distance_error, norm_vale>', false_samples_lst[i], ' v*std+u:',
-                  v_by_std_u, '=>original vaule in test set:', test_set_original[0][false_samples_lst[i][0]],
-                  test_set_original[1][false_samples_lst[i][0]])
-    print('\nEvaluation finished.')
+    print('\nEvaluting ...', end='')
+    # evaluate_model(AE_model, test_set, iters=1)
+    evaluate_model_new(AE_model, test_set_without_abnormal_data, u_normal, std_normal,
+                       test_files_lst=input_files_dict['attack_files'])
+    print('Evaluation finished.')
 
     end_time = time.strftime('%Y-%h-%d %H:%M:%S', time.localtime())
-    print('It ends at ', end_time)
+    print('\nIt ends at ', end_time)
     print('All takes %.4f s' % (time.time() - st))
 
 
 def parse_params():
-    parser = argparse.ArgumentParser(prog='AE_Case3')
+    parser = argparse.ArgumentParser(prog='AE_Case4')
     parser.add_argument('-i', '--input_files_dict', type=str, dest='input_files_dict',
                         help='{\'normal_files\': [normal_file,...], \'attack_files\': [attack_file_1, attack_file_2,...]}',
                         default='../Data/normal_demo.txt', required=True)  # '-i' short name, '--input_dir' full name
@@ -386,5 +407,5 @@ if __name__ == '__main__':
     input_files_dict = eval(args['input_files_dict'])
     epochs = eval(args['epochs'])
     out_dir = args['out_dir']
-    print('args:', args)
+    print('args:%s\n' % args)
     ae_main(input_files_dict, epochs, out_dir='../log')
