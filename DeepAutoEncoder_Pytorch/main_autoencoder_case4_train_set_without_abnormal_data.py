@@ -184,7 +184,7 @@ class AutoEncoder(nn.Module):
             #     # pic = to_img(output.cpu().Data)
             #     # save_image(pic, './mlp_img/image_{}.png'.format(epoch))
         self.T = torch.Tensor([np.min(self.loss['train_loss'])])
-        print('the minimunal loss on train_set is %f' % self.T.data)
+        print('the minimal loss on train_set is %f' % self.T.data)
         if self.show_flg:
             show_data(self.loss['train_loss'], x_label='epochs', y_label='Train_loss', fig_label='Train_loss',
                       title='training loss on training process')
