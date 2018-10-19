@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3328596d-b116-4f8c-8c06-719cdaa432ba" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case4_train_set_without_abnormal_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case4_train_set_without_abnormal_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh" beforeDir="false" afterPath="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,14 +50,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main_autoencoder_case4_train_set_without_abnormal_data.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main_autoencoder_case4_train_set_without_abnormal_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case4_train_set_without_abnormal_data.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="464">
-              <caret line="52" column="32" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
-              <folding>
-                <element signature="e#876#891#0" expanded="true" />
-              </folding>
+              <caret line="52" column="32" selection-start-line="41" selection-start-column="7" selection-end-line="52" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run_AE_pytorch.sh" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -131,11 +137,11 @@
         <option value="$PROJECT_DIR$/Utilities/CSV_Dataloader.py" />
         <option value="$PROJECT_DIR$/Utilities/common_funcs.py" />
         <option value="$PROJECT_DIR$/OCSVM_Sklearn/main_ocsvm_case4_train_set_without_abnormal_data.py" />
-        <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh" />
         <option value="$PROJECT_DIR$/OCSVM_Sklearn/run_OCSVM_sklearn.sh" />
         <option value="$PROJECT_DIR$/Utilities/pandas_read_file.py" />
         <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case3_train_set_without_abnormal_data.py" />
         <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case4_train_set_without_abnormal_data.py" />
+        <option value="$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh" />
       </list>
     </option>
   </component>
@@ -160,6 +166,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -191,7 +198,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -448,13 +454,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1538853984536</updated>
-    </task>
-    <task id="LOCAL-00026" summary="add train_val_test_percent in main">
-      <created>1539220389970</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1539220389970</updated>
     </task>
     <task id="LOCAL-00027" summary="modify Common_funcs.py load_data">
       <created>1539222162839</created>
@@ -792,21 +791,28 @@
       <option name="project" value="LOCAL" />
       <updated>1539910906271</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="add OCSVM Case4 and modify .sh">
+      <created>1539912869063</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1539912869065</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1920" height="995" extended-state="6" />
+    <frame x="0" y="25" width="1920" height="1010" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5024233" side_tool="true" weight="0.2735294" />
       <window_info anchor="bottom" id="Database Changes" order="1" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49757674" visible="true" weight="0.20997679" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49757674" weight="0.2063854" />
       <window_info anchor="bottom" id="Version Control" order="12" sideWeight="0.4983845" weight="0.32921347" />
       <window_info anchor="bottom" id="Python Console" order="3" weight="0.37121212" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.3062645" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23585913" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23852721" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" sideWeight="0.6044776" weight="0.14451186" />
       <window_info anchor="right" id="SciView" order="4" sideWeight="0.6882353" weight="0.14065085" />
@@ -1265,13 +1271,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="820">
-          <caret line="55" column="109" selection-start-line="55" selection-start-column="109" selection-end-line="55" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Utilities/pandas_read_file.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1283,9 +1282,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1384">
           <caret line="126" column="63" selection-start-line="126" selection-start-column="63" selection-end-line="126" selection-end-column="63" />
-          <folding>
-            <element signature="e#900#915#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1313,10 +1309,14 @@
     <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/main_autoencoder_case4_train_set_without_abnormal_data.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="464">
-          <caret line="52" column="32" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
-          <folding>
-            <element signature="e#876#891#0" expanded="true" />
-          </folding>
+          <caret line="52" column="32" selection-start-line="41" selection-start-column="7" selection-end-line="52" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeepAutoEncoder_Pytorch/run_AE_pytorch.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
         </state>
       </provider>
     </entry>
