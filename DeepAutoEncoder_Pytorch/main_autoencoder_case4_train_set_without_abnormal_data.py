@@ -37,9 +37,24 @@
 
     Author:
 
+    Note:
+        # Python's standard out is buffered (meaning that it collects some of the data "written" to standard out before it writes it to the terminal). Calling sys.stdout.flush() forces it to "flush" the buffer, meaning that it will write everything in the buffer to the terminal, even if normally it would wait before doing so.
+        method 1: (in each print, using "flush" keyword in 'print' function (since python 3.3))
+            print('', flush=True)
+        method 2: (change the default for the print function by using functools.partial on the global scope of a module)
+            import functools
+            print = functools.partial(print, flush=True)
+
+            >>> print = functools.partial(print, flush=True)
+            >>> print
+            functools.partial(<built-in function print>, flush=True)
+        method 3:
+            import sys
+            sys.standout.flush()
 """
 import argparse
 import os
+import sys
 import time
 from collections import Counter
 
@@ -184,7 +199,10 @@ class AutoEncoder(nn.Module):
             #     # pic = to_img(output.cpu().Data)
             #     # save_image(pic, './mlp_img/image_{}.png'.format(epoch))
         self.T = torch.Tensor([np.min(self.loss['train_loss'])])
-        print('the minimal loss on train_set is %f' % self.T.data)
+        print('the minimal loss on train_set is %f' % self.T.data, flush=True)
+        sys.standout.flush()  # Since Python 3.3, you can force the normal print() function to flush without the need to use sys.stdout.flush(); just set the "flush" keyword argument to true.
+        # Python's standard out is buffered (meaning that it collects some of the data "written" to standard out before it writes it to the terminal). Calling sys.stdout.flush() forces it to "flush" the buffer, meaning that it will write everything in the buffer to the terminal, even if normally it would wait before doing so.
+
         if self.show_flg:
             show_data(self.loss['train_loss'], x_label='epochs', y_label='Train_loss', fig_label='Train_loss',
                       title='training loss on training process')
