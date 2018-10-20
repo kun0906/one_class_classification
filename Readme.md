@@ -8,7 +8,7 @@
 
 
 ## 2. Project Directory Structure
-### |- data
+### |- Data
     data/Wednesday-workingHours-withoutInfinity-Sampled.pcap_ISCX.csv
 
 ### |- DeepAutoEncoder_Pytorch
