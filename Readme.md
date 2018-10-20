@@ -14,7 +14,7 @@
 ### |- DeepAutoEncoder_Pytorch
     main_autoencoder.py
 
-### |- |OCSVM_Sklearn
+### |- OCSVM_Sklearn
     main_ocsvm.py
     basic_svm.py
 
