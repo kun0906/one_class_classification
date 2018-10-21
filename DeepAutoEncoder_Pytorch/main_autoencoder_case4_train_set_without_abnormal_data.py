@@ -195,13 +195,13 @@ class AutoEncoder(nn.Module):
 
             print('epoch [{:d}/{:d}], train_loss:{:.4f}, val_loss:{:.4f}'.format(epoch + 1, self.epochs, loss.data,
                                                                                  val_loss.data))
+            sys.stdout.flush()  # Since Python 3.3, you can force the normal print() function to flush without the need to use sys.stdout.flush(); just set the "flush" keyword argument to true.
+            # Python's standard out is buffered (meaning that it collects some of the data "written" to standard out before it writes it to the terminal). Calling sys.stdout.flush() forces it to "flush" the buffer, meaning that it will write everything in the buffer to the terminal, even if normally it would wait before doing so.
             # if epoch % 10 == 0:
             #     # pic = to_img(output.cpu().Data)
             #     # save_image(pic, './mlp_img/image_{}.png'.format(epoch))
         self.T = torch.Tensor([np.min(self.loss['train_loss'])])
         print('the minimal loss on train_set is %f' % self.T.data, flush=True)
-        sys.standout.flush()  # Since Python 3.3, you can force the normal print() function to flush without the need to use sys.stdout.flush(); just set the "flush" keyword argument to true.
-        # Python's standard out is buffered (meaning that it collects some of the data "written" to standard out before it writes it to the terminal). Calling sys.stdout.flush() forces it to "flush" the buffer, meaning that it will write everything in the buffer to the terminal, even if normally it would wait before doing so.
 
         if self.show_flg:
             show_data(self.loss['train_loss'], x_label='epochs', y_label='Train_loss', fig_label='Train_loss',
