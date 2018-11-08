@@ -48,8 +48,14 @@ cd /scratch/ky13/Experiments/OneClassClassification_20181010/OCSVM_Sklearn/
 #python3 main_ocsvm_case3_train_set_without_abnormal_data.py -i "{'normal_files': ['../Data/sess_normal_0.txt'], 'attack_files': ['../Data/sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait']}" -k 'rbf' -o '../log'
 
 ### ------------------------------------------------------------------------------------------
-### Case4
-python3 main_ocsvm_case4_train_set_without_abnormal_data.py -i "{'normal_files': ['../Data/sess_normal_0.txt'], \
-'attack_files': ['../Data/sess_DDoS_Excessive_GET_POST','../Data/sess_DDoS_Multi_VERB_Single_Request','../Data/sess_DDoS_Recursive_GET', \
-'../Data/sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait','../Data/sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait']}" -k 'rbf' -o '../log'
+#### Case4
+#python3 main_ocsvm_case4_train_set_without_abnormal_data.py -i "{'normal_files': ['../Data/sess_normal_0.txt'], \
+#'attack_files': ['../Data/sess_DDoS_Excessive_GET_POST','../Data/sess_DDoS_Multi_VERB_Single_Request','../Data/sess_DDoS_Recursive_GET', \
+#'../Data/sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait','../Data/sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait']}" -k 'rbf' -o '../log'
+#
 
+
+### ------------------------------------------------------------------------------------------
+#### Case5
+python3 main_ocsvm_case5_train_test_only_normal_data.py -i "{'normal_files':  ['../Data/file1_70M_1.txt'],
+'attack_files': ['../Data/file2_70M_1.txt']}"  -k 'rbf' -o '../log'

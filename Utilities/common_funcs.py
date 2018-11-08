@@ -210,9 +210,21 @@ def split_normal2train_val_test_from_files(file_list, norm_flg=True,
     y_normal = []
     for normal_file in file_list:
         X_tmp, y_tmp = open_file(normal_file, label='0')
+        X_tmp_new = []
+        y_tmp_new = []
+        cnt = 0
+        i = 0
+        for x in X_tmp:
+            if x[-3] == '0' or x[0] == '17':  # is_new: 1 or prtl = 17
+                X_tmp_new.append(x)
+                # y_tmp_new.append(y)
+                cnt += 1
+                print('i = %d, x=%s' % (i, ','.join(x)))
+            i += 1
+        print('is_new ==0,the cnt data is %d' % (cnt))
         X_normal.extend(X_tmp)
         y_normal.extend(y_tmp)
-    X_normal = np.asarray(X_normal, dtype=float)
+    X_normal = np.asarray(X_normal, dtype=np.float64)
     y_normal = np.asarray(y_normal, dtype=int)
     print('normal_data:', X_normal.shape)
 
@@ -243,6 +255,17 @@ def split_normal2train_val_test_from_files(file_list, norm_flg=True,
             X_normal_test = X_normal[train_set_len + val_set_len:, :]
             y_normal_test = y_normal[train_set_len + val_set_len:]
             test_normal_set = (X_normal_test, y_normal_test)
+
+            cnt = 0
+            i = 0
+            for x in X_normal_test:
+                if x[-3] == 0.0 or x[0] == 17.0:  # is_new: 1 or prtl = 17
+                    # X_tmp_new.append(x)
+                    # y_tmp_new.append(y)
+                    cnt += 1
+                    # print('i = %d, x=%s' % (i, ','.join(x)))
+                i += 1
+            print('normal_test is_new ==0 and prtl == 17,the cnt data is %d' % (cnt))
 
     return train_set, val_set, test_normal_set, u_normal, std_normal
 

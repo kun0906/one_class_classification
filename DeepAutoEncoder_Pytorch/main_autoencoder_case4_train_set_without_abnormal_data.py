@@ -99,7 +99,7 @@ class AutoEncoder(nn.Module):
         self.batch_size = 64
         self.stop_early_flg = False  # stop training
 
-        self.show_flg = False
+        self.show_flg = True
 
         self.num_features_in = in_dim
         self.h_size = 16

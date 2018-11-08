@@ -23,6 +23,7 @@ def parse_log(input_file):
 
 if __name__ == '__main__':
     input_file = './outlog_9299217_4294967294.out'
+    input_file = './AE_10000_epochs_case4_results_20181022_jobid_9491077.txt'
     loss = parse_log(input_file)
     show_data(loss['train_loss'], x_label='epochs', y_label='loss', fig_label='train_loss', title='train_loss')
     show_data(loss['val_loss'], x_label='epochs', y_label='loss', fig_label='val_loss', title='val_loss')

@@ -57,6 +57,7 @@ def open_file(input_file, label='0'):
                 continue
 
             line_arr = line.strip().split(',')
+            line_arr = [f.strip() for f in line_arr]  # delete ' ' (space) in each features
             X.append(line_arr[5:])
             y.append(label)
             line = file_in.readline()
