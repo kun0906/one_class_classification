@@ -250,7 +250,7 @@ def ocsvm_main(input_files_dict, kernel='rbf', out_dir='./log', show_flg=False, 
         Counter(test_set_without_abnormal_data[1])))
 
     # step 2.1 initialize OC-SVM
-    ocsvm = OCSVM(kernel=kernel, grid_search_cv_flg=True, show_flg=show_flg)
+    ocsvm = OCSVM(kernel=kernel, grid_search_cv_flg=False, show_flg=show_flg)
 
     # step 2.2 train OC-SVM model
     print('\nTraining begins ...')

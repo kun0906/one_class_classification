@@ -306,7 +306,7 @@ def evaluate_model(model, test_set, iters=10,
             show_data(data=test_acc_lst, x_label=fig_params['x_label'], y_label=fig_params['y_label'], fig_label='acc',
                       title=fig_params['title'])
 
-    return max_acc_thres
+    return max_acc_thres, test_set_acc, test_set_cm
 
 
 def evaluate_model_new(model, test_set_without_abnormal_data, u_normal, std_normal, test_files_lst, label='1'):
@@ -333,6 +333,7 @@ def evaluate_model_new(model, test_set_without_abnormal_data, u_normal, std_norm
         test_set = ((X_attack_data - u_normal) / std_normal, y_attack_data)
         print('test_set:%s' % Counter(test_set_without_abnormal_data[1]))
         evaluate_model(model, test_set, iters=1)  # for autoencoder
+        # print(acc, cm)
         # model.evaluate(test_set, name='test_set')
 
         # step 4.2 out predicted values in descending order
