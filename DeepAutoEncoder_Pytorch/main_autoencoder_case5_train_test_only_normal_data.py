@@ -108,22 +108,22 @@ class AutoEncoder(nn.Module):
 
         self.encoder = nn.Sequential(
             nn.Linear(self.num_features_in, self.h_size * 8),
-            nn.ReLU(True),
+            nn.leakyReLU(True),
             nn.Linear(self.h_size * 8, self.h_size * 4),
-            nn.ReLU(True),
+            nn.leakyReLU(True),
             nn.Linear(self.h_size * 4, self.h_size * 2),
-            nn.ReLU(True),
+            nn.leakyReLU(True),
             nn.Linear(self.h_size * 2, self.num_latent_features))
 
         self.decoder = nn.Sequential(
             nn.Linear(self.num_latent_features, self.h_size * 2),
-            nn.ReLU(True),
+            nn.leakyReLU(True),
             nn.Linear(self.h_size * 2, self.h_size * 4),
-            nn.ReLU(True),
+            nn.leakyReLU(True),
             nn.Linear(self.h_size * 4, self.h_size * 8),
-            nn.ReLU(True),
+            nn.leakyReLU(True),
             nn.Linear(self.h_size * 8, self.num_features_in),
-            nn.Sigmoid())
+            nn.Tanh())
 
         if self.show_flg:
             print_net(self.encoder, describe_str='Encoder')

@@ -268,9 +268,9 @@ def ocsvm_main(input_files_dict, kernel='rbf', out_dir='./log', show_flg=False, 
     print('\nEvaluting ...', end='')
     # ocsvm_model.evaluate(test_set, name='test_set')
     print('evaluate on train set')
-    ocsvm_model(ocsvm_model, train_set_without_abnormal_data, iters=1)
+    ocsvm_model.evaluate(train_set_without_abnormal_data, iters=1)
     print('evaluate on val set')
-    ocsvm_model(ocsvm_model, val_set_without_abnormal_data, iters=1)
+    ocsvm_model.evaluate(val_set_without_abnormal_data, iters=1)
     print('evaluate on test set')
     test_set_without_abnormal_data = (val_set_without_abnormal_data[0][0:2], val_set_without_abnormal_data[1][0:2])
     evaluate_model_new(ocsvm_model, test_set_without_abnormal_data, u_normal, std_normal,
