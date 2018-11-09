@@ -53,6 +53,7 @@
             sys.standout.flush()
 """
 import argparse
+import functools
 import os
 import sys
 import time
@@ -67,7 +68,7 @@ from torch import nn
 from torch.utils.data import DataLoader
 
 from Utilities.CSV_Dataloader import open_file
-from Utilities.common_funcs import show_data, split_normal2train_val_test_from_files
+from Utilities.common_funcs import show_data, split_normal2train_val_test_from_files, show_data_2
 
 
 def print_net(net, describe_str='Net'):
@@ -108,22 +109,22 @@ class AutoEncoder(nn.Module):
 
         self.encoder = nn.Sequential(
             nn.Linear(self.num_features_in, self.h_size * 8),
-            nn.leakyReLU(True),
+            nn.LeakyReLU(True),
             nn.Linear(self.h_size * 8, self.h_size * 4),
-            nn.leakyReLU(True),
+            nn.LeakyReLU(True),
             nn.Linear(self.h_size * 4, self.h_size * 2),
-            nn.leakyReLU(True),
+            nn.LeakyReLU(True),
             nn.Linear(self.h_size * 2, self.num_latent_features))
 
         self.decoder = nn.Sequential(
             nn.Linear(self.num_latent_features, self.h_size * 2),
-            nn.leakyReLU(True),
+            nn.LeakyReLU(True),
             nn.Linear(self.h_size * 2, self.h_size * 4),
-            nn.leakyReLU(True),
+            nn.LeakyReLU(True),
             nn.Linear(self.h_size * 4, self.h_size * 8),
-            nn.leakyReLU(True),
-            nn.Linear(self.h_size * 8, self.num_features_in),
-            nn.Tanh())
+            nn.LeakyReLU(True),
+            nn.Linear(self.h_size * 8, self.num_features_in)
+        )
 
         if self.show_flg:
             print_net(self.encoder, describe_str='Encoder')
@@ -167,16 +168,20 @@ class AutoEncoder(nn.Module):
         cnt = 0
         for epoch in range(self.epochs):
             loss_epoch = torch.tensor(0.0)
+            tmp = []
             for iter, (batch_X, _) in enumerate(dataloader):
                 # # ===================forward=====================
                 output = self.forward(batch_X)
                 loss = self.criterion(output, batch_X)
+                tmp.append(loss)
+                # print('iter=%d, batch_size=%s, loss=%f'%(iter, batch_X.shape, loss))
                 # ===================backward====================
                 self.optimizer.zero_grad()
                 loss.backward()
                 self.optimizer.step()
                 loss_epoch += loss
-
+            # show_data(tmp,fig_label='train_batch_loss')
+            # assert  loss_epoch.data / len(dataloader) == np.asarray(tmp, dtype=float)
             # self.loss['train_loss'].append(loss.data)  #
             loss = loss_epoch.data / len(dataloader)
             self.loss['train_loss'].append(loss.data)
@@ -204,10 +209,11 @@ class AutoEncoder(nn.Module):
         print('the minimal loss on train_set is %f' % self.T.data, flush=True)
 
         if self.show_flg:
-            show_data(self.loss['train_loss'], x_label='epochs', y_label='Train_loss', fig_label='Train_loss',
-                      title='training loss on training process')
-            show_data(self.loss['val_loss'], x_label='epochs', y_label='Val_loss', fig_label='Val_loss',
-                      title='val_set loss on training process')
+            # show_data(self.loss['train_loss'], x_label='epochs', y_label='Train_loss', fig_label='Train_loss',
+            #           title='training loss on training process')
+            # show_data(self.loss['val_loss'], x_label='epochs', y_label='Val_loss', fig_label='Val_loss',
+            #           title='val_set loss on training process')
+            show_data_2(self.loss['train_loss'], self.loss['val_loss'], title='training loss on training process')
 
     def evaluate(self, test_set, threshold=0.1):
         """
@@ -320,6 +326,7 @@ def evaluate_model_new(model, test_set_without_abnormal_data, u_normal, std_norm
     :return:
     """
     idx_f = 1
+    print('test_files_lst:', test_files_lst)
     for test_file_tmp in test_files_lst:
         print('\n[%d/%d] test_file:%s' % (idx_f, len(test_files_lst), test_file_tmp))
         (X_attack_data, y_attack_data) = test_set_without_abnormal_data
@@ -353,7 +360,7 @@ def evaluate_model_new(model, test_set_without_abnormal_data, u_normal, std_norm
         idx_f += 1
 
 
-def ae_main(input_files_dict, epochs=2, out_dir='./log', show_flg=False, **kwargs):
+def ae_main(input_files_dict, epochs=2, out_dir='./log', show_flg=True, **kwargs):
     """
 
     :param input_files_dict:
@@ -379,6 +386,8 @@ def ae_main(input_files_dict, epochs=2, out_dir='./log', show_flg=False, **kwarg
     # step 2.2 train model
     print('\nTraining begins ...')
     AE_model.train(train_set_without_abnormal_data, val_set_without_abnormal_data)
+    # AE_model.train(val_set_without_abnormal_data, train_set_without_abnormal_data)
+
     print('Train finished.')
 
     # step 3.1 dump model
@@ -400,11 +409,14 @@ def ae_main(input_files_dict, epochs=2, out_dir='./log', show_flg=False, **kwarg
     evaluate_model(AE_model, train_set_without_abnormal_data, iters=1)
     print('evaluate on val set')
     evaluate_model(AE_model, val_set_without_abnormal_data, iters=1)
-    print('evaluate on test set')
+    print('\n\nevaluate on test set')
     test_set_without_abnormal_data = (val_set_without_abnormal_data[0][0:2], val_set_without_abnormal_data[1][0:2])
     evaluate_model_new(AE_model, test_set_without_abnormal_data, u_normal, std_normal,
-                       test_files_lst=input_files_dict['attack_files'],
+                       test_files_lst=input_files_dict['attack_files'][:2],
                        label='0')  # only evaluate on another normal data
+    evaluate_model_new(AE_model, test_set_without_abnormal_data, u_normal, std_normal,
+                       test_files_lst=input_files_dict['attack_files'][2:],
+                       label='1')  # only evaluate on attack data
     print('Evaluation finished.')
 
     end_time = time.strftime('%Y-%h-%d %H:%M:%S', time.localtime())

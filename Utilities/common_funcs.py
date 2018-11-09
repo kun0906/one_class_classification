@@ -33,6 +33,25 @@ def normalizate_data(np_arr, eplison=10e-4):
     return norm_data
 
 
+def normalizate_data_with_sigmoid(np_arr, eplison=10e-4):
+    """
+
+    :param np_arr:
+    :param eplison: handle with 0.
+    :return:
+    """
+    min_val = np.min(np_arr, axis=0)  # X
+    max_val = np.max(np_arr, axis=0)
+    range_val = (max_val - min_val)
+    if not range_val.all():  # Returns True if all elements evaluate to True.
+        for i in range(len(range_val)):
+            if range_val[i] == 0.0:
+                range_val[i] += eplison
+    print('range_val is ', range_val)
+    norm_data = (np_arr - min_val) / range_val
+
+    return norm_data
+
 def normalizate_data_with_u_std(np_arr, u_std_dict={'u': 0.5, 'std': 1.0}):
     """
 
@@ -373,6 +392,19 @@ def show_data(data, x_label='epochs', y_label='y', fig_label='', title=''):
     plt.ylabel(y_label)
     plt.title(title)
     plt.show()
+
+
+def show_data_2(data1, data2, x_label='epochs', y_label='mean loss', title=''):
+    plt.figure()
+    plt.plot(data1, 'r', alpha=0.5, label='train_loss in each epoch')
+    plt.plot(data2, 'b', alpha=0.5, label='val loss in each epoch')
+    # plt.plot(new_decision_data[:, 2], 'g', alpha=0.5, label='D_G_fake')
+    plt.legend(loc='upper right')
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.title(title)
+    plt.show()
+
 
 def get_variable_name(data_var):
     """

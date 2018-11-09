@@ -58,4 +58,6 @@ cd /scratch/ky13/Experiments/OneClassClassification_20181010/DeepAutoEncoder_Pyt
 ### ------------------------------------------------------------------------------------------
 #### Case5
 python3 main_autoencoder_case5_train_test_only_normal_data.py -i "{'normal_files':  ['../Data/file1_70M_1.txt'],
-'attack_files': ['../Data/file2_70M_1.txt']}" -e 1000 -o '../log'
+'attack_files': ['../Data/file2_70M_1.txt',,'../Data/sess_normal_0.txt','../Data/sess_DDoS_Excessive_GET_POST',
+'../Data/sess_DDoS_Multi_VERB_Single_Request','../Data/sess_DDoS_Recursive_GET','../Data/sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait'
+,'../Data/sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait']}" -e 1000 -o '../log'
