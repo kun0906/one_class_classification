@@ -35,9 +35,9 @@ import numpy as np
 from sklearn import svm
 from sklearn.metrics import roc_auc_score, confusion_matrix
 from sklearn.metrics.pairwise import pairwise_distances
-
 from sys_path_export import *  # it is no need to do in IDE environment, however, it must be done in shell/command environment
-from Utilities.common_funcs import dump_model, load_model, achieve_train_val_test_from_files
+
+from utilities.common_funcs import dump_model, load_model, achieve_train_val_test_from_files
 
 
 class OCSVM(object):
@@ -136,7 +136,7 @@ class OCSVM(object):
         :param kwargs:
         :return:
         """
-        print('Evaluating Data is \'%s\'.' % name)
+        print('Evaluating input_data is \'%s\'.' % name)
 
         X = test_set[0]
         y = test_set[1]
@@ -171,7 +171,7 @@ def ocsvm_main(input_files_dict, kernel='rbf', out_dir='./log', **kwargs):
     st = time.time()
     print('It starts at ', start_time)
 
-    # step 1 load Data and do preprocessing
+    # step 1 load input_data and do preprocessing
     # train_set, val_set, test_set = load_data(input_file, norm_flg=True,
     #                                          train_val_test_percent=[0.7 * 0.9, 0.7 * 0.1, 0.3])
     train_set_without_abnormal_data, val_set, test_set = achieve_train_val_test_from_files(input_files_dict,
@@ -208,7 +208,8 @@ def parse_params():
     parser = argparse.ArgumentParser(prog='OCSVM_Case3')
     parser.add_argument('-i', '--input_files_dict', type=str, dest='input_files_dict',
                         help='{\'normal_files\': [normal_file,...], \'attack_files\': [attack_file_1, attack_file_2,...]}',
-                        default='../Data/normal_demo.txt', required=True)  # '-i' short name, '--input_dir' full name
+                        default='../input_data/normal_demo.txt',
+                        required=True)  # '-i' short name, '--input_dir' full name
     parser.add_argument('-k', '--kernel', dest='kernel', help="kernel", default='rbf')
     parser.add_argument('-o', '--out_dir', dest='out_dir', help="the output information of this scripts",
                         default='../log')
@@ -218,18 +219,18 @@ def parse_params():
 
 
 if __name__ == '__main__':
-    # input_file = '../Data/Wednesday-workingHours-withoutInfinity-Sampled.pcap_ISCX.csv'
+    # input_file = '../input_data/Wednesday-workingHours-withoutInfinity-Sampled.pcap_ISCX.csv'
     test_flg = 0
     if test_flg:
-        normal_file = '../Data/normal_demo.txt'
-        attack_file = '../Data/attack_demo.txt'
+        normal_file = '../input_data/normal_demo.txt'
+        attack_file = '../input_data/attack_demo.txt'
         input_file = {'normal_files': [normal_file], 'attack_files': [attack_file]}
     else:
-        normal_file = '../Data/sess_normal_0.txt'
-        attack_file_1 = '../Data/sess_TDL4_HTTP_Requests_0.txt'
-        attack_file_2 = '../Data/sess_Rcv_Wnd_Size_0_0.txt'
+        normal_file = '../input_data/sess_normal_0.txt'
+        attack_file_1 = '../input_data/sess_TDL4_HTTP_Requests_0.txt'
+        attack_file_2 = '../input_data/sess_Rcv_Wnd_Size_0_0.txt'
         input_file = {'normal_files': [normal_file], 'attack_files': [attack_file_1, attack_file_2]}
-        # input_files_dict={'normal_files': ['../Data/sess_normal_0.txt'], 'attack_files': ['../Data/sess_TDL4_HTTP_Requests_0.txt', '../Data/sess_Rcv_Wnd_Size_0_0.txt']}
+        # input_files_dict={'normal_files': ['../input_data/sess_normal_0.txt'], 'attack_files': ['../input_data/sess_TDL4_HTTP_Requests_0.txt', '../input_data/sess_Rcv_Wnd_Size_0_0.txt']}
     args = parse_params()
     # input_files_dict = args['input_files_dict'], epochs = args['epochs'], out_dir = args['out_dir']
     input_files_dict = eval(args['input_files_dict'])

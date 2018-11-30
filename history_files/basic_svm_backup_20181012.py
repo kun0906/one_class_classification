@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    implement one class classification (OCSVM_Sklearn)
+    implement one class classification (ocsvm_sklearn)
 
      Created at :
         2018/10/04
@@ -16,6 +16,7 @@
 """
 
 import time
+
 import numpy as np
 from sklearn import svm
 from sklearn.metrics import roc_auc_score, confusion_matrix
@@ -39,7 +40,7 @@ class OCSVM(object):
         X = np.asarray([x_t for (x_t, y_t) in zip(*train_set) if y_t == 0], dtype=float)
         print('X.shape: ', X.shape)
 
-        self.train_set = X  # only using one class Data (y_t == 0) to train
+        self.train_set = X  # only using one class input_data (y_t == 0) to train
         self.kernel = kernel
         self.nu = 0.5
         # self.gamma=1
@@ -63,7 +64,7 @@ class OCSVM(object):
 
         self.diag['train_set']['scores'] = {}
         self.diag['val_set']['scores'] = {}
-        # self.diag['test_set']['scores'] = np.zeros((len(self.Data._y_test), 1))
+        # self.diag['test_set']['scores'] = np.zeros((len(self.input_data._y_test), 1))
         self.diag['test_set']['scores'] = {}
 
         self.diag['train_set']['auc'] = np.zeros(1)
@@ -146,7 +147,7 @@ class OCSVM(object):
         start_time = time.time()
         # name = self.get_variable_name(data_set)
         # name = [k for k,v in locals().items() if v == data_set]
-        print('\t Evaluating Data is \'%s\'.' % name)
+        print('\t Evaluating input_data is \'%s\'.' % name)
 
         self.diag[name]['scores'] = np.zeros((len(data_set[1]), 1), dtype=float)
 

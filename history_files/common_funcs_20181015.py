@@ -10,7 +10,8 @@ from random import shuffle
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.model_selection import train_test_split
-from Utilities.CSV_Dataloader import csv_dataloader, open_file
+
+from utilities.CSV_Dataloader import csv_dataloader, open_file
 
 
 def normalizate_data(np_arr, eplison=10e-4):
@@ -47,8 +48,8 @@ def load_data(input_data='', norm_flg=True, train_val_test_percent=[0.7 * 0.9, 0
     :return:
     """
     if 'mnist' in input_data:
-        from Utilities.Mnist_data_loader import MNIST_DataLoader
-        # load Data with Data loader
+        from utilities.Mnist_data_loader import MNIST_DataLoader
+        # load input_data with input_data loader
         dataset = MNIST_DataLoader(ad_experiment=1)
         train_set, val_set, test_set = (dataset._X_train, dataset._y_train), (dataset._X_val, dataset._y_val), (
             dataset._X_test, dataset._y_test)
@@ -92,8 +93,8 @@ def load_data_with_new_principle(input_data='', norm_flg=True, train_val_test_pe
     :return:
     """
     if 'mnist' in input_data:
-        from Utilities.Mnist_data_loader import MNIST_DataLoader
-        # load Data with Data loader
+        from utilities.Mnist_data_loader import MNIST_DataLoader
+        # load input_data with input_data loader
         dataset = MNIST_DataLoader(ad_experiment=1)
         train_set, val_set, test_set = (dataset._X_train, dataset._y_train), (dataset._X_val, dataset._y_val), (
             dataset._X_test, dataset._y_test)

@@ -34,10 +34,11 @@ import numpy as np
 import torch
 import torch.utils.data as Data
 from sklearn.metrics import confusion_matrix
+from sys_path_export import *  # it is no need to do in IDE environment, however, it must be done in shell/command environment
 from torch import nn
 from torch.utils.data import DataLoader
-from sys_path_export import *  # it is no need to do in IDE environment, however, it must be done in shell/command environment
-from Utilities.common_funcs import show_data, achieve_train_val_test_from_files
+
+from utilities.common_funcs import show_data, achieve_train_val_test_from_files
 
 
 def print_net(net, describe_str='Net'):
@@ -149,7 +150,7 @@ class AutoEncoder(nn.Module):
             # ===================log========================
             print('epoch [{:d}/{:d}], loss:{:.4f}\n'.format(epoch + 1, self.epochs, loss.data))
             # if epoch % 10 == 0:
-            #     # pic = to_img(output.cpu().Data)
+            #     # pic = to_img(output.cpu().input_data)
             #     # save_image(pic, './mlp_img/image_{}.png'.format(epoch))
         self.T = self.loss[-1]
 
@@ -267,7 +268,7 @@ def ae_main(input_files_dict, epochs=2, out_dir='./log', **kwargs):
     st = time.time()
     print('It starts at ', start_time)
 
-    # step 1 load Data and do preprocessing
+    # step 1 load input_data and do preprocessing
     # train_set, val_set, test_set = load_data(input_file, norm_flg=True,
     #                                          train_val_test_percent=[0.7 * 0.9, 0.7 * 0.1, 0.3])
     train_set_without_abnormal_data, val_set, test_set = achieve_train_val_test_from_files(input_files_dict,
@@ -311,7 +312,8 @@ def parse_params():
     parser = argparse.ArgumentParser(prog='AE_Case3')
     parser.add_argument('-i', '--input_files_dict', type=str, dest='input_files_dict',
                         help='{\'normal_files\': [normal_file,...], \'attack_files\': [attack_file_1, attack_file_2,...]}',
-                        default='../Data/normal_demo.txt', required=True)  # '-i' short name, '--input_dir' full name
+                        default='../input_data/normal_demo.txt',
+                        required=True)  # '-i' short name, '--input_dir' full name
     parser.add_argument('-e', '--epochs', dest='epochs', help="num of epochs", default=10)
     parser.add_argument('-o', '--out_dir', dest='out_dir', help="the output information of this scripts",
                         default='../log')
@@ -321,13 +323,13 @@ def parse_params():
 
 
 if __name__ == '__main__':
-    # input_file = '../Data/Wednesday-workingHours-withoutInfinity-Sampled.pcap_ISCX.csv'
-    # normal_file = '../Data/sess_normal_0.txt'
-    # attack_file_1 = '../Data/sess_TDL4_HTTP_Requests_0.txt'
-    # attack_file_2 = '../Data/sess_Rcv_Wnd_Size_0_0.txt'
+    # input_file = '../input_data/Wednesday-workingHours-withoutInfinity-Sampled.pcap_ISCX.csv'
+    # normal_file = '../input_data/sess_normal_0.txt'
+    # attack_file_1 = '../input_data/sess_TDL4_HTTP_Requests_0.txt'
+    # attack_file_2 = '../input_data/sess_Rcv_Wnd_Size_0_0.txt'
     # input_files_dict = {'normal_files': [normal_file], 'attack_files': [attack_file_1, attack_file_2]}
     # epochs = 200
-    # input_files_dict={'normal_files': ['../Data/sess_normal_0.txt'], 'attack_files': ['../Data/sess_TDL4_HTTP_Requests_0.txt', '../Data/sess_Rcv_Wnd_Size_0_0.txt']}
+    # input_files_dict={'normal_files': ['../input_data/sess_normal_0.txt'], 'attack_files': ['../input_data/sess_TDL4_HTTP_Requests_0.txt', '../input_data/sess_Rcv_Wnd_Size_0_0.txt']}
     args = parse_params()
     input_files_dict = eval(args['input_files_dict'])
     epochs = eval(args['epochs'])
