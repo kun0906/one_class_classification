@@ -9,6 +9,7 @@
 
 ## 2. Project Directory Structure
 ### |- input_data: raw data
+    if any data is more than 100MB, please do not store it at here
     data/Wednesday-workingHours-withoutInfinity-Sampled.pcap_ISCX.csv
 
 ### |- output_data: results
