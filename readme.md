@@ -21,6 +21,7 @@
 ### |- proposed_algorithms
     ### |- deep_autoencoder_pytorch
             main_autoencoder.py
+    each folder just includes one algorithm
 
 ### |- compared_algorithms
     ### |- OCSVM_Sklearn
