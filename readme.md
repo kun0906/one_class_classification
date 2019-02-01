@@ -12,14 +12,18 @@
     data/Wednesday-workingHours-withoutInfinity-Sampled.pcap_ISCX.csv
 
 ### |- output_data: results
-
+    ...
+    
 ### |- log: use to log middle or tmp results.
-
+    ...
+    
 ### |- visualization: plot data to visualize 
-
+    ..
+    
 ### |- proposed_algorithms
     ### |- deep_autoencoder_pytorch
             main_autoencoder.py
+
 ### |- compared_algorithms
     ### |- OCSVM_Sklearn
         main_ocsvm.py
@@ -30,6 +34,7 @@
     common_funcs.py
 
 ### |-history_files: backup 
+    ...
 
 ## Note:
     since 10/13, we focus on case3, please read the codes related to case3.
