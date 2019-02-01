@@ -1,0 +1,3184 @@
+Using base prefix '/share/apps/python3/3.6.3/intel'
+New python executable in /scratch/ky13/Experiments/OneClassClassification_20181010/DeepAutoEncoder_Pytorch/py3.6.3/bin/python3
+Not overwriting existing python script /scratch/ky13/Experiments/OneClassClassification_20181010/DeepAutoEncoder_Pytorch/py3.6.3/bin/python (you must use /scratch/ky13/Experiments/OneClassClassification_20181010/DeepAutoEncoder_Pytorch/py3.6.3/bin/python3)
+Installing setuptools, pip, wheel...done.
+Requirement already satisfied: pillow in ./py3.6.3/lib/python3.6/site-packages (5.3.0)
+Requirement already satisfied: scapy in ./py3.6.3/lib/python3.6/site-packages (2.4.0)
+Requirement already satisfied: torch in ./py3.6.3/lib/python3.6/site-packages (0.4.1)
+Requirement already satisfied: sklearn in ./py3.6.3/lib/python3.6/site-packages (0.0)
+Requirement already satisfied: scikit-learn in ./py3.6.3/lib/python3.6/site-packages (from sklearn) (0.20.0)
+Requirement already satisfied: numpy>=1.8.2 in /share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/numpy-1.13.3-py3.6-linux-x86_64.egg (from scikit-learn->sklearn) (1.13.3)
+Requirement already satisfied: scipy>=0.13.3 in /share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/scipy-1.0.0rc1-py3.6-linux-x86_64.egg (from scikit-learn->sklearn) (1.0.0rc1)
+Requirement already satisfied: matplotlib in /share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/matplotlib-2.1.0-py3.6-linux-x86_64.egg (2.1.0)
+Requirement already satisfied: numpy>=1.7.1 in /share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/numpy-1.13.3-py3.6-linux-x86_64.egg (from matplotlib) (1.13.3)
+Requirement already satisfied: six>=1.10 in /share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/six-1.11.0-py3.6.egg (from matplotlib) (1.11.0)
+Requirement already satisfied: python-dateutil>=2.0 in /share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/python_dateutil-2.6.1-py3.6.egg (from matplotlib) (2.6.1)
+Requirement already satisfied: pytz in /share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/pytz-2017.3-py3.6.egg (from matplotlib) (2017.3)
+Requirement already satisfied: cycler>=0.10 in /share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/cycler-0.10.0-py3.6.egg (from matplotlib) (0.10.0)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 in /share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/pyparsing-2.2.0-py3.6.egg (from matplotlib) (2.2.0)
+['/scratch/ky13/Experiments/OneClassClassification_20181010/DeepAutoEncoder_Pytorch', '/scratch/ky13/Experiments/OneClassClassification_20181010/DeepAutoEncoder_Pytorch/py3.6.3/lib/python36.zip', '/scratch/ky13/Experiments/OneClassClassification_20181010/DeepAutoEncoder_Pytorch/py3.6.3/lib/python3.6', '/scratch/ky13/Experiments/OneClassClassification_20181010/DeepAutoEncoder_Pytorch/py3.6.3/lib/python3.6/lib-dynload', '/share/apps/python3/3.6.3/intel/lib/python3.6', '/scratch/ky13/Experiments/OneClassClassification_20181010/DeepAutoEncoder_Pytorch/py3.6.3/lib/python3.6/site-packages', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/numpy-1.13.3-py3.6-linux-x86_64.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/scipy-1.0.0rc1-py3.6-linux-x86_64.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/virtualenv-15.1.0-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/preshed-1.0.0-py3.6-linux-x86_64.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/cymem-1.31.2-py3.6-linux-x86_64.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/spacy-2.0.1.dev0-py3.6-linux-x86_64.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/msgpack_numpy-0.4.1-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/msgpack_python-0.4.8-py3.6-linux-x86_64.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/ftfy-4.4.3-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/regex-2017.4.5-py3.6-linux-x86_64.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/requests-2.18.4-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/dill-0.2.7.1-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/ujson-1.35-py3.6-linux-x86_64.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/pathlib-1.0.1-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/six-1.11.0-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/plac-0.9.6-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/thinc-6.10.0-py3.6-linux-x86_64.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/murmurhash-0.28.0-py3.6-linux-x86_64.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/wcwidth-0.1.7-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/html5lib-1.0b10-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/certifi-2017.11.5-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/urllib3-1.22-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/idna-2.6-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/chardet-3.0.4-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/termcolor-1.1.0-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/cytoolz-0.8.2-py3.6-linux-x86_64.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/tqdm-4.19.4-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/wrapt-1.10.11-py3.6-linux-x86_64.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/webencodings-0.5.1-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/toolz-0.8.2-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/matplotlib-2.1.0-py3.6-linux-x86_64.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/pyparsing-2.2.0-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/cycler-0.10.0-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/pytz-2017.3-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/python_dateutil-2.6.1-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/datajoint-0.9.0-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/boto3-1.5.9-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/pydotplus-2.0.2-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/networkx-1.11-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/ipython-6.2.1-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/PyMySQL-0.8.0-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/s3transfer-0.1.12-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/jmespath-0.9.3-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/botocore-1.8.23-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/decorator-4.1.2-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/pexpect-4.3.1-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/Pygments-2.2.0-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/prompt_toolkit-1.0.15-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/traitlets-4.3.2-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/simplegeneric-0.8.1-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/pickleshare-0.7.4-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/jedi-0.11.1-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/docutils-0.14-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/ptyprocess-0.5.2-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/ipython_genutils-0.2.0-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/parso-0.1.1-py3.6.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/pandas-0.22.0-py3.6-linux-x86_64.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/h5py-2.7.1-py3.6-linux-x86_64.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/tables-3.4.2-py3.6-linux-x86_64.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/numexpr-2.6.4-py3.6-linux-x86_64.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/Cython-0.28.3-py3.6-linux-x86_64.egg', '/share/apps/python3/3.6.3/intel/lib/python3.6/site-packages', '/scratch/ky13/Experiments/OneClassClassification_20181010']
+It starts at  2018-10-15 22:42:05
+ts, sip, dip, sport, dport, proto, dura, orig_pks, reply_pks, orig_bytes, reply_bytes, orig_min_pkt_size, orig_max_pkt_size, reply_min_pkt_size, reply_max_pkt_size, orig_min_interval, orig_max_interval, reply_min_interval, reply_max_interval, orig_min_ttl, orig_max_ttl, reply_min_ttl, reply_max_ttl, urg, ack, psh, rst, syn, fin, is_new, state, prev_state
+ts, sip, dip, sport, dport, proto, dura, orig_pks, reply_pks, orig_bytes, reply_bytes, orig_min_pkt_size, orig_max_pkt_size, reply_min_pkt_size, reply_max_pkt_size, orig_min_interval, orig_max_interval, reply_min_interval, reply_max_interval, orig_min_ttl, orig_max_ttl, reply_min_ttl, reply_max_ttl, urg, ack, psh, rst, syn, fin, is_new, state, prev_state
+ts, sip, dip, sport, dport, proto, dura, orig_pks, reply_pks, orig_bytes, reply_bytes, orig_min_pkt_size, orig_max_pkt_size, reply_min_pkt_size, reply_max_pkt_size, orig_min_interval, orig_max_interval, reply_min_interval, reply_max_interval, orig_min_ttl, orig_max_ttl, reply_min_ttl, reply_max_ttl, urg, ack, psh, rst, syn, fin, is_new, state, prev_state
+normal_data: 77988 , attack_data: 49084
+u_normal: [  8.06032130e+00   8.34555146e+00   1.01115514e+02   1.95674085e+02
+   3.30554852e+04   2.58392168e+05   5.35737942e+01   5.59941492e+02
+   5.65971131e+01   9.44016138e+02   2.99635837e+01   3.19403129e+03
+   8.53565606e+00   2.95465903e+03   3.17010496e+01   3.17010496e+01
+   3.17004634e+01   3.17004634e+01   0.00000000e+00   2.93566467e+02
+   1.58604166e+02   0.00000000e+00   3.21177483e+00   3.19083732e+00
+   9.90657801e-01   6.34474547e+00   4.54996245e+00]
+std_normal: [  4.29169086e+00   5.70195026e+00   1.66506465e+02   3.90713309e+02
+   1.66162368e+05   5.77857680e+05   8.73685456e+00   5.28219156e+02
+   1.49709903e+01   5.86123302e+02   4.74645893e+02   7.72026428e+03
+   1.59846138e+02   7.52900210e+03   3.07848026e+00   3.07848026e+00
+   3.08146841e+00   3.08146841e+00   0.00000000e+00   4.51996424e+02
+   2.31028829e+02   0.00000000e+00   1.59075538e+00   1.59922643e+00
+   9.62025082e-02   8.48229849e-01   1.18118673e+00]
+std_normal_modified: [  4.29169086e+00   5.70195026e+00   1.66506465e+02   3.90713309e+02
+   1.66162368e+05   5.77857680e+05   8.73685456e+00   5.28219156e+02
+   1.49709903e+01   5.86123302e+02   4.74645893e+02   7.72026428e+03
+   1.59846138e+02   7.52900210e+03   3.07848026e+00   3.07848026e+00
+   3.08146841e+00   3.08146841e+00   1.00000000e-03   4.51996424e+02
+   2.31028829e+02   1.00000000e-03   1.59075538e+00   1.59922643e+00
+   9.62025082e-02   8.48229849e-01   1.18118673e+00]
+train_set:Counter({0: 54591}),val_set:Counter({0: 7798}),test_set:Counter({1: 49084, 0: 15599})
+train_set shape is (54591, 27), val_set size is (7798, 27)
+epoch [1/1000], train_loss:0.4640, val_loss:0.8292
+
+epoch [2/1000], train_loss:0.4950, val_loss:0.8328
+
+epoch [3/1000], train_loss:0.5161, val_loss:0.8259
+
+epoch [4/1000], train_loss:0.4498, val_loss:0.8172
+
+epoch [5/1000], train_loss:0.5164, val_loss:0.8141
+
+epoch [6/1000], train_loss:0.5513, val_loss:0.8140
+
+epoch [7/1000], train_loss:22.7372, val_loss:0.8130
+
+epoch [8/1000], train_loss:1.0213, val_loss:0.8129
+
+epoch [9/1000], train_loss:0.4982, val_loss:0.8128
+
+epoch [10/1000], train_loss:0.4482, val_loss:0.8128
+
+epoch [11/1000], train_loss:0.3992, val_loss:0.8128
+
+epoch [12/1000], train_loss:0.4975, val_loss:0.8128
+
+epoch [13/1000], train_loss:0.7993, val_loss:0.8127
+
+epoch [14/1000], train_loss:0.3788, val_loss:0.8126
+
+epoch [15/1000], train_loss:0.9357, val_loss:0.8126
+
+epoch [16/1000], train_loss:0.9451, val_loss:0.8127
+
+epoch [17/1000], train_loss:1.3026, val_loss:0.8126
+
+epoch [18/1000], train_loss:0.5329, val_loss:0.8125
+
+epoch [19/1000], train_loss:0.5464, val_loss:0.8127
+
+epoch [20/1000], train_loss:0.3713, val_loss:0.8125
+
+epoch [21/1000], train_loss:0.4507, val_loss:0.8126
+
+epoch [22/1000], train_loss:0.4731, val_loss:0.8125
+
+epoch [23/1000], train_loss:0.5350, val_loss:0.8125
+
+epoch [24/1000], train_loss:0.5763, val_loss:0.8125
+
+epoch [25/1000], train_loss:0.8267, val_loss:0.8129
+
+epoch [26/1000], train_loss:0.4131, val_loss:0.8125
+
+epoch [27/1000], train_loss:0.4919, val_loss:0.8125
+
+epoch [28/1000], train_loss:0.8248, val_loss:0.8126
+
+epoch [29/1000], train_loss:0.3671, val_loss:0.8124
+
+epoch [30/1000], train_loss:1.2035, val_loss:0.8126
+
+epoch [31/1000], train_loss:0.7803, val_loss:0.8125
+
+epoch [32/1000], train_loss:0.4416, val_loss:0.8125
+
+epoch [33/1000], train_loss:0.8910, val_loss:0.8124
+
+epoch [34/1000], train_loss:0.3882, val_loss:0.7243
+
+epoch [35/1000], train_loss:0.4853, val_loss:0.7117
+
+epoch [36/1000], train_loss:0.7696, val_loss:0.7087
+
+epoch [37/1000], train_loss:0.2658, val_loss:0.7082
+
+epoch [38/1000], train_loss:0.2473, val_loss:0.7081
+
+epoch [39/1000], train_loss:0.7235, val_loss:0.7206
+
+epoch [40/1000], train_loss:0.6971, val_loss:0.7194
+
+epoch [41/1000], train_loss:0.6906, val_loss:0.7087
+
+epoch [42/1000], train_loss:0.4066, val_loss:0.7081
+
+epoch [43/1000], train_loss:0.4076, val_loss:0.7083
+
+epoch [44/1000], train_loss:0.3702, val_loss:0.7082
+
+epoch [45/1000], train_loss:0.3930, val_loss:0.7082
+
+epoch [46/1000], train_loss:1.1020, val_loss:0.7081
+
+epoch [47/1000], train_loss:1.1236, val_loss:0.7083
+
+epoch [48/1000], train_loss:0.3669, val_loss:0.6926
+
+epoch [49/1000], train_loss:0.2327, val_loss:0.6921
+
+epoch [50/1000], train_loss:0.6404, val_loss:0.7077
+
+epoch [51/1000], train_loss:0.7707, val_loss:0.7075
+
+epoch [52/1000], train_loss:0.8644, val_loss:0.6918
+
+epoch [53/1000], train_loss:0.7074, val_loss:0.6918
+
+epoch [54/1000], train_loss:0.6393, val_loss:0.6924
+
+epoch [55/1000], train_loss:0.3431, val_loss:0.6920
+
+epoch [56/1000], train_loss:0.6186, val_loss:0.6919
+
+epoch [57/1000], train_loss:0.3086, val_loss:0.6922
+
+epoch [58/1000], train_loss:1.0500, val_loss:0.6919
+
+epoch [59/1000], train_loss:0.3359, val_loss:0.6919
+
+epoch [60/1000], train_loss:0.7880, val_loss:0.6979
+
+epoch [61/1000], train_loss:0.6407, val_loss:0.6979
+
+epoch [62/1000], train_loss:0.6560, val_loss:0.6979
+
+epoch [63/1000], train_loss:0.6922, val_loss:0.6944
+
+epoch [64/1000], train_loss:0.7301, val_loss:0.6918
+
+epoch [65/1000], train_loss:0.2441, val_loss:0.6930
+
+epoch [66/1000], train_loss:1.0346, val_loss:0.6918
+
+epoch [67/1000], train_loss:1.2181, val_loss:0.6918
+
+epoch [68/1000], train_loss:0.3067, val_loss:0.6918
+
+epoch [69/1000], train_loss:0.2558, val_loss:0.6927
+
+epoch [70/1000], train_loss:0.2971, val_loss:0.6921
+
+epoch [71/1000], train_loss:0.3925, val_loss:0.6918
+
+epoch [72/1000], train_loss:0.3766, val_loss:0.6917
+
+epoch [73/1000], train_loss:0.6614, val_loss:0.6918
+
+epoch [74/1000], train_loss:0.7536, val_loss:0.6929
+
+epoch [75/1000], train_loss:0.5903, val_loss:0.6917
+
+epoch [76/1000], train_loss:0.3215, val_loss:0.6917
+
+epoch [77/1000], train_loss:1.0028, val_loss:0.6917
+
+epoch [78/1000], train_loss:0.6927, val_loss:0.6923
+
+epoch [79/1000], train_loss:0.3618, val_loss:0.6918
+
+epoch [80/1000], train_loss:0.3538, val_loss:0.6917
+
+epoch [81/1000], train_loss:1.3776, val_loss:0.6918
+
+epoch [82/1000], train_loss:0.6411, val_loss:0.6922
+
+epoch [83/1000], train_loss:0.6284, val_loss:0.6918
+
+epoch [84/1000], train_loss:0.9838, val_loss:0.6922
+
+epoch [85/1000], train_loss:0.3348, val_loss:0.6918
+
+epoch [86/1000], train_loss:0.8631, val_loss:0.6918
+
+epoch [87/1000], train_loss:1.0204, val_loss:0.6927
+
+epoch [88/1000], train_loss:0.7342, val_loss:0.6918
+
+epoch [89/1000], train_loss:0.8982, val_loss:0.6918
+
+epoch [90/1000], train_loss:0.6344, val_loss:0.6917
+
+epoch [91/1000], train_loss:1.0897, val_loss:0.6918
+
+epoch [92/1000], train_loss:0.2976, val_loss:0.6919
+
+epoch [93/1000], train_loss:0.2921, val_loss:0.6920
+
+epoch [94/1000], train_loss:0.8565, val_loss:0.6921
+
+epoch [95/1000], train_loss:0.2923, val_loss:0.6919
+
+epoch [96/1000], train_loss:0.3652, val_loss:0.6920
+
+epoch [97/1000], train_loss:0.2216, val_loss:0.6918
+
+epoch [98/1000], train_loss:0.2970, val_loss:0.6918
+
+epoch [99/1000], train_loss:0.3374, val_loss:0.6918
+
+epoch [100/1000], train_loss:0.3108, val_loss:0.6918
+
+epoch [101/1000], train_loss:0.7567, val_loss:0.6918
+
+epoch [102/1000], train_loss:0.7471, val_loss:0.6919
+
+epoch [103/1000], train_loss:0.4161, val_loss:0.6918
+
+epoch [104/1000], train_loss:0.4327, val_loss:0.6918
+
+epoch [105/1000], train_loss:0.6378, val_loss:0.6918
+
+epoch [106/1000], train_loss:0.3056, val_loss:0.6918
+
+epoch [107/1000], train_loss:1.2701, val_loss:0.6934
+
+epoch [108/1000], train_loss:0.3553, val_loss:0.6918
+
+epoch [109/1000], train_loss:0.6762, val_loss:0.6918
+
+epoch [110/1000], train_loss:0.3639, val_loss:0.6925
+
+epoch [111/1000], train_loss:0.2021, val_loss:0.6917
+
+epoch [112/1000], train_loss:0.6749, val_loss:0.6917
+
+epoch [113/1000], train_loss:0.6775, val_loss:0.6918
+
+epoch [114/1000], train_loss:0.2411, val_loss:0.6917
+
+epoch [115/1000], train_loss:0.2773, val_loss:0.6917
+
+epoch [116/1000], train_loss:0.4015, val_loss:0.6918
+
+epoch [117/1000], train_loss:0.3846, val_loss:0.6917
+
+epoch [118/1000], train_loss:0.8584, val_loss:0.6920
+
+epoch [119/1000], train_loss:0.2832, val_loss:0.6917
+
+epoch [120/1000], train_loss:1.1524, val_loss:0.6972
+
+epoch [121/1000], train_loss:0.7058, val_loss:0.6970
+
+epoch [122/1000], train_loss:0.2963, val_loss:0.6969
+
+epoch [123/1000], train_loss:0.4131, val_loss:0.6971
+
+epoch [124/1000], train_loss:0.7698, val_loss:0.6932
+
+epoch [125/1000], train_loss:1.0716, val_loss:0.6917
+
+epoch [126/1000], train_loss:0.3210, val_loss:0.6917
+
+epoch [127/1000], train_loss:1.1826, val_loss:0.6917
+
+epoch [128/1000], train_loss:0.8268, val_loss:0.6918
+
+epoch [129/1000], train_loss:0.6344, val_loss:0.6916
+
+epoch [130/1000], train_loss:0.7722, val_loss:0.6917
+
+epoch [131/1000], train_loss:0.6946, val_loss:0.6917
+
+epoch [132/1000], train_loss:0.3108, val_loss:0.6917
+
+epoch [133/1000], train_loss:0.6723, val_loss:0.6916
+
+epoch [134/1000], train_loss:0.2717, val_loss:0.6919
+
+epoch [135/1000], train_loss:0.4422, val_loss:0.6916
+
+epoch [136/1000], train_loss:1.4981, val_loss:0.6917
+
+epoch [137/1000], train_loss:0.4308, val_loss:0.6917
+
+epoch [138/1000], train_loss:0.3703, val_loss:0.6916
+
+epoch [139/1000], train_loss:0.2505, val_loss:0.6916
+
+epoch [140/1000], train_loss:0.7079, val_loss:0.6917
+
+epoch [141/1000], train_loss:0.3380, val_loss:0.6917
+
+epoch [142/1000], train_loss:0.7024, val_loss:0.6916
+
+epoch [143/1000], train_loss:0.7643, val_loss:0.6916
+
+epoch [144/1000], train_loss:0.3162, val_loss:0.6916
+
+epoch [145/1000], train_loss:0.3716, val_loss:0.6917
+
+epoch [146/1000], train_loss:0.6179, val_loss:0.6916
+
+epoch [147/1000], train_loss:1.1152, val_loss:0.6917
+
+epoch [148/1000], train_loss:0.7705, val_loss:0.6916
+
+epoch [149/1000], train_loss:0.6742, val_loss:0.6916
+
+epoch [150/1000], train_loss:0.7119, val_loss:0.6917
+
+epoch [151/1000], train_loss:0.2520, val_loss:0.6920
+
+epoch [152/1000], train_loss:0.4347, val_loss:0.6917
+
+epoch [153/1000], train_loss:0.6671, val_loss:0.6854
+
+epoch [154/1000], train_loss:0.3590, val_loss:0.6917
+
+epoch [155/1000], train_loss:0.3046, val_loss:0.6854
+
+epoch [156/1000], train_loss:0.2972, val_loss:0.6866
+
+epoch [157/1000], train_loss:1.1465, val_loss:0.6854
+
+epoch [158/1000], train_loss:0.5826, val_loss:0.6855
+
+epoch [159/1000], train_loss:0.6764, val_loss:0.6856
+
+epoch [160/1000], train_loss:0.7222, val_loss:0.6855
+
+epoch [161/1000], train_loss:0.6120, val_loss:0.6854
+
+epoch [162/1000], train_loss:0.2870, val_loss:0.6853
+
+epoch [163/1000], train_loss:0.3974, val_loss:0.6857
+
+epoch [164/1000], train_loss:1.0571, val_loss:0.6855
+
+epoch [165/1000], train_loss:0.4605, val_loss:0.6853
+
+epoch [166/1000], train_loss:0.2634, val_loss:0.6854
+
+epoch [167/1000], train_loss:0.6862, val_loss:0.6854
+
+epoch [168/1000], train_loss:0.4262, val_loss:0.6854
+
+epoch [169/1000], train_loss:1.1157, val_loss:0.6853
+
+epoch [170/1000], train_loss:0.2814, val_loss:0.6854
+
+epoch [171/1000], train_loss:1.0440, val_loss:0.6854
+
+epoch [172/1000], train_loss:0.2555, val_loss:0.6856
+
+epoch [173/1000], train_loss:1.1751, val_loss:0.6853
+
+epoch [174/1000], train_loss:0.4505, val_loss:0.6854
+
+epoch [175/1000], train_loss:1.5572, val_loss:0.6854
+
+epoch [176/1000], train_loss:0.6802, val_loss:0.6853
+
+epoch [177/1000], train_loss:0.2660, val_loss:0.6853
+
+epoch [178/1000], train_loss:0.2164, val_loss:0.6907
+
+epoch [179/1000], train_loss:0.3300, val_loss:0.6855
+
+epoch [180/1000], train_loss:0.3061, val_loss:0.6855
+
+epoch [181/1000], train_loss:0.7604, val_loss:0.6856
+
+epoch [182/1000], train_loss:0.6629, val_loss:0.6853
+
+epoch [183/1000], train_loss:0.3781, val_loss:0.6854
+
+epoch [184/1000], train_loss:0.6318, val_loss:0.6855
+
+epoch [185/1000], train_loss:0.3137, val_loss:0.6854
+
+epoch [186/1000], train_loss:0.3569, val_loss:0.6855
+
+epoch [187/1000], train_loss:0.2795, val_loss:0.6854
+
+epoch [188/1000], train_loss:0.3403, val_loss:0.6854
+
+epoch [189/1000], train_loss:0.3180, val_loss:0.6854
+
+epoch [190/1000], train_loss:0.3994, val_loss:0.6854
+
+epoch [191/1000], train_loss:0.4240, val_loss:0.6854
+
+epoch [192/1000], train_loss:0.7191, val_loss:0.6853
+
+epoch [193/1000], train_loss:0.3711, val_loss:0.6854
+
+epoch [194/1000], train_loss:0.9493, val_loss:0.6855
+
+epoch [195/1000], train_loss:0.3183, val_loss:0.6854
+
+epoch [196/1000], train_loss:0.7028, val_loss:0.6915
+
+epoch [197/1000], train_loss:0.2991, val_loss:0.6916
+
+epoch [198/1000], train_loss:1.1602, val_loss:0.6853
+
+epoch [199/1000], train_loss:0.7070, val_loss:0.6853
+
+epoch [200/1000], train_loss:0.7465, val_loss:0.6853
+
+epoch [201/1000], train_loss:1.1340, val_loss:0.6853
+
+epoch [202/1000], train_loss:0.2777, val_loss:0.6854
+
+epoch [203/1000], train_loss:1.0443, val_loss:0.6853
+
+epoch [204/1000], train_loss:0.4769, val_loss:0.6854
+
+epoch [205/1000], train_loss:1.0689, val_loss:0.6853
+
+epoch [206/1000], train_loss:0.6959, val_loss:0.6854
+
+epoch [207/1000], train_loss:0.3001, val_loss:0.6853
+
+epoch [208/1000], train_loss:0.2507, val_loss:0.6854
+
+epoch [209/1000], train_loss:0.2988, val_loss:0.6854
+
+epoch [210/1000], train_loss:0.2710, val_loss:0.6854
+
+epoch [211/1000], train_loss:1.1532, val_loss:0.6855
+
+epoch [212/1000], train_loss:0.2391, val_loss:0.6855
+
+epoch [213/1000], train_loss:0.3938, val_loss:0.6853
+
+epoch [214/1000], train_loss:0.2241, val_loss:0.6853
+
+epoch [215/1000], train_loss:0.3051, val_loss:0.6855
+
+epoch [216/1000], train_loss:0.7709, val_loss:0.6854
+
+epoch [217/1000], train_loss:1.0439, val_loss:0.6853
+
+epoch [218/1000], train_loss:0.8017, val_loss:0.6869
+
+epoch [219/1000], train_loss:0.3071, val_loss:0.6854
+
+epoch [220/1000], train_loss:0.2760, val_loss:0.6853
+
+epoch [221/1000], train_loss:0.3759, val_loss:0.6853
+
+epoch [222/1000], train_loss:0.3039, val_loss:0.6922
+
+epoch [223/1000], train_loss:0.7107, val_loss:0.6854
+
+epoch [224/1000], train_loss:0.7025, val_loss:0.6854
+
+epoch [225/1000], train_loss:0.2725, val_loss:0.6853
+
+epoch [226/1000], train_loss:0.6667, val_loss:0.6854
+
+epoch [227/1000], train_loss:0.3033, val_loss:0.6853
+
+epoch [228/1000], train_loss:0.7692, val_loss:0.6857
+
+epoch [229/1000], train_loss:0.3745, val_loss:0.6854
+
+epoch [230/1000], train_loss:0.4018, val_loss:0.6853
+
+epoch [231/1000], train_loss:0.7166, val_loss:0.6927
+
+epoch [232/1000], train_loss:0.3661, val_loss:0.6928
+
+epoch [233/1000], train_loss:0.2288, val_loss:0.6916
+
+epoch [234/1000], train_loss:0.3388, val_loss:0.6916
+
+epoch [235/1000], train_loss:0.2353, val_loss:0.6918
+
+epoch [236/1000], train_loss:0.2323, val_loss:0.6915
+
+epoch [237/1000], train_loss:0.8099, val_loss:0.6915
+
+epoch [238/1000], train_loss:0.6982, val_loss:0.6917
+
+epoch [239/1000], train_loss:0.6596, val_loss:0.6945
+
+epoch [240/1000], train_loss:0.5792, val_loss:0.6917
+
+epoch [241/1000], train_loss:0.3861, val_loss:0.6918
+
+epoch [242/1000], train_loss:0.4609, val_loss:0.6916
+
+epoch [243/1000], train_loss:0.6686, val_loss:0.6917
+
+epoch [244/1000], train_loss:0.2247, val_loss:0.6916
+
+epoch [245/1000], train_loss:0.6685, val_loss:0.6918
+
+epoch [246/1000], train_loss:0.4132, val_loss:0.6916
+
+epoch [247/1000], train_loss:0.6623, val_loss:0.6926
+
+epoch [248/1000], train_loss:0.3467, val_loss:0.6916
+
+epoch [249/1000], train_loss:4.6710, val_loss:0.6917
+
+epoch [250/1000], train_loss:1.3579, val_loss:0.6915
+
+epoch [251/1000], train_loss:0.3014, val_loss:0.6916
+
+epoch [252/1000], train_loss:0.6656, val_loss:0.6916
+
+epoch [253/1000], train_loss:0.7254, val_loss:0.6916
+
+epoch [254/1000], train_loss:0.2714, val_loss:0.6916
+
+epoch [255/1000], train_loss:0.2751, val_loss:0.6916
+
+epoch [256/1000], train_loss:0.7108, val_loss:0.6916
+
+epoch [257/1000], train_loss:0.2966, val_loss:0.6915
+
+epoch [258/1000], train_loss:0.3088, val_loss:0.6915
+
+epoch [259/1000], train_loss:0.6636, val_loss:0.6917
+
+epoch [260/1000], train_loss:0.3084, val_loss:0.6931
+
+epoch [261/1000], train_loss:0.7075, val_loss:0.6916
+
+epoch [262/1000], train_loss:1.0813, val_loss:0.6915
+
+epoch [263/1000], train_loss:0.6933, val_loss:0.6916
+
+epoch [264/1000], train_loss:0.2980, val_loss:0.6916
+
+epoch [265/1000], train_loss:0.2607, val_loss:0.6916
+
+epoch [266/1000], train_loss:0.7078, val_loss:0.6917
+
+epoch [267/1000], train_loss:0.7501, val_loss:0.6916
+
+epoch [268/1000], train_loss:0.3738, val_loss:0.6916
+
+epoch [269/1000], train_loss:1.4653, val_loss:0.6916
+
+epoch [270/1000], train_loss:1.0806, val_loss:0.6916
+
+epoch [271/1000], train_loss:0.3223, val_loss:0.6917
+
+epoch [272/1000], train_loss:0.3761, val_loss:0.6917
+
+epoch [273/1000], train_loss:0.6196, val_loss:0.6917
+
+epoch [274/1000], train_loss:0.3207, val_loss:0.6916
+
+epoch [275/1000], train_loss:1.5528, val_loss:0.6916
+
+epoch [276/1000], train_loss:0.5755, val_loss:0.6915
+
+epoch [277/1000], train_loss:0.8051, val_loss:0.6916
+
+epoch [278/1000], train_loss:0.4108, val_loss:0.6915
+
+epoch [279/1000], train_loss:0.2694, val_loss:0.6916
+
+epoch [280/1000], train_loss:0.3141, val_loss:0.6915
+
+epoch [281/1000], train_loss:0.3405, val_loss:0.6915
+
+epoch [282/1000], train_loss:0.3188, val_loss:0.6929
+
+epoch [283/1000], train_loss:0.2441, val_loss:0.6976
+
+epoch [284/1000], train_loss:0.7413, val_loss:0.6976
+
+epoch [285/1000], train_loss:0.3048, val_loss:0.6976
+
+epoch [286/1000], train_loss:0.6991, val_loss:0.6977
+
+epoch [287/1000], train_loss:1.0567, val_loss:0.6916
+
+epoch [288/1000], train_loss:0.2079, val_loss:0.6922
+
+epoch [289/1000], train_loss:0.7929, val_loss:0.6926
+
+epoch [290/1000], train_loss:0.3563, val_loss:0.6916
+
+epoch [291/1000], train_loss:0.7446, val_loss:0.6917
+
+epoch [292/1000], train_loss:0.2838, val_loss:0.6929
+
+epoch [293/1000], train_loss:0.3853, val_loss:0.6916
+
+epoch [294/1000], train_loss:0.7692, val_loss:0.6916
+
+epoch [295/1000], train_loss:0.9196, val_loss:0.6920
+
+epoch [296/1000], train_loss:0.8005, val_loss:0.6915
+
+epoch [297/1000], train_loss:1.1191, val_loss:0.6916
+
+epoch [298/1000], train_loss:0.4453, val_loss:0.6918
+
+epoch [299/1000], train_loss:0.6766, val_loss:0.6916
+
+epoch [300/1000], train_loss:0.7864, val_loss:0.6916
+
+epoch [301/1000], train_loss:0.2831, val_loss:0.6917
+
+epoch [302/1000], train_loss:0.7289, val_loss:0.6915
+
+epoch [303/1000], train_loss:0.3105, val_loss:0.6922
+
+epoch [304/1000], train_loss:0.2831, val_loss:0.6916
+
+epoch [305/1000], train_loss:0.7021, val_loss:0.6915
+
+epoch [306/1000], train_loss:0.3310, val_loss:0.6916
+
+epoch [307/1000], train_loss:0.3002, val_loss:0.6915
+
+epoch [308/1000], train_loss:0.2610, val_loss:0.6916
+
+epoch [309/1000], train_loss:0.7777, val_loss:0.6916
+
+epoch [310/1000], train_loss:0.6879, val_loss:0.6915
+
+epoch [311/1000], train_loss:0.2886, val_loss:0.6915
+
+epoch [312/1000], train_loss:0.6176, val_loss:0.6915
+
+epoch [313/1000], train_loss:1.0777, val_loss:0.6915
+
+epoch [314/1000], train_loss:0.4358, val_loss:0.6915
+
+epoch [315/1000], train_loss:0.2619, val_loss:0.6916
+
+epoch [316/1000], train_loss:0.2542, val_loss:0.6915
+
+epoch [317/1000], train_loss:0.2901, val_loss:0.6915
+
+epoch [318/1000], train_loss:0.2947, val_loss:0.6916
+
+epoch [319/1000], train_loss:1.0323, val_loss:0.6915
+
+epoch [320/1000], train_loss:0.3949, val_loss:0.6917
+
+epoch [321/1000], train_loss:1.1679, val_loss:0.6915
+
+epoch [322/1000], train_loss:0.3687, val_loss:0.6916
+
+epoch [323/1000], train_loss:4.3974, val_loss:0.6915
+
+epoch [324/1000], train_loss:0.3029, val_loss:0.6914
+
+epoch [325/1000], train_loss:0.6427, val_loss:0.6914
+
+epoch [326/1000], train_loss:3.4734, val_loss:0.6914
+
+epoch [327/1000], train_loss:0.2913, val_loss:0.6915
+
+epoch [328/1000], train_loss:0.7290, val_loss:0.6916
+
+epoch [329/1000], train_loss:1.0463, val_loss:0.6915
+
+epoch [330/1000], train_loss:0.4082, val_loss:0.6915
+
+epoch [331/1000], train_loss:0.7222, val_loss:0.6916
+
+epoch [332/1000], train_loss:0.3253, val_loss:0.6916
+
+epoch [333/1000], train_loss:0.7646, val_loss:0.6915
+
+epoch [334/1000], train_loss:0.3451, val_loss:0.6915
+
+epoch [335/1000], train_loss:0.7176, val_loss:0.6915
+
+epoch [336/1000], train_loss:0.3187, val_loss:0.6915
+
+epoch [337/1000], train_loss:1.0910, val_loss:0.6928
+
+epoch [338/1000], train_loss:0.3052, val_loss:0.6915
+
+epoch [339/1000], train_loss:0.7509, val_loss:0.6915
+
+epoch [340/1000], train_loss:1.0623, val_loss:0.6916
+
+epoch [341/1000], train_loss:0.7169, val_loss:0.6915
+
+epoch [342/1000], train_loss:0.7868, val_loss:0.6914
+
+epoch [343/1000], train_loss:0.2166, val_loss:0.6916
+
+epoch [344/1000], train_loss:0.6819, val_loss:0.6920
+
+epoch [345/1000], train_loss:1.5201, val_loss:0.6915
+
+epoch [346/1000], train_loss:0.6960, val_loss:0.6915
+
+epoch [347/1000], train_loss:0.6398, val_loss:0.6915
+
+epoch [348/1000], train_loss:0.3135, val_loss:0.6915
+
+epoch [349/1000], train_loss:0.7162, val_loss:0.6915
+
+epoch [350/1000], train_loss:0.3466, val_loss:0.6915
+
+epoch [351/1000], train_loss:1.0690, val_loss:0.6915
+
+epoch [352/1000], train_loss:0.5824, val_loss:0.6916
+
+epoch [353/1000], train_loss:0.7416, val_loss:0.6917
+
+epoch [354/1000], train_loss:0.3088, val_loss:0.6915
+
+epoch [355/1000], train_loss:0.3482, val_loss:0.6915
+
+epoch [356/1000], train_loss:0.2861, val_loss:0.6915
+
+epoch [357/1000], train_loss:0.2600, val_loss:0.6916
+
+epoch [358/1000], train_loss:0.7229, val_loss:0.6916
+
+epoch [359/1000], train_loss:0.3824, val_loss:0.6915
+
+epoch [360/1000], train_loss:0.2251, val_loss:0.6915
+
+epoch [361/1000], train_loss:0.4597, val_loss:0.6915
+
+epoch [362/1000], train_loss:0.6885, val_loss:0.6915
+
+epoch [363/1000], train_loss:0.2527, val_loss:0.6916
+
+epoch [364/1000], train_loss:0.3625, val_loss:0.6916
+
+epoch [365/1000], train_loss:0.2562, val_loss:0.6915
+
+epoch [366/1000], train_loss:0.6080, val_loss:0.6915
+
+epoch [367/1000], train_loss:0.2746, val_loss:0.6916
+
+epoch [368/1000], train_loss:0.3793, val_loss:0.6915
+
+epoch [369/1000], train_loss:0.6649, val_loss:0.6914
+
+epoch [370/1000], train_loss:0.2932, val_loss:0.6914
+
+epoch [371/1000], train_loss:0.7807, val_loss:0.6915
+
+epoch [372/1000], train_loss:1.0378, val_loss:0.6915
+
+epoch [373/1000], train_loss:0.6928, val_loss:0.6915
+
+epoch [374/1000], train_loss:0.2544, val_loss:0.6915
+
+epoch [375/1000], train_loss:0.3791, val_loss:0.6915
+
+epoch [376/1000], train_loss:0.3009, val_loss:0.6915
+
+epoch [377/1000], train_loss:0.5671, val_loss:0.6915
+
+epoch [378/1000], train_loss:0.3825, val_loss:0.6914
+
+epoch [379/1000], train_loss:0.6159, val_loss:0.6915
+
+epoch [380/1000], train_loss:0.3797, val_loss:0.6916
+
+epoch [381/1000], train_loss:0.2980, val_loss:0.6916
+
+epoch [382/1000], train_loss:0.2381, val_loss:0.6914
+
+epoch [383/1000], train_loss:0.4306, val_loss:0.6915
+
+epoch [384/1000], train_loss:0.3149, val_loss:0.6915
+
+epoch [385/1000], train_loss:0.2894, val_loss:0.6914
+
+epoch [386/1000], train_loss:0.7862, val_loss:0.6914
+
+epoch [387/1000], train_loss:0.3037, val_loss:0.6914
+
+epoch [388/1000], train_loss:1.5590, val_loss:0.6915
+
+epoch [389/1000], train_loss:0.3068, val_loss:0.6915
+
+epoch [390/1000], train_loss:0.2322, val_loss:0.6915
+
+epoch [391/1000], train_loss:0.4334, val_loss:0.6915
+
+epoch [392/1000], train_loss:0.3672, val_loss:0.6916
+
+epoch [393/1000], train_loss:0.2549, val_loss:0.6915
+
+epoch [394/1000], train_loss:0.3145, val_loss:0.6915
+
+epoch [395/1000], train_loss:0.3396, val_loss:0.6915
+
+epoch [396/1000], train_loss:1.6639, val_loss:0.6915
+
+epoch [397/1000], train_loss:0.3079, val_loss:0.6915
+
+epoch [398/1000], train_loss:0.3697, val_loss:0.6916
+
+epoch [399/1000], train_loss:0.3789, val_loss:0.6915
+
+epoch [400/1000], train_loss:0.3134, val_loss:0.6918
+
+epoch [401/1000], train_loss:0.7482, val_loss:0.6915
+
+epoch [402/1000], train_loss:0.8304, val_loss:0.6915
+
+epoch [403/1000], train_loss:1.0593, val_loss:0.6915
+
+epoch [404/1000], train_loss:0.8006, val_loss:0.6915
+
+epoch [405/1000], train_loss:1.4940, val_loss:0.6915
+
+epoch [406/1000], train_loss:0.2855, val_loss:0.6916
+
+epoch [407/1000], train_loss:0.4827, val_loss:0.6915
+
+epoch [408/1000], train_loss:0.3953, val_loss:0.6915
+
+epoch [409/1000], train_loss:0.4459, val_loss:0.6915
+
+epoch [410/1000], train_loss:0.7064, val_loss:0.6915
+
+epoch [411/1000], train_loss:0.3330, val_loss:0.6916
+
+epoch [412/1000], train_loss:0.2955, val_loss:0.6915
+
+epoch [413/1000], train_loss:0.7922, val_loss:0.6915
+
+epoch [414/1000], train_loss:0.3652, val_loss:0.6915
+
+epoch [415/1000], train_loss:0.6743, val_loss:0.6915
+
+epoch [416/1000], train_loss:1.0607, val_loss:0.6915
+
+epoch [417/1000], train_loss:0.3320, val_loss:0.6915
+
+epoch [418/1000], train_loss:0.2884, val_loss:0.6915
+
+epoch [419/1000], train_loss:1.1664, val_loss:0.6915
+
+epoch [420/1000], train_loss:6.0648, val_loss:0.6915
+
+epoch [421/1000], train_loss:0.6531, val_loss:0.6916
+
+epoch [422/1000], train_loss:0.9827, val_loss:0.6915
+
+epoch [423/1000], train_loss:0.8025, val_loss:0.6915
+
+epoch [424/1000], train_loss:0.3868, val_loss:0.6917
+
+epoch [425/1000], train_loss:0.8127, val_loss:0.6915
+
+epoch [426/1000], train_loss:0.2980, val_loss:0.6915
+
+epoch [427/1000], train_loss:0.2400, val_loss:0.6916
+
+epoch [428/1000], train_loss:1.0555, val_loss:0.6915
+
+epoch [429/1000], train_loss:0.3096, val_loss:0.6915
+
+epoch [430/1000], train_loss:0.7799, val_loss:0.6914
+
+epoch [431/1000], train_loss:1.0219, val_loss:0.6914
+
+epoch [432/1000], train_loss:0.8620, val_loss:0.6919
+
+epoch [433/1000], train_loss:0.3611, val_loss:0.6914
+
+epoch [434/1000], train_loss:0.3618, val_loss:0.6915
+
+epoch [435/1000], train_loss:0.6648, val_loss:0.6915
+
+epoch [436/1000], train_loss:0.4050, val_loss:0.6915
+
+epoch [437/1000], train_loss:0.6956, val_loss:0.6915
+
+epoch [438/1000], train_loss:0.8884, val_loss:0.6915
+
+epoch [439/1000], train_loss:0.3065, val_loss:0.6915
+
+epoch [440/1000], train_loss:1.1011, val_loss:0.6916
+
+epoch [441/1000], train_loss:0.2899, val_loss:0.6915
+
+epoch [442/1000], train_loss:0.6755, val_loss:0.6916
+
+epoch [443/1000], train_loss:0.3373, val_loss:0.6915
+
+epoch [444/1000], train_loss:0.6767, val_loss:0.6914
+
+epoch [445/1000], train_loss:0.3160, val_loss:0.6915
+
+epoch [446/1000], train_loss:0.3613, val_loss:0.6915
+
+epoch [447/1000], train_loss:0.3027, val_loss:0.6915
+
+epoch [448/1000], train_loss:0.1995, val_loss:0.6914
+
+epoch [449/1000], train_loss:0.3399, val_loss:0.6915
+
+epoch [450/1000], train_loss:0.7026, val_loss:0.6914
+
+epoch [451/1000], train_loss:1.0305, val_loss:0.6915
+
+epoch [452/1000], train_loss:0.6132, val_loss:0.6916
+
+epoch [453/1000], train_loss:0.7148, val_loss:0.6915
+
+epoch [454/1000], train_loss:0.7064, val_loss:0.6916
+
+epoch [455/1000], train_loss:0.6483, val_loss:0.6915
+
+epoch [456/1000], train_loss:0.4299, val_loss:0.6914
+
+epoch [457/1000], train_loss:0.2767, val_loss:0.6916
+
+epoch [458/1000], train_loss:0.6943, val_loss:0.6916
+
+epoch [459/1000], train_loss:0.2733, val_loss:0.6915
+
+epoch [460/1000], train_loss:0.2870, val_loss:0.6914
+
+epoch [461/1000], train_loss:0.4713, val_loss:0.6915
+
+epoch [462/1000], train_loss:0.7452, val_loss:0.6915
+
+epoch [463/1000], train_loss:0.3224, val_loss:0.6915
+
+epoch [464/1000], train_loss:0.8021, val_loss:0.6916
+
+epoch [465/1000], train_loss:0.7397, val_loss:0.6916
+
+epoch [466/1000], train_loss:0.2563, val_loss:0.6915
+
+epoch [467/1000], train_loss:5.8954, val_loss:0.6915
+
+epoch [468/1000], train_loss:0.6842, val_loss:0.6916
+
+epoch [469/1000], train_loss:0.6724, val_loss:0.6915
+
+epoch [470/1000], train_loss:0.6768, val_loss:0.6916
+
+epoch [471/1000], train_loss:1.0470, val_loss:0.6916
+
+epoch [472/1000], train_loss:0.3080, val_loss:0.6916
+
+epoch [473/1000], train_loss:0.4269, val_loss:0.6918
+
+epoch [474/1000], train_loss:1.0381, val_loss:0.6915
+
+epoch [475/1000], train_loss:0.3864, val_loss:0.6915
+
+epoch [476/1000], train_loss:0.7923, val_loss:0.6915
+
+epoch [477/1000], train_loss:0.3412, val_loss:0.6915
+
+epoch [478/1000], train_loss:0.2883, val_loss:0.6918
+
+epoch [479/1000], train_loss:0.3144, val_loss:0.6916
+
+epoch [480/1000], train_loss:1.0955, val_loss:0.6915
+
+epoch [481/1000], train_loss:0.2555, val_loss:0.6915
+
+epoch [482/1000], train_loss:0.7270, val_loss:0.6916
+
+epoch [483/1000], train_loss:0.3260, val_loss:0.6915
+
+epoch [484/1000], train_loss:0.7191, val_loss:0.6915
+
+epoch [485/1000], train_loss:1.0355, val_loss:0.6915
+
+epoch [486/1000], train_loss:0.3207, val_loss:0.6915
+
+epoch [487/1000], train_loss:0.2527, val_loss:0.6915
+
+epoch [488/1000], train_loss:0.3480, val_loss:0.6916
+
+epoch [489/1000], train_loss:0.4414, val_loss:0.6915
+
+epoch [490/1000], train_loss:1.1174, val_loss:0.6915
+
+epoch [491/1000], train_loss:0.2539, val_loss:0.6915
+
+epoch [492/1000], train_loss:0.7630, val_loss:0.6916
+
+epoch [493/1000], train_loss:0.6586, val_loss:0.6915
+
+epoch [494/1000], train_loss:0.8037, val_loss:0.6915
+
+epoch [495/1000], train_loss:0.7477, val_loss:0.6916
+
+epoch [496/1000], train_loss:0.3355, val_loss:0.6916
+
+epoch [497/1000], train_loss:0.3720, val_loss:0.6915
+
+epoch [498/1000], train_loss:2.6093, val_loss:0.6915
+
+epoch [499/1000], train_loss:0.7358, val_loss:0.6915
+
+epoch [500/1000], train_loss:0.7707, val_loss:0.6914
+
+epoch [501/1000], train_loss:0.6496, val_loss:0.6915
+
+epoch [502/1000], train_loss:0.4814, val_loss:0.6915
+
+epoch [503/1000], train_loss:0.7693, val_loss:0.6916
+
+epoch [504/1000], train_loss:0.6322, val_loss:0.6915
+
+epoch [505/1000], train_loss:0.6857, val_loss:0.6916
+
+epoch [506/1000], train_loss:0.2917, val_loss:0.6915
+
+epoch [507/1000], train_loss:0.3185, val_loss:0.6915
+
+epoch [508/1000], train_loss:0.2672, val_loss:0.6916
+
+epoch [509/1000], train_loss:0.3268, val_loss:0.6915
+
+epoch [510/1000], train_loss:0.4365, val_loss:0.6915
+
+epoch [511/1000], train_loss:0.2830, val_loss:0.6914
+
+epoch [512/1000], train_loss:0.3376, val_loss:0.6915
+
+epoch [513/1000], train_loss:0.6499, val_loss:0.6915
+
+epoch [514/1000], train_loss:0.1979, val_loss:0.6915
+
+epoch [515/1000], train_loss:0.6963, val_loss:0.6915
+
+epoch [516/1000], train_loss:0.3170, val_loss:0.6915
+
+epoch [517/1000], train_loss:0.2634, val_loss:0.6915
+
+epoch [518/1000], train_loss:0.7534, val_loss:0.6915
+
+epoch [519/1000], train_loss:0.7922, val_loss:0.6915
+
+epoch [520/1000], train_loss:0.4262, val_loss:0.6915
+
+epoch [521/1000], train_loss:0.4878, val_loss:0.6915
+
+epoch [522/1000], train_loss:0.2744, val_loss:0.6916
+
+epoch [523/1000], train_loss:0.2947, val_loss:0.6915
+
+epoch [524/1000], train_loss:0.6502, val_loss:0.6915
+
+epoch [525/1000], train_loss:0.6673, val_loss:0.6915
+
+epoch [526/1000], train_loss:0.3122, val_loss:0.6915
+
+epoch [527/1000], train_loss:0.4176, val_loss:0.6915
+
+epoch [528/1000], train_loss:0.3087, val_loss:0.6914
+
+epoch [529/1000], train_loss:0.3483, val_loss:0.6915
+
+epoch [530/1000], train_loss:0.2320, val_loss:0.6915
+
+epoch [531/1000], train_loss:0.7949, val_loss:0.6915
+
+epoch [532/1000], train_loss:0.2542, val_loss:0.6928
+
+epoch [533/1000], train_loss:1.2702, val_loss:0.6915
+
+epoch [534/1000], train_loss:0.6561, val_loss:0.6917
+
+epoch [535/1000], train_loss:0.4502, val_loss:0.6915
+
+epoch [536/1000], train_loss:0.3254, val_loss:0.6915
+
+epoch [537/1000], train_loss:3.1862, val_loss:0.6915
+
+epoch [538/1000], train_loss:0.4197, val_loss:0.6916
+
+epoch [539/1000], train_loss:0.4724, val_loss:0.6915
+
+epoch [540/1000], train_loss:0.2864, val_loss:0.6915
+
+epoch [541/1000], train_loss:0.3643, val_loss:0.6915
+
+epoch [542/1000], train_loss:1.2188, val_loss:0.6915
+
+epoch [543/1000], train_loss:0.3495, val_loss:0.6915
+
+epoch [544/1000], train_loss:0.6207, val_loss:0.6915
+
+epoch [545/1000], train_loss:0.3717, val_loss:0.6915
+
+epoch [546/1000], train_loss:0.7423, val_loss:0.6915
+
+epoch [547/1000], train_loss:0.2367, val_loss:0.6915
+
+epoch [548/1000], train_loss:0.4270, val_loss:0.6915
+
+epoch [549/1000], train_loss:0.2315, val_loss:0.6926
+
+epoch [550/1000], train_loss:0.6799, val_loss:0.6905
+
+epoch [551/1000], train_loss:0.6977, val_loss:0.6907
+
+epoch [552/1000], train_loss:0.3718, val_loss:0.6906
+
+epoch [553/1000], train_loss:0.3044, val_loss:0.6906
+
+epoch [554/1000], train_loss:1.0904, val_loss:0.6908
+
+epoch [555/1000], train_loss:0.3321, val_loss:0.6907
+
+epoch [556/1000], train_loss:0.3449, val_loss:0.6906
+
+epoch [557/1000], train_loss:0.7255, val_loss:0.6905
+
+epoch [558/1000], train_loss:0.3257, val_loss:0.6905
+
+epoch [559/1000], train_loss:0.6076, val_loss:0.6906
+
+epoch [560/1000], train_loss:0.6840, val_loss:0.6905
+
+epoch [561/1000], train_loss:1.1679, val_loss:0.6905
+
+epoch [562/1000], train_loss:0.6694, val_loss:0.6906
+
+epoch [563/1000], train_loss:1.0451, val_loss:0.6906
+
+epoch [564/1000], train_loss:1.4509, val_loss:0.6906
+
+epoch [565/1000], train_loss:0.7130, val_loss:0.6910
+
+epoch [566/1000], train_loss:0.7432, val_loss:0.6906
+
+epoch [567/1000], train_loss:0.4995, val_loss:0.6908
+
+epoch [568/1000], train_loss:1.0983, val_loss:0.6905
+
+epoch [569/1000], train_loss:0.2241, val_loss:0.6843
+
+epoch [570/1000], train_loss:0.3978, val_loss:0.6846
+
+epoch [571/1000], train_loss:1.4604, val_loss:0.6843
+
+epoch [572/1000], train_loss:0.3874, val_loss:0.6843
+
+epoch [573/1000], train_loss:0.3467, val_loss:0.6843
+
+epoch [574/1000], train_loss:0.8324, val_loss:0.6843
+
+epoch [575/1000], train_loss:0.7590, val_loss:0.6844
+
+epoch [576/1000], train_loss:0.3814, val_loss:0.6843
+
+epoch [577/1000], train_loss:0.6896, val_loss:0.6843
+
+epoch [578/1000], train_loss:0.3810, val_loss:0.6843
+
+epoch [579/1000], train_loss:0.7690, val_loss:0.6844
+
+epoch [580/1000], train_loss:0.8679, val_loss:0.6842
+
+epoch [581/1000], train_loss:0.3605, val_loss:0.6844
+
+epoch [582/1000], train_loss:0.7146, val_loss:0.6843
+
+epoch [583/1000], train_loss:0.2864, val_loss:0.6843
+
+epoch [584/1000], train_loss:0.4547, val_loss:0.6910
+
+epoch [585/1000], train_loss:2.0801, val_loss:0.6837
+
+epoch [586/1000], train_loss:0.7279, val_loss:0.6836
+
+epoch [587/1000], train_loss:0.3539, val_loss:0.6836
+
+epoch [588/1000], train_loss:0.3045, val_loss:0.6836
+
+epoch [589/1000], train_loss:0.2960, val_loss:0.6836
+
+epoch [590/1000], train_loss:0.7272, val_loss:0.6836
+
+epoch [591/1000], train_loss:0.9819, val_loss:0.6835
+
+epoch [592/1000], train_loss:0.7543, val_loss:0.6835
+
+epoch [593/1000], train_loss:0.2990, val_loss:0.6835
+
+epoch [594/1000], train_loss:0.6218, val_loss:0.6835
+
+epoch [595/1000], train_loss:3.7846, val_loss:0.6836
+
+epoch [596/1000], train_loss:1.1535, val_loss:0.6836
+
+epoch [597/1000], train_loss:0.3074, val_loss:0.6837
+
+epoch [598/1000], train_loss:0.7531, val_loss:0.6837
+
+epoch [599/1000], train_loss:0.8452, val_loss:0.6836
+
+epoch [600/1000], train_loss:0.3016, val_loss:0.6837
+
+epoch [601/1000], train_loss:0.7343, val_loss:0.6835
+
+epoch [602/1000], train_loss:0.7157, val_loss:0.6836
+
+epoch [603/1000], train_loss:0.4137, val_loss:0.6836
+
+epoch [604/1000], train_loss:0.2746, val_loss:0.6835
+
+epoch [605/1000], train_loss:0.3724, val_loss:0.6835
+
+epoch [606/1000], train_loss:0.3325, val_loss:0.6836
+
+epoch [607/1000], train_loss:0.2351, val_loss:0.6838
+
+epoch [608/1000], train_loss:0.5978, val_loss:0.6836
+
+epoch [609/1000], train_loss:1.1224, val_loss:0.6836
+
+epoch [610/1000], train_loss:0.7925, val_loss:0.6836
+
+epoch [611/1000], train_loss:0.9892, val_loss:0.6837
+
+epoch [612/1000], train_loss:0.7274, val_loss:0.6840
+
+epoch [613/1000], train_loss:0.2141, val_loss:0.6835
+
+epoch [614/1000], train_loss:0.2847, val_loss:0.6835
+
+epoch [615/1000], train_loss:0.2431, val_loss:0.6836
+
+epoch [616/1000], train_loss:0.3535, val_loss:0.6836
+
+epoch [617/1000], train_loss:0.4058, val_loss:0.6835
+
+epoch [618/1000], train_loss:0.2243, val_loss:0.6837
+
+epoch [619/1000], train_loss:0.6800, val_loss:0.6835
+
+epoch [620/1000], train_loss:0.3914, val_loss:0.6835
+
+epoch [621/1000], train_loss:0.8740, val_loss:0.6842
+
+epoch [622/1000], train_loss:0.7136, val_loss:0.6835
+
+epoch [623/1000], train_loss:0.3316, val_loss:0.6839
+
+epoch [624/1000], train_loss:0.3494, val_loss:0.6836
+
+epoch [625/1000], train_loss:1.1899, val_loss:0.6835
+
+epoch [626/1000], train_loss:0.2843, val_loss:0.6836
+
+epoch [627/1000], train_loss:0.3769, val_loss:0.6836
+
+epoch [628/1000], train_loss:1.1552, val_loss:0.6836
+
+epoch [629/1000], train_loss:0.3394, val_loss:0.6836
+
+epoch [630/1000], train_loss:0.6159, val_loss:0.6837
+
+epoch [631/1000], train_loss:0.3467, val_loss:0.6836
+
+epoch [632/1000], train_loss:0.9061, val_loss:0.6835
+
+epoch [633/1000], train_loss:0.3322, val_loss:0.6835
+
+epoch [634/1000], train_loss:0.3145, val_loss:0.6836
+
+epoch [635/1000], train_loss:0.2708, val_loss:0.6836
+
+epoch [636/1000], train_loss:0.6423, val_loss:0.6836
+
+epoch [637/1000], train_loss:0.6669, val_loss:0.6836
+
+epoch [638/1000], train_loss:0.7272, val_loss:0.6837
+
+epoch [639/1000], train_loss:0.6748, val_loss:0.6835
+
+epoch [640/1000], train_loss:1.3905, val_loss:0.6835
+
+epoch [641/1000], train_loss:0.4201, val_loss:0.6835
+
+epoch [642/1000], train_loss:0.2900, val_loss:0.6835
+
+epoch [643/1000], train_loss:0.2856, val_loss:0.6836
+
+epoch [644/1000], train_loss:1.8005, val_loss:0.6836
+
+epoch [645/1000], train_loss:1.1515, val_loss:0.6836
+
+epoch [646/1000], train_loss:0.3855, val_loss:0.6836
+
+epoch [647/1000], train_loss:1.1638, val_loss:0.6835
+
+epoch [648/1000], train_loss:0.2841, val_loss:0.6835
+
+epoch [649/1000], train_loss:0.4063, val_loss:0.6835
+
+epoch [650/1000], train_loss:0.3848, val_loss:0.6835
+
+epoch [651/1000], train_loss:0.7931, val_loss:0.6837
+
+epoch [652/1000], train_loss:0.7376, val_loss:0.6836
+
+epoch [653/1000], train_loss:0.3170, val_loss:0.6836
+
+epoch [654/1000], train_loss:0.3076, val_loss:0.6835
+
+epoch [655/1000], train_loss:0.2987, val_loss:0.6835
+
+epoch [656/1000], train_loss:0.6814, val_loss:0.6835
+
+epoch [657/1000], train_loss:0.6608, val_loss:0.6897
+
+epoch [658/1000], train_loss:2.9216, val_loss:0.6889
+
+epoch [659/1000], train_loss:0.6554, val_loss:0.6838
+
+epoch [660/1000], train_loss:1.0866, val_loss:0.6836
+
+epoch [661/1000], train_loss:0.4344, val_loss:0.6837
+
+epoch [662/1000], train_loss:0.7198, val_loss:0.6837
+
+epoch [663/1000], train_loss:0.6947, val_loss:0.6837
+
+epoch [664/1000], train_loss:1.3658, val_loss:0.6836
+
+epoch [665/1000], train_loss:0.3053, val_loss:0.6835
+
+epoch [666/1000], train_loss:0.3409, val_loss:0.6835
+
+epoch [667/1000], train_loss:0.2865, val_loss:0.6836
+
+epoch [668/1000], train_loss:0.2471, val_loss:0.6836
+
+epoch [669/1000], train_loss:0.7308, val_loss:0.6837
+
+epoch [670/1000], train_loss:0.6389, val_loss:0.6836
+
+epoch [671/1000], train_loss:0.8128, val_loss:0.6835
+
+epoch [672/1000], train_loss:0.3197, val_loss:0.6836
+
+epoch [673/1000], train_loss:0.7568, val_loss:0.6836
+
+epoch [674/1000], train_loss:0.8168, val_loss:0.6836
+
+epoch [675/1000], train_loss:0.3089, val_loss:0.6835
+
+epoch [676/1000], train_loss:2.6593, val_loss:0.6839
+
+epoch [677/1000], train_loss:0.6173, val_loss:0.6836
+
+epoch [678/1000], train_loss:0.3331, val_loss:0.6836
+
+epoch [679/1000], train_loss:0.3757, val_loss:0.6836
+
+epoch [680/1000], train_loss:0.7205, val_loss:0.6835
+
+epoch [681/1000], train_loss:0.7151, val_loss:0.6836
+
+epoch [682/1000], train_loss:0.3434, val_loss:0.6836
+
+epoch [683/1000], train_loss:0.2348, val_loss:0.6837
+
+epoch [684/1000], train_loss:0.3284, val_loss:0.6835
+
+epoch [685/1000], train_loss:0.7110, val_loss:0.6835
+
+epoch [686/1000], train_loss:0.6416, val_loss:0.6836
+
+epoch [687/1000], train_loss:0.6795, val_loss:0.6836
+
+epoch [688/1000], train_loss:0.3154, val_loss:0.6836
+
+epoch [689/1000], train_loss:0.4474, val_loss:0.6835
+
+epoch [690/1000], train_loss:0.3505, val_loss:0.6836
+
+epoch [691/1000], train_loss:0.7183, val_loss:0.6836
+
+epoch [692/1000], train_loss:0.3030, val_loss:0.6836
+
+epoch [693/1000], train_loss:0.3784, val_loss:0.6836
+
+epoch [694/1000], train_loss:0.6723, val_loss:0.6837
+
+epoch [695/1000], train_loss:1.1914, val_loss:0.6835
+
+epoch [696/1000], train_loss:0.7052, val_loss:0.6835
+
+epoch [697/1000], train_loss:1.9986, val_loss:0.6835
+
+epoch [698/1000], train_loss:0.3638, val_loss:0.6836
+
+epoch [699/1000], train_loss:0.6866, val_loss:0.6836
+
+epoch [700/1000], train_loss:0.8921, val_loss:0.6838
+
+epoch [701/1000], train_loss:22.2721, val_loss:0.6835
+
+epoch [702/1000], train_loss:0.3273, val_loss:0.6836
+
+epoch [703/1000], train_loss:0.6426, val_loss:0.6835
+
+epoch [704/1000], train_loss:0.8789, val_loss:0.6835
+
+epoch [705/1000], train_loss:0.3954, val_loss:0.6836
+
+epoch [706/1000], train_loss:0.3713, val_loss:0.6835
+
+epoch [707/1000], train_loss:1.0266, val_loss:0.6837
+
+epoch [708/1000], train_loss:1.0423, val_loss:0.6835
+
+epoch [709/1000], train_loss:0.5259, val_loss:0.6840
+
+epoch [710/1000], train_loss:0.3248, val_loss:0.6836
+
+epoch [711/1000], train_loss:0.6519, val_loss:0.6835
+
+epoch [712/1000], train_loss:0.3040, val_loss:0.6837
+
+epoch [713/1000], train_loss:1.0658, val_loss:0.6836
+
+epoch [714/1000], train_loss:0.3693, val_loss:0.6835
+
+epoch [715/1000], train_loss:2.4350, val_loss:0.6836
+
+epoch [716/1000], train_loss:0.9882, val_loss:0.6835
+
+epoch [717/1000], train_loss:0.2821, val_loss:0.6836
+
+epoch [718/1000], train_loss:0.3309, val_loss:0.6835
+
+epoch [719/1000], train_loss:0.3415, val_loss:0.6836
+
+epoch [720/1000], train_loss:1.4416, val_loss:0.6836
+
+epoch [721/1000], train_loss:0.7104, val_loss:0.6836
+
+epoch [722/1000], train_loss:0.7834, val_loss:0.6836
+
+epoch [723/1000], train_loss:0.2794, val_loss:0.6838
+
+epoch [724/1000], train_loss:0.6889, val_loss:0.6835
+
+epoch [725/1000], train_loss:0.4581, val_loss:0.6836
+
+epoch [726/1000], train_loss:0.3214, val_loss:0.6836
+
+epoch [727/1000], train_loss:1.1941, val_loss:0.6835
+
+epoch [728/1000], train_loss:0.4893, val_loss:0.6836
+
+epoch [729/1000], train_loss:1.1551, val_loss:0.6836
+
+epoch [730/1000], train_loss:1.1530, val_loss:0.6835
+
+epoch [731/1000], train_loss:0.7201, val_loss:0.6835
+
+epoch [732/1000], train_loss:0.7530, val_loss:0.6835
+
+epoch [733/1000], train_loss:0.4225, val_loss:0.6836
+
+epoch [734/1000], train_loss:0.7256, val_loss:0.6835
+
+epoch [735/1000], train_loss:0.2643, val_loss:0.6835
+
+epoch [736/1000], train_loss:0.3592, val_loss:0.6836
+
+epoch [737/1000], train_loss:0.3440, val_loss:0.6835
+
+epoch [738/1000], train_loss:0.3637, val_loss:0.6836
+
+epoch [739/1000], train_loss:0.3418, val_loss:0.6836
+
+epoch [740/1000], train_loss:0.7206, val_loss:0.6835
+
+epoch [741/1000], train_loss:0.7991, val_loss:0.6839
+
+epoch [742/1000], train_loss:0.7990, val_loss:0.6835
+
+epoch [743/1000], train_loss:0.7814, val_loss:0.6835
+
+epoch [744/1000], train_loss:0.4323, val_loss:0.6836
+
+epoch [745/1000], train_loss:0.3875, val_loss:0.6836
+
+epoch [746/1000], train_loss:0.3401, val_loss:0.6836
+
+epoch [747/1000], train_loss:0.3066, val_loss:0.6836
+
+epoch [748/1000], train_loss:0.7853, val_loss:0.6836
+
+epoch [749/1000], train_loss:0.3811, val_loss:0.6836
+
+epoch [750/1000], train_loss:0.3350, val_loss:0.6835
+
+epoch [751/1000], train_loss:0.2508, val_loss:0.6836
+
+epoch [752/1000], train_loss:0.3022, val_loss:0.6835
+
+epoch [753/1000], train_loss:1.5583, val_loss:0.6835
+
+epoch [754/1000], train_loss:0.6331, val_loss:0.6836
+
+epoch [755/1000], train_loss:0.3245, val_loss:0.6836
+
+epoch [756/1000], train_loss:1.0745, val_loss:0.6836
+
+epoch [757/1000], train_loss:0.3599, val_loss:0.6835
+
+epoch [758/1000], train_loss:1.0941, val_loss:0.6835
+
+epoch [759/1000], train_loss:0.3512, val_loss:0.6838
+
+epoch [760/1000], train_loss:0.6706, val_loss:0.6835
+
+epoch [761/1000], train_loss:0.6105, val_loss:0.6836
+
+epoch [762/1000], train_loss:0.2555, val_loss:0.6835
+
+epoch [763/1000], train_loss:0.3915, val_loss:0.6836
+
+epoch [764/1000], train_loss:0.8044, val_loss:0.6836
+
+epoch [765/1000], train_loss:0.3601, val_loss:0.6836
+
+epoch [766/1000], train_loss:0.6270, val_loss:0.6835
+
+epoch [767/1000], train_loss:0.7172, val_loss:0.6836
+
+epoch [768/1000], train_loss:0.6742, val_loss:0.6836
+
+epoch [769/1000], train_loss:1.4166, val_loss:0.6835
+
+epoch [770/1000], train_loss:1.0547, val_loss:0.6840
+
+epoch [771/1000], train_loss:0.6839, val_loss:0.6932
+
+epoch [772/1000], train_loss:0.2794, val_loss:0.6837
+
+epoch [773/1000], train_loss:0.3325, val_loss:0.6835
+
+epoch [774/1000], train_loss:0.3184, val_loss:0.6836
+
+epoch [775/1000], train_loss:0.2666, val_loss:0.6836
+
+epoch [776/1000], train_loss:0.7083, val_loss:0.6836
+
+epoch [777/1000], train_loss:0.2644, val_loss:0.6836
+
+epoch [778/1000], train_loss:0.7904, val_loss:0.6836
+
+epoch [779/1000], train_loss:0.5858, val_loss:0.6837
+
+epoch [780/1000], train_loss:0.7861, val_loss:0.6836
+
+epoch [781/1000], train_loss:0.6193, val_loss:0.6837
+
+epoch [782/1000], train_loss:0.7575, val_loss:0.6835
+
+epoch [783/1000], train_loss:1.4974, val_loss:0.6836
+
+epoch [784/1000], train_loss:0.7375, val_loss:0.6896
+
+epoch [785/1000], train_loss:0.2841, val_loss:0.6841
+
+epoch [786/1000], train_loss:0.3463, val_loss:0.6836
+
+epoch [787/1000], train_loss:0.3016, val_loss:0.6837
+
+epoch [788/1000], train_loss:0.3287, val_loss:0.6836
+
+epoch [789/1000], train_loss:0.8190, val_loss:0.6835
+
+epoch [790/1000], train_loss:0.3414, val_loss:0.6838
+
+epoch [791/1000], train_loss:0.6851, val_loss:0.6836
+
+epoch [792/1000], train_loss:0.3042, val_loss:0.6836
+
+epoch [793/1000], train_loss:1.0285, val_loss:0.6836
+
+epoch [794/1000], train_loss:0.3119, val_loss:0.6836
+
+epoch [795/1000], train_loss:0.3927, val_loss:0.6836
+
+epoch [796/1000], train_loss:0.4148, val_loss:0.6835
+
+epoch [797/1000], train_loss:0.8263, val_loss:0.6838
+
+epoch [798/1000], train_loss:0.3526, val_loss:0.6835
+
+epoch [799/1000], train_loss:0.7704, val_loss:0.6836
+
+epoch [800/1000], train_loss:0.3321, val_loss:0.6836
+
+epoch [801/1000], train_loss:0.7396, val_loss:0.6836
+
+epoch [802/1000], train_loss:0.8263, val_loss:0.6835
+
+epoch [803/1000], train_loss:0.3647, val_loss:0.6836
+
+epoch [804/1000], train_loss:0.6935, val_loss:0.6836
+
+epoch [805/1000], train_loss:0.2968, val_loss:0.6836
+
+epoch [806/1000], train_loss:0.3659, val_loss:0.6835
+
+epoch [807/1000], train_loss:0.6335, val_loss:0.6836
+
+epoch [808/1000], train_loss:0.3221, val_loss:0.6836
+
+epoch [809/1000], train_loss:0.2612, val_loss:0.6836
+
+epoch [810/1000], train_loss:0.7068, val_loss:0.6836
+
+epoch [811/1000], train_loss:0.3769, val_loss:0.6835
+
+epoch [812/1000], train_loss:1.0747, val_loss:0.6836
+
+epoch [813/1000], train_loss:0.2990, val_loss:0.6837
+
+epoch [814/1000], train_loss:0.2511, val_loss:0.6835
+
+epoch [815/1000], train_loss:0.2993, val_loss:0.6836
+
+epoch [816/1000], train_loss:0.7638, val_loss:0.6836
+
+epoch [817/1000], train_loss:0.6671, val_loss:0.6835
+
+epoch [818/1000], train_loss:0.2499, val_loss:0.6836
+
+epoch [819/1000], train_loss:1.4415, val_loss:0.6837
+
+epoch [820/1000], train_loss:0.2175, val_loss:0.6836
+
+epoch [821/1000], train_loss:0.3151, val_loss:0.6836
+
+epoch [822/1000], train_loss:0.2559, val_loss:0.6836
+
+epoch [823/1000], train_loss:0.4019, val_loss:0.6837
+
+epoch [824/1000], train_loss:0.3309, val_loss:0.6836
+
+epoch [825/1000], train_loss:0.1940, val_loss:0.6835
+
+epoch [826/1000], train_loss:0.6960, val_loss:0.6838
+
+epoch [827/1000], train_loss:0.6580, val_loss:0.6836
+
+epoch [828/1000], train_loss:0.2588, val_loss:0.6835
+
+epoch [829/1000], train_loss:0.6874, val_loss:0.6836
+
+epoch [830/1000], train_loss:0.7520, val_loss:0.6835
+
+epoch [831/1000], train_loss:0.2637, val_loss:0.6836
+
+epoch [832/1000], train_loss:0.3049, val_loss:0.6836
+
+epoch [833/1000], train_loss:1.0899, val_loss:0.6836
+
+epoch [834/1000], train_loss:0.4344, val_loss:0.6835
+
+epoch [835/1000], train_loss:0.3993, val_loss:0.6836
+
+epoch [836/1000], train_loss:0.2687, val_loss:0.6835
+
+epoch [837/1000], train_loss:1.4148, val_loss:0.6835
+
+epoch [838/1000], train_loss:1.4758, val_loss:0.6837
+
+epoch [839/1000], train_loss:0.2644, val_loss:0.6836
+
+epoch [840/1000], train_loss:0.3215, val_loss:0.6835
+
+epoch [841/1000], train_loss:0.3669, val_loss:0.6836
+
+epoch [842/1000], train_loss:0.2807, val_loss:0.6835
+
+epoch [843/1000], train_loss:0.9950, val_loss:0.6836
+
+epoch [844/1000], train_loss:0.3461, val_loss:0.6836
+
+epoch [845/1000], train_loss:1.0332, val_loss:0.6835
+
+epoch [846/1000], train_loss:0.2778, val_loss:0.6836
+
+epoch [847/1000], train_loss:0.3540, val_loss:0.6836
+
+epoch [848/1000], train_loss:0.7305, val_loss:0.6836
+
+epoch [849/1000], train_loss:0.6593, val_loss:0.6835
+
+epoch [850/1000], train_loss:0.3010, val_loss:0.6836
+
+epoch [851/1000], train_loss:0.7004, val_loss:0.6836
+
+epoch [852/1000], train_loss:1.4261, val_loss:0.6836
+
+epoch [853/1000], train_loss:1.0589, val_loss:0.6835
+
+epoch [854/1000], train_loss:0.3162, val_loss:0.6836
+
+epoch [855/1000], train_loss:0.3124, val_loss:0.6836
+
+epoch [856/1000], train_loss:0.5062, val_loss:0.6836
+
+epoch [857/1000], train_loss:0.4753, val_loss:0.6836
+
+epoch [858/1000], train_loss:0.2625, val_loss:0.6837
+
+epoch [859/1000], train_loss:0.3145, val_loss:0.6837
+
+epoch [860/1000], train_loss:0.3087, val_loss:0.6836
+
+epoch [861/1000], train_loss:0.8048, val_loss:0.6835
+
+epoch [862/1000], train_loss:0.2884, val_loss:0.6835
+
+epoch [863/1000], train_loss:0.6408, val_loss:0.6836
+
+epoch [864/1000], train_loss:0.6651, val_loss:0.6836
+
+epoch [865/1000], train_loss:0.3373, val_loss:0.6835
+
+epoch [866/1000], train_loss:0.2404, val_loss:0.6836
+
+epoch [867/1000], train_loss:0.4078, val_loss:0.6839
+
+epoch [868/1000], train_loss:0.8093, val_loss:0.6836
+
+epoch [869/1000], train_loss:0.2778, val_loss:0.6836
+
+epoch [870/1000], train_loss:0.9948, val_loss:0.6835
+
+epoch [871/1000], train_loss:0.7902, val_loss:0.6836
+
+epoch [872/1000], train_loss:0.3534, val_loss:0.6835
+
+epoch [873/1000], train_loss:0.8018, val_loss:0.6836
+
+epoch [874/1000], train_loss:0.2802, val_loss:0.6835
+
+epoch [875/1000], train_loss:0.2989, val_loss:0.6836
+
+epoch [876/1000], train_loss:0.7415, val_loss:0.6836
+
+epoch [877/1000], train_loss:0.3359, val_loss:0.6836
+
+epoch [878/1000], train_loss:1.0166, val_loss:0.6836
+
+epoch [879/1000], train_loss:1.6146, val_loss:0.6835
+
+epoch [880/1000], train_loss:0.3715, val_loss:0.6836
+
+epoch [881/1000], train_loss:1.0032, val_loss:0.6837
+
+epoch [882/1000], train_loss:0.6971, val_loss:0.6835
+
+epoch [883/1000], train_loss:0.4356, val_loss:0.6835
+
+epoch [884/1000], train_loss:0.4873, val_loss:0.6835
+
+epoch [885/1000], train_loss:0.3242, val_loss:0.6836
+
+epoch [886/1000], train_loss:0.7302, val_loss:0.6836
+
+epoch [887/1000], train_loss:22.3291, val_loss:0.6835
+
+epoch [888/1000], train_loss:0.8064, val_loss:0.6836
+
+epoch [889/1000], train_loss:0.2725, val_loss:0.6836
+
+epoch [890/1000], train_loss:2.1803, val_loss:0.6835
+
+epoch [891/1000], train_loss:0.3490, val_loss:0.6835
+
+epoch [892/1000], train_loss:0.3202, val_loss:0.6835
+
+epoch [893/1000], train_loss:0.3471, val_loss:0.6836
+
+epoch [894/1000], train_loss:0.3116, val_loss:0.6836
+
+epoch [895/1000], train_loss:0.3669, val_loss:0.6836
+
+epoch [896/1000], train_loss:0.7411, val_loss:0.6836
+
+epoch [897/1000], train_loss:0.4122, val_loss:0.6846
+
+epoch [898/1000], train_loss:0.6760, val_loss:0.6835
+
+epoch [899/1000], train_loss:3.9597, val_loss:0.6835
+
+epoch [900/1000], train_loss:0.2440, val_loss:0.6835
+
+epoch [901/1000], train_loss:1.2179, val_loss:0.6835
+
+epoch [902/1000], train_loss:0.7566, val_loss:0.6837
+
+epoch [903/1000], train_loss:0.3489, val_loss:0.6836
+
+epoch [904/1000], train_loss:0.7019, val_loss:0.6836
+
+epoch [905/1000], train_loss:0.2523, val_loss:0.6835
+
+epoch [906/1000], train_loss:4.2381, val_loss:0.6836
+
+epoch [907/1000], train_loss:0.3423, val_loss:0.6835
+
+epoch [908/1000], train_loss:0.7253, val_loss:0.6837
+
+epoch [909/1000], train_loss:0.3429, val_loss:0.6844
+
+epoch [910/1000], train_loss:0.3127, val_loss:0.6835
+
+epoch [911/1000], train_loss:0.4733, val_loss:0.6837
+
+epoch [912/1000], train_loss:0.3048, val_loss:0.6836
+
+epoch [913/1000], train_loss:0.7306, val_loss:0.6836
+
+epoch [914/1000], train_loss:0.7006, val_loss:0.6837
+
+epoch [915/1000], train_loss:0.7190, val_loss:0.6849
+
+epoch [916/1000], train_loss:0.3453, val_loss:0.6836
+
+epoch [917/1000], train_loss:0.3325, val_loss:0.6836
+
+epoch [918/1000], train_loss:0.6855, val_loss:0.6840
+
+epoch [919/1000], train_loss:0.4191, val_loss:0.6836
+
+epoch [920/1000], train_loss:0.3222, val_loss:0.6836
+
+epoch [921/1000], train_loss:3.8287, val_loss:0.6836
+
+epoch [922/1000], train_loss:0.6775, val_loss:0.6835
+
+epoch [923/1000], train_loss:1.1281, val_loss:0.6835
+
+epoch [924/1000], train_loss:0.7028, val_loss:0.6836
+
+epoch [925/1000], train_loss:0.6253, val_loss:0.6836
+
+epoch [926/1000], train_loss:1.0143, val_loss:0.6837
+
+epoch [927/1000], train_loss:0.6332, val_loss:0.6839
+
+epoch [928/1000], train_loss:0.2342, val_loss:0.6835
+
+epoch [929/1000], train_loss:0.3387, val_loss:0.6835
+
+epoch [930/1000], train_loss:0.3602, val_loss:0.6835
+
+epoch [931/1000], train_loss:1.1089, val_loss:0.6902
+
+epoch [932/1000], train_loss:1.0873, val_loss:0.6836
+
+epoch [933/1000], train_loss:0.3151, val_loss:0.6835
+
+epoch [934/1000], train_loss:0.2236, val_loss:0.6836
+
+epoch [935/1000], train_loss:0.4204, val_loss:0.6835
+
+epoch [936/1000], train_loss:1.1837, val_loss:0.6835
+
+epoch [937/1000], train_loss:0.2754, val_loss:0.6836
+
+epoch [938/1000], train_loss:0.3916, val_loss:0.6836
+
+epoch [939/1000], train_loss:0.9949, val_loss:0.6835
+
+epoch [940/1000], train_loss:0.3354, val_loss:0.6836
+
+epoch [941/1000], train_loss:1.0534, val_loss:0.6841
+
+epoch [942/1000], train_loss:0.3502, val_loss:0.6835
+
+epoch [943/1000], train_loss:0.7295, val_loss:0.6836
+
+epoch [944/1000], train_loss:0.4279, val_loss:0.6835
+
+epoch [945/1000], train_loss:0.3632, val_loss:0.6835
+
+epoch [946/1000], train_loss:0.5079, val_loss:0.6835
+
+epoch [947/1000], train_loss:0.6955, val_loss:0.6836
+
+epoch [948/1000], train_loss:1.1076, val_loss:0.6836
+
+epoch [949/1000], train_loss:0.6887, val_loss:0.6835
+
+epoch [950/1000], train_loss:0.3638, val_loss:0.6835
+
+epoch [951/1000], train_loss:0.3423, val_loss:0.6836
+
+epoch [952/1000], train_loss:0.2820, val_loss:0.6836
+
+epoch [953/1000], train_loss:0.2671, val_loss:0.6835
+
+epoch [954/1000], train_loss:0.2339, val_loss:0.6835
+
+epoch [955/1000], train_loss:0.7794, val_loss:0.6835
+
+epoch [956/1000], train_loss:0.4402, val_loss:0.6837
+
+epoch [957/1000], train_loss:0.6615, val_loss:0.6835
+
+epoch [958/1000], train_loss:0.4086, val_loss:0.6835
+
+epoch [959/1000], train_loss:0.6005, val_loss:0.6835
+
+epoch [960/1000], train_loss:0.2775, val_loss:0.6836
+
+epoch [961/1000], train_loss:0.2514, val_loss:0.6835
+
+epoch [962/1000], train_loss:0.5194, val_loss:0.6836
+
+epoch [963/1000], train_loss:0.3166, val_loss:0.6837
+
+epoch [964/1000], train_loss:0.2859, val_loss:0.6835
+
+epoch [965/1000], train_loss:0.6536, val_loss:0.6835
+
+epoch [966/1000], train_loss:0.3861, val_loss:0.6835
+
+epoch [967/1000], train_loss:0.3261, val_loss:0.6835
+
+epoch [968/1000], train_loss:0.3674, val_loss:0.6836
+
+epoch [969/1000], train_loss:0.3765, val_loss:0.6836
+
+epoch [970/1000], train_loss:0.2620, val_loss:0.6835
+
+epoch [971/1000], train_loss:0.6933, val_loss:0.6835
+
+epoch [972/1000], train_loss:0.6250, val_loss:0.6836
+
+epoch [973/1000], train_loss:0.7048, val_loss:0.6835
+
+epoch [974/1000], train_loss:0.2780, val_loss:0.6836
+
+epoch [975/1000], train_loss:0.3439, val_loss:0.6835
+
+epoch [976/1000], train_loss:1.0921, val_loss:0.6835
+
+epoch [977/1000], train_loss:0.1902, val_loss:0.6836
+
+epoch [978/1000], train_loss:0.7943, val_loss:0.6835
+
+epoch [979/1000], train_loss:0.2932, val_loss:0.6835
+
+epoch [980/1000], train_loss:0.2813, val_loss:0.6835
+
+epoch [981/1000], train_loss:0.3433, val_loss:0.6835
+
+epoch [982/1000], train_loss:0.2900, val_loss:0.6835
+
+epoch [983/1000], train_loss:0.3205, val_loss:0.6835
+
+epoch [984/1000], train_loss:0.6753, val_loss:0.6836
+
+epoch [985/1000], train_loss:0.2991, val_loss:0.6835
+
+epoch [986/1000], train_loss:1.0314, val_loss:0.6835
+
+epoch [987/1000], train_loss:0.3150, val_loss:0.6839
+
+epoch [988/1000], train_loss:0.2782, val_loss:0.6836
+
+epoch [989/1000], train_loss:0.6305, val_loss:0.6836
+
+epoch [990/1000], train_loss:0.7957, val_loss:0.6835
+
+epoch [991/1000], train_loss:1.3831, val_loss:0.6835
+
+epoch [992/1000], train_loss:0.6583, val_loss:0.6836
+
+epoch [993/1000], train_loss:0.9794, val_loss:0.6836
+
+epoch [994/1000], train_loss:0.3037, val_loss:0.6835
+
+epoch [995/1000], train_loss:0.3220, val_loss:0.6836
+
+epoch [996/1000], train_loss:0.8365, val_loss:0.6835
+
+epoch [997/1000], train_loss:1.1477, val_loss:0.6835
+
+epoch [998/1000], train_loss:0.3405, val_loss:0.6836
+
+epoch [999/1000], train_loss:0.6744, val_loss:0.6836
+
+epoch [1000/1000], train_loss:0.6219, val_loss:0.6835
+
+the minimunal loss on val_set is  tensor([0.1902])
+
+Evaluation:1/1 threshold = 0.190150
+Threshold(T) is  [0.19015029072761536]
+No. of abnormal sample is  53455
+Confusion matrix:
+ [[11013  4586]
+ [  215 48869]]
+Acc: 92.58%
+the normal samples are recognized as attack samples are as follow in the first 10 samples:
+i=0  <index in test_set, distance_error, norm_vale> [7786, tensor(2097.6934), tensor([  2.0830,   1.5178,  -0.5833,  -0.4906,  -0.1974,  -0.4466,   0.8500,
+         -0.9370,   1.3628,  -1.4724,  -0.0610,   4.5302, 238.8951,   4.6806,
+          0.0971,   0.0971,   0.0972,   0.0972,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952,   0.0971,   1.9514,   2.0742])]  v*std+u: [  1.70000001e+01   1.70000000e+01   4.00000489e+00   4.00000253e+00
+   2.51999956e+02   3.16008416e+02   6.10000000e+01   6.49999976e+01
+   7.69999999e+01   8.09999730e+01   9.99999152e-01   3.81680008e+04
+   3.81949990e+04   3.81950009e+04   3.20000000e+01   3.20000000e+01
+   3.20000000e+01   3.20000000e+01   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   1.00000000e+00   8.00000004e+00   7.00000014e+00] =>original vaule in test set: [  1.70000000e+01   1.70000000e+01   4.00000000e+00   4.00000000e+00
+   2.52000000e+02   3.16000000e+02   6.10000000e+01   6.50000000e+01
+   7.70000000e+01   8.10000000e+01   1.00000000e+00   3.81680000e+04
+   3.81950000e+04   3.81950000e+04   3.20000000e+01   3.20000000e+01
+   3.20000000e+01   3.20000000e+01   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   1.00000000e+00   8.00000000e+00   7.00000000e+00] 0
+i=1  <index in test_set, distance_error, norm_vale> [1184, tensor(345.9456), tensor([ 2.0830,  0.8163, -0.5833, -0.4906, -0.1974, -0.4466,  0.8500, -0.9370,
+         1.3628, -1.4724, 97.3358,  5.5744, -0.0346,  5.7683,  0.0971,  0.0971,
+         0.0972,  0.0972,  0.0000, -0.6495, -0.6865,  0.0000, -2.0190, -1.9952,
+         0.0971,  1.9514,  2.0742])]  v*std+u: [  1.70000001e+01   1.30000000e+01   4.00000489e+00   4.00000253e+00
+   2.51999956e+02   3.16008416e+02   6.10000000e+01   6.49999976e+01
+   7.69999999e+01   8.09999730e+01   4.62300014e+04   4.62300009e+04
+   3.00000020e+00   4.63840012e+04   3.20000000e+01   3.20000000e+01
+   3.20000000e+01   3.20000000e+01   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   1.00000000e+00   8.00000004e+00   7.00000014e+00] =>original vaule in test set: [  1.70000000e+01   1.30000000e+01   4.00000000e+00   4.00000000e+00
+   2.52000000e+02   3.16000000e+02   6.10000000e+01   6.50000000e+01
+   7.70000000e+01   8.10000000e+01   4.62300000e+04   4.62300000e+04
+   3.00000000e+00   4.63840000e+04   3.20000000e+01   3.20000000e+01
+   3.20000000e+01   3.20000000e+01   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   1.00000000e+00   8.00000000e+00   7.00000000e+00] 0
+i=2  <index in test_set, distance_error, norm_vale> [13825, tensor(214.5086), tensor([ 2.0830,  0.6409, -0.5833, -0.4906, -0.1974, -0.4466,  0.8500, -0.9370,
+         1.3628, -1.4724, 76.8447,  4.3146, -0.0471,  4.4557,  0.0971,  0.0971,
+         0.0972,  0.0972,  0.0000, -0.6495, -0.6865,  0.0000, -2.0190, -1.9952,
+         0.0971,  1.9514,  2.0742])]  v*std+u: [  1.70000001e+01   1.20000001e+01   4.00000489e+00   4.00000253e+00
+   2.51999956e+02   3.16008416e+02   6.10000000e+01   6.49999976e+01
+   7.69999999e+01   8.09999730e+01   3.65040011e+04   3.65040013e+04
+   1.00000021e+00   3.65019993e+04   3.20000000e+01   3.20000000e+01
+   3.20000000e+01   3.20000000e+01   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   1.00000000e+00   8.00000004e+00   7.00000014e+00] =>original vaule in test set: [  1.70000000e+01   1.20000000e+01   4.00000000e+00   4.00000000e+00
+   2.52000000e+02   3.16000000e+02   6.10000000e+01   6.50000000e+01
+   7.70000000e+01   8.10000000e+01   3.65040000e+04   3.65040000e+04
+   1.00000000e+00   3.65020000e+04   3.20000000e+01   3.20000000e+01
+   3.20000000e+01   3.20000000e+01   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   1.00000000e+00   8.00000000e+00   7.00000000e+00] 0
+i=3  <index in test_set, distance_error, norm_vale> [3502, tensor(197.3197), tensor([ 2.0830,  1.5178, -0.5833, -0.4906, -0.1974, -0.4466,  0.8500, -0.9370,
+         1.3628, -1.4724, 73.8088,  4.1280,  0.2531, -0.3859,  0.0971,  0.0971,
+         0.0972,  0.0972,  0.0000, -0.6495, -0.6865,  0.0000, -2.0190, -1.9952,
+         0.0971,  1.9514,  2.0742])]  v*std+u: [  1.70000001e+01   1.70000000e+01   4.00000489e+00   4.00000253e+00
+   2.51999956e+02   3.16008416e+02   6.10000000e+01   6.49999976e+01
+   7.69999999e+01   8.09999730e+01   3.50630000e+04   3.50630008e+04
+   4.89999987e+01   4.89999841e+01   3.20000000e+01   3.20000000e+01
+   3.20000000e+01   3.20000000e+01   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   1.00000000e+00   8.00000004e+00   7.00000014e+00] =>original vaule in test set: [  1.70000000e+01   1.70000000e+01   4.00000000e+00   4.00000000e+00
+   2.52000000e+02   3.16000000e+02   6.10000000e+01   6.50000000e+01
+   7.70000000e+01   8.10000000e+01   3.50630000e+04   3.50630000e+04
+   4.90000000e+01   4.90000000e+01   3.20000000e+01   3.20000000e+01
+   3.20000000e+01   3.20000000e+01   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   1.00000000e+00   8.00000000e+00   7.00000000e+00] 0
+i=4  <index in test_set, distance_error, norm_vale> [8861, tensor(116.7019), tensor([ 2.0830,  0.4655, -0.5833, -0.4906, -0.1974, -0.4466,  0.8500, -0.9370,
+         1.3628, -1.4724, 56.9035,  3.0886, -0.0471,  3.2013,  0.0971,  0.0971,
+         0.0972,  0.0972,  0.0000, -0.6495, -0.6865,  0.0000, -2.0190, -1.9952,
+         0.0971,  1.9514,  2.0742])]  v*std+u: [  1.70000001e+01   1.10000000e+01   4.00000489e+00   4.00000253e+00
+   2.51999956e+02   3.16008416e+02   6.10000000e+01   6.49999976e+01
+   7.69999999e+01   8.09999730e+01   2.70389995e+04   2.70390009e+04
+   1.00000021e+00   2.70569996e+04   3.20000000e+01   3.20000000e+01
+   3.20000000e+01   3.20000000e+01   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   1.00000000e+00   8.00000004e+00   7.00000014e+00] =>original vaule in test set: [  1.70000000e+01   1.10000000e+01   4.00000000e+00   4.00000000e+00
+   2.52000000e+02   3.16000000e+02   6.10000000e+01   6.50000000e+01
+   7.70000000e+01   8.10000000e+01   2.70390000e+04   2.70390000e+04
+   1.00000000e+00   2.70570000e+04   3.20000000e+01   3.20000000e+01
+   3.20000000e+01   3.20000000e+01   0.00000000e+00   0.00000000e+00
+   0.00000000e+00   0.00000000e+00   0.00000000e+00   0.00000000e+00
+   1.00000000e+00   8.00000000e+00   7.00000000e+00] 0
+i=5  <index in test_set, distance_error, norm_vale> [6974, tensor(25.7018), tensor([ -0.4801,  10.8129,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.99999985e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  70.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=6  <index in test_set, distance_error, norm_vale> [7858, tensor(25.7018), tensor([ -0.4801,  10.8129,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.99999985e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  70.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=7  <index in test_set, distance_error, norm_vale> [8208, tensor(25.7018), tensor([ -0.4801,  10.8129,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.99999985e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  70.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=8  <index in test_set, distance_error, norm_vale> [8406, tensor(25.7018), tensor([ -0.4801,  10.8129,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.99999985e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  70.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=9  <index in test_set, distance_error, norm_vale> [8606, tensor(25.7018), tensor([ -0.4801,  10.8129,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.99999985e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  70.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=10  <index in test_set, distance_error, norm_vale> [8671, tensor(25.7018), tensor([ -0.4801,  10.8129,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.99999985e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  70.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=11  <index in test_set, distance_error, norm_vale> [9096, tensor(25.7018), tensor([ -0.4801,  10.8129,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.99999985e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  70.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=12  <index in test_set, distance_error, norm_vale> [2227, tensor(25.5755), tensor([ -0.4801,  10.6375,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.89999973e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  69.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=13  <index in test_set, distance_error, norm_vale> [2608, tensor(25.5755), tensor([ -0.4801,  10.6375,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.89999973e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  69.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=14  <index in test_set, distance_error, norm_vale> [2644, tensor(25.5755), tensor([ -0.4801,  10.6375,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.89999973e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  69.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=15  <index in test_set, distance_error, norm_vale> [3111, tensor(25.5755), tensor([ -0.4801,  10.6375,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.89999973e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  69.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=16  <index in test_set, distance_error, norm_vale> [3154, tensor(25.5755), tensor([ -0.4801,  10.6375,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.89999973e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  69.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=17  <index in test_set, distance_error, norm_vale> [3724, tensor(25.5755), tensor([ -0.4801,  10.6375,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.89999973e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  69.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=18  <index in test_set, distance_error, norm_vale> [5032, tensor(25.5755), tensor([ -0.4801,  10.6375,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.89999973e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  69.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=19  <index in test_set, distance_error, norm_vale> [3009, tensor(25.3296), tensor([ -0.4801,  10.2867,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.70000004e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  67.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=20  <index in test_set, distance_error, norm_vale> [3132, tensor(25.3296), tensor([ -0.4801,  10.2867,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.70000004e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  67.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=21  <index in test_set, distance_error, norm_vale> [3210, tensor(25.3296), tensor([ -0.4801,  10.2867,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.70000004e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  67.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=22  <index in test_set, distance_error, norm_vale> [6629, tensor(25.3296), tensor([ -0.4801,  10.2867,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.70000004e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  67.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=23  <index in test_set, distance_error, norm_vale> [235, tensor(25.2101), tensor([ -0.4801,  10.1114,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.59999992e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  66.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=24  <index in test_set, distance_error, norm_vale> [10145, tensor(25.2101), tensor([ -0.4801,  10.1114,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.59999992e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  66.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=25  <index in test_set, distance_error, norm_vale> [5636, tensor(25.1107), tensor([ -0.4801,   9.0591,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   5.99999975e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  60.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=26  <index in test_set, distance_error, norm_vale> [354, tensor(25.0072), tensor([ -0.4801,   8.8837,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   5.90000017e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  59.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=27  <index in test_set, distance_error, norm_vale> [1629, tensor(25.0072), tensor([ -0.4801,   8.8837,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   5.90000017e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  59.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=28  <index in test_set, distance_error, norm_vale> [4281, tensor(24.8653), tensor([ -0.4801,   9.5852,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.30000011e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  63.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=29  <index in test_set, distance_error, norm_vale> [12733, tensor(24.7549), tensor([ -0.4801,   9.4098,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   6.19999999e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  62.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=30  <index in test_set, distance_error, norm_vale> [6739, tensor(24.7102), tensor([ -0.4801,   8.3576,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   5.59999982e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  56.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=31  <index in test_set, distance_error, norm_vale> [2389, tensor(24.5410), tensor([ -0.4801,   9.0591,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   5.99999975e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  60.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=32  <index in test_set, distance_error, norm_vale> [6366, tensor(24.5410), tensor([ -0.4801,   9.0591,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -0.4064,  -1.3122])]  v*std+u: [  5.99999995e+00   5.99999975e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   5.99999999e+00   2.99999999e+00] =>original vaule in test set: [  6.  60.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   6.   3.] 0
+i=33  <index in test_set, distance_error, norm_vale> [902, tensor(24.4337), tensor([ -0.4801,   7.8314,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   5.30000000e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  53.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=34  <index in test_set, distance_error, norm_vale> [9342, tensor(24.3461), tensor([ -0.4801,   7.6561,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   5.19999988e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  52.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=35  <index in test_set, distance_error, norm_vale> [197, tensor(24.1777), tensor([ -0.4801,   7.3053,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   4.99999992e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  50.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=36  <index in test_set, distance_error, norm_vale> [1038, tensor(24.1777), tensor([ -0.4801,   7.3053,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   4.99999992e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  50.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=37  <index in test_set, distance_error, norm_vale> [1346, tensor(24.1777), tensor([ -0.4801,   7.3053,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   4.99999992e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  50.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=38  <index in test_set, distance_error, norm_vale> [1547, tensor(24.1777), tensor([ -0.4801,   7.3053,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   4.99999992e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  50.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=39  <index in test_set, distance_error, norm_vale> [1743, tensor(24.1777), tensor([ -0.4801,   7.3053,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   4.99999992e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  50.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=40  <index in test_set, distance_error, norm_vale> [1814, tensor(24.1777), tensor([ -0.4801,   7.3053,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   4.99999992e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  50.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=41  <index in test_set, distance_error, norm_vale> [9190, tensor(24.0969), tensor([ -0.4801,   7.1299,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   4.90000007e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  49.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=42  <index in test_set, distance_error, norm_vale> [5942, tensor(23.5953), tensor([ -0.4801,   5.9023,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   4.20000005e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  42.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=43  <index in test_set, distance_error, norm_vale> [9501, tensor(23.5953), tensor([ -0.4801,   5.9023,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   4.20000005e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  42.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=44  <index in test_set, distance_error, norm_vale> [9523, tensor(23.5327), tensor([ -0.4801,   5.7269,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   4.09999993e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  41.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=45  <index in test_set, distance_error, norm_vale> [10505, tensor(23.5327), tensor([ -0.4801,   5.7269,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   4.09999993e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  41.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=46  <index in test_set, distance_error, norm_vale> [9177, tensor(23.4725), tensor([ -0.4801,   5.5515,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   4.00000008e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  40.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=47  <index in test_set, distance_error, norm_vale> [9615, tensor(23.4725), tensor([ -0.4801,   5.5515,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   4.00000008e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  40.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=48  <index in test_set, distance_error, norm_vale> [10086, tensor(23.4725), tensor([ -0.4801,   5.5515,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   4.00000008e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  40.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=49  <index in test_set, distance_error, norm_vale> [10163, tensor(23.4725), tensor([ -0.4801,   5.5515,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   4.00000008e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  40.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=50  <index in test_set, distance_error, norm_vale> [10208, tensor(23.4725), tensor([ -0.4801,   5.5515,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   4.00000008e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  40.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=51  <index in test_set, distance_error, norm_vale> [11662, tensor(23.4725), tensor([ -0.4801,   5.5515,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   4.00000008e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  40.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=52  <index in test_set, distance_error, norm_vale> [11884, tensor(23.4725), tensor([ -0.4801,   5.5515,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   4.00000008e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  40.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=53  <index in test_set, distance_error, norm_vale> [12182, tensor(23.4725), tensor([ -0.4801,   5.5515,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   4.00000008e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  40.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=54  <index in test_set, distance_error, norm_vale> [5769, tensor(23.4145), tensor([ -0.4801,   5.3761,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.89999997e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  39.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=55  <index in test_set, distance_error, norm_vale> [10142, tensor(23.4145), tensor([ -0.4801,   5.3761,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.89999997e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  39.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=56  <index in test_set, distance_error, norm_vale> [10281, tensor(23.4145), tensor([ -0.4801,   5.3761,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.89999997e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  39.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=57  <index in test_set, distance_error, norm_vale> [10692, tensor(23.4145), tensor([ -0.4801,   5.3761,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.89999997e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  39.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=58  <index in test_set, distance_error, norm_vale> [10990, tensor(23.4145), tensor([ -0.4801,   5.3761,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.89999997e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  39.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=59  <index in test_set, distance_error, norm_vale> [11212, tensor(23.4145), tensor([ -0.4801,   5.3761,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.89999997e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  39.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=60  <index in test_set, distance_error, norm_vale> [11983, tensor(23.4145), tensor([ -0.4801,   5.3761,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.89999997e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  39.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=61  <index in test_set, distance_error, norm_vale> [9457, tensor(23.3053), tensor([ -0.4801,   5.0254,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.70000000e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  37.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=62  <index in test_set, distance_error, norm_vale> [10197, tensor(23.3053), tensor([ -0.4801,   5.0254,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.70000000e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  37.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=63  <index in test_set, distance_error, norm_vale> [10209, tensor(23.3053), tensor([ -0.4801,   5.0254,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.70000000e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  37.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=64  <index in test_set, distance_error, norm_vale> [10289, tensor(23.3053), tensor([ -0.4801,   5.0254,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.70000000e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  37.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=65  <index in test_set, distance_error, norm_vale> [10400, tensor(23.3053), tensor([ -0.4801,   5.0254,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.70000000e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  37.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=66  <index in test_set, distance_error, norm_vale> [11624, tensor(23.3053), tensor([ -0.4801,   5.0254,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.70000000e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  37.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=67  <index in test_set, distance_error, norm_vale> [8932, tensor(23.2542), tensor([ -0.4801,   4.8500,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.59999988e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  36.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=68  <index in test_set, distance_error, norm_vale> [10773, tensor(23.1144), tensor([ -0.4801,   4.3239,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.30000007e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  33.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=69  <index in test_set, distance_error, norm_vale> [6098, tensor(23.0724), tensor([ -0.4801,   4.1485,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.19999995e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  32.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=70  <index in test_set, distance_error, norm_vale> [9195, tensor(23.0724), tensor([ -0.4801,   4.1485,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.19999995e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  32.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=71  <index in test_set, distance_error, norm_vale> [11232, tensor(23.0724), tensor([ -0.4801,   4.1485,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.19999995e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  32.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=72  <index in test_set, distance_error, norm_vale> [11348, tensor(23.0724), tensor([ -0.4801,   4.1485,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.19999995e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  32.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=73  <index in test_set, distance_error, norm_vale> [6121, tensor(23.0326), tensor([ -0.4801,   3.9731,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.09999996e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  31.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=74  <index in test_set, distance_error, norm_vale> [7129, tensor(23.0326), tensor([ -0.4801,   3.9731,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   3.09999996e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  31.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=75  <index in test_set, distance_error, norm_vale> [5755, tensor(22.9951), tensor([ -0.4801,   3.7977,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.99999998e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  30.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=76  <index in test_set, distance_error, norm_vale> [6213, tensor(22.9951), tensor([ -0.4801,   3.7977,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.99999998e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  30.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=77  <index in test_set, distance_error, norm_vale> [6674, tensor(22.9951), tensor([ -0.4801,   3.7977,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.99999998e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  30.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=78  <index in test_set, distance_error, norm_vale> [6766, tensor(22.9951), tensor([ -0.4801,   3.7977,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.99999998e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  30.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=79  <index in test_set, distance_error, norm_vale> [6832, tensor(22.9951), tensor([ -0.4801,   3.7977,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.99999998e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  30.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=80  <index in test_set, distance_error, norm_vale> [8295, tensor(22.9951), tensor([ -0.4801,   3.7977,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.99999998e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  30.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=81  <index in test_set, distance_error, norm_vale> [8516, tensor(22.9951), tensor([ -0.4801,   3.7977,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.99999998e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  30.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=82  <index in test_set, distance_error, norm_vale> [8865, tensor(22.9951), tensor([ -0.4801,   3.7977,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.99999998e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  30.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=83  <index in test_set, distance_error, norm_vale> [8975, tensor(22.9951), tensor([ -0.4801,   3.7977,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.99999998e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  30.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=84  <index in test_set, distance_error, norm_vale> [9538, tensor(22.9951), tensor([ -0.4801,   3.7977,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.99999998e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  30.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=85  <index in test_set, distance_error, norm_vale> [9829, tensor(22.9951), tensor([ -0.4801,   3.7977,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.99999998e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  30.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=86  <index in test_set, distance_error, norm_vale> [10035, tensor(22.9951), tensor([ -0.4801,   3.7977,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.99999998e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  30.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=87  <index in test_set, distance_error, norm_vale> [10087, tensor(22.9951), tensor([ -0.4801,   3.7977,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.99999998e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  30.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=88  <index in test_set, distance_error, norm_vale> [6735, tensor(22.9599), tensor([ -0.4801,   3.6223,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.90000000e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  29.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=89  <index in test_set, distance_error, norm_vale> [6902, tensor(22.9599), tensor([ -0.4801,   3.6223,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.90000000e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  29.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=90  <index in test_set, distance_error, norm_vale> [7316, tensor(22.9599), tensor([ -0.4801,   3.6223,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.90000000e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  29.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=91  <index in test_set, distance_error, norm_vale> [7625, tensor(22.9599), tensor([ -0.4801,   3.6223,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.90000000e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  29.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=92  <index in test_set, distance_error, norm_vale> [7834, tensor(22.9599), tensor([ -0.4801,   3.6223,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.90000000e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  29.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=93  <index in test_set, distance_error, norm_vale> [8642, tensor(22.9599), tensor([ -0.4801,   3.6223,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.90000000e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  29.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=94  <index in test_set, distance_error, norm_vale> [9400, tensor(22.9599), tensor([ -0.4801,   3.6223,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.90000000e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  29.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=95  <index in test_set, distance_error, norm_vale> [11794, tensor(22.9599), tensor([ -0.4801,   3.6223,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.90000000e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  29.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=96  <index in test_set, distance_error, norm_vale> [6050, tensor(22.8963), tensor([ -0.4801,   3.2716,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.70000003e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  27.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=97  <index in test_set, distance_error, norm_vale> [6814, tensor(22.8963), tensor([ -0.4801,   3.2716,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.70000003e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  27.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=98  <index in test_set, distance_error, norm_vale> [6835, tensor(22.8963), tensor([ -0.4801,   3.2716,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.70000003e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  27.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+i=99  <index in test_set, distance_error, norm_vale> [6917, tensor(22.8963), tensor([ -0.4801,   3.2716,  -0.6073,  -0.5008,  -0.1989,  -0.4472,  -6.1319,
+         -1.0601,  -3.7805,  -1.6106,  -0.0631,  -0.4137,  -0.0534,  -0.3924,
+        -10.2976, -10.2976, -10.2875, -10.2875,   0.0000,  -0.6495,  -0.6865,
+          0.0000,  -2.0190,  -1.9952, -10.2976,  -3.9432,  -1.3122])]  v*std+u: [  5.99999995e+00   2.70000003e+01   8.33036395e-07   1.09600874e-05
+  -1.14073025e-03  -6.12526003e-03  -1.91180923e-06  -7.78729941e-07
+  -9.53110380e-07   1.22458280e-05  -1.04997343e-06   7.63320804e-06
+  -8.01488991e-08  -5.32138583e-05   9.13171654e-07   9.13171654e-07
+  -1.29233406e-08  -1.29233406e-08   0.00000000e+00   1.05471969e-05
+   6.88119425e-06   0.00000000e+00  -1.78261615e-07   5.89649267e-08
+   2.85366142e-08   2.99999997e+00   2.99999999e+00] =>original vaule in test set: [  6.  27.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.
+   0.   0.   0.   0.   0.   0.   0.   0.   0.   0.   3.   3.] 0
+It ends at  2018-Oct-16 00:19:47
+All takes 5862.2119 s
