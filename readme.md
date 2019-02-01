@@ -17,9 +17,6 @@
 ### |- log: use to log middle or tmp results.
     ...
     
-### |- visualization: plot data to visualize 
-    ..
-    
 ### |- proposed_algorithms
     ### |- deep_autoencoder_pytorch
             main_autoencoder.py
@@ -32,6 +29,16 @@
 ### |- utilities
     CSV_Dataloder.py
     common_funcs.py
+        CSV_Dataloder.py
+    
+    ## 'pcap2flow' folder
+    >>>--- toolkit to convert pcap files to txt or feature data.
+    
+    ## 'preprocess' folder 
+    >>>--- toolkit to preprocess input data, such as 'load data', 'normalization data'
+        
+    ## |- visualization: plot data to visualize 
+        ..
 
 ### |-history_files: backup 
     ...
