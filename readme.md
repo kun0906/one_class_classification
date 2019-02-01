@@ -15,6 +15,8 @@
 
 ### |- log: use to log middle or tmp results.
 
+### |- visualization: plot data to visualize 
+
 ### |- proposed_algorithms
     ### |- deep_autoencoder_pytorch
             main_autoencoder.py
