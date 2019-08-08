@@ -1,0 +1,18 @@
+Using base prefix '/share/apps/python3/3.6.3/intel'
+New python executable in /scratch/ky13/Experiments/OneClassClassification_20181010/DeepAutoEncoder_Pytorch/py3.6.3/bin/python3
+Not overwriting existing python script /scratch/ky13/Experiments/OneClassClassification_20181010/DeepAutoEncoder_Pytorch/py3.6.3/bin/python (you must use /scratch/ky13/Experiments/OneClassClassification_20181010/DeepAutoEncoder_Pytorch/py3.6.3/bin/python3)
+Installing setuptools, pip, wheel...done.
+Requirement already satisfied: pillow in ./py3.6.3/lib/python3.6/site-packages (5.3.0)
+Requirement already satisfied: scapy in ./py3.6.3/lib/python3.6/site-packages (2.4.0)
+Requirement already satisfied: torch in ./py3.6.3/lib/python3.6/site-packages (0.4.1)
+Requirement already satisfied: sklearn in ./py3.6.3/lib/python3.6/site-packages (0.0)
+Requirement already satisfied: scikit-learn in ./py3.6.3/lib/python3.6/site-packages (from sklearn) (0.20.0)
+Requirement already satisfied: numpy>=1.8.2 in /share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/numpy-1.13.3-py3.6-linux-x86_64.egg (from scikit-learn->sklearn) (1.13.3)
+Requirement already satisfied: scipy>=0.13.3 in /share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/scipy-1.0.0rc1-py3.6-linux-x86_64.egg (from scikit-learn->sklearn) (1.0.0rc1)
+Requirement already satisfied: matplotlib in /share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/matplotlib-2.1.0-py3.6-linux-x86_64.egg (2.1.0)
+Requirement already satisfied: numpy>=1.7.1 in /share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/numpy-1.13.3-py3.6-linux-x86_64.egg (from matplotlib) (1.13.3)
+Requirement already satisfied: six>=1.10 in /share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/six-1.11.0-py3.6.egg (from matplotlib) (1.11.0)
+Requirement already satisfied: python-dateutil>=2.0 in /share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/python_dateutil-2.6.1-py3.6.egg (from matplotlib) (2.6.1)
+Requirement already satisfied: pytz in /share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/pytz-2017.3-py3.6.egg (from matplotlib) (2017.3)
+Requirement already satisfied: cycler>=0.10 in /share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/cycler-0.10.0-py3.6.egg (from matplotlib) (0.10.0)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,>=2.0.1 in /share/apps/python3/3.6.3/intel/lib/python3.6/site-packages/pyparsing-2.2.0-py3.6.egg (from matplotlib) (2.2.0)
