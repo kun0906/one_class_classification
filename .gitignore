@@ -1,5 +1,5 @@
 input_data/*
 input_data/Dataset/*
-.idea/*git
+.idea/*
 __pycache__/
 utils/_pycache__/
