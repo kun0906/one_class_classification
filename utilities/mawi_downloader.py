@@ -28,7 +28,7 @@ def download_mawi(root_url='http://mawi.nezu.wide.ad.jp/mawi/samplepoint-F/2019'
     # url = 'http://mawi.nezu.wide.ad.jp/mawi/samplepoint-F/2019/201907011400.pcap.gz'
     err_cnt = 0
     for idx in range(1, 31 + 1):
-        file_name = f'201907{idx:{2}}1400.pcap.gz'  # width = 2, precision = 0
+        file_name = '201907%02d1400.pcap.gz' % idx
         url = root_url + '/' + file_name
         # url = 'http://mawi.nezu.wide.ad.jp/mawi/samplepoint-F/2019/201907%02d1400.pcap.gz'%idx
         cmd = f"wget {url}"
