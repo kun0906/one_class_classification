@@ -1,0 +1,771 @@
+/usr/local/bin/python3.6 /Users/kunyang/PycharmProjects/anomaly_detection_20190611/autoencoder_main_20190612.py
+
+@@@train and evaluate AE on SYNT: uSc1C1_z-score_20_14
+
+Step 1. loading data...
+
++Step 1-1. preprocessing data...
+len(mu) = 0, len(d_std) = 0
+the variance of the 18-th feature is 0.
+the variance of the 21-th feature is 0.
+**all_norm:77988, all_attack:74242
+x_norm_train:(54591, 27), x_attack_train:0
+x_norm_val:(7799, 27), x_attack_val:0
+x_norm_test:(15598, 27), x_attack_test:(74242, 27)
+
+Step 3. train and evaluate AE on case: uSc1C1_z-score_20_14
+
+Step 3-1. train AE on case: uSc1C1_z-score_20_14
+x_norm_train.shape: (54591, 27)
+2019-06-16 14:22:35.728699: I tensorflow/core/platform/cpu_feature_guard.cc:140] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+AE training for Case :  uSc1C1_z-score_20_14  =  151.50735712051392 s
+Train Loss =  0.1387702820790899 model.metrics_names ['loss']
+Validation Loss =  0.14847491832278312 model.metrics_names ['loss']
+training_losses:{'val_loss': [0.6414927255573877, 0.4407279492112395, 0.3923058386666146, 0.3502294547394432, 0.31548893415961515, 0.29882424118878337, 0.2829307645486706, 0.266248318247649, 0.2542176240051323, 0.2514754585832919, 0.2458191673573599, 0.22828326206823882, 0.2202397173313334, 0.221587167205658, 0.21995599800607366, 0.22178786010379317, 0.20932062174482427, 0.20964962279189778, 0.19803675555494263, 0.20527194762404935, 0.19162871338955362, 0.19902419417347567, 0.1995624847760765, 0.1832370223781515, 0.18512450496112404, 0.19447469809606666, 0.18347113165569268, 0.1778579943654919, 0.18168626233776772, 0.179759052761328, 0.17601554780426598, 0.1695174433454319, 0.16954703834793908, 0.1700146397677717, 0.1686801877097757, 0.1652547579814202, 0.16607869202769068, 0.16901117181881894, 0.16943085528379956, 0.16020288650180028, 0.15735845973375806, 0.1519682411238664, 0.1528344820444019, 0.16015525388918653, 0.1511134093125549, 0.14581007331347967, 0.15101964135357762, 0.1509527657474787, 0.15210679481514128, 0.14847491832278312], 'loss': [1.1423522672697133, 0.5233219522673095, 0.40470962282484124, 0.36231626433935815, 0.3263296247149883, 0.29932616781451205, 0.2804924485991493, 0.2656243873477556, 0.2511852456433864, 0.2399888644650202, 0.23157451172825863, 0.22542472335279082, 0.22033581301487778, 0.21543940269471665, 0.21192511796276536, 0.20854999483509523, 0.20397320165128807, 0.20084607665120308, 0.19626926719106208, 0.19391370844715222, 0.18998010648671315, 0.18831451743023928, 0.18636047270696482, 0.1834771847105186, 0.18275640633035217, 0.18037138809667058, 0.1784670294112904, 0.17673104404513287, 0.17624325115584483, 0.17399378257529347, 0.17064370658744837, 0.1683533213673298, 0.1673272062385155, 0.16545164854948166, 0.16367619925397928, 0.1616942386083592, 0.15929753527650403, 0.15781214330221538, 0.15548362353567313, 0.15418110379765954, 0.1514168905039981, 0.14964968837750284, 0.14788485255286662, 0.14708296095640228, 0.14461381411802351, 0.14261647193648933, 0.14229232436685926, 0.14152534288934754, 0.13966331061905424, 0.13977586295125344]}
+optimal_thres_AE_val:0.7232607596358984, factor = 5, key = loss
+
+Step 3-2. evaluate AE on case: uSc1C1_z-score_20_14
+
+1). evaluate AE on test set:
+x_test.shape: (89840, 27), case: uSc1C1_z-score_20_14
+optimal_thres_AE 0.7232607596358984 achieved from key=loss, factor = 5, key = loss
+AE Test time for  uSc1C1_z-score_20_14  = :  1.3758649826049805
+[[74240     2]
+ [  511 15087]]
+tpr (recall): 0.9999730610705531, fnr: 2.693892944694378e-05, fpr: 0.03276061033465829, tnr: 0.9672393896653417, acc: 0.9942898486197684
+
+save the FPR and FNR reausts of AE with num =27 features on test set.
+output_pre_path:uSc1C1_z-score_20_14_recon_err_of_27_features
+*the maximize reconstrcution error is 110.67719456948278 for Reconstruction loss of normal samples
+Reconstr: out_file:Figures/uSc1C1_z-score_20_14_recon_err_of_27_features_reconstruct_loss_normal_data_rescon.pdf
+*the maximize reconstrcution error is 110.67719456948278 for Reconstruction loss of normal samples in samples' order
+*the maximize reconstrcution error is 224.67817170664037 for Reconstruction loss of attack samples
+Reconstr: out_file:Figures/uSc1C1_z-score_20_14_recon_err_of_27_features_reconstruct_loss_attack_data_rescon.pdf
+*the maximize reconstrcution error is 224.67817170664037 for Reconstruction loss of attack samples in samples' order
+
+-Evaluate AE with different thresholds on test set with num = 27 features.
+*** thres = 0.017681445551366953
+AE Test time for  uSc1C1_z-score_20_14  = :  1.541062831878662
+[[74242     0]
+ [15598     0]]
+tpr (recall): 1.0, fnr: 0.0, fpr: 1.0, tnr: 0.0, acc: 0.826380231522707
+*** thres = 0.09288355469454748
+AE Test time for  uSc1C1_z-score_20_14  = :  1.4178156852722168
+[[74242     0]
+ [ 4622 10976]]
+tpr (recall): 1.0, fnr: 0.0, fpr: 0.29632004103090137, tnr: 0.7036799589690986, acc: 0.948552983081033
+*** thres = 0.168085663837728
+AE Test time for  uSc1C1_z-score_20_14  = :  1.4104111194610596
+[[74242     0]
+ [ 1903 13695]]
+tpr (recall): 1.0, fnr: 0.0, fpr: 0.12200282087447109, tnr: 0.8779971791255289, acc: 0.9788178984861977
+*** thres = 0.2432877729809085
+AE Test time for  uSc1C1_z-score_20_14  = :  1.424834966659546
+[[74242     0]
+ [ 1047 14551]]
+tpr (recall): 1.0, fnr: 0.0, fpr: 0.06712399025516091, tnr: 0.9328760097448391, acc: 0.9883459483526269
+*** thres = 0.3184898821240891
+AE Test time for  uSc1C1_z-score_20_14  = :  1.4063611030578613
+[[74242     0]
+ [  877 14721]]
+tpr (recall): 1.0, fnr: 0.0, fpr: 0.05622515707141941, tnr: 0.9437748429285806, acc: 0.9902382012466607
+*** thres = 0.3936919912672696
+AE Test time for  uSc1C1_z-score_20_14  = :  1.4675819873809814
+[[74242     0]
+ [  769 14829]]
+tpr (recall): 1.0, fnr: 0.0, fpr: 0.049301192460571866, tnr: 0.9506988075394281, acc: 0.9914403383793411
+*** thres = 0.4688941004104501
+AE Test time for  uSc1C1_z-score_20_14  = :  1.4838290214538574
+[[74240     2]
+ [  708 14890]]
+tpr (recall): 0.9999730610705531, fnr: 2.693892944694378e-05, fpr: 0.04539043467111168, tnr: 0.9546095653288883, acc: 0.9920970614425646
+*** thres = 0.5440962095536307
+AE Test time for  uSc1C1_z-score_20_14  = :  1.4960408210754395
+[[74240     2]
+ [  656 14942]]
+tpr (recall): 0.9999730610705531, fnr: 2.693892944694378e-05, fpr: 0.04205667393255546, tnr: 0.9579433260674446, acc: 0.9926758682101514
+*** thres = 0.6192983186968112
+AE Test time for  uSc1C1_z-score_20_14  = :  1.5233099460601807
+[[74240     2]
+ [  616 14982]]
+tpr (recall): 0.9999730610705531, fnr: 2.693892944694378e-05, fpr: 0.039492242595204514, tnr: 0.9605077574047954, acc: 0.9931211041852182
+*** thres = 0.6945004278399917
+AE Test time for  uSc1C1_z-score_20_14  = :  1.634692907333374
+[[74240     2]
+ [  524 15074]]
+tpr (recall): 0.9999730610705531, fnr: 2.693892944694378e-05, fpr: 0.03359405051929735, tnr: 0.9664059494807027, acc: 0.9941451469278718
+*** thres = 0.7697025369831723
+AE Test time for  uSc1C1_z-score_20_14  = :  1.530271053314209
+[[74240     2]
+ [  487 15111]]
+tpr (recall): 0.9999730610705531, fnr: 2.693892944694378e-05, fpr: 0.031221951532247723, tnr: 0.9687780484677523, acc: 0.9945569902048086
+*** thres = 0.8449046461263527
+AE Test time for  uSc1C1_z-score_20_14  = :  1.53928804397583
+[[74240     2]
+ [  425 15173]]
+tpr (recall): 0.9999730610705531, fnr: 2.693892944694378e-05, fpr: 0.027247082959353762, tnr: 0.9727529170406463, acc: 0.9952471059661621
+*** thres = 0.9201067552695332
+AE Test time for  uSc1C1_z-score_20_14  = :  1.5589351654052734
+[[74240     2]
+ [  347 15251]]
+tpr (recall): 0.9999730610705531, fnr: 2.693892944694378e-05, fpr: 0.022246441851519427, tnr: 0.9777535581484805, acc: 0.9961153161175423
+*** thres = 0.9953088644127138
+AE Test time for  uSc1C1_z-score_20_14  = :  1.6350767612457275
+[[74240     2]
+ [  224 15374]]
+tpr (recall): 0.9999730610705531, fnr: 2.693892944694378e-05, fpr: 0.014360815489165278, tnr: 0.9856391845108348, acc: 0.9974844167408726
+*** thres = 1.0705109735558944
+AE Test time for  uSc1C1_z-score_20_14  = :  1.5656447410583496
+[[74240     2]
+ [  205 15393]]
+tpr (recall): 0.9999730610705531, fnr: 2.693892944694378e-05, fpr: 0.01314271060392358, tnr: 0.9868572893960764, acc: 0.9976959038290294
+*** thres = 1.145713082699075
+AE Test time for  uSc1C1_z-score_20_14  = :  1.6139400005340576
+[[74240     2]
+ [  203 15395]]
+tpr (recall): 0.9999730610705531, fnr: 2.693892944694378e-05, fpr: 0.013014489037056032, tnr: 0.986985510962944, acc: 0.9977181656277827
+*** thres = 1.2209151918422554
+AE Test time for  uSc1C1_z-score_20_14  = :  1.6508500576019287
+[[74240     2]
+ [  195 15403]]
+tpr (recall): 0.9999730610705531, fnr: 2.693892944694378e-05, fpr: 0.012501602769585844, tnr: 0.9874983972304141, acc: 0.997807212822796
+*** thres = 1.2961173009854359
+AE Test time for  uSc1C1_z-score_20_14  = :  1.6649909019470215
+[[74240     2]
+ [  189 15409]]
+tpr (recall): 0.9999730610705531, fnr: 2.693892944694378e-05, fpr: 0.012116938068983204, tnr: 0.9878830619310168, acc: 0.9978739982190561
+*** thres = 1.3713194101286164
+AE Test time for  uSc1C1_z-score_20_14  = :  1.643186330795288
+[[74240     2]
+ [  185 15413]]
+tpr (recall): 0.9999730610705531, fnr: 2.693892944694378e-05, fpr: 0.011860494935248109, tnr: 0.9881395050647519, acc: 0.9979185218165628
+*** thres = 1.4465215192717968
+AE Test time for  uSc1C1_z-score_20_14  = :  1.6354451179504395
+[[74240     2]
+ [  172 15426]]
+tpr (recall): 0.9999730610705531, fnr: 2.693892944694378e-05, fpr: 0.011027054750609052, tnr: 0.988972945249391, acc: 0.9980632235084594
+AE_thres: out_file:Figures/uSc1C1_z-score_20_14_thres_res_metrics_of_27_features_AE_thres.pdf
+
+2). no need to evaluate DT on test set
+
+3). train and evaluate PCA...
+PCA Training time for case uSc1C1_z-score_20_14  =  0.1803278923034668
+x_test.shape: (89840, 27)
+PCA Testing Time :  0.12226271629333496
+[[73003  1239]
+ [ 1576 14022]]
+tpr (recall): 0.9833113332076183, fnr: 0.016688666792381672, fpr: 0.10103859469162713, tnr: 0.8989614053083729, acc: 0.968666518254675
+
+4). train and evaluate IF...
+/usr/local/lib/python3.6/site-packages/sklearn/ensemble/iforest.py:213: FutureWarning: default contamination parameter 0.1 will change in version 0.22 to "auto". This will change the predict method behavior.
+  FutureWarning)
+/usr/local/lib/python3.6/site-packages/sklearn/ensemble/iforest.py:223: FutureWarning: behaviour="old" is deprecated and will be removed in version 0.22. Please use behaviour="new", which makes the decision_function change to match other anomaly detection algorithm API.
+  FutureWarning)
+IF Training time for case uSc1C1_z-score_20_14  =  3.954892635345459
+x_norm_train.shape: (54591, 27)
+/usr/local/lib/python3.6/site-packages/sklearn/ensemble/iforest.py:417: DeprecationWarning: threshold_ attribute is deprecated in 0.20 and will be removed in 0.22.
+  " be removed in 0.22.", DeprecationWarning)
+IF Testing Time :  1.69840407371521
+[[    0     0]
+ [ 5459 49132]]
+tpr (recall): 0, fnr: 0, fpr: 0.09999816819622281, tnr: 0.9000018318037771, acc: 0.9000018318037771
+x_test.shape: (89840, 27)
+/usr/local/lib/python3.6/site-packages/sklearn/ensemble/iforest.py:417: DeprecationWarning: threshold_ attribute is deprecated in 0.20 and will be removed in 0.22.
+  " be removed in 0.22.", DeprecationWarning)
+IF Testing Time :  2.3371899127960205
+[[74022   220]
+ [ 1540 14058]]
+tpr (recall): 0.9970367177608361, fnr: 0.0029632822391638157, fpr: 0.09873060648801128, tnr: 0.9012693935119888, acc: 0.9804096170970614
+key:DT, value:[]
+key:OCSVM, value:[]
+ROC:out_file:Figures/uSc1C1_z-score_20_14_roc_data_of_27_features_ROC.pdf
+
+@@@train and evaluate AE on UNB: uSc1C2_z-score_20_14
+
+Step 1. loading data...
+
++Step 1-1. preprocessing data...
+len(mu) = 0, len(d_std) = 0
+the variance of the 18-th feature is 0.
+the variance of the 24-th feature is 0.
+**all_norm:59832, all_attack:35953
+x_norm_train:(41881, 27), x_attack_train:0
+x_norm_val:(5984, 27), x_attack_val:0
+x_norm_test:(11967, 27), x_attack_test:(35953, 27)
+
+Step 3. train and evaluate AE on case: uSc1C2_z-score_20_14
+
+Step 3-1. train AE on case: uSc1C2_z-score_20_14
+x_norm_train.shape: (41881, 27)
+AE training for Case :  uSc1C2_z-score_20_14  =  124.62847375869751 s
+Train Loss =  0.3330047522232533 model.metrics_names ['loss']
+Validation Loss =  0.31227642791793947 model.metrics_names ['loss']
+training_losses:{'val_loss': [0.7536015567932537, 0.630368485807735, 0.5615014911972903, 0.5075639212195249, 0.46359575161321914, 0.4450837542666471, 0.4236848618894975, 0.4081843032397051, 0.3975535139521176, 0.3878612801990407, 0.3856225290241089, 0.37494400605798406, 0.3752426405482114, 0.3721150778194162, 0.36468186177671913, 0.36513921889391815, 0.3566031475118137, 0.356061419541823, 0.35591327976734244, 0.352799552248761, 0.35501419406204937, 0.3524217382471829, 0.3481509045642965, 0.3439883308455268, 0.34200474157690364, 0.34399487922854605, 0.3400882755849451, 0.3401651228653556, 0.33307397389475674, 0.3371133507094919, 0.3400922736382102, 0.3294589570499359, 0.3309941330058052, 0.3258943954572321, 0.33117086253064204, 0.3270508799164053, 0.32941352651718464, 0.3280784249465096, 0.3252315141141096, 0.32241036954091834, 0.3171603600768482, 0.3239440669350446, 0.3211410208978755, 0.31752717080600756, 0.32136840632255065, 0.31448594739730346, 0.3212856539589836, 0.31708126096801964, 0.31805711960728794, 0.31227642791793947], 'loss': [1.389226329564018, 0.7187870261168537, 0.6237512038201567, 0.5589090622711573, 0.5108098959243075, 0.47999188583248603, 0.45954960333874323, 0.44326445670453607, 0.4291895962055221, 0.41820893371470386, 0.4097796022064413, 0.4037685082081791, 0.3983247000157914, 0.3950412474133782, 0.39043409735962736, 0.38773031059873786, 0.38484479666228727, 0.38213500714610044, 0.3792115537342667, 0.3770428518171493, 0.37429106161000125, 0.3718791170032969, 0.3700495788463335, 0.3678633945354466, 0.36583978092185704, 0.36391141819411965, 0.3629140279624436, 0.3601881960146589, 0.35933102646802173, 0.3579664239376824, 0.3560884281573427, 0.3551916055576453, 0.35372967198546246, 0.35243071663550735, 0.35144069672074896, 0.3505219938915514, 0.3487204868777946, 0.34812673141677325, 0.3468358720600746, 0.3454197131999086, 0.34429208232353925, 0.3430965863616011, 0.34262981936906617, 0.3419737029334216, 0.3411945944032384, 0.3407137554515777, 0.3397357081396897, 0.3389759524976771, 0.33810463518673517, 0.33740724672837047]}
+optimal_thres_AE_val:1.7040620416974583, factor = 5, key = loss
+
+Step 3-2. evaluate AE on case: uSc1C2_z-score_20_14
+
+1). evaluate AE on test set:
+x_test.shape: (47920, 27), case: uSc1C2_z-score_20_14
+optimal_thres_AE 1.7040620416974583 achieved from key=loss, factor = 5, key = loss
+AE Test time for  uSc1C2_z-score_20_14  = :  0.9876999855041504
+[[32106  3847]
+ [  477 11490]]
+tpr (recall): 0.892999193391372, fnr: 0.10700080660862793, fpr: 0.03985961393833041, tnr: 0.9601403860616696, acc: 0.9097662771285476
+
+save the FPR and FNR reausts of AE with num =27 features on test set.
+output_pre_path:uSc1C2_z-score_20_14_recon_err_of_27_features
+*the maximize reconstrcution error is 44.85843645423694 for Reconstruction loss of normal samples
+Reconstr: out_file:Figures/uSc1C2_z-score_20_14_recon_err_of_27_features_reconstruct_loss_normal_data_rescon.pdf
+*the maximize reconstrcution error is 44.85843645423694 for Reconstruction loss of normal samples in samples' order
+*the maximize reconstrcution error is 124.73417329343128 for Reconstruction loss of attack samples
+Reconstr: out_file:Figures/uSc1C2_z-score_20_14_recon_err_of_27_features_reconstruct_loss_attack_data_rescon.pdf
+*the maximize reconstrcution error is 124.73417329343128 for Reconstruction loss of attack samples in samples' order
+
+-Evaluate AE with different thresholds on test set with num = 27 features.
+*** thres = 0.011066214750255644
+AE Test time for  uSc1C2_z-score_20_14  = :  1.0281269550323486
+[[35953     0]
+ [11967     0]]
+tpr (recall): 1.0, fnr: 0.0, fpr: 1.0, tnr: 0.0, acc: 0.750271285475793
+*** thres = 0.18985873415260623
+AE Test time for  uSc1C2_z-score_20_14  = :  0.9903221130371094
+[[35953     0]
+ [ 4788  7179]]
+tpr (recall): 1.0, fnr: 0.0, fpr: 0.4001002757583354, tnr: 0.5998997242416646, acc: 0.9000834724540901
+*** thres = 0.3686512535549568
+AE Test time for  uSc1C2_z-score_20_14  = :  1.0550332069396973
+[[34596  1357]
+ [ 2844  9123]]
+tpr (recall): 0.9622562790309571, fnr: 0.03774372096904292, fpr: 0.2376535472549511, tnr: 0.7623464527450489, acc: 0.9123330550918197
+*** thres = 0.5474437729573074
+AE Test time for  uSc1C2_z-score_20_14  = :  1.032979965209961
+[[34114  1839]
+ [ 1672 10295]]
+tpr (recall): 0.948849887352933, fnr: 0.051150112647067, fpr: 0.13971755661402188, tnr: 0.8602824433859781, acc: 0.9267320534223706
+*** thres = 0.7262362923596579
+AE Test time for  uSc1C2_z-score_20_14  = :  1.0795531272888184
+[[33646  2307]
+ [ 1197 10770]]
+tpr (recall): 0.9358328929435652, fnr: 0.06416710705643479, fpr: 0.10002506893958385, tnr: 0.8999749310604162, acc: 0.9268781302170284
+*** thres = 0.9050288117620084
+AE Test time for  uSc1C2_z-score_20_14  = :  1.2324962615966797
+[[33500  2453]
+ [  974 10993]]
+tpr (recall): 0.9317720357132924, fnr: 0.06822796428670765, fpr: 0.08139049051558453, tnr: 0.9186095094844154, acc: 0.9284849749582638
+*** thres = 1.0838213311643592
+AE Test time for  uSc1C2_z-score_20_14  = :  1.107583999633789
+[[32965  2988]
+ [  775 11192]]
+tpr (recall): 0.916891497232498, fnr: 0.08310850276750202, fpr: 0.06476142725829365, tnr: 0.9352385727417064, acc: 0.9214732888146911
+*** thres = 1.2626138505667097
+AE Test time for  uSc1C2_z-score_20_14  = :  1.1414039134979248
+[[32282  3671]
+ [  691 11276]]
+tpr (recall): 0.8978944733401941, fnr: 0.10210552665980585, fpr: 0.05774212417481407, tnr: 0.9422578758251859, acc: 0.9089732888146912
+*** thres = 1.4414063699690602
+AE Test time for  uSc1C2_z-score_20_14  = :  1.105046033859253
+[[32154  3799]
+ [  560 11407]]
+tpr (recall): 0.8943342697410508, fnr: 0.10566573025894918, fpr: 0.04679535388986379, tnr: 0.9532046461101362, acc: 0.9090358931552588
+*** thres = 1.6201988893714108
+AE Test time for  uSc1C2_z-score_20_14  = :  1.098613977432251
+[[32114  3839]
+ [  501 11466]]
+tpr (recall): 0.8932217061163186, fnr: 0.10677829388368147, fpr: 0.041865129105038854, tnr: 0.9581348708949612, acc: 0.909432387312187
+*** thres = 1.7989914087737613
+AE Test time for  uSc1C2_z-score_20_14  = :  1.1647553443908691
+[[32105  3848]
+ [  441 11526]]
+tpr (recall): 0.8929713793007538, fnr: 0.10702862069924624, fpr: 0.03685134118826774, tnr: 0.9631486588117323, acc: 0.9104966611018364
+*** thres = 1.977783928176112
+AE Test time for  uSc1C2_z-score_20_14  = :  1.1348342895507812
+[[32103  3850]
+ [  343 11624]]
+tpr (recall): 0.8929157511195172, fnr: 0.10708424888048285, fpr: 0.028662154257541574, tnr: 0.9713378457424584, acc: 0.9125
+*** thres = 2.156576447578463
+AE Test time for  uSc1C2_z-score_20_14  = :  1.1153981685638428
+[[32100  3853]
+ [  248 11719]]
+tpr (recall): 0.8928323088476622, fnr: 0.10716769115233778, fpr: 0.020723656722653964, tnr: 0.979276343277346, acc: 0.9144198664440735
+*** thres = 2.3353689669808135
+AE Test time for  uSc1C2_z-score_20_14  = :  1.1447360515594482
+[[32094  3859]
+ [  206 11761]]
+tpr (recall): 0.8926654243039523, fnr: 0.10733457569604762, fpr: 0.01721400518091418, tnr: 0.9827859948190858, acc: 0.9151711185308848
+*** thres = 2.514161486383164
+AE Test time for  uSc1C2_z-score_20_14  = :  1.1647801399230957
+[[32087  3866]
+ [  176 11791]]
+tpr (recall): 0.8924707256696243, fnr: 0.10752927433037576, fpr: 0.01470711122252862, tnr: 0.9852928887774713, acc: 0.9156510851419032
+*** thres = 2.6929540057855146
+AE Test time for  uSc1C2_z-score_20_14  = :  1.1538009643554688
+[[32079  3874]
+ [  163 11804]]
+tpr (recall): 0.8922482129446778, fnr: 0.10775178705532222, fpr: 0.013620790507228211, tnr: 0.9863792094927718, acc: 0.9157554257095158
+*** thres = 2.871746525187865
+AE Test time for  uSc1C2_z-score_20_14  = :  1.1547629833221436
+[[32072  3881]
+ [  155 11812]]
+tpr (recall): 0.8920535143103496, fnr: 0.10794648568965037, fpr: 0.012952285451658729, tnr: 0.9870477145483413, acc: 0.9157762938230384
+*** thres = 3.0505390445902156
+AE Test time for  uSc1C2_z-score_20_14  = :  1.3578321933746338
+[[32047  3906]
+ [  108 11859]]
+tpr (recall): 0.8913581620448919, fnr: 0.10864183795510805, fpr: 0.009024818250188017, tnr: 0.990975181749812, acc: 0.9162353923205342
+*** thres = 3.229331563992566
+AE Test time for  uSc1C2_z-score_20_14  = :  1.1778028011322021
+[[32041  3912]
+ [  100 11867]]
+tpr (recall): 0.8911912775011821, fnr: 0.1088087224988179, fpr: 0.008356313194618534, tnr: 0.9916436868053815, acc: 0.9162771285475793
+*** thres = 3.4081240833949167
+AE Test time for  uSc1C2_z-score_20_14  = :  1.1955299377441406
+[[32039  3914]
+ [   89 11878]]
+tpr (recall): 0.8911356493199455, fnr: 0.10886435068005451, fpr: 0.007437118743210495, tnr: 0.9925628812567895, acc: 0.9164649415692822
+AE_thres: out_file:Figures/uSc1C2_z-score_20_14_thres_res_metrics_of_27_features_AE_thres.pdf
+
+2). no need to evaluate DT on test set
+
+3). train and evaluate PCA...
+PCA Training time for case uSc1C2_z-score_20_14  =  0.1395111083984375
+x_test.shape: (47920, 27)
+PCA Testing Time :  0.05608177185058594
+[[35953     0]
+ [ 1150 10817]]
+tpr (recall): 1.0, fnr: 0.0, fpr: 0.09609760173811314, tnr: 0.9039023982618869, acc: 0.9760016694490818
+/usr/local/lib/python3.6/site-packages/sklearn/ensemble/iforest.py:213: FutureWarning: default contamination parameter 0.1 will change in version 0.22 to "auto". This will change the predict method behavior.
+  FutureWarning)
+/usr/local/lib/python3.6/site-packages/sklearn/ensemble/iforest.py:223: FutureWarning: behaviour="old" is deprecated and will be removed in version 0.22. Please use behaviour="new", which makes the decision_function change to match other anomaly detection algorithm API.
+  FutureWarning)
+
+4). train and evaluate IF...
+IF Training time for case uSc1C2_z-score_20_14  =  3.2291817665100098
+x_norm_train.shape: (41881, 27)
+/usr/local/lib/python3.6/site-packages/sklearn/ensemble/iforest.py:417: DeprecationWarning: threshold_ attribute is deprecated in 0.20 and will be removed in 0.22.
+  " be removed in 0.22.", DeprecationWarning)
+IF Testing Time :  1.3593389987945557
+[[    0     0]
+ [ 4188 37693]]
+tpr (recall): 0, fnr: 0, fpr: 0.09999761228241924, tnr: 0.9000023877175808, acc: 0.9000023877175808
+x_test.shape: (47920, 27)
+/usr/local/lib/python3.6/site-packages/sklearn/ensemble/iforest.py:417: DeprecationWarning: threshold_ attribute is deprecated in 0.20 and will be removed in 0.22.
+  " be removed in 0.22.", DeprecationWarning)
+IF Testing Time :  1.402416706085205
+[[19464 16489]
+ [ 1162 10805]]
+tpr (recall): 0.5413734597947321, fnr: 0.458626540205268, fpr: 0.09710035932146736, tnr: 0.9028996406785327, acc: 0.6316569282136895
+key:DT, value:[]
+key:OCSVM, value:[]
+ROC:out_file:Figures/uSc1C2_z-score_20_14_roc_data_of_27_features_ROC.pdf
+
+@@@train and evaluate AE on MAWI: uSc1C3_z-score_20_14
+
+Step 1. loading data...
+
++Step 1-1. preprocessing data...
+len(mu) = 0, len(d_std) = 0
+the variance of the 24-th feature is 0.
+all_norm:62000, all_attack:0
+x_norm_train:(43400, 27), x_attack_train:0
+x_norm_val:(6200, 27), x_attack_val:0
+x_norm_test:(12400, 27), x_attack_test:0
+
+Step 3. train and evaluate AE on case: uSc1C3_z-score_20_14
+
+Step 3-1. train AE on case: uSc1C3_z-score_20_14
+x_norm_train.shape: (43400, 27)
+AE training for Case :  uSc1C3_z-score_20_14  =  149.28558993339539 s
+Train Loss =  0.20938492058746278 model.metrics_names ['loss']
+Validation Loss =  0.19484866798885406 model.metrics_names ['loss']
+training_losses:{'val_loss': [0.5402140771189043, 0.42504119669237445, 0.375776140824441, 0.34940708892960703, 0.3296828132867813, 0.31888994794699455, 0.3013989342028095, 0.28457764454426304, 0.2764068360578629, 0.2676443001820195, 0.2632687563569315, 0.2520947985110744, 0.24625011973804042, 0.24738346657445354, 0.238775190336089, 0.23693941865236529, 0.23355781037961282, 0.23422013540421763, 0.2348016747736162, 0.23370062161837854, 0.23225476195735317, 0.2254511112503467, 0.223939500643361, 0.22786002576351166, 0.22116248801831276, 0.2267876136879767, 0.21774815724742028, 0.2177559607259689, 0.22175069534009503, 0.22173778605076574, 0.2126442042185414, 0.21428729693255116, 0.21133652877903752, 0.21262157364237694, 0.21472338924004186, 0.20839979076577772, 0.20770809559091444, 0.20586649713016325, 0.2071400004721457, 0.20589000903310314, 0.20337001898596363, 0.2055704510115808, 0.20226204983169033, 0.19857778078125368, 0.2022369444947089, 0.20247375694974776, 0.2020398593910279, 0.20006052815145062, 0.19735937376176158, 0.19484866798885406], 'loss': [0.9898924337966102, 0.49809787742278544, 0.4239306635502297, 0.39024305495420636, 0.3674101052841833, 0.34766027343025957, 0.33144237782754654, 0.3160092320615932, 0.30435741884230466, 0.2930025109792909, 0.2844606593937918, 0.2782960521659818, 0.2710974566432463, 0.2655082718488945, 0.2607955005455951, 0.25689545678790265, 0.25421467618252824, 0.250933137336909, 0.24901917861559975, 0.2459404514057021, 0.24438676982774712, 0.2435392875694734, 0.24021933634640985, 0.23853694024860583, 0.23774407200068923, 0.23556751568265225, 0.2362605071060943, 0.23318950406829334, 0.2316996572348654, 0.23095418712304486, 0.2299541709520575, 0.2286207321512809, 0.22762809201868997, 0.226521812393094, 0.22597222138659745, 0.22393779640442216, 0.22398946003705125, 0.22234733647465157, 0.22289732902830098, 0.2210626368478696, 0.22084506200205894, 0.2196493493903789, 0.2191552278310198, 0.21781904714242104, 0.21698498572072675, 0.21859564244541155, 0.2158999212978897, 0.21486312062234922, 0.21469777301443133, 0.2136808357624689]}
+optimal_thres_AE_val:1.0860954826145781, factor = 5, key = loss
+
+Step 3-2. evaluate AE on case: uSc1C3_z-score_20_14
+
+1). evaluate AE on test set:
+x_test.shape: (12400, 27), case: uSc1C3_z-score_20_14
+optimal_thres_AE 1.0860954826145781 achieved from key=loss, factor = 5, key = loss
+AE Test time for  uSc1C3_z-score_20_14  = :  0.6229870319366455
+[[    0     0]
+ [  554 11846]]
+tpr (recall): 0, fnr: 0, fpr: 0.04467741935483871, tnr: 0.9553225806451613, acc: 0.9553225806451613
+
+save the FPR and FNR reausts of AE with num =27 features on test set.
+
+-Evaluate AE with different thresholds on test set with num = 27 features.
+*** thres = 0.002834543073521131
+AE Test time for  uSc1C3_z-score_20_14  = :  1.0292210578918457
+[[    0     0]
+ [12400     0]]
+tpr (recall): 0, fnr: 0, fpr: 1.0, tnr: 0.0, acc: 0.0
+*** thres = 0.11701119687118612
+AE Test time for  uSc1C3_z-score_20_14  = :  0.47875308990478516
+[[    0     0]
+ [ 1519 10881]]
+tpr (recall): 0, fnr: 0, fpr: 0.1225, tnr: 0.8775, acc: 0.8775
+*** thres = 0.2311878506688511
+AE Test time for  uSc1C3_z-score_20_14  = :  0.5152032375335693
+[[    0     0]
+ [ 1192 11208]]
+tpr (recall): 0, fnr: 0, fpr: 0.09612903225806452, tnr: 0.9038709677419355, acc: 0.9038709677419355
+*** thres = 0.3453645044665161
+AE Test time for  uSc1C3_z-score_20_14  = :  0.7505629062652588
+[[    0     0]
+ [ 1066 11334]]
+tpr (recall): 0, fnr: 0, fpr: 0.08596774193548387, tnr: 0.9140322580645162, acc: 0.9140322580645162
+*** thres = 0.4595411582641811
+AE Test time for  uSc1C3_z-score_20_14  = :  0.7618651390075684
+[[    0     0]
+ [  952 11448]]
+tpr (recall): 0, fnr: 0, fpr: 0.07677419354838709, tnr: 0.9232258064516129, acc: 0.9232258064516129
+*** thres = 0.5737178120618461
+AE Test time for  uSc1C3_z-score_20_14  = :  0.7820949554443359
+[[    0     0]
+ [  866 11534]]
+tpr (recall): 0, fnr: 0, fpr: 0.06983870967741936, tnr: 0.9301612903225807, acc: 0.9301612903225807
+*** thres = 0.6878944658595111
+AE Test time for  uSc1C3_z-score_20_14  = :  0.9449112415313721
+[[    0     0]
+ [  813 11587]]
+tpr (recall): 0, fnr: 0, fpr: 0.06556451612903226, tnr: 0.9344354838709678, acc: 0.9344354838709678
+*** thres = 0.8020711196571761
+AE Test time for  uSc1C3_z-score_20_14  = :  1.29750394821167
+[[    0     0]
+ [  748 11652]]
+tpr (recall): 0, fnr: 0, fpr: 0.06032258064516129, tnr: 0.9396774193548387, acc: 0.9396774193548387
+*** thres = 0.9162477734548411
+AE Test time for  uSc1C3_z-score_20_14  = :  0.5794949531555176
+[[    0     0]
+ [  668 11732]]
+tpr (recall): 0, fnr: 0, fpr: 0.053870967741935484, tnr: 0.9461290322580646, acc: 0.9461290322580646
+*** thres = 1.030424427252506
+AE Test time for  uSc1C3_z-score_20_14  = :  0.540992021560669
+[[    0     0]
+ [  591 11809]]
+tpr (recall): 0, fnr: 0, fpr: 0.047661290322580645, tnr: 0.9523387096774194, acc: 0.9523387096774194
+*** thres = 1.144601081050171
+AE Test time for  uSc1C3_z-score_20_14  = :  0.5615718364715576
+[[    0     0]
+ [  533 11867]]
+tpr (recall): 0, fnr: 0, fpr: 0.042983870967741936, tnr: 0.9570161290322581, acc: 0.9570161290322581
+*** thres = 1.258777734847836
+AE Test time for  uSc1C3_z-score_20_14  = :  0.6991910934448242
+[[    0     0]
+ [  498 11902]]
+tpr (recall): 0, fnr: 0, fpr: 0.040161290322580645, tnr: 0.9598387096774194, acc: 0.9598387096774194
+*** thres = 1.372954388645501
+AE Test time for  uSc1C3_z-score_20_14  = :  0.7374129295349121
+[[    0     0]
+ [  473 11927]]
+tpr (recall): 0, fnr: 0, fpr: 0.03814516129032258, tnr: 0.9618548387096775, acc: 0.9618548387096775
+*** thres = 1.4871310424431659
+AE Test time for  uSc1C3_z-score_20_14  = :  0.5653641223907471
+[[    0     0]
+ [  449 11951]]
+tpr (recall): 0, fnr: 0, fpr: 0.03620967741935484, tnr: 0.9637903225806451, acc: 0.9637903225806451
+*** thres = 1.601307696240831
+AE Test time for  uSc1C3_z-score_20_14  = :  0.5822930335998535
+[[    0     0]
+ [  425 11975]]
+tpr (recall): 0, fnr: 0, fpr: 0.034274193548387094, tnr: 0.9657258064516129, acc: 0.9657258064516129
+*** thres = 1.715484350038496
+AE Test time for  uSc1C3_z-score_20_14  = :  0.6434810161590576
+[[    0     0]
+ [  385 12015]]
+tpr (recall): 0, fnr: 0, fpr: 0.031048387096774193, tnr: 0.9689516129032258, acc: 0.9689516129032258
+*** thres = 1.829661003836161
+AE Test time for  uSc1C3_z-score_20_14  = :  0.671785831451416
+[[    0     0]
+ [  362 12038]]
+tpr (recall): 0, fnr: 0, fpr: 0.029193548387096774, tnr: 0.9708064516129032, acc: 0.9708064516129032
+*** thres = 1.9438376576338259
+AE Test time for  uSc1C3_z-score_20_14  = :  0.6339399814605713
+[[    0     0]
+ [  320 12080]]
+tpr (recall): 0, fnr: 0, fpr: 0.025806451612903226, tnr: 0.9741935483870968, acc: 0.9741935483870968
+*** thres = 2.0580143114314913
+AE Test time for  uSc1C3_z-score_20_14  = :  0.6460418701171875
+[[    0     0]
+ [  282 12118]]
+tpr (recall): 0, fnr: 0, fpr: 0.02274193548387097, tnr: 0.9772580645161291, acc: 0.9772580645161291
+*** thres = 2.1721909652291562
+AE Test time for  uSc1C3_z-score_20_14  = :  0.7391040325164795
+[[    0     0]
+ [  262 12138]]
+tpr (recall): 0, fnr: 0, fpr: 0.021129032258064517, tnr: 0.9788709677419355, acc: 0.9788709677419355
+AE_thres: out_file:Figures/uSc1C3_z-score_20_14_thres_res_metrics_of_27_features_AE_thres.pdf
+
+2). no need to evaluate DT on test set
+
+3). train and evaluate PCA...
+PCA Training time for case uSc1C3_z-score_20_14  =  0.17266416549682617
+x_test.shape: (12400, 27)
+PCA Testing Time :  0.014486074447631836
+[[    0     0]
+ [ 1023 11377]]
+tpr (recall): 0, fnr: 0, fpr: 0.0825, tnr: 0.9175, acc: 0.9175
+
+4). train and evaluate IF...
+/usr/local/lib/python3.6/site-packages/sklearn/ensemble/iforest.py:213: FutureWarning: default contamination parameter 0.1 will change in version 0.22 to "auto". This will change the predict method behavior.
+  FutureWarning)
+/usr/local/lib/python3.6/site-packages/sklearn/ensemble/iforest.py:223: FutureWarning: behaviour="old" is deprecated and will be removed in version 0.22. Please use behaviour="new", which makes the decision_function change to match other anomaly detection algorithm API.
+  FutureWarning)
+IF Training time for case uSc1C3_z-score_20_14  =  3.613741874694824
+x_norm_train.shape: (43400, 27)
+/usr/local/lib/python3.6/site-packages/sklearn/ensemble/iforest.py:417: DeprecationWarning: threshold_ attribute is deprecated in 0.20 and will be removed in 0.22.
+  " be removed in 0.22.", DeprecationWarning)
+IF Testing Time :  1.4160881042480469
+[[    0     0]
+ [ 4340 39060]]
+tpr (recall): 0, fnr: 0, fpr: 0.1, tnr: 0.9, acc: 0.9
+x_test.shape: (12400, 27)
+/usr/local/lib/python3.6/site-packages/sklearn/ensemble/iforest.py:417: DeprecationWarning: threshold_ attribute is deprecated in 0.20 and will be removed in 0.22.
+  " be removed in 0.22.", DeprecationWarning)
+IF Testing Time :  0.5511679649353027
+[[    0     0]
+ [ 1192 11208]]
+tpr (recall): 0, fnr: 0, fpr: 0.09612903225806452, tnr: 0.9038709677419355, acc: 0.9038709677419355
+key:DT, value:[]
+key:OCSVM, value:[]
+/usr/local/lib/python3.6/site-packages/sklearn/metrics/ranking.py:648: UndefinedMetricWarning: No negative samples in y_true, false positive value should be meaningless
+  UndefinedMetricWarning)
+/usr/local/lib/python3.6/site-packages/sklearn/metrics/ranking.py:114: RuntimeWarning: invalid value encountered in less
+  if np.any(dx < 0):
+ROC:out_file:Figures/uSc1C3_z-score_20_14_roc_data_of_27_features_ROC.pdf
+
+@@@train on UNB: uSc2C2_z-score_20_14
+
+Step 1. loading data...
+
++Step 1-1. preprocessing data...
+len(mu) = 0, len(d_std) = 0
+the variance of the 18-th feature is 0.
+the variance of the 24-th feature is 0.
+**all_norm:59832, all_attack:17944
+x_norm_train:(41881, 27), x_attack_train:(12560, 27)
+x_norm_val:(5984, 27), x_attack_val:(1795, 27)
+x_norm_test_UNB:(11967, 27), x_attack_test:(3589, 27)
+x_norm_test_SYNT:(77988, 27), x_attack_test_SYNT:(37000, 27)
+x_norm_test_MAWI:(62000, 27), x_attack_test:0
+
+Step 2. train and evaluate AE on case: uSc2C2_z-score_20_14
+
+Step 2-1. train AE on case: uSc2C2_z-score_20_14
+x_norm_train.shape: (41881, 27)
+AE training for Case :  uSc2C2_z-score_20_14  =  158.55566596984863 s
+Train Loss =  0.35120729476890183 model.metrics_names ['loss']
+Validation Loss =  0.3301301992991391 model.metrics_names ['loss']
+optimal_thres_AE_val:1.7791471086298907, factor = 5, key = loss
+
+Step 2-2. test AE on test set, case: uSc2C2_z-score_20_14
+
+1)test AE on UNB test set
+x_test_UNB.shape: (15556, 27)
+AE Test time for  uSc2C2_z-score_20_14  = :  0.7102930545806885
+[[ 3135   454]
+ [  494 11473]]
+tpr (recall): 0.8735023683477292, fnr: 0.12649763165227082, fpr: 0.04128018718141556, tnr: 0.9587198128185844, acc: 0.9390588840318848
+
+2)test AE on SYNT test set
+x_test_SYNT.shape: (114988, 27)
+AE Test time for  uSc2C2_z-score_20_14  = :  3.470798969268799
+[[37000     0]
+ [76676  1312]]
+tpr (recall): 1.0, fnr: 0.0, fpr: 0.9831768990101041, tnr: 0.01682310098989588, acc: 0.33318259296622255
+
+3)test AE on MAWI test set
+x_test_MAWI.shape: (62000, 27)
+AE Test time for  uSc2C2_z-score_20_14  = :  1.7714259624481201
+[[    0     0]
+ [62000     0]]
+tpr (recall): 0, fnr: 0, fpr: 1.0, tnr: 0.0, acc: 0.0
+
+Step 3. train and evaluate PCA , case: uSc2C2_z-score_20_14
+PCA Training time for case uSc2C2_z-score_20_14  =  0.10747098922729492
+x_norm_train.shape: (41881, 27)
+PCA Testing Time :  0.03764605522155762
+[[    0     0]
+ [ 4188 37693]]
+tpr (recall): 0, fnr: 0, fpr: 0.09999761228241924, tnr: 0.9000023877175808, acc: 0.9000023877175808
+x_test_UNB.shape: (15556, 27)
+PCA Testing Time :  0.016555070877075195
+[[ 3589     0]
+ [ 1150 10817]]
+tpr (recall): 1.0, fnr: 0.0, fpr: 0.09609760173811314, tnr: 0.9039023982618869, acc: 0.9260735407559784
+x_test_SYNT.shape: (114988, 27)
+PCA Testing Time :  0.13195300102233887
+[[37000     0]
+ [75642  2346]]
+tpr (recall): 1.0, fnr: 0.0, fpr: 0.9699184489921526, tnr: 0.03008155100784736, acc: 0.34217483563502277
+x_test_MAWI.shape: (62000, 27)
+PCA Testing Time :  0.05198192596435547
+[[    0     0]
+ [62000     0]]
+tpr (recall): 0, fnr: 0, fpr: 1.0, tnr: 0.0, acc: 0.0
+
+Step 4. train and evaluate IF, case: uSc2C2_z-score_20_14
+/usr/local/lib/python3.6/site-packages/sklearn/ensemble/iforest.py:213: FutureWarning: default contamination parameter 0.1 will change in version 0.22 to "auto". This will change the predict method behavior.
+  FutureWarning)
+/usr/local/lib/python3.6/site-packages/sklearn/ensemble/iforest.py:223: FutureWarning: behaviour="old" is deprecated and will be removed in version 0.22. Please use behaviour="new", which makes the decision_function change to match other anomaly detection algorithm API.
+  FutureWarning)
+IF Training time for case uSc2C2_z-score_20_14  =  2.7092068195343018
+x_norm_train.shape: (41881, 27)
+/usr/local/lib/python3.6/site-packages/sklearn/ensemble/iforest.py:417: DeprecationWarning: threshold_ attribute is deprecated in 0.20 and will be removed in 0.22.
+  " be removed in 0.22.", DeprecationWarning)
+IF Testing Time :  1.2344980239868164
+[[    0     0]
+ [ 4183 37698]]
+tpr (recall): 0, fnr: 0, fpr: 0.09987822640338101, tnr: 0.900121773596619, acc: 0.900121773596619
+x_test_UNB.shape: (15556, 27)
+/usr/local/lib/python3.6/site-packages/sklearn/ensemble/iforest.py:417: DeprecationWarning: threshold_ attribute is deprecated in 0.20 and will be removed in 0.22.
+  " be removed in 0.22.", DeprecationWarning)
+IF Testing Time :  0.52069091796875
+[[  600  2989]
+ [ 1164 10803]]
+tpr (recall): 0.16717748676511562, fnr: 0.8328225132348843, fpr: 0.09726748558535973, tnr: 0.9027325144146403, acc: 0.7330290563126768
+x_test_SYNT.shape: (114988, 27)
+/usr/local/lib/python3.6/site-packages/sklearn/ensemble/iforest.py:417: DeprecationWarning: threshold_ attribute is deprecated in 0.20 and will be removed in 0.22.
+  " be removed in 0.22.", DeprecationWarning)
+IF Testing Time :  3.4403421878814697
+[[36601   399]
+ [56556 21432]]
+tpr (recall): 0.9892162162162162, fnr: 0.010783783783783784, fpr: 0.7251884905370057, tnr: 0.2748115094629943, acc: 0.5046874456465023
+x_test_MAWI.shape: (62000, 27)
+/usr/local/lib/python3.6/site-packages/sklearn/ensemble/iforest.py:417: DeprecationWarning: threshold_ attribute is deprecated in 0.20 and will be removed in 0.22.
+  " be removed in 0.22.", DeprecationWarning)
+IF Testing Time :  1.754472255706787
+[[    0     0]
+ [ 3634 58366]]
+tpr (recall): 0, fnr: 0, fpr: 0.05861290322580645, tnr: 0.9413870967741935, acc: 0.9413870967741935
+
+Step 6. train and evaluate DT on case: uSc2C2_z-score_20_14
+
+-Step 3-1. preprocessing data for DT ...
+len(mu) = 0, len(d_std) = 0
+the variance of the 18-th feature is 0.
+the variance of the 24-th feature is 0.
+
+With data balance, x_train.shape: (25120, 27)
+ in which, x_norm_train_DT.shape: (12560, 27), and x_attack_train_DT.shape: (12560, 27)
+
+-Step 3-2. train DT...
+
+-Step 3-3. evaluate DT...
+1) evaluate DT on train set
+x_train_DT.shape: (25120, 27)
+DT Testing Time :  0.0015249252319335938
+[[12560     0]
+ [   16 12544]]
+tpr (recall): 1.0, fnr: 0.0, fpr: 0.0012738853503184713, tnr: 0.9987261146496815, acc: 0.9993630573248408
+2) evaluate DT on UNB test set
+x_test_UNB_DT.shape: (15556, 27)
+DT Testing Time :  0.0027730464935302734
+[[ 3582     7]
+ [   55 11912]]
+tpr (recall): 0.9980495959877403, fnr: 0.0019504040122596824, fpr: 0.004595972257040194, tnr: 0.9954040277429598, acc: 0.9960143995885832
+3) evaluate DT on SYNT test set
+x_test_SYNT_DT.shape: (114988, 27)
+DT Testing Time :  0.012223243713378906
+[[ 2564 34436]
+ [62673 15315]]
+tpr (recall): 0.06929729729729729, fnr: 0.9307027027027027, fpr: 0.8036236344052932, tnr: 0.19637636559470686, acc: 0.1554857898215466
+4) evaluate DT on MAWI test set
+x_test_MAWI_DT.shape: (62000, 27)
+DT Testing Time :  0.007704973220825195
+[[    0     0]
+ [54089  7911]]
+tpr (recall): 0, fnr: 0, fpr: 0.8724032258064516, tnr: 0.1275967741935484, acc: 0.1275967741935484
+Experiment 3 on SYNT: uSc3C2_z-score_20_14
+Step 1. loading data...
+
+Step 2. train and evaluate AE on case: uSc3C2_z-score_20_14
+
++Step 2-1. preprocessing data for AE ...
+len(mu) = 0, len(d_std) = 0
+the variance of the 18-th feature is 0.
+the variance of the 24-th feature is 0.
+**all_norm:59832, all_attack:17944
+x_norm_train:(41881, 27), x_attack_train:(12560, 27)
+x_norm_val:(5984, 27), x_attack_val:(1795, 27)
+x_norm_test:(11967, 27), x_attack_test:(3589, 27)
+x_norm_test_2:(11967, 27), x_attack_test_2:(18009, 27)
+
++Step 2-1. train AE...
+x_norm_train.shape: (41881, 27)
+AE training for Case :  uSc3C2_z-score_20_14  =  166.29167294502258 s
+Train Loss =  0.3364911092016207 model.metrics_names ['loss']
+Validation Loss =  0.31150915676897223 model.metrics_names ['loss']
+optimal_thres_AE_val:1.5231467336017814
+
++Step 2-2. evaluate AE...
+
+1) evaluate AE on train set
+AE Test time for  uSc3C2_z-score_20_14  = :  1.6893081665039062
+[[10974  1586]
+ [ 1349 40532]]
+tpr (recall): 0.8737261146496815, fnr: 0.12627388535031847, fpr: 0.03221031016451374, tnr: 0.9677896898354863, acc: 0.9460884260024613
+
+2) evaluate AE on test set 1
+x_test_1.shape: (15556, 27)
+AE Test time for  uSc3C2_z-score_20_14  = :  0.9690630435943604
+[[ 3146   443]
+ [  404 11563]]
+tpr (recall): 0.876567288938423, fnr: 0.12343271106157704, fpr: 0.03375950530625888, tnr: 0.9662404946937411, acc: 0.945551555669838
+
+3) evaluate AE on test set 2
+x_test_2.shape: (29976, 27)
+AE Test time for  uSc3C2_z-score_20_14  = :  1.2086691856384277
+[[17992    17]
+ [  404 11563]]
+tpr (recall): 0.9990560275417847, fnr: 0.0009439724582153368, fpr: 0.03375950530625888, tnr: 0.9662404946937411, acc: 0.9859554310114759
+
+--save and show the reconstruction errors of normal and attack samples
+output_pre_path:uSc3C2_z-score_20_14_recon_err_test_1
+*the maximize reconstrcution error is 13.472591964482595 for Reconstruction loss of normal samples
+Reconstr: out_file:Figures/uSc3C2_z-score_20_14_recon_err_test_1_reconstruct_loss_normal_data_rescon.pdf
+*the maximize reconstrcution error is 13.472591964482595 for Reconstruction loss of normal samples in samples' order
+*the maximize reconstrcution error is 174.9485473848806 for Reconstruction loss of attack samples
+Reconstr: out_file:Figures/uSc3C2_z-score_20_14_recon_err_test_1_reconstruct_loss_attack_data_rescon.pdf
+*the maximize reconstrcution error is 174.9485473848806 for Reconstruction loss of attack samples in samples' order
+output_pre_path:uSc3C2_z-score_20_14_recon_err_test2
+*the maximize reconstrcution error is 47.907379831036366 for Reconstruction loss of normal samples
+Reconstr: out_file:Figures/uSc3C2_z-score_20_14_recon_err_test2_reconstruct_loss_normal_data_rescon.pdf
+*the maximize reconstrcution error is 47.907379831036366 for Reconstruction loss of normal samples in samples' order
+*the maximize reconstrcution error is 158.1604564837748 for Reconstruction loss of attack samples
+Reconstr: out_file:Figures/uSc3C2_z-score_20_14_recon_err_test2_reconstruct_loss_attack_data_rescon.pdf
+*the maximize reconstrcution error is 158.1604564837748 for Reconstruction loss of attack samples in samples' order
+
+Step 3. train and evaluate DT on case: uSc3C2_z-score_20_14
+
+-Step 3-1. preprocessing data for DT ...
+len(mu) = 0, len(d_std) = 0
+the variance of the 18-th feature is 0.
+the variance of the 24-th feature is 0.
+
+With data balance, x_train.shape: (25120, 27)
+ in which, x_norm_train_DT.shape: (12560, 27), and x_attack_train_DT.shape: (12560, 27)
+
+-Step 3-2. train DT...
+
+-Step 3-3. evaluate DT...
+1) evaluate DT on train set
+x_train_DT.shape: (25120, 27)
+DT Testing Time :  0.002119779586791992
+[[12560     0]
+ [   16 12544]]
+tpr (recall): 1.0, fnr: 0.0, fpr: 0.0012738853503184713, tnr: 0.9987261146496815, acc: 0.9993630573248408
+2) evaluate DT on test set 1
+x_test_1_DT.shape: (15556, 27)
+DT Testing Time :  0.0013890266418457031
+[[ 3585     4]
+ [   57 11910]]
+tpr (recall): 0.9988854834215659, fnr: 0.0011145165784341043, fpr: 0.004763098520932565, tnr: 0.9952369014790674, acc: 0.9960786834661867
+3) evaluate DT on test set 2
+x_test_2_DT.shape: (29976, 27)
+DT Testing Time :  0.0032792091369628906
+[[17867   142]
+ [   57 11910]]
+tpr (recall): 0.992115053584319, fnr: 0.007884946415681049, fpr: 0.004763098520932565, tnr: 0.9952369014790674, acc: 0.9933613557512677
+
+Process finished with exit code 0
