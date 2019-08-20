@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list id="57120121-4096-4b9a-971d-a8cef722f883" name="Revert: change directories organization" comment="" />
+    <list default="true" id="6e0357b7-289e-4ba5-bdae-0f818356535d" name="Default" comment="Revert &quot;add 'mawi_downloader' for testing concept drift.&quot;&#10;&#10;This reverts commit 0c2a6bc" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/anomaly_detection_20190611$autoencoder_main_20190612_offline.coverage" NAME="autoencoder_main_20190612_offline Coverage Results" MODIFIED="1561565888634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/anomaly_detection_20190611$plot_data.coverage" NAME="plot_data Coverage Results" MODIFIED="1561139228776" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
+    <SUITE FILE_PATH="coverage/anomaly_detection_20190611$mawi_downloader.coverage" NAME="mawi_downloader Coverage Results" MODIFIED="1566268891623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utilities" />
+    <SUITE FILE_PATH="coverage/anomaly_detection_20190611$autoencoder_main_20190612.coverage" NAME="autoencoder_main_20190612 Coverage Results" MODIFIED="1561172168651" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/anomaly_detection_20190611$feature_selection_20190611.coverage" NAME="feature_selection_20190611 Coverage Results" MODIFIED="1560953789443" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="autoencoder_main_20190612_offline.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_offline.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="readme.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/readme.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor />
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>inf</find>
+      <find>num_features_re</find>
+      <find>dist</find>
+      <find>the max</find>
+      <find>UNB_test_set_raw</find>
+      <find>plot_loss</find>
+      <find>experiment_1_code</find>
+      <find>factor</find>
+      <find>shuff</find>
+      <find>get_optimal_thres</find>
+      <find>balance_data</find>
+      <find>plot</find>
+      <find>title_flg</find>
+      <find>get</find>
+      <find>np.linspace</find>
+      <find>get_opt</find>
+      <find>min_</find>
+      <find>get_op</find>
+      <find>chi</find>
+      <find>sub_features_list</find>
+      <find>plot_roc</find>
+      <find>[</find>
+      <find>AE</find>
+      <find>PCA</find>
+      <find>roc</find>
+      <find>SVM</find>
+      <find>tpr</find>
+      <find>0.2</find>
+      <find>test_AE</find>
+      <find>shuffle</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>train_OCSVM</replace>
+      <replace>attack</replace>
+      <replace>MAWI</replace>
+      <replace>res_metrics_dict</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="20190808" />
+      </map>
+    </option>
+    <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/utils/read_two_stage.py" />
+        <option value="$PROJECT_DIR$/utils/utils.py" />
+        <option value="$PROJECT_DIR$/utils/read_data_un.py" />
+        <option value="$PROJECT_DIR$/log.txt" />
+        <option value="$PROJECT_DIR$/stdout_content.txt" />
+        <option value="$PROJECT_DIR$/all_experiment_20190617_14_39.txt" />
+        <option value="$PROJECT_DIR$/Experiment_3_Results_20190617_18_39.txt" />
+        <option value="$PROJECT_DIR$/Experiment_1_Results_20190617_19_30.txt" />
+        <option value="$PROJECT_DIR$/utils/plot_data.py" />
+        <option value="$PROJECT_DIR$/Experiment_2_Results_20190617_19_00.txt" />
+        <option value="$PROJECT_DIR$/utils/Experiment_1_Results_feature_selection" />
+        <option value="$PROJECT_DIR$/feature_selection_20190611.py" />
+        <option value="$PROJECT_DIR$/Figures/uSc1C2_z-score_3d_data.txt" />
+        <option value="$PROJECT_DIR$/utils/metrics_measure.py" />
+        <option value="$PROJECT_DIR$/plot_all_results.py" />
+        <option value="$PROJECT_DIR$/classical_ml_algorithms.py" />
+        <option value="$PROJECT_DIR$/autoencoder_main_20190612.py" />
+        <option value="$PROJECT_DIR$/utils/load_data.py" />
+        <option value="$PROJECT_DIR$/autoencoder_main_20190612_update_learning.py" />
+        <option value="$PROJECT_DIR$/autoencoder_main_20190612_offline.py" />
+        <option value="$PROJECT_DIR$/utilities/mawi_downloader.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1" />
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="777" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="anomaly_detection_20190611" type="b2602c69:ProjectViewProjectNode" />
+              <item name="anomaly_detection_20190611" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="database.sql.templating" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="anomaly_detection_20190611" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="anomaly_detection_20190611" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/Figures" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/history_files" />
+      <recent name="$PROJECT_DIR$/compared_algorithms" />
+      <recent name="$PROJECT_DIR$/proposed_algorithms/deep_autoencoder_pytorch" />
+      <recent name="$PROJECT_DIR$/input_data/others" />
+      <recent name="$PROJECT_DIR$/output_data" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.mawi_downloader">
+    <configuration name="autoencoder_main_20190612" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <output_file path="~/console.txt" />
+      <module name="anomaly_detection_20190611" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_update_learning.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="autoencoder_main_20190612_offline" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="anomaly_detection_20190611" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_offline.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="feature_selection_20190611" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="anomaly_detection_20190611" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/proposed_algorithms/feature_selection_20190611.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="mawi_downloader" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="anomaly_detection_20190611" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utilities" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utilities/mawi_downloader.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="plot_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="anomaly_detection_20190611" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utilities/plot_all_results.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.feature_selection_20190611" />
+      <item itemvalue="Python.autoencoder_main_20190612" />
+      <item itemvalue="Python.plot_data" />
+      <item itemvalue="Python.autoencoder_main_20190612_offline" />
+      <item itemvalue="Python.mawi_downloader" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.mawi_downloader" />
+        <item itemvalue="Python.autoencoder_main_20190612_offline" />
+        <item itemvalue="Python.plot_data" />
+        <item itemvalue="Python.autoencoder_main_20190612" />
+        <item itemvalue="Python.feature_selection_20190611" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6e0357b7-289e-4ba5-bdae-0f818356535d" name="Default" comment="" />
+      <changelist id="57120121-4096-4b9a-971d-a8cef722f883" name="Revert: change directories organization" comment="" />
+      <created>1560290133216</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1560290133216</updated>
+    </task>
+    <task id="LOCAL-00001" summary="new version">
+      <created>1565300403610</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1565300403611</updated>
+    </task>
+    <task id="LOCAL-00002" summary="change directories organization">
+      <created>1565304478987</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1565304478987</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add 'mawi_downloader' for testing concept drift.">
+      <created>1566308623231</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1566308623231</updated>
+    </task>
+    <task id="LOCAL-00004" summary="gitingore">
+      <created>1566312534741</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1566312534741</updated>
+    </task>
+    <task id="LOCAL-00005" summary="'change directory'">
+      <created>1566313843411</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1566313843411</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Revert &quot;add 'mawi_downloader' for testing concept drift.&quot;&#10;&#10;This reverts commit 0c2a6bc">
+      <created>1566317416228</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1566317416228</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1280" height="777" extended-state="6" />
+    <layout>
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5016155" side_tool="true" weight="0.5" />
+      <window_info anchor="right" x="0" y="0" width="270" height="577" id="Documentation" order="5" sideWeight="0.50323975" side_tool="true" weight="0.42487884" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4983845" weight="0.51911765" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49919224" weight="0.6161765" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.39558825" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4983845" visible="true" weight="0.80588233" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4977169" visible="true" weight="0.29644588" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32956383" />
+      <window_info anchor="right" id="SciView" order="3" sideWeight="0.49676025" weight="0.42487884" />
+      <window_info id="Structure" order="1" sideWeight="0.5022831" side_tool="true" weight="0.21082391" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49765626" weight="0.425" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32941177" />
+    </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4977169" weight="0.24071082" />
+      <window_info id="Structure" order="1" sideWeight="0.5022831" side_tool="true" weight="0.21082391" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32941177" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4983845" visible="true" weight="0.2367647" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.31323528" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32956383" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.2514706" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5023438" side_tool="true" weight="0.40682787" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.5024233" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49765626" weight="0.45147058" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="new version" />
+    <MESSAGE value="change directories organization" />
+    <MESSAGE value="add 'mawi_downloader' for testing concept drift." />
+    <MESSAGE value=".." />
+    <MESSAGE value="gitingore" />
+    <MESSAGE value="'change directory'" />
+    <MESSAGE value="Revert &quot;add 'mawi_downloader' for testing concept drift.&quot;&#10;&#10;This reverts commit 0c2a6bc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;add 'mawi_downloader' for testing concept drift.&quot;&#10;&#10;This reverts commit 0c2a6bc" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_update_learning.py</url>
+          <line>280</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_update_learning.py</url>
+          <line>443</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_update_learning.py</url>
+          <line>952</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_update_learning.py</url>
+          <line>950</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_update_learning.py</url>
+          <line>563</line>
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_update_learning.py</url>
+          <line>430</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_update_learning.py</url>
+          <line>732</line>
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_update_learning.py</url>
+          <line>770</line>
+          <option name="timeStamp" value="91" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_update_learning.py</url>
+          <line>973</line>
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_update_learning.py</url>
+          <line>497</line>
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_update_learning.py</url>
+          <line>509</line>
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_update_learning.py</url>
+          <line>449</line>
+          <option name="timeStamp" value="138" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_update_learning.py</url>
+          <line>451</line>
+          <option name="timeStamp" value="139" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_update_learning.py</url>
+          <line>289</line>
+          <option name="timeStamp" value="140" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="145" />
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>len(y)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>random.randint(len(y), 1000)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>1- scaler.transform(pred_arr.reshape(-1, 1)).ravel().clip(0, 1)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>model.predict_proba(data_test)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>model.decision_function(data_test)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>model.predict(data_test)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>1-scaler.transform(pred_arr.reshape(-1, 1)).ravel().clip(0,1)   # normlize to [0,1]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>1-0 scaler.transform(pred_arr.reshape(-1, 1)).ravel().clip(0,1)   # normlize to [0,1]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>scaler.transform(pred_arr.reshape(-1, 1)).ravel().clip(0,1)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_offline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Figures/uSc1C1_z-score_20_14_thres_res_metrics_of_27_features.txt" />
+    <entry file="file://$PROJECT_DIR$/Figures/{case}_num_features_{i}_res_metrics.txt" />
+    <entry file="file:///usr/local/lib/python3.6/site-packages/matplotlib/pyplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="3112" column="28" selection-start-line="3112" selection-start-column="23" selection-end-line="3112" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Figures/uSc1C2_z-score_20_14_thres_res_metrics_of_27_features.txt" />
+    <entry file="file://$PROJECT_DIR$/Figures/uSc1C3_z-score_20_14_thres_res_metrics_of_27_features.txt" />
+    <entry file="file:///usr/local/lib/python3.6/site-packages/tensorflow/python/keras/_impl/keras/backend.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22695">
+          <caret line="1554" column="28" selection-start-line="1554" selection-start-column="18" selection-end-line="1554" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/site-packages/tensorflow/python/ops/math_ops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20055">
+          <caret line="1366" column="4" selection-start-line="1366" selection-start-column="4" selection-end-line="1366" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.1/python_stubs/-1199943127/numpy/core/umath.py" />
+    <entry file="file:///usr/local/lib/python3.6/site-packages/sklearn/feature_selection/univariate_selection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7395">
+          <caret line="505" column="8" selection-start-line="505" selection-start-column="8" selection-end-line="505" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/history_files/output_data/all_experiment_20190617_14_39.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2793">
+          <caret line="3" column="48" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/history_files/output_data/Figures/uSc1C2_z-score_recon_err_of_2_features.txt" />
+    <entry file="file://$PROJECT_DIR$/history_files/output_data/Figures/uSc1C2_z-score_recon_err_of_1_features.txt" />
+    <entry file="file://$PROJECT_DIR$/history_files/output_data/Figures/uSc1C2_z-score_thres_res_metrics_of_27_features.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/Cellar/python/3.6.5/Frameworks/Python.framework/Versions/3.6/lib/python3.6/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="308" selection-start-line="308" selection-end-line="308" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/history_files/output_data/Figures/uSc1C2_z-score_thres_res_metrics_of_2_features.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output_data/Figures/uSc1C2_z-score_thres_res_metrics_of_4_features.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output_data/Figures/uSc1C2_z-score_thres_res_metrics_of_6_features.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="20" selection-start-line="3" selection-end-line="3" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output_data/Figures/uSc1C2_z-score_all_num_features_res_metrics.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="38" lean-forward="true" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/history_files/output_data/Figures/uSc1C2_z-score_3d_data.txt" />
+    <entry file="file://$PROJECT_DIR$/input_data/Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" lean-forward="true" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/history_files/output_data/Figures/uSc1C1_z-score_all_num_features_res_metrics.txt" />
+    <entry file="file:///usr/local/lib/python3.6/site-packages/pandas/util/_doctools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/history_files/output_data/Figures/uSc1C1_z-score_roc_data_of_16_features.txt" />
+    <entry file="file:///usr/local/lib/python3.6/site-packages/sklearn/metrics/ranking.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-904">
+          <caret line="534" column="4" selection-start-line="534" selection-start-column="4" selection-end-line="534" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/site-packages/pyod/models/pca.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-619">
+          <caret line="270" column="8" selection-start-line="270" selection-start-column="8" selection-end-line="270" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/site-packages/tensorflow/python/keras/_impl/keras/engine/sequential.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="260" column="19" selection-start-line="260" selection-start-column="6" selection-end-line="260" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/site-packages/sklearn/preprocessing/data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="283" column="17" lean-forward="true" selection-start-line="283" selection-start-column="17" selection-end-line="283" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/site-packages/sklearn/compose/tests/test_column_transformer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="505" column="23" selection-start-line="505" selection-start-column="23" selection-end-line="505" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/site-packages/sklearn/ensemble/iforest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="311" column="61" lean-forward="true" selection-start-line="311" selection-start-column="61" selection-end-line="311" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/history_files/output_data/Figures/uSc1C1_z-score_20_14_recon_err_of_16_features.txt" />
+    <entry file="file://$PROJECT_DIR$/history_files/output_data/Figures/uSc1C1_z-score_20_14_roc_data_of_16_features.txt" />
+    <entry file="file://$PROJECT_DIR$/history_files/output_data/Figures/uSc1C1_z-score_roc_data_of_27_features.txt" />
+    <entry file="file:///usr/local/lib/python3.6/site-packages/pyod/models/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="162" selection-start-line="162" selection-end-line="162" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/site-packages/sklearn/svm/classes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="1186" column="78" selection-start-line="1186" selection-start-column="7" selection-end-line="1186" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/history_files/output_data/Figures/uSc1C2_z-score_20_14_roc_data_of_16_features.txt" />
+    <entry file="file:///usr/local/lib/python3.6/site-packages/pyod/models/ocsvm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-97">
+          <caret line="164" column="8" selection-start-line="164" selection-start-column="8" selection-end-line="164" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/site-packages/tensorflow/python/keras/_impl/keras/engine/training.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14760">
+          <caret line="1008" column="6" selection-start-line="1008" selection-start-column="6" selection-end-line="1008" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilities/plot_all_results.py" />
+    <entry file="file://$PROJECT_DIR$/compared_algorithms/classical_ml_algorithms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="60" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/history_files/utils/load_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1185">
+          <caret line="79" column="108" selection-start-line="77" selection-start-column="11" selection-end-line="79" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposed_algorithms/feature_selection_20190611.py" />
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.1/python_stubs/-1199943127/numpy/core/multiarray.py" />
+    <entry file="file://$PROJECT_DIR$/history_files/utils/metrics_measure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_update_learning.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="440" column="31" selection-start-line="440" selection-start-column="20" selection-end-line="440" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/lib/python3.6/site-packages/sklearn/model_selection/_split.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="2072" column="4" selection-start-line="2072" selection-start-column="4" selection-end-line="2072" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input_data/Dataset/load_sim_data.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilities/mawi_downloader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="46" column="26" selection-start-line="46" selection-start-column="26" selection-end-line="47" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proposed_algorithms/autoencoder_main_20190612_offline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
