@@ -25,7 +25,7 @@ from sklearn.metrics import confusion_matrix
 from torch import nn
 from torch.utils.data import DataLoader
 
-from utilities.common_funcs import load_data
+from utils.common_funcs import load_data
 
 
 def print_net(net, describe_str='Net'):

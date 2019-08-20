@@ -67,8 +67,8 @@ from sys_path_export import *  # it is no need to do in IDE environment, however
 from torch import nn
 from torch.utils.data import DataLoader
 
-from utilities.CSV_Dataloader import open_file
-from utilities.common_funcs import show_data, split_normal2train_val_test_from_files, show_data_2
+from utils.CSV_Dataloader import open_file
+from utils.common_funcs import show_data, split_normal2train_val_test_from_files, show_data_2
 
 
 def print_net(net, describe_str='Net'):

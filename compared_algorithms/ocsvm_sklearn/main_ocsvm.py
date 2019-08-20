@@ -18,7 +18,7 @@
 import time
 
 from history_files.basic_svm import OCSVM
-from utilities.common_funcs import load_data, dump_model, load_model
+from utils.common_funcs import load_data, dump_model, load_model
 
 
 def ocsvm_main(input_file='csv', kernel='rbf', out_dir='./log', **kwargs):

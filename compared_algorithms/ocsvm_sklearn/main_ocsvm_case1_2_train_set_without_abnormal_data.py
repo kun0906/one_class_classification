@@ -30,8 +30,8 @@ import time
 from collections import Counter
 
 from history_files.basic_svm import OCSVM
-from utilities.CSV_Dataloader import mix_normal_attack_and_label
-from utilities.common_funcs import dump_model, load_model, load_data_with_new_principle
+from utils.CSV_Dataloader import mix_normal_attack_and_label
+from utils.common_funcs import dump_model, load_model, load_data_with_new_principle
 
 
 def ocsvm_main(input_file='csv', kernel='rbf', out_dir='./log', **kwargs):

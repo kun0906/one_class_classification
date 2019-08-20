@@ -2,7 +2,7 @@
 """
     parse the out_log and show the data
 """
-from utilities.common_funcs import show_data
+from utils.common_funcs import show_data
 
 
 def parse_log(input_file):
