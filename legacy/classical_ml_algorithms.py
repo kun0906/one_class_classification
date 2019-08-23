@@ -47,11 +47,11 @@ def train_DT(train_data, train_label, case):
 
     classifier.fit(X, y)
 
-    dump(classifier, "Models_dump/DTcase-" + str(case) + ".joblib")
+    dump(classifier, "models_dumping/DTcase-" + str(case) + ".joblib")
 
 
 def test_DT(test_data, test_label, case):
-    clf = load("Models_dump/DTcase-" + str(case) + ".joblib")
+    clf = load("models_dumping/DTcase-" + str(case) + ".joblib")
     a = time.time()
     pred_class = clf.predict(test_data)
     print("DT Testing Time : ", time.time() - a)
@@ -76,11 +76,11 @@ def train_PCA(train_data, case, n_components=14):
     pca = PCA(n_components=train_data.shape[1])
     pca = pca.fit(train_data)
     print("PCA Training time for case", case, " = ", time.time() - a)
-    dump(pca, 'Models_dump/PCA_' + case + '.joblib')
+    dump(pca, 'models_dumping/PCA_' + case + '.joblib')
 
 
 def test_PCA(data_test, data_test_labels, case):
-    model = load('Models_dump/PCA_' + case + '.joblib')
+    model = load('models_dumping/PCA_' + case + '.joblib')
     a = time.time()
     data_pred = model.predict(
         data_test)  # 0 stands for inliers and 1 for outliers in pca . #  it should be considered as an outlier according to the fitted model. 0 stands for inliers and 1 for outliers.
@@ -116,11 +116,11 @@ def train_IF(train_data, case):
     a = time.time()
     clf.fit(train_data)
     print("IF Training time for case", case, " = ", time.time() - a)
-    dump(clf, 'Models_dump/IF_' + case + '.joblib')
+    dump(clf, 'models_dumping/IF_' + case + '.joblib')
 
 
 def test_IF(data_test, data_test_labels, case):
-    model = load('Models_dump/IF_' + case + '.joblib')
+    model = load('models_dumping/IF_' + case + '.joblib')
     a = time.time()
     data_pred = model.predict(data_test)
     print("IF Testing Time : ", time.time() - a)
@@ -162,11 +162,11 @@ def train_OCSVM(train_data, case):
     a = time.time()
     ocsvm = ocsvm.fit(train_data)
     print("SVM Training time for case", case, " = ", time.time() - a)
-    dump(ocsvm, 'Models_dump/OCSVM_' + case + '.joblib')
+    dump(ocsvm, 'models_dumping/OCSVM_' + case + '.joblib')
 
 
 def test_OCSVM(data_test, data_test_labels, case):
-    model = load('Models_dump/OCSVM_' + case + '.joblib')
+    model = load('models_dumping/OCSVM_' + case + '.joblib')
     a = time.time()
     data_pred = model.predict(data_test)
     print("OCSVM Testing Time : ", time.time() - a)

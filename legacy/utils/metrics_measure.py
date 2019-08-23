@@ -199,15 +199,15 @@ def save_features_selection_results(out_file, features_descended_dict):
     return out_file
 
 
-def save_reconstruction_errors(reconstruction_errors_lst, case, feat_size, out_file='Figures/recon_err.txt'):
+def save_reconstruction_errors(reconstruction_errors_lst, case, feat_size, out_file='figures/recon_err.txt'):
     # model = create_autoencoder(feat_size)
     # model.compile(loss=euclidean_distance_loss, optimizer='adam')
     #
     # # Load weights
     # if feat_size < 25:
-    #     model.load_weights("Models_dump/corr_AE_" + str(feat_size) + case + ".hdf5")
+    #     model.load_weights("models_dumping/corr_AE_" + str(feat_size) + case + ".hdf5")
     # else:
-    #     model.load_weights("Models_dump/new_AE_" + case + ".hdf5")
+    #     model.load_weights("models_dumping/new_AE_" + case + ".hdf5")
     #
     # a = time.time()
     # data_pred = model.predict(x_test)

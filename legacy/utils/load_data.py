@@ -48,8 +48,8 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
     '''
     This load data function is a  bit complicated.
 
-    However, when you call Dataset(), if you pass the filename only, it will calculate new min and max.
-    Dataset() returns an object.
+    However, when you call dataset(), if you pass the filename only, it will calculate new min and max.
+    dataset() returns an object.
     hence, dataset.data contains 27 features for many datapoints
 
     dataset.mean is the min
@@ -68,8 +68,8 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
         if case[5] == '1':  # training and testing on SYNT (simulated data)
             ### shuffle data
             ### training on SYNT
-            # x_norm = Dataset(filename=["Dataset/Simulated_DataSet/Sess_normal_0.txt"], label=1, end=77989)
-            x_norm = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_normal_0.txt", end=77989)
+            # x_norm = dataset(filename=["dataset/synthetic_dataset/Sess_normal_0.txt"], label=1, end=77989)
+            x_norm = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_normal_0.txt", end=77989)
             y_norm = np.ones(shape=[x_norm.shape[0], 1])
             # split normal data
             x_norm_train_all, x_norm_test, y_norm_train_all, y_norm_test = train_test_split(x_norm, y_norm,
@@ -78,25 +78,25 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
             x_norm_train, x_norm_val, y_norm_train, y_norm_val = train_test_split(x_norm_train_all, y_norm_train_all,
                                                                                   test_size=0.125,
                                                                                   random_state=random_state)
-            # x_attack_11 = Dataset(filename=["Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt"], label=0,
+            # x_attack_11 = dataset(filename=["dataset/synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt"], label=0,
             #                       end=36000, mean=x_norm.mean, std=x_norm.std).data
-            # x_attack_12 = Dataset(filename=["Dataset/Simulated_DataSet/Sess_DDoS_Recursive_GET.dms"], label=0,
+            # x_attack_12 = dataset(filename=["dataset/synthetic_dataset/Sess_DDoS_Recursive_GET.dms"], label=0,
             #                       end=37000, mean=x_norm.mean, std=x_norm.std).data
-            # x_attack_13 = Dataset(
-            #     filename=["Dataset/Simulated_DataSet/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms"], label=0,
+            # x_attack_13 = dataset(
+            #     filename=["dataset/synthetic_dataset/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms"], label=0,
             #     end=243, mean=x_norm.mean, std=x_norm.std).data
-            # x_attack_14 = Dataset(
-            #     filename=["Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms"], label=0,
+            # x_attack_14 = dataset(
+            #     filename=["dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms"], label=0,
             #     end=1000, mean=x_norm.mean, std=x_norm.std).data
-            x_attack_11 = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt",
+            x_attack_11 = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt",
                                              end=36000)
-            x_attack_12 = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_DDoS_Recursive_GET.dms",
+            x_attack_12 = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_DDoS_Recursive_GET.dms",
                                              end=37000)
             x_attack_13 = load_data_from_txt(
-                input_file="Dataset/Simulated_DataSet/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms",
+                input_file="dataset/synthetic_dataset/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms",
                 end=243)
             x_attack_14 = load_data_from_txt(
-                input_file="Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
+                input_file="dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
                 end=1000)
             x_attack_1 = np.concatenate([x_attack_11, x_attack_12, x_attack_13, x_attack_14])
             y_attack_1 = np.concatenate(
@@ -110,11 +110,11 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
             #     x_norm_test = z_score_np(x_norm_test, mu=x_norm_train_mu, d_std=x_norm_train_std)
             #     x_attack_1 = z_score_np(x_attack_1, mu=x_norm_train_mu, d_std=x_norm_train_std)
             #
-        elif case[5] == '2':  # training and testing on UNB
+        elif case[5] == '2':  # training and testing on unb
             ### with shuffle
-            ### training on UNB
-            # x_norm = Dataset(filename=["Dataset/UNB/Normal_UNB.txt"], label=1, end=59832)
-            x_norm = load_data_from_txt(input_file="Dataset/UNB/Normal_UNB.txt", end=59832)
+            ### training on unb
+            # x_norm = dataset(filename=["dataset/unb/Normal_UNB.txt"], label=1, end=59832)
+            x_norm = load_data_from_txt(input_file="dataset/unb/Normal_UNB.txt", end=59832)
             y_norm = np.ones(shape=[x_norm.shape[0], 1])
             # split normal data
             x_norm_train_all, x_norm_test, y_norm_train_all, y_norm_test = train_test_split(x_norm, y_norm,
@@ -123,19 +123,19 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
             x_norm_train, x_norm_val, y_norm_train, y_norm_val = train_test_split(x_norm_train_all, y_norm_train_all,
                                                                                   test_size=0.125,
                                                                                   random_state=random_state)
-            # x_attack_11 = Dataset(filename=["Dataset/UNB/DoSHulk_UNB.txt"], label=0, end=11530,
+            # x_attack_11 = dataset(filename=["dataset/unb/DoSHulk_UNB.txt"], label=0, end=11530,
             #                       mean=x_norm.mean, std=x_norm.std).data
-            # x_attack_12 = Dataset(filename=["Dataset/UNB/DOSSlowHttpTest_UNB.txt"], label=0, end=6414,
+            # x_attack_12 = dataset(filename=["dataset/unb/DOSSlowHttpTest_UNB.txt"], label=0, end=6414,
             #                       mean=x_norm.mean, std=x_norm.std).data
-            # x_attack_13 = Dataset(filename=["Dataset/UNB/UNB_DosGoldenEye_UNB_IDS2017.txt"], label=0, end=1268,
+            # x_attack_13 = dataset(filename=["dataset/unb/UNB_DosGoldenEye_UNB_IDS2017.txt"], label=0, end=1268,
             #                       mean=x_norm.mean, std=x_norm.std).data
-            # x_attack_14 = Dataset(filename=["Dataset/UNB/UNB_DoSSlowloris_UNB_IDS2017.txt"], label=0, end=16741,
+            # x_attack_14 = dataset(filename=["dataset/unb/UNB_DoSSlowloris_UNB_IDS2017.txt"], label=0, end=16741,
             #                       mean=x_norm.mean, std=x_norm.std).data
 
-            x_attack_11 = load_data_from_txt(input_file="Dataset/UNB/DoSHulk_UNB.txt", end=11530)
-            x_attack_12 = load_data_from_txt(input_file="Dataset/UNB/DOSSlowHttpTest_UNB.txt", end=6414)
-            x_attack_13 = load_data_from_txt(input_file="Dataset/UNB/UNB_DosGoldenEye_UNB_IDS2017.txt", end=1268)
-            x_attack_14 = load_data_from_txt(input_file="Dataset/UNB/UNB_DoSSlowloris_UNB_IDS2017.txt", end=16741)
+            x_attack_11 = load_data_from_txt(input_file="dataset/unb/DoSHulk_UNB.txt", end=11530)
+            x_attack_12 = load_data_from_txt(input_file="dataset/unb/DOSSlowHttpTest_UNB.txt", end=6414)
+            x_attack_13 = load_data_from_txt(input_file="dataset/unb/UNB_DosGoldenEye_UNB_IDS2017.txt", end=1268)
+            x_attack_14 = load_data_from_txt(input_file="dataset/unb/UNB_DoSSlowloris_UNB_IDS2017.txt", end=16741)
             x_attack_1 = np.concatenate([x_attack_11, x_attack_12, x_attack_13, x_attack_14])
             y_attack_1 = np.concatenate(
                 [np.zeros([x_attack_11.shape[0]]), np.zeros([x_attack_12.shape[0]]), np.zeros([x_attack_13.shape[0]]),
@@ -148,9 +148,9 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
             #     x_norm_test = z_score_np(x_norm_test, mu=x_norm_train_mu, d_std=x_norm_train_std)
             #     x_attack_1 = z_score_np(x_attack_1, mu=x_norm_train_mu, d_std=x_norm_train_std)
 
-        elif case[5] == '3':  # training and testing on MAWI
-            # x_norm = Dataset(filename=["Dataset/MAWI/Normal_mawi_day1.txt"], label=1, end=62000)
-            x_norm = load_data_from_txt(input_file="Dataset/MAWI/Normal_mawi_day1.txt", end=62000)
+        elif case[5] == '3':  # training and testing on mawi
+            # x_norm = dataset(filename=["dataset/mawi/Normal_mawi_day1.txt"], label=1, end=62000)
+            x_norm = load_data_from_txt(input_file="dataset/mawi/Normal_mawi_day1.txt", end=62000)
             y_norm = np.ones(shape=[x_norm.shape[0], 1])
             # split normal data
             x_norm_train_all, x_norm_test, y_norm_train_all, y_norm_test = train_test_split(x_norm, y_norm,
@@ -169,48 +169,48 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
     elif case[3] == '2':  # Experiment 2
         if case[5] == '1':
             pass
-            # data_train = Dataset(filename=["Dataset/Simulated_DataSet/Sess_normal_0.txt"], label=1, end=7000)
-            # data_val = Dataset(filename=["Dataset/Simulated_DataSet/Sess_normal_0.txt"], label=1, start=7000, end=8000,
+            # data_train = dataset(filename=["dataset/synthetic_dataset/Sess_normal_0.txt"], label=1, end=7000)
+            # data_val = dataset(filename=["dataset/synthetic_dataset/Sess_normal_0.txt"], label=1, start=7000, end=8000,
             #                    mean=data_train.mean, std=data_train.std).data
             #
-            # data_test_1_norm = Dataset(filename=["Dataset/Simulated_DataSet/Sess_normal_0.txt"], label=1, start=8000,
+            # data_test_1_norm = dataset(filename=["dataset/synthetic_dataset/Sess_normal_0.txt"], label=1, start=8000,
             #                            end=10000, mean=data_train.mean, std=data_train.std).data
-            # data_test_1_attack = Dataset(
-            #     filename=["Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
-            #               "Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt"], label=0, end=1000,
+            # data_test_1_attack = dataset(
+            #     filename=["dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
+            #               "dataset/synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt"], label=0, end=1000,
             #     mean=data_train.mean, std=data_train.std).data
             #
-            # data_test_2_norm = Dataset(filename=["Dataset/Simulated_DataSet/Sess_normal_0.txt"], label=1, start=10000,
+            # data_test_2_norm = dataset(filename=["dataset/synthetic_dataset/Sess_normal_0.txt"], label=1, start=10000,
             #                            end=12000, mean=data_train.mean, std=data_train.std).data
-            # data_test_2_attack = Dataset(filename=["Dataset/UNB/DoSHulk_UNB.txt", "Dataset/UNB/DOSSlowHttpTest_UNB.txt"],
+            # data_test_2_attack = dataset(filename=["dataset/unb/DoSHulk_UNB.txt", "dataset/unb/DOSSlowHttpTest_UNB.txt"],
             #                           label=0, end=1000, mean=data_train.mean, std=data_train.std).data
 
 
-        elif case[5] == '2':  # training and testing on UNB
+        elif case[5] == '2':  # training and testing on unb
             ### without shuffle.
-            # data_train = Dataset(filename=["Dataset/UNB/Normal_UNB.txt"], label=1, end=7000)
-            # data_val = Dataset(filename=["Dataset/UNB/Normal_UNB.txt"], label=1, start=7000, end=8000,
+            # data_train = dataset(filename=["dataset/unb/Normal_UNB.txt"], label=1, end=7000)
+            # data_val = dataset(filename=["dataset/unb/Normal_UNB.txt"], label=1, start=7000, end=8000,
             #                    mean=data_train.mean, std=data_train.std).data
             #
-            # data_test_1_norm = Dataset(filename=["Dataset/UNB/Normal_UNB.txt"], label=1, start=8000, end=10000,
+            # data_test_1_norm = dataset(filename=["dataset/unb/Normal_UNB.txt"], label=1, start=8000, end=10000,
             #                            mean=data_train.mean, std=data_train.std).data
-            # data_test_1_attack = Dataset(filename=["Dataset/UNB/DoSHulk_UNB.txt", "Dataset/UNB/DOSSlowHttpTest_UNB.txt"],
+            # data_test_1_attack = dataset(filename=["dataset/unb/DoSHulk_UNB.txt", "dataset/unb/DOSSlowHttpTest_UNB.txt"],
             #                           label=0, end=1000, mean=data_train.mean, std=data_train.std).data
             #
-            # data_test_2_norm = Dataset(filename=["Dataset/UNB/Normal_UNB.txt"], label=1, start=10000, end=12000,
+            # data_test_2_norm = dataset(filename=["dataset/unb/Normal_UNB.txt"], label=1, start=10000, end=12000,
             #                            mean=data_train.mean, std=data_train.std).data
-            # data_test_2_attack = Dataset(
-            #     filename=["Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
-            #               "Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt"], label=0, end=1000,
+            # data_test_2_attack = dataset(
+            #     filename=["dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
+            #               "dataset/synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt"], label=0, end=1000,
             #     mean=data_train.mean, std=data_train.std).data
             #
-            # # data_train = Dataset(filename = ["Dataset/UNB/DoSHulk_UNB.txt"], label = 1, end = 7000).data
+            # # data_train = dataset(filename = ["dataset/unb/DoSHulk_UNB.txt"], label = 1, end = 7000).data
 
             ### with shuffle
-            ### training on UNB
-            # x_norm = Dataset(filename=["Dataset/UNB/Normal_UNB.txt"], label=1, end=59832)
+            ### training on unb
+            # x_norm = dataset(filename=["dataset/unb/Normal_UNB.txt"], label=1, end=59832)
             # y_norm = np.ones(shape=[x_norm.data.shape[0], 1])
-            x_norm = load_data_from_txt(input_file="Dataset/UNB/Normal_UNB.txt", end=59832)
+            x_norm = load_data_from_txt(input_file="dataset/unb/Normal_UNB.txt", end=59832)
             y_norm = np.ones(shape=[x_norm.shape[0], 1])
             # split normal data
             x_norm_train_all, x_norm_test, y_norm_train_all, y_norm_test = train_test_split(x_norm, y_norm,
@@ -220,20 +220,20 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
                                                                                   test_size=0.125,
                                                                                   random_state=random_state)
 
-            # # x_attack_11 = Dataset(filename=["Dataset/UNB/DoSHulk_UNB.txt"], label=0, end=11530,
+            # # x_attack_11 = dataset(filename=["dataset/unb/DoSHulk_UNB.txt"], label=0, end=11530,
             # #                       mean=x_norm.mean, std=x_norm.std).data
-            # # x_attack_12 = Dataset(filename=["Dataset/UNB/DOSSlowHttpTest_UNB.txt"], label=0, end=6414,
+            # # x_attack_12 = dataset(filename=["dataset/unb/DOSSlowHttpTest_UNB.txt"], label=0, end=6414,
             # #                       mean=x_norm.mean, std=x_norm.std).data
-            # x_attack_11 = load_data_from_txt(input_file="Dataset/UNB/DoSHulk_UNB.txt", end=11530)
-            # x_attack_12 = load_data_from_txt(input_file="Dataset/UNB/DOSSlowHttpTest_UNB.txt", end=6414)
+            # x_attack_11 = load_data_from_txt(input_file="dataset/unb/DoSHulk_UNB.txt", end=11530)
+            # x_attack_12 = load_data_from_txt(input_file="dataset/unb/DOSSlowHttpTest_UNB.txt", end=6414)
             # x_attack_1 = np.concatenate([x_attack_11, x_attack_12])
             # y_attack_1 = np.concatenate([np.zeros([x_attack_11.shape[0]]), np.zeros([x_attack_12.shape[0]])])
             # y_attack_1 = np.reshape(y_attack_1, (y_attack_1.shape[0], 1))
 
-            x_attack_11 = load_data_from_txt(input_file="Dataset/UNB/DoSHulk_UNB.txt", end=11530)
-            x_attack_12 = load_data_from_txt(input_file="Dataset/UNB/DOSSlowHttpTest_UNB.txt", end=6414)
-            x_attack_13 = load_data_from_txt(input_file="Dataset/UNB/UNB_DosGoldenEye_UNB_IDS2017.txt", end=1268)
-            x_attack_14 = load_data_from_txt(input_file="Dataset/UNB/UNB_DoSSlowloris_UNB_IDS2017.txt", end=16741)
+            x_attack_11 = load_data_from_txt(input_file="dataset/unb/DoSHulk_UNB.txt", end=11530)
+            x_attack_12 = load_data_from_txt(input_file="dataset/unb/DOSSlowHttpTest_UNB.txt", end=6414)
+            x_attack_13 = load_data_from_txt(input_file="dataset/unb/UNB_DosGoldenEye_UNB_IDS2017.txt", end=1268)
+            x_attack_14 = load_data_from_txt(input_file="dataset/unb/UNB_DoSSlowloris_UNB_IDS2017.txt", end=16741)
             x_attack_1 = np.concatenate([x_attack_11, x_attack_12, x_attack_13, x_attack_14])
             y_attack_1 = np.concatenate(
                 [np.zeros([x_attack_11.shape[0]]), np.zeros([x_attack_12.shape[0]]), np.zeros([x_attack_13.shape[0]]),
@@ -250,15 +250,15 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
                                                                                           test_size=0.125,
                                                                                           random_state=random_state)
 
-            ### testing on UNB
+            ### testing on unb
             UNB_train_set = (x_norm_train, y_norm_train, x_attack_train, y_attack_train)
             UNB_val_set = (x_norm_val, y_norm_val, x_attack_val, y_attack_val)
             UNB_test_set = (x_norm_test, y_norm_test, x_attack_test, y_attack_test)
 
             ### testing on SYNT
-            # x_norm_test_SYNT = Dataset(filename=["Dataset/Simulated_DataSet/Sess_normal_0.txt"], label=1, end=77989,
+            # x_norm_test_SYNT = dataset(filename=["dataset/synthetic_dataset/Sess_normal_0.txt"], label=1, end=77989,
             #                            mean=x_norm.mean, std=x_norm.std)
-            x_norm_SYNT = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_normal_0.txt", end=77989)
+            x_norm_SYNT = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_normal_0.txt", end=77989)
             y_norm_SYNT = np.ones(shape=[x_norm_SYNT.shape[0], 1])
 
             x_norm_train_SYNT, x_norm_test_SYNT, y_norm_train_SYNT, y_norm_test_SYNT = train_test_split(x_norm_SYNT,
@@ -269,34 +269,34 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
             #                                                                       test_size=0.125,
             #                                                                       random_state=random_state)
 
-            # # x_attack_test_SYNT = Dataset(
-            # #     filename=["Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
-            # #               "Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt"], label=0, end=1000,
+            # # x_attack_test_SYNT = dataset(
+            # #     filename=["dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
+            # #               "dataset/synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt"], label=0, end=1000,
             # #     mean=x_norm_test_SYNT.mean, std=x_norm_test_SYNT.std).data
             #
             # # y_attack_test_SYNT = np.ones(shape=[x_attack_test_SYNT.data.shape[0], 1])
-            # # x_attack_SYNT_11 = Dataset(filename=["Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt"], label=0,
+            # # x_attack_SYNT_11 = dataset(filename=["dataset/synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt"], label=0,
             # #                            end=36000, mean=x_norm.mean, std=x_norm.std).data
-            # # x_attack_SYNT_14 = Dataset(
-            # #     filename=["Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms"], label=0,
+            # # x_attack_SYNT_14 = dataset(
+            # #     filename=["dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms"], label=0,
             # #     end=1000, mean=x_norm.mean, std=x_norm.std).data
-            # x_attack_SYNT_11 = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt", end=36000)
-            # x_attack_SYNT_14 = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms", end=1000)
+            # x_attack_SYNT_11 = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt", end=36000)
+            # x_attack_SYNT_14 = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms", end=1000)
             # x_attack_test_SYNT = np.concatenate([x_attack_SYNT_11, x_attack_SYNT_14])
             # y_attack_test_SYNT = np.concatenate(
             #     [np.zeros([x_attack_SYNT_11.shape[0]]), np.zeros([x_attack_SYNT_14.shape[0]])])
             # y_attack_test_SYNT = np.reshape(y_attack_test_SYNT, (y_attack_test_SYNT.shape[0], 1))
 
             x_attack_SYNT_11 = load_data_from_txt(
-                input_file="Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt",
+                input_file="dataset/synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt",
                 end=36000)
-            x_attack_SYNT_12 = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_DDoS_Recursive_GET.dms",
+            x_attack_SYNT_12 = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_DDoS_Recursive_GET.dms",
                                                   end=37000)
             x_attack_SYNT_13 = load_data_from_txt(
-                input_file="Dataset/Simulated_DataSet/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms",
+                input_file="dataset/synthetic_dataset/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms",
                 end=243)
             x_attack_SYNT_14 = load_data_from_txt(
-                input_file="Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
+                input_file="dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
                 end=1000)
             x_attack_test_SYNT = np.concatenate(
                 [x_attack_SYNT_11, x_attack_SYNT_12, x_attack_SYNT_13, x_attack_SYNT_14])
@@ -308,10 +308,10 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
 
             SYNT_test_set = (x_norm_test_SYNT, y_norm_test_SYNT, x_attack_test_SYNT, y_attack_test_SYNT)
 
-            ### testing on MAWI
-            # x_norm_test_MAWI = Dataset(filename=["Dataset/MAWI/Normal_mawi_day1.txt"], label=1, end=62000,
+            ### testing on mawi
+            # x_norm_test_MAWI = dataset(filename=["dataset/mawi/Normal_mawi_day1.txt"], label=1, end=62000,
             #                            mean=x_norm.mean, std=x_norm.std)
-            x_norm_MAWI = load_data_from_txt(input_file="Dataset/MAWI/Normal_mawi_day1.txt", end=62000)
+            x_norm_MAWI = load_data_from_txt(input_file="dataset/mawi/Normal_mawi_day1.txt", end=62000)
             y_norm_MAWI = np.ones(shape=[x_norm_MAWI.shape[0], 1])
 
             x_norm_train_MAWI, x_norm_test_MAWI, y_norm_train_MAWI, y_norm_test_MAWI = train_test_split(x_norm_MAWI,
@@ -325,20 +325,20 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
 
         elif case[5] == '3':
             pass
-        #     data_train = Dataset(filename=["Dataset/MAWI/Normal_mawi_day1.txt"], label=1, end=7000)
-        #     data_val = Dataset(filename=["Dataset/MAWI/Normal_mawi_day1.txt"], label=1, start=7000, end=8000,
+        #     data_train = dataset(filename=["dataset/mawi/Normal_mawi_day1.txt"], label=1, end=7000)
+        #     data_val = dataset(filename=["dataset/mawi/Normal_mawi_day1.txt"], label=1, start=7000, end=8000,
         #                        mean=data_train.mean, std=data_train.std).data
         #
-        #     data_test_1_norm = Dataset(filename=["Dataset/MAWI/Normal_mawi_day2.txt"], label=1, end=2000,
+        #     data_test_1_norm = dataset(filename=["dataset/mawi/Normal_mawi_day2.txt"], label=1, end=2000,
         #                                mean=data_train.mean, std=data_train.std).data
-        #     data_test_1_attack = Dataset(filename=["Dataset/UNB/DoSHulk_UNB.txt", "Dataset/UNB/DOSSlowHttpTest_UNB.txt"],
+        #     data_test_1_attack = dataset(filename=["dataset/unb/DoSHulk_UNB.txt", "dataset/unb/DOSSlowHttpTest_UNB.txt"],
         #                               label=0, end=1000, mean=data_train.mean, std=data_train.std).data
         #
-        #     data_test_2_norm = Dataset(filename=["Dataset/MAWI/Normal_mawi_day2.txt"], label=1, start=2000, end=4000,
+        #     data_test_2_norm = dataset(filename=["dataset/mawi/Normal_mawi_day2.txt"], label=1, start=2000, end=4000,
         #                                mean=data_train.mean, std=data_train.std).data
-        #     data_test_2_attack = Dataset(
-        #         filename=["Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
-        #                   "Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt"], label=0, end=1000,
+        #     data_test_2_attack = dataset(
+        #         filename=["dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
+        #                   "dataset/synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt"], label=0, end=1000,
         #         mean=data_train.mean, std=data_train.std).data
         # data_test_1 = np.concatenate([data_test_1_norm, data_test_1_attack])
         # data_test_1_labels = np.concatenate([np.ones([2000]), np.zeros([2000])])
@@ -349,19 +349,19 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
     elif case[3] == '3':  # Experiment 3, compare AE and DT.
         if case[5] == '1':  # SYNT
             # pass
-            # data_train = Dataset(filename=["Dataset/Simulated_DataSet/dt_train00.txt"], label=1)
+            # data_train = dataset(filename=["dataset/synthetic_dataset/dt_train00.txt"], label=1)
             # data_train_labels = np.concatenate([np.ones([6000]), np.zeros([5902])])
             #
-            # data_test_1 = Dataset(filename=["Dataset/Simulated_DataSet/Sess_normal_0.txt"], label=1, start=49600, end=62000,
+            # data_test_1 = dataset(filename=["dataset/synthetic_dataset/Sess_normal_0.txt"], label=1, start=49600, end=62000,
             #                       mean=data_train.mean, std=data_train.std).data
-            # data_test_2 = Dataset(filename=["Dataset/Simulated_DataSet/Sess_DDoS_Recursive_GET.dms"], label=1, start=26600,
+            # data_test_2 = dataset(filename=["dataset/synthetic_dataset/Sess_DDoS_Recursive_GET.dms"], label=1, start=26600,
             #                       end=34200, mean=data_train.mean, std=data_train.std).data
-            # data_test_3 = Dataset(filename=["Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms"],
+            # data_test_3 = dataset(filename=["dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms"],
             #                       label=0, start=800, end=1000, mean=data_train.mean, std=data_train.std).data
-            # data_test_4 = Dataset(filename = ["Dataset/Simulated_DataSet/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms"], label = 0, end = 243, mean = data_train.mean, std = data_train.std).data
-            # data_test_5 = Dataset(filename = ["Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms"], label = 0, end = 1000, mean = data_train.mean, std = data_train.std).data
+            # data_test_4 = dataset(filename = ["dataset/synthetic_dataset/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms"], label = 0, end = 243, mean = data_train.mean, std = data_train.std).data
+            # data_test_5 = dataset(filename = ["dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms"], label = 0, end = 1000, mean = data_train.mean, std = data_train.std).data
 
-            x_norm = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_normal_0.txt", end=77989)
+            x_norm = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_normal_0.txt", end=77989)
             y_norm = np.ones(shape=[x_norm.shape[0], 1])
             # split normal data
             x_norm_train_all, x_norm_test, y_norm_train_all, y_norm_test = train_test_split(x_norm, y_norm,
@@ -371,15 +371,15 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
                                                                                   test_size=0.125,
                                                                                   random_state=random_state)
 
-            x_attack_11 = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt",
+            x_attack_11 = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt",
                                              end=36000)
-            x_attack_12 = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_DDoS_Recursive_GET.dms",
+            x_attack_12 = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_DDoS_Recursive_GET.dms",
                                              end=37000)
             x_attack_13 = load_data_from_txt(
-                input_file="Dataset/Simulated_DataSet/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms",
+                input_file="dataset/synthetic_dataset/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms",
                 end=243)
             x_attack_14 = load_data_from_txt(
-                input_file="Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
+                input_file="dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
                 end=1000)
             x_attack_1 = np.concatenate([x_attack_11, x_attack_12, x_attack_13, x_attack_14])
             y_attack_1 = np.concatenate(
@@ -387,10 +387,10 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
                  np.zeros([x_attack_14.shape[0]])])
             y_attack_1 = np.reshape(y_attack_1, (y_attack_1.shape[0], 1))
 
-            # x_attack_11 = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt",
+            # x_attack_11 = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt",
             #                                  end=36000)
             # x_attack_14 = load_data_from_txt(
-            #     input_file="Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
+            #     input_file="dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
             #     end=1000)
             # x_attack_1 = np.concatenate([x_attack_11, x_attack_14])
             # y_attack_1 = np.concatenate(
@@ -411,20 +411,20 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
             SYNT_val_set = (x_norm_val, y_norm_val, x_attack_val, y_attack_val)
             SYNT_test_set = (x_norm_test, y_norm_test, x_attack_test, y_attack_test)
 
-            # x_attack_12 = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_DDoS_Recursive_GET.dms",
+            # x_attack_12 = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_DDoS_Recursive_GET.dms",
             #                                   end=37000)
             # x_attack_13 = load_data_from_txt(
-            #      input_file="Dataset/Simulated_DataSet/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms",
+            #      input_file="dataset/synthetic_dataset/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms",
             #      end=243)
             # x_attack_test_2 = np.concatenate([x_attack_12, x_attack_13])
             # y_attack_test_2 = np.concatenate([np.zeros([x_attack_12.shape[0]]), np.zeros([x_attack_13.shape[0]])])
             # y_attack_test_2 = np.reshape(y_attack_test_2, (y_attack_test_2.shape[0], 1))
             # SYNT_test_set_2 = (x_norm_test, y_norm_test, x_attack_test_2, y_attack_test_2)
 
-            x_attack_UNB_11 = load_data_from_txt(input_file="Dataset/UNB/DoSHulk_UNB.txt", end=11530)
-            x_attack_UNB_12 = load_data_from_txt(input_file="Dataset/UNB/DOSSlowHttpTest_UNB.txt", end=6414)
-            x_attack_UNB_13 = load_data_from_txt(input_file="Dataset/UNB/UNB_DosGoldenEye_UNB_IDS2017.txt", end=1268)
-            x_attack_UNB_14 = load_data_from_txt(input_file="Dataset/UNB/UNB_DoSSlowloris_UNB_IDS2017.txt", end=16741)
+            x_attack_UNB_11 = load_data_from_txt(input_file="dataset/unb/DoSHulk_UNB.txt", end=11530)
+            x_attack_UNB_12 = load_data_from_txt(input_file="dataset/unb/DOSSlowHttpTest_UNB.txt", end=6414)
+            x_attack_UNB_13 = load_data_from_txt(input_file="dataset/unb/UNB_DosGoldenEye_UNB_IDS2017.txt", end=1268)
+            x_attack_UNB_14 = load_data_from_txt(input_file="dataset/unb/UNB_DoSSlowloris_UNB_IDS2017.txt", end=16741)
 
             x_attack_UNB_1 = np.concatenate([x_attack_UNB_11, x_attack_UNB_12, x_attack_UNB_13, x_attack_UNB_14])
             y_attack_UNB_1 = np.concatenate(
@@ -439,9 +439,9 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
 
 
         elif case[
-            5] == '2':  # UNB  because of UNB attack and normal exist huge difference, so DT can easily distingusih them on test set 1 and test set 2.
-            # x_norm = Dataset(filename=["Dataset/UNB/Normal_UNB.txt"], label=1, end=59832)
-            x_norm = load_data_from_txt(input_file="Dataset/UNB/Normal_UNB.txt", end=59832)
+            5] == '2':  # unb  because of unb attack and normal exist huge difference, so DT can easily distingusih them on test set 1 and test set 2.
+            # x_norm = dataset(filename=["dataset/unb/Normal_UNB.txt"], label=1, end=59832)
+            x_norm = load_data_from_txt(input_file="dataset/unb/Normal_UNB.txt", end=59832)
             y_norm = np.ones(shape=[x_norm.shape[0], 1])
             # split normal data
             x_norm_train_all, x_norm_test, y_norm_train_all, y_norm_test = train_test_split(x_norm, y_norm,
@@ -451,19 +451,19 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
                                                                                   test_size=0.125,
                                                                                   random_state=random_state)
 
-            # x_attack_11 = Dataset(filename=["Dataset/UNB/DoSHulk_UNB.txt"], label=0, end=11530,
+            # x_attack_11 = dataset(filename=["dataset/unb/DoSHulk_UNB.txt"], label=0, end=11530,
             #                       mean=x_norm.mean, std=x_norm.std).data
-            # x_attack_12 = Dataset(filename=["Dataset/UNB/DOSSlowHttpTest_UNB.txt"], label=0, end=6414,
+            # x_attack_12 = dataset(filename=["dataset/unb/DOSSlowHttpTest_UNB.txt"], label=0, end=6414,
             #                       mean=x_norm.mean, std=x_norm.std).data
             # x_attack_1 = np.concatenate([x_attack_11, x_attack_12])
             # y_attack_1 = np.concatenate(
             #     [np.zeros([x_attack_11.shape[0]]), np.zeros([x_attack_12.shape[0]])])
             # y_attack_1 = np.reshape(y_attack_1, (y_attack_1.shape[0], 1))
 
-            x_attack_11 = load_data_from_txt(input_file="Dataset/UNB/DoSHulk_UNB.txt", end=11530)
-            x_attack_12 = load_data_from_txt(input_file="Dataset/UNB/DOSSlowHttpTest_UNB.txt", end=6414)
-            x_attack_13 = load_data_from_txt(input_file="Dataset/UNB/UNB_DosGoldenEye_UNB_IDS2017.txt", end=1268)
-            x_attack_14 = load_data_from_txt(input_file="Dataset/UNB/UNB_DoSSlowloris_UNB_IDS2017.txt", end=16741)
+            x_attack_11 = load_data_from_txt(input_file="dataset/unb/DoSHulk_UNB.txt", end=11530)
+            x_attack_12 = load_data_from_txt(input_file="dataset/unb/DOSSlowHttpTest_UNB.txt", end=6414)
+            x_attack_13 = load_data_from_txt(input_file="dataset/unb/UNB_DosGoldenEye_UNB_IDS2017.txt", end=1268)
+            x_attack_14 = load_data_from_txt(input_file="dataset/unb/UNB_DoSSlowloris_UNB_IDS2017.txt", end=16741)
 
             x_attack_1 = np.concatenate([x_attack_11, x_attack_12, x_attack_13, x_attack_14])
             y_attack_1 = np.concatenate(
@@ -486,15 +486,15 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
             UNB_test_set = (x_norm_test, y_norm_test, x_attack_test, y_attack_test)
 
             x_attack_SYNT_11 = load_data_from_txt(
-                input_file="Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt",
+                input_file="dataset/synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt",
                 end=36000)
-            x_attack_SYNT_12 = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_DDoS_Recursive_GET.dms",
+            x_attack_SYNT_12 = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_DDoS_Recursive_GET.dms",
                                                   end=37000)
             x_attack_SYNT_13 = load_data_from_txt(
-                input_file="Dataset/Simulated_DataSet/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms",
+                input_file="dataset/synthetic_dataset/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms",
                 end=243)
             x_attack_SYNT_14 = load_data_from_txt(
-                input_file="Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
+                input_file="dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
                 end=1000)
             x_attack_test_SYNT = np.concatenate(
                 [x_attack_SYNT_11, x_attack_SYNT_12, x_attack_SYNT_13, x_attack_SYNT_14])
@@ -504,10 +504,10 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
                  np.zeros([x_attack_SYNT_14.shape[0]])])
             y_attack_test_SYNT = np.reshape(y_attack_test_SYNT, (y_attack_test_SYNT.shape[0], 1))
 
-            # x_attack_SYNT_12 = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_DDoS_Recursive_GET.dms",
+            # x_attack_SYNT_12 = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_DDoS_Recursive_GET.dms",
             #                                       end=37000)
             # x_attack_SYNT_13 = load_data_from_txt(
-            #     input_file="Dataset/Simulated_DataSet/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms",
+            #     input_file="dataset/synthetic_dataset/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms",
             #     end=243)
             # x_attack_test_2 = np.concatenate([x_attack_13, x_attack_14])
             # y_attack_test_2 = np.concatenate([np.zeros([x_attack_13.shape[0]]), np.zeros([x_attack_14.shape[0]])])
@@ -520,7 +520,7 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
         else:  # if case[5] == '3': # for SYNT test
 
             #### for SYNT Test
-            # x_norm = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_normal_0.txt", end=77989)
+            # x_norm = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_normal_0.txt", end=77989)
             # y_norm = np.ones(shape=[x_norm.shape[0], 1])
             # # split normal data
             # x_norm_train_all, x_norm_test, y_norm_train_all, y_norm_test = train_test_split(x_norm, y_norm,
@@ -530,15 +530,15 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
             #                                                                       test_size=0.125,
             #                                                                       random_state=random_state)
             #
-            # # x_attack_11 = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt",
+            # # x_attack_11 = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt",
             # #                                  end=36000)
-            # x_attack_12 = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_DDoS_Recursive_GET.dms",
+            # x_attack_12 = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_DDoS_Recursive_GET.dms",
             #                                  end=37000)
             # # x_attack_13 = load_data_from_txt(
-            # #     input_file="Dataset/Simulated_DataSet/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms",
+            # #     input_file="dataset/synthetic_dataset/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms",
             # #     end=243)
             # x_attack_14 = load_data_from_txt(
-            #     input_file="Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
+            #     input_file="dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
             #     end=1000)
             # x_attack_1 = np.concatenate([x_attack_12, x_attack_14])
             # y_attack_1 = np.concatenate([np.zeros([x_attack_12.shape[0]]), np.zeros([x_attack_14.shape[0]])])
@@ -558,15 +558,15 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
             # SYNT_val_set = (x_norm_val, y_norm_val, x_attack_val, y_attack_val)
             # SYNT_test_set = (x_norm_test, y_norm_test, x_attack_test, y_attack_test)
             #
-            # x_attack_11 = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt",
+            # x_attack_11 = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt",
             #                                  end=36000)
-            # # x_attack_12 = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_DDoS_Recursive_GET.dms",
+            # # x_attack_12 = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_DDoS_Recursive_GET.dms",
             # #                                  end=37000)
             # x_attack_13 = load_data_from_txt(
-            #     input_file="Dataset/Simulated_DataSet/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms",
+            #     input_file="dataset/synthetic_dataset/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms",
             #     end=243)
             # # x_attack_14 = load_data_from_txt(
-            # #     input_file="Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
+            # #     input_file="dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms",
             # #     end=1000)
             # x_attack_SYNT_1 = np.concatenate([x_attack_11, x_attack_13])
             # y_attack_1 = np.concatenate([np.zeros([x_attack_11.shape[0]]), np.zeros([x_attack_13.shape[0]])])
@@ -576,8 +576,8 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
             #
             # return SYNT_train_set, SYNT_val_set, SYNT_test_set, SYNT_test_set_2
 
-            #### for UNB Test set
-            x_norm = load_data_from_txt(input_file="Dataset/UNB/Normal_UNB.txt", end=59832)
+            #### for unb Test set
+            x_norm = load_data_from_txt(input_file="dataset/unb/Normal_UNB.txt", end=59832)
             y_norm = np.ones(shape=[x_norm.shape[0], 1])
             # split normal data
             x_norm_train_all, x_norm_test, y_norm_train_all, y_norm_test = train_test_split(x_norm, y_norm,
@@ -587,10 +587,10 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
                                                                                   test_size=0.125,
                                                                                   random_state=random_state)
 
-            x_attack_11 = load_data_from_txt(input_file="Dataset/UNB/DoSHulk_UNB.txt", end=11530)
-            x_attack_12 = load_data_from_txt(input_file="Dataset/UNB/DOSSlowHttpTest_UNB.txt", end=6414)
-            # x_attack_13 = load_data_from_txt(input_file="Dataset/UNB/UNB_DosGoldenEye_UNB_IDS2017.txt", end=1268)
-            # x_attack_14 = load_data_from_txt(input_file="Dataset/UNB/UNB_DoSSlowloris_UNB_IDS2017.txt", end=16741)
+            x_attack_11 = load_data_from_txt(input_file="dataset/unb/DoSHulk_UNB.txt", end=11530)
+            x_attack_12 = load_data_from_txt(input_file="dataset/unb/DOSSlowHttpTest_UNB.txt", end=6414)
+            # x_attack_13 = load_data_from_txt(input_file="dataset/unb/UNB_DosGoldenEye_UNB_IDS2017.txt", end=1268)
+            # x_attack_14 = load_data_from_txt(input_file="dataset/unb/UNB_DoSSlowloris_UNB_IDS2017.txt", end=16741)
 
             x_attack_1 = np.concatenate([x_attack_11, x_attack_12])
             y_attack_1 = np.concatenate(
@@ -611,20 +611,20 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
             UNB_val_set = (x_norm_val, y_norm_val, x_attack_val, y_attack_val)
             UNB_test_set = (x_norm_test, y_norm_test, x_attack_test, y_attack_test)
 
-            # x_attack_11 = load_data_from_txt(input_file="Dataset/UNB/DoSHulk_UNB.txt", end=11530)
-            # x_attack_12 = load_data_from_txt(input_file="Dataset/UNB/DOSSlowHttpTest_UNB.txt", end=6414)
-            x_attack_13 = load_data_from_txt(input_file="Dataset/UNB/UNB_DosGoldenEye_UNB_IDS2017.txt", end=1268)
-            x_attack_14 = load_data_from_txt(input_file="Dataset/UNB/UNB_DoSSlowloris_UNB_IDS2017.txt", end=16741)
+            # x_attack_11 = load_data_from_txt(input_file="dataset/unb/DoSHulk_UNB.txt", end=11530)
+            # x_attack_12 = load_data_from_txt(input_file="dataset/unb/DOSSlowHttpTest_UNB.txt", end=6414)
+            x_attack_13 = load_data_from_txt(input_file="dataset/unb/UNB_DosGoldenEye_UNB_IDS2017.txt", end=1268)
+            x_attack_14 = load_data_from_txt(input_file="dataset/unb/UNB_DoSSlowloris_UNB_IDS2017.txt", end=16741)
 
             x_attack_test_UNB = np.concatenate([x_attack_13, x_attack_14])
             y_attack_1 = np.concatenate(
                 [np.zeros([x_attack_13.shape[0]]), np.zeros([x_attack_14.shape[0]])])
             y_attack_test_UNB = np.reshape(y_attack_1, (y_attack_1.shape[0], 1))
 
-            # x_attack_SYNT_12 = load_data_from_txt(input_file="Dataset/Simulated_DataSet/Sess_DDoS_Recursive_GET.dms",
+            # x_attack_SYNT_12 = load_data_from_txt(input_file="dataset/synthetic_dataset/Sess_DDoS_Recursive_GET.dms",
             #                                       end=37000)
             # x_attack_SYNT_13 = load_data_from_txt(
-            #     input_file="Dataset/Simulated_DataSet/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms",
+            #     input_file="dataset/synthetic_dataset/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms",
             #     end=243)
             # x_attack_test_2 = np.concatenate([x_attack_13, x_attack_14])
             # y_attack_test_2 = np.concatenate([np.zeros([x_attack_13.shape[0]]), np.zeros([x_attack_14.shape[0]])])
@@ -634,45 +634,45 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
 
             return UNB_train_set, UNB_val_set, UNB_test_set, UNB_test_set_2
 
-    #         data_train = Dataset(filename=["Dataset/Simulated_DataSet/dt_train00.txt"], label=1)
+    #         data_train = dataset(filename=["dataset/synthetic_dataset/dt_train00.txt"], label=1)
     #         data_train_labels = np.concatenate([np.ones([6000]), np.zeros([5902])])
     #
-    #         data_test_1 = Dataset(filename=["Dataset/Simulated_DataSet/Sess_normal_0.txt"], label=1, start=49600,
+    #         data_test_1 = dataset(filename=["dataset/synthetic_dataset/Sess_normal_0.txt"], label=1, start=49600,
     #                               end=62000,
     #                               mean=data_train.mean, std=data_train.std).data
-    #         data_test_2 = Dataset(filename=["Dataset/Simulated_DataSet/Sess_DDoS_Recursive_GET.dms"], label=1,
+    #         data_test_2 = dataset(filename=["dataset/synthetic_dataset/Sess_DDoS_Recursive_GET.dms"], label=1,
     #                               start=26600,
     #                               end=34200, mean=data_train.mean, std=data_train.std).data
-    #         data_test_3 = Dataset(
-    #             filename=["Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms"],
+    #         data_test_3 = dataset(
+    #             filename=["dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms"],
     #             label=0, start=800, end=1000, mean=data_train.mean, std=data_train.std).data
-    #         data_test_4 = Dataset(
-    #             filename=["Dataset/Simulated_DataSet/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms"], label=0,
+    #         data_test_4 = dataset(
+    #             filename=["dataset/synthetic_dataset/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms"], label=0,
     #             end=243, mean=data_train.mean, std=data_train.std).data
-    #         data_test_5 = Dataset(
-    #             filename=["Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms"], label=0,
+    #         data_test_5 = dataset(
+    #             filename=["dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms"], label=0,
     #             end=1000, mean=data_train.mean, std=data_train.std).data
     #
     #     # SYNT
-    #     # data_test_1 = Dataset(filename = ["Dataset/Simulated_DataSet/Sess_normal_0.txt"], label = 1,start = 49600, end = 62000, mean = data_train.mean, std = data_train.std).data
-    #     # data_test_2 = Dataset(filename = ["Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt"], label = 1, end = 35000, mean = data_train.mean, std = data_train.std).data
-    #     # data_test_3 = Dataset(filename = ["Dataset/Simulated_DataSet/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms"], label = 0, end = 243, mean = data_train.mean, std = data_train.std).data
+    #     # data_test_1 = dataset(filename = ["dataset/synthetic_dataset/Sess_normal_0.txt"], label = 1,start = 49600, end = 62000, mean = data_train.mean, std = data_train.std).data
+    #     # data_test_2 = dataset(filename = ["dataset/synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt"], label = 1, end = 35000, mean = data_train.mean, std = data_train.std).data
+    #     # data_test_3 = dataset(filename = ["dataset/synthetic_dataset/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms"], label = 0, end = 243, mean = data_train.mean, std = data_train.std).data
     #
-    #     # UNB
-    #     # data_test_1 = Dataset(filename = ["Dataset/UNB/Normal_UNB.txt"], label = 1, start = 47865, end = 59832, mean = data_train.mean, std = data_train.std).data
-    #     # data_test_2 = Dataset(filename = ["Dataset/UNB/DoSHulk_UNB.txt"], label = 0, start = 9224,end = 11530, mean = data_train.mean, std = data_train.std).data
-    #     # data_test_3 = Dataset(filename = ["Dataset/UNB/DOSSlowHttpTest_UNB.txt"], label = 0,start = 5131, end = 6414, mean = data_train.mean, std = data_train.std).data
-    #     # data_test_4 = Dataset(filename = ["Dataset/UNB/UNB_DosGoldenEye_UNB_IDS2017.txt"], label = 0,start = 1014, end = 1268, mean = data_train.mean, std = data_train.std).data
-    #     # data_test_5 = Dataset(filename = ["Dataset/UNB/UNB_DoSSlowloris_UNB_IDS2017.txt"], label = 0,start = 13392, end = 16741, mean = data_train.mean, std = data_train.std).data
+    #     # unb
+    #     # data_test_1 = dataset(filename = ["dataset/unb/Normal_UNB.txt"], label = 1, start = 47865, end = 59832, mean = data_train.mean, std = data_train.std).data
+    #     # data_test_2 = dataset(filename = ["dataset/unb/DoSHulk_UNB.txt"], label = 0, start = 9224,end = 11530, mean = data_train.mean, std = data_train.std).data
+    #     # data_test_3 = dataset(filename = ["dataset/unb/DOSSlowHttpTest_UNB.txt"], label = 0,start = 5131, end = 6414, mean = data_train.mean, std = data_train.std).data
+    #     # data_test_4 = dataset(filename = ["dataset/unb/UNB_DosGoldenEye_UNB_IDS2017.txt"], label = 0,start = 1014, end = 1268, mean = data_train.mean, std = data_train.std).data
+    #     # data_test_5 = dataset(filename = ["dataset/unb/UNB_DoSSlowloris_UNB_IDS2017.txt"], label = 0,start = 13392, end = 16741, mean = data_train.mean, std = data_train.std).data
     #
     #     # SYNT
-    #     # data_test_1 = Dataset(filename = ["Dataset/Simulated_DataSet/Sess_normal_0.txt"], label = 1, start = 63292, end = 78889, mean = data_train.mean, std = data_train.std).data
-    #     ##data_test_2 = Dataset(filename = ["Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt"], label = 0, end = 36000, mean = data_train.mean, std = data_train.std).data
-    #     # data_test_3 = Dataset(filename = ["Dataset/Simulated_DataSet/Sess_DDoS_Recursive_GET.dms"], label = 0, end = 37000, mean = data_train.mean, std = data_train.std).data
-    #     # data_test_4 = Dataset(filename = ["Dataset/Simulated_DataSet/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms"], label = 0, end = 243, mean = data_train.mean, std = data_train.std).data
-    #     # data_test_5 = Dataset(filename = ["Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms"], label = 0, end = 1000, mean = data_train.mean, std = data_train.std).data
+    #     # data_test_1 = dataset(filename = ["dataset/synthetic_dataset/Sess_normal_0.txt"], label = 1, start = 63292, end = 78889, mean = data_train.mean, std = data_train.std).data
+    #     ##data_test_2 = dataset(filename = ["dataset/synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt"], label = 0, end = 36000, mean = data_train.mean, std = data_train.std).data
+    #     # data_test_3 = dataset(filename = ["dataset/synthetic_dataset/Sess_DDoS_Recursive_GET.dms"], label = 0, end = 37000, mean = data_train.mean, std = data_train.std).data
+    #     # data_test_4 = dataset(filename = ["dataset/synthetic_dataset/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms"], label = 0, end = 243, mean = data_train.mean, std = data_train.std).data
+    #     # data_test_5 = dataset(filename = ["dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms"], label = 0, end = 1000, mean = data_train.mean, std = data_train.std).data
     #
-    #     # data_test_1 = Dataset(filename = ["Dataset/MAWI/Normal_mawi_day1.txt"], label = 1,start = 49600, end = 62000, mean = data_train.mean, std = data_train.std).data
+    #     # data_test_1 = dataset(filename = ["dataset/mawi/Normal_mawi_day1.txt"], label = 1,start = 49600, end = 62000, mean = data_train.mean, std = data_train.std).data
     #     # return None, None, data_test_1, np.ones(12400)
     #
     #     s2 = data_test_2.shape[0] + data_test_3.shape[0]  # + data_test_4.shape[0] + data_test_5.shape[0]
@@ -686,8 +686,8 @@ def load_data(case, random_state=42, norm_flg=True, test_size=0.2):
     #     data_test_2_labels = np.concatenate([np.ones(s1), np.zeros(s3)])
     #
     #     return data_train, data_train_labels, data_test_1, data_test_1_labels, data_test_2, data_test_2_labels
-    #     # data_train_2 = Dataset(filename = ["Dataset/Simulated_DataSet/Sess_DDoS_Recursive_GET.dms"], label = 0, end = 37000)
-    #     # data_train_3 = Dataset(filename = ["Dataset/Simulated_DataSet/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms"], label = 0, end = 1000)
+    #     # data_train_2 = dataset(filename = ["dataset/synthetic_dataset/Sess_DDoS_Recursive_GET.dms"], label = 0, end = 37000)
+    #     # data_train_3 = dataset(filename = ["dataset/synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms"], label = 0, end = 1000)
     #
     #     # data_train = np.concatenate([data_train_1, data_train_2, data_train_3])
     #     # ata_label = np.concatenate([])

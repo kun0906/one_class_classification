@@ -1,14 +1,14 @@
 import os
 from collections import OrderedDict
 
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.pipeline import Pipeline
-from sklearn.tree import DecisionTreeClassifier
-
-from plot_all_results import plot_sub_features_metrics
-from utils.load_data import load_data, load_data_from_txt
-from utils.metrics_measure import z_score_np, save_sub_features_res_metrics
-from utils.read_data_un import Dataset
+# from sklearn.ensemble import RandomForestClassifier
+# from sklearn.pipeline import Pipeline
+# from sklearn.tree import DecisionTreeClassifier
+#
+# from plot_all_results import plot_sub_features_metrics
+# from utils.load_data import load_data, load_data_from_txt
+# from utils.metrics_measure import z_score_np, save_sub_features_res_metrics
+# from utils.read_data_un import Dataset
 from sklearn.feature_selection import VarianceThreshold, SelectKBest, chi2, SelectFromModel
 import numpy as np
 import matplotlib
@@ -259,17 +259,17 @@ def feature_selection(x_norm_train, num_features=2, corr_thres=0.01, show_flg=Tr
 def feature_selection_correction(Epochs=2, optimal_thres_AE=5, find_optimal_thres_flg=False,
                                  cases=['uSc3C2_min_max_20_14'], factor=10, random_state=42, show_flg=True,
                                  balance_train_data_flg=True, title_flg=True, corr_thres=0.5):
-    # # data_train = Dataset(
-    # #     filename=["Dataset/Simulated_DataSet/Sess_normal_0.txt", "Dataset/Public_Dataset/Log_normal.txt"], label=1,
+    # # data_train = dataset(
+    # #     filename=["dataset/synthetic_dataset/Sess_normal_0.txt", "dataset/public_dataset/Log_normal.txt"], label=1,
     # #     end=7000)
-    # data_train = Dataset(filename=[dataset], label=1,end=7000)
-    # data_test_1 = Dataset(filename=["Dataset/Public_Dataset/Log_normal.txt"], label=1, start=7000, end=12000,
+    # data_train = dataset(filename=[dataset], label=1,end=7000)
+    # data_test_1 = dataset(filename=["dataset/public_dataset/Log_normal.txt"], label=1, start=7000, end=12000,
     #                       mean=data_train.mean, std=data_train.std)
-    # data_test_2 = Dataset(filename=["Dataset/Public_Dataset/Log_doshulk.txt"], label=0, mean=data_train.mean,
+    # data_test_2 = dataset(filename=["dataset/public_dataset/Log_doshulk.txt"], label=0, mean=data_train.mean,
     #                       std=data_train.std, end=1500)
-    # data_test_3 = Dataset(filename=["Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt"], label=0, end=4000,
+    # data_test_3 = dataset(filename=["dataset/synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt"], label=0, end=4000,
     #                       mean=data_train.mean, std=data_train.std)
-    # data_test_4 = Dataset(filename=['Dataset/Simulated_DataSet/Sess_normal_0.txt'], label=1, start=7000, end=12000,
+    # data_test_4 = dataset(filename=['dataset/synthetic_dataset/Sess_normal_0.txt'], label=1, start=7000, end=12000,
     #                       mean=data_train.mean, std=data_train.std)
 
     norm_flg = True
@@ -278,9 +278,9 @@ def feature_selection_correction(Epochs=2, optimal_thres_AE=5, find_optimal_thre
             if case[5] == '1':
                 print('\n@@@train and evaluate AE on SYNT:', case)
             elif case[5] == '2':
-                print('\n@@@train and evaluate AE on UNB:', case)
+                print('\n@@@train and evaluate AE on unb:', case)
             elif case[5] == '3':
-                print('\n@@@train and evaluate AE on MAWI:', case)
+                print('\n@@@train and evaluate AE on mawi:', case)
             else:
                 print('not implement')
                 return -1
@@ -376,17 +376,17 @@ def feature_selection_correction(Epochs=2, optimal_thres_AE=5, find_optimal_thre
 
 
 def feature_selection_2(dataset, corr_thres=0.2, show_flg=True):
-    # data_train = Dataset(
-    #     filename=["Dataset/Simulated_DataSet/Sess_normal_0.txt", "Dataset/Public_Dataset/Log_normal.txt"], label=1,
+    # data_train = dataset(
+    #     filename=["dataset/synthetic_dataset/Sess_normal_0.txt", "dataset/public_dataset/Log_normal.txt"], label=1,
     #     end=7000)
     data_train = Dataset(filename=[dataset], label=1, end=7000)
-    data_test_1 = Dataset(filename=["Dataset/Public_Dataset/Log_normal.txt"], label=1, start=7000, end=12000,
+    data_test_1 = Dataset(filename=["dataset/public_dataset/Log_normal.txt"], label=1, start=7000, end=12000,
                           mean=data_train.mean, std=data_train.std)
-    data_test_2 = Dataset(filename=["Dataset/Public_Dataset/Log_doshulk.txt"], label=0, mean=data_train.mean,
+    data_test_2 = Dataset(filename=["dataset/public_dataset/Log_doshulk.txt"], label=0, mean=data_train.mean,
                           std=data_train.std, end=1500)
-    data_test_3 = Dataset(filename=["Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt"], label=0, end=4000,
+    data_test_3 = Dataset(filename=["dataset/synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt"], label=0, end=4000,
                           mean=data_train.mean, std=data_train.std)
-    data_test_4 = Dataset(filename=['Dataset/Simulated_DataSet/Sess_normal_0.txt'], label=1, start=7000, end=12000,
+    data_test_4 = Dataset(filename=['dataset/synthetic_dataset/Sess_normal_0.txt'], label=1, start=7000, end=12000,
                           mean=data_train.mean, std=data_train.std)
 
     corr = data_train.df.corr(method='pearson')
@@ -457,7 +457,7 @@ def feature_selection_2(dataset, corr_thres=0.2, show_flg=True):
 
 
 if __name__ == '__main__':
-    dataset = "Dataset/Simulated_DataSet/Sess_normal_0.txt"
+    dataset = "dataset/synthetic_dataset/Sess_normal_0.txt"
     x_norm_train_raw = load_data_from_txt(dataset, start=0, end=77989)
     norm_flg = True
     if norm_flg:

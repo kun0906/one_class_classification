@@ -291,7 +291,7 @@ def plot_reconstruction_errors_basic(dist_data, x_label='Reconstruction loss of 
     # bins = np.linspace(0, max(dist_data), 100)
     if max_val == '':
         max_val = max(dist_data)
-    bins = np.linspace(0, max_val, 15)
+    bins = np.linspace(0, max_val, 10)
     fig, ax = plt.subplots()
     counts, bins, patches = ax.hist(dist_data, bins=bins, align='mid')  # facecolor='yellow', edgecolor='gray'
     # plt.hist(dist_data, bins=bins, range=[0, max_val], align='mid')  # facecolor='blue',
@@ -318,7 +318,7 @@ def plot_reconstruction_errors_basic(dist_data, x_label='Reconstruction loss of 
     plt.show()
 
     print(f'*the maximize reconstrcution error is {max(dist_data)} for {x_label} in samples\' order')
-    plt.plot(range(len(dist_data)), dist_data, 'b*-')
+    plt.plot(range(len(dist_data)), dist_data, 'b*')
     plt.xlabel(x_label)
     plt.ylabel('reconstruction error value.')
     # plt.savefig('figures/reconstruct_loss_attack.eps', format='eps', dpi=1500)
@@ -327,13 +327,13 @@ def plot_reconstruction_errors_basic(dist_data, x_label='Reconstruction loss of 
 
 
 def plot_reconstruction_errors(dist_data, x_label='Reconstruction errors of normal samples',
-                               out_file='figures/{case}_reconstruct_loss_normal.pdf', case='', feat='', title_flg=True,
+                               out_file='output_data/figures/{case}_reconstruct_loss_normal.pdf', case='', feat='', title_flg=True,
                                title='', max_val=''):
     print(f'*len(data):{len(dist_data)}, the maximize reconstrcution error is {max(dist_data)} for {x_label}')
     # bins = np.linspace(0, max(dist_data), 100)
     if max_val == '':
         max_val = max(dist_data)
-    bins = np.linspace(0, max_val, 30)
+    bins = np.linspace(0, max_val, 20)
     fig, ax = plt.subplots()
     counts, bins, patches = ax.hist(dist_data, bins=bins, align='mid')  # facecolor='yellow', edgecolor='gray'
     # plt.hist(dist_data, bins=bins, range=[0, max_val], align='mid')  # facecolor='blue',
@@ -341,7 +341,7 @@ def plot_reconstruction_errors(dist_data, x_label='Reconstruction errors of norm
     # Set the ticks to be at the edges of the bins.
     ax.set_xticks(bins)
     # Set the xaxis's tick labels to be formatted with 1 decimal place...
-    ax.xaxis.set_major_formatter(FormatStrFormatter('%0.f'))
+    ax.xaxis.set_major_formatter(FormatStrFormatter('%0.1f'))
 
     percent_flg = False
     if percent_flg:
@@ -388,7 +388,7 @@ def plot_reconstruction_errors(dist_data, x_label='Reconstruction errors of norm
     plt.show()
 
     print(f'*the maximize reconstrcution error is {max(dist_data)} for {x_label} in samples\' order')
-    plt.plot(range(len(dist_data)), dist_data, 'b*-')
+    plt.plot(range(len(dist_data)), dist_data, 'b*')
     plt.xlabel(x_label)
     plt.ylabel('reconstruction error value.')
     # plt.savefig('figures/reconstruct_loss_attack.eps', format='eps', dpi=1500)
@@ -396,7 +396,7 @@ def plot_reconstruction_errors(dist_data, x_label='Reconstruction errors of norm
     plt.show()
 
 
-def plot_reconstruction_errors_from_txt(input_file, output_pre_path='', balance_data_flg=True, random_state=42,
+def plot_reconstruction_errors_from_txt(input_file, output_pre_path='', balance_data_flg=False, random_state=42,
                                         title_flg=True, title='', max_val=''):
     """
 
@@ -427,28 +427,28 @@ def plot_reconstruction_errors_from_txt(input_file, output_pre_path='', balance_
             min_size = len(reconst_errors_dict['attack'])
             plot_reconstruction_errors(shuffle(reconst_errors_dict['normal'], random_state=random_state)[:min_size],
                                        x_label='Reconstruction errors of normal samples',
-                                       out_file=f'figures/{output_pre_path}_reconstruct_loss_normal_data.pdf', case='',
+                                       out_file=f'output_data/figures/{output_pre_path}_reconstruct_loss_normal_data.pdf', case='',
                                        feat='', title_flg=title_flg, title=title, max_val=max_val)
             plot_reconstruction_errors(reconst_errors_dict['attack'], x_label='Reconstruction errors of attack samples',
-                                       out_file=f'figures/{output_pre_path}_reconstruct_loss_attack_data.pdf', case='',
+                                       out_file=f'output_data/figures/{output_pre_path}_reconstruct_loss_attack_data.pdf', case='',
                                        feat='', title_flg=title_flg, title=title, max_val=max_val)
         else:
             plot_reconstruction_errors(reconst_errors_dict['normal'],
                                        x_label='Reconstruction errors of normal samples',
-                                       out_file=f'figures/{output_pre_path}_reconstruct_loss_normal_data.pdf', case='',
+                                       out_file=f'output_data/figures/{output_pre_path}_reconstruct_loss_normal_data.pdf', case='',
                                        feat='', title_flg=title_flg, title=title, max_val=max_val)
             plot_reconstruction_errors(shuffle(reconst_errors_dict['attack'], random_state=random_state)[:min_size],
                                        x_label='Reconstruction errors of attack samples',
-                                       out_file=f'figures/{output_pre_path}_reconstruct_loss_attack_data.pdf', case='',
+                                       out_file=f'output_data/figures/{output_pre_path}_reconstruct_loss_attack_data.pdf', case='',
                                        feat='', title_flg=title_flg, title=title, max_val=max_val)
     else:
         plot_reconstruction_errors(reconst_errors_dict['normal'],
                                    x_label='Reconstruction errors of normal samples',
-                                   out_file=f'figures/{output_pre_path}_reconstruct_loss_normal_data.pdf', case='',
+                                   out_file=f'output_data/figures/{output_pre_path}_reconstruct_loss_normal_data.pdf', case='',
                                    feat='', title_flg=title_flg, title=title, max_val=max_val)
         plot_reconstruction_errors(shuffle(reconst_errors_dict['attack'], random_state=random_state),
                                    x_label='Reconstruction errors of attack samples',
-                                   out_file=f'figures/{output_pre_path}_reconstruct_loss_attack_data.pdf', case='',
+                                   out_file=f'output_data/figures/{output_pre_path}_reconstruct_loss_attack_data.pdf', case='',
                                    feat='', title_flg=title_flg, title=title, max_val=max_val)
 
 
@@ -484,32 +484,32 @@ def plot_reconstruction_errors_from_txt_less_than_5(input_file, output_pre_path=
             min_size = len(reconst_errors_dict['attack'])
             plot_reconstruction_errors(shuffle(reconst_errors_dict['normal'], random_state=random_state)[:min_size],
                                        x_label='Reconstruction loss of normal samples',
-                                       out_file=f'figures/{output_pre_path}_reconstruct_loss_normal_data.pdf', case='',
+                                       out_file=f'output_data/figures/{output_pre_path}_reconstruct_loss_normal_data.pdf', case='',
                                        feat='', title_flg=title_flg, title=title, max_val=max_val)
             plot_reconstruction_errors(reconst_errors_dict['attack'], x_label='Reconstruction loss of attack samples',
-                                       out_file=f'figures/{output_pre_path}_reconstruct_loss_attack_data.pdf', case='',
+                                       out_file=f'output_data/figures/{output_pre_path}_reconstruct_loss_attack_data.pdf', case='',
                                        feat='', title_flg=title_flg, title=title, max_val=max_val)
         else:
             plot_reconstruction_errors(reconst_errors_dict['normal'],
                                        x_label='Reconstruction loss of normal samples',
-                                       out_file=f'figures/{output_pre_path}_reconstruct_loss_normal_data.pdf', case='',
+                                       out_file=f'output_data/figures/{output_pre_path}_reconstruct_loss_normal_data.pdf', case='',
                                        feat='', title_flg=title_flg, title=title, max_val=max_val)
             plot_reconstruction_errors(shuffle(reconst_errors_dict['attack'], random_state=random_state)[:min_size],
                                        x_label='Reconstruction loss of attack samples',
-                                       out_file=f'figures/{output_pre_path}_reconstruct_loss_attack_data.pdf', case='',
+                                       out_file=f'output_data/figures/{output_pre_path}_reconstruct_loss_attack_data.pdf', case='',
                                        feat='', title_flg=title_flg, title=title, max_val=max_val)
     else:
         plot_reconstruction_errors(reconst_errors_dict['normal'],
                                    x_label='Reconstruction loss of normal samples',
-                                   out_file=f'figures/{output_pre_path}_reconstruct_loss_normal_data.pdf', case='',
+                                   out_file=f'output_data/figures/{output_pre_path}_reconstruct_loss_normal_data.pdf', case='',
                                    feat='', title_flg=title_flg, title=title, max_val=max_val)
         plot_reconstruction_errors(shuffle(reconst_errors_dict['attack'], random_state=random_state),
                                    x_label='Reconstruction loss of attack samples',
-                                   out_file=f'figures/{output_pre_path}_reconstruct_loss_attack_data.pdf', case='',
+                                   out_file=f'output_data/figures/{output_pre_path}_reconstruct_loss_attack_data.pdf', case='',
                                    feat='', title_flg=title_flg, title=title, max_val=max_val)
 
 
-def plot_sub_features_metrics(input_file='figures/{case}_num_features_res_metrics.txt', title_flg=True, title=''):
+def plot_sub_features_metrics(input_file='output_data/figures/{case}_num_features_res_metrics.txt', title_flg=True, title=''):
     res_metrics_lst = {'tpr': [], 'fnr': [], 'fpr': [], 'tnr': [], 'acc': []}
     thres_lst = []
     num_features_list = []
@@ -556,7 +556,7 @@ def plot_sub_features_metrics(input_file='figures/{case}_num_features_res_metric
     plt.show()
 
 
-def plot_AE_thresholds_metrics(input_file='figures/{case}_thres_res_metrics.txt', title_flg=True, title='',
+def plot_AE_thresholds_metrics(input_file='output_data/figures/{case}_thres_res_metrics.txt', title_flg=True, title='',
                                only_FRP_flg=False):
     res_metrics_lst = {'tpr': [], 'fnr': [], 'fpr': [], 'tnr': [], 'acc': []}
     thres_lst = []
@@ -736,14 +736,14 @@ if __name__ == '__main__':
     flg = '5'
 
     if flg == '1':  # AE_thresholds
-        input_file = "figures/uSc1C2_z-score_20_14_thres_res_metrics_of_27_features.txt"
-        input_file = "figures/uSc1C2_z-score_thres_res_metrics_of_27_features.txt"
-        input_file = 'figures/uSc1C2_z-score_thres_res_metrics_of_27_features.txt'
+        input_file = "output_data/figures/uSc1C2_z-score_20_14_thres_res_metrics_of_27_features.txt"
+        input_file = "output_data/figures/uSc1C2_z-score_thres_res_metrics_of_27_features.txt"
+        input_file = 'output_data/figures/uSc1C2_z-score_thres_res_metrics_of_27_features.txt'
         plot_AE_thresholds_metrics(input_file, title_flg=True, title='', only_FRP_flg=False)
 
     elif flg == '2':  # econstruction_errors
-        input_file = 'figures/uSc1C1_z-score_20_14_recon_err_of_27_features.txt'
-        input_file = 'figures/uSc1C2_z-score_recon_err_of_27_features.txt'
+        input_file = 'output_data/figures/uSc1C1_z-score_20_14_recon_err_of_27_features.txt'
+        input_file = 'output_data/figures/uSc1C2_z-score_recon_err_of_27_features.txt'
         # input_file = '../Experiment_1_Results_20190617_19_30.txt'
         plot_reconstruction_errors_from_txt(input_file, output_pre_path='', balance_data_flg=True, random_state=42,
                                             title_flg=True, title='', max_val='')
@@ -751,22 +751,22 @@ if __name__ == '__main__':
         # plot_reconstruction_errors_from_txt_less_than_5(input_file, output_pre_path='', balance_data_flg=True, random_state=42,
         #                                     title_flg=True, title='',max_val = '')
     elif flg == '3':  # sub_features
-        input_file = "figures/uSc1C2_z-score_num_features_res_metrics.txt"
-        input_file = "figures/uSc1C1_z-score_all_num_features_res_metrics.txt"
+        input_file = "output_data/figures/uSc1C2_z-score_num_features_res_metrics.txt"
+        input_file = "output_data/figures/uSc1C1_z-score_all_num_features_res_metrics.txt"
         plot_sub_features_metrics(input_file, title_flg=True, title='')
         get_features_from_idx(sub_features_idx_lst=[0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 19, 25])
 
     elif flg == '4':  # feature selection
-        input_file = "figures/uSc1C2_z-score_sub_features_list.txt"
-        input_file = "figures/uSc1C1_z-score_sub_features_list.txt"
+        input_file = "output_data/figures/uSc1C2_z-score_sub_features_list.txt"
+        input_file = "output_data/figures/uSc1C1_z-score_sub_features_list.txt"
         plot_features_selection_results(input_file, title_flg=True, title='')
     elif flg == '5':  # ROC
         # input_file = "figures/uSc1C1_z-score_20_14_roc_data_of_16_features.txt"
-        input_file = "figures/uSc1C2_z-score_20_14_roc_data_of_16_features.txt"
+        input_file = "output_data/figures/uSc1C2_z-score_20_14_roc_data_of_16_features.txt"
         plot_roc(input_file, title_flg=True, title='')
         # plot_roc_with_scikit_plot(input_file, title_flg=True, title='')
     else:
-        input_file = "figures/uSc1C2_z-score_3d_data.txt"
+        input_file = "output_data/figures/uSc1C2_z-score_3d_data.txt"
         plot_3d_feature_selection(input_file)
         print('not implement.')
         pass

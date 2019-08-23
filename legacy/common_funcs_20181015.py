@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.model_selection import train_test_split
 
-from utils.CSV_Dataloader import csv_dataloader, open_file
+from utils.csv_dataloader import csv_dataloader, open_file
 
 
 def normalizate_data(np_arr, eplison=10e-4):
@@ -48,7 +48,7 @@ def load_data(input_data='', norm_flg=True, train_val_test_percent=[0.7 * 0.9, 0
     :return:
     """
     if 'mnist' in input_data:
-        from utils.Mnist_data_loader import MNIST_DataLoader
+        from utils.mnist_dataloader import MNIST_DataLoader
         # load input_data with input_data loader
         dataset = MNIST_DataLoader(ad_experiment=1)
         train_set, val_set, test_set = (dataset._X_train, dataset._y_train), (dataset._X_val, dataset._y_val), (
@@ -93,7 +93,7 @@ def load_data_with_new_principle(input_data='', norm_flg=True, train_val_test_pe
     :return:
     """
     if 'mnist' in input_data:
-        from utils.Mnist_data_loader import MNIST_DataLoader
+        from utils.mnist_dataloader import MNIST_DataLoader
         # load input_data with input_data loader
         dataset = MNIST_DataLoader(ad_experiment=1)
         train_set, val_set, test_set = (dataset._X_train, dataset._y_train), (dataset._X_val, dataset._y_val), (

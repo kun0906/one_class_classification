@@ -70,7 +70,7 @@ def normalise_data(X, features, m=[], sigma=[]):
 # def train_val_test_split(X, train_frac=0.6, val_frac=0.4, test_frac=0.1, shuffle=False):
 #     '''
 #
-#     :param X: Pandas Dataframe or Numpy array Dataset
+#     :param X: Pandas Dataframe or Numpy array dataset
 #     :param train_frac: fraction of train split
 #     :param val_frac:  fraction of validation split
 #     :param test_frac: fraction of test split

@@ -2,9 +2,9 @@ import pandas as pd
 import numpy as np
 from utils.utils import normalise_data
 
-file_normal = '/Users/mycomputer/Documents/Work/HSNL/Dataset/Public_Dataset/Log_normal.txt'
-file_attack_train = '/Users/mycomputer/Documents/Work/HSNL/Dataset/Simulated_DataSet/Sess_DDoS_Excessive_GET_POST.txt'
-file_attack_test = '/Users/mycomputer/Documents/Work/HSNL/Dataset/Public_Dataset/Log_doshulk.txt'
+file_normal = '/Users/mycomputer/Documents/Work/HSNL/dataset/public_dataset/Log_normal.txt'
+file_attack_train = '/Users/mycomputer/Documents/Work/HSNL/dataset/synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt'
+file_attack_test = '/Users/mycomputer/Documents/Work/HSNL/dataset/public_dataset/Log_doshulk.txt'
 
 
 class Dataset:
