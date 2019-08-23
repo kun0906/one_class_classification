@@ -50,7 +50,7 @@ from sklearn.metrics import roc_auc_score, confusion_matrix
 from sklearn.metrics.pairwise import pairwise_distances
 from sys_path_export import *  # it is no need to do in IDE environment, however, it must be done in shell/command environment
 
-from utils.CSV_Dataloader import open_file
+from utils.CSV_dataloader import open_file
 from utils.common_funcs import dump_model, load_model, split_normal2train_val_test_from_files
 
 

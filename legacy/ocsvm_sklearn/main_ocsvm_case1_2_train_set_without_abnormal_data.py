@@ -30,7 +30,7 @@ import time
 from collections import Counter
 
 from history_files.basic_svm import OCSVM
-from utils.CSV_Dataloader import mix_normal_attack_and_label
+from utils.CSV_dataloader import mix_normal_attack_and_label
 from utils.common_funcs import dump_model, load_model, load_data_with_new_principle
 
 

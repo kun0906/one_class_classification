@@ -153,10 +153,10 @@ def train_AE(train_data, val_data, case, feat_size, Epochs=2, batch_size=32):
 
     # # To save the weights of the model
     # if feat_size < 25:
-    #     model.save_weights("Models_dump/corr_AE_" + str(feat_size) + case + ".hdf5")
+    #     model.save_weights("models_dumping/corr_AE_" + str(feat_size) + case + ".hdf5")
     # else:
-    #     model.save_weights("Models_dump/new_AE_" + case + ".hdf5")
-    model.save_weights("Models_dump/AE_" + str(feat_size) + '_' + case + ".hdf5")
+    #     model.save_weights("models_dumping/new_AE_" + case + ".hdf5")
+    model.save_weights("models_dumping/AE_" + str(feat_size) + '_' + case + ".hdf5")
 
     return training_results.history
 
@@ -177,10 +177,10 @@ def test_AE(data_test, data_test_labels, data_train, case, feat_size, thres_AE=1
 
     # # Load weights
     # if feat_size < 25:
-    #     model.load_weights("Models_dump/corr_AE_" + str(feat_size) + case + ".hdf5")
+    #     model.load_weights("models_dumping/corr_AE_" + str(feat_size) + case + ".hdf5")
     # else:
-    #     model.load_weights("Models_dump/new_AE_" + case + ".hdf5")
-    model.load_weights("Models_dump/AE_" + str(feat_size) + '_' + case + ".hdf5")
+    #     model.load_weights("models_dumping/new_AE_" + case + ".hdf5")
+    model.load_weights("models_dumping/AE_" + str(feat_size) + '_' + case + ".hdf5")
 
     st = time.time()
     data_preds = model.predict(data_test)  # data_preds equals to input data
@@ -365,10 +365,10 @@ def experiment_1_without_feature_selection(Epochs, case, optimal_thres_AE, find_
     all_res_metrics_feat_list.append([sub_features_lst, res_metrics_feat_dict, optimal_thres_AE])
 
     ### 1) Reconstruction error of normal and attack data
-    out_file = f'Figures/{case}_recon_err_of_{str(num_features)}_features.txt'
+    out_file = f'figures/{case}_recon_err_of_{str(num_features)}_features.txt'
     out_file = save_reconstruction_errors(reconstr_errs_arr, case, x_test.shape[1], out_file)
     if show_flg:
-        if case[5] == '3':  # MAWI, only has normal samples, so it won't draw attack samples.
+        if case[5] == '3':  # mawi, only has normal samples, so it won't draw attack samples.
             pass
         else:
             title = os.path.split(out_file)[-1].split('.')[0]
@@ -392,7 +392,7 @@ def experiment_1_without_feature_selection(Epochs, case, optimal_thres_AE, find_
         res_metrics_dict['tnr'].append(tnr)
         res_metrics_dict['acc'].append(acc)
         thres_lst.append(thres)
-    out_file = f'Figures/{case}_thres_res_metrics_of_{str(num_features)}_features.txt'
+    out_file = f'figures/{case}_thres_res_metrics_of_{str(num_features)}_features.txt'
     save_thres_res_metrics(out_file, thres_lst, res_metrics_dict)
     title = os.path.split(out_file)[-1].split('.')[0]
     plot_AE_thresholds_metrics(out_file, title_flg=title_flg, title=title)
@@ -431,7 +431,7 @@ def experiment_1_without_feature_selection(Epochs, case, optimal_thres_AE, find_
     y_pred_label_OCSVM, y_pred_probs_OCSVM = test_OCSVM(x_test, y_test, case)
     y_test_pred_prob_dict['OCSVM'] = (y_test, y_pred_probs_OCSVM)
 
-    out_file = f'Figures/{case}_roc_data_of_{str(num_features)}_features.txt'
+    out_file = f'figures/{case}_roc_data_of_{str(num_features)}_features.txt'
     print(f'roc, out_file:{out_file}')
     save_roc_to_txt(out_file, y_test_pred_prob_dict)
     if show_flg:
@@ -463,9 +463,9 @@ def main(Epochs=2, optimal_thres_AE=5, find_optimal_thres_flg=False, cases=['uSc
             if case[5] == '1':
                 print('\n@@@train and evaluate AE on SYNT:', case)
             elif case[5] == '2':
-                print('\n@@@train and evaluate AE on UNB:', case)
+                print('\n@@@train and evaluate AE on unb:', case)
             elif case[5] == '3':
-                print('\n@@@train and evaluate AE on MAWI:', case)
+                print('\n@@@train and evaluate AE on mawi:', case)
             else:
                 print('not implement')
                 return -1
@@ -512,7 +512,7 @@ def main(Epochs=2, optimal_thres_AE=5, find_optimal_thres_flg=False, cases=['uSc
                 feat_selection_method = 1  # # pearson correlation
                 # for i in range(2, x_norm_train_raw.shape[1] + 1, 8):
                 features_descended_dict = feature_selection_new(x_norm_train_raw)
-                out_file = f"Figures/{case}_sub_features_list.txt"
+                out_file = f"figures/{case}_sub_features_list.txt"
                 out_file = save_features_selection_results(out_file, features_descended_dict)
                 plot_features_selection_results(out_file, title_flg=True, title=f'feature_number')
 
@@ -562,7 +562,7 @@ def main(Epochs=2, optimal_thres_AE=5, find_optimal_thres_flg=False, cases=['uSc
 
                 if show_flg:
                     "Relation between the number of feature and FPR and FNR."
-                    out_file = f'Figures/{case}_all_num_features_res_metrics.txt'
+                    out_file = f'figures/{case}_all_num_features_res_metrics.txt'
                     save_sub_features_res_metrics(out_file, all_res_metrics_feat_list, optimal_thres_AE)
                     title = os.path.split(out_file)[-1].split('.')[0]
                     plot_sub_features_metrics(out_file, title_flg=title_flg, title=title)
@@ -572,7 +572,7 @@ def main(Epochs=2, optimal_thres_AE=5, find_optimal_thres_flg=False, cases=['uSc
                 print('\n@@@train on SYNT:', case)
                 pass
             elif case[5] == '2':
-                print('\n@@@train on UNB:', case)
+                print('\n@@@train on unb:', case)
 
                 print("\nStep 1. loading data...")
                 UNB_train_set_raw, UNB_val_set_raw, UNB_test_set_raw, SYNT_test_set_raw, MAWI_test_set_raw = load_data(
@@ -647,7 +647,7 @@ def main(Epochs=2, optimal_thres_AE=5, find_optimal_thres_flg=False, cases=['uSc
 
                 ### evaluation
                 print('\nStep 2-2. test AE on test set, case:', case)
-                # UNB test set
+                # unb test set
 
                 x_test_UNB = np.concatenate([x_norm_test_UNB, x_attack_test_UNB])
                 y_test_UNB = np.concatenate([y_norm_test_UNB, y_attack_test_UNB])
@@ -669,12 +669,12 @@ def main(Epochs=2, optimal_thres_AE=5, find_optimal_thres_flg=False, cases=['uSc
                     res_metrics_dict['tnr'].append(tnr)
                     res_metrics_dict['acc'].append(acc)
                     thres_lst.append(thres)
-                out_file = f'Figures/{case}_thres_res_metrics_of_{str(num_features)}_features.txt'
+                out_file = f'figures/{case}_thres_res_metrics_of_{str(num_features)}_features.txt'
                 save_thres_res_metrics(out_file, thres_lst, res_metrics_dict)
                 title = os.path.split(out_file)[-1].split('.')[0]
                 plot_AE_thresholds_metrics(out_file, title_flg=title_flg, title=title)
 
-                print('\n1)test AE on UNB test set')
+                print('\n1)test AE on unb test set')
                 print(f'x_test_UNB.shape: {x_test_UNB.shape}')
                 y_pred_UNB, reconstr_errs_arr_UNB = test_AE(x_test_UNB, y_test_UNB, x_norm_train, case,
                                                             x_test_UNB.shape[1],
@@ -691,8 +691,8 @@ def main(Epochs=2, optimal_thres_AE=5, find_optimal_thres_flg=False, cases=['uSc
                                                               thres_AE=optimal_thres_AE)
                 tpr, fnr, fpr, tnr, acc = calucalate_metrics(y_test_SYNT, y_pred_SYNT)
 
-                # MAWI test set
-                print('\n3)test AE on MAWI test set')
+                # mawi test set
+                print('\n3)test AE on mawi test set')
                 x_test_MAWI = x_norm_test_MAWI
                 y_test_MAWI = y_norm_test_MAWI
                 print(f'x_test_MAWI.shape: {x_test_MAWI.shape}')
@@ -794,7 +794,7 @@ def main(Epochs=2, optimal_thres_AE=5, find_optimal_thres_flg=False, cases=['uSc
                 # ### without val set for DT
                 # x_val = np.concatenate([x_norm_val, x_attack_val])
                 # x_val_labels = np.concatenate([y_val, y_attack_val])
-                # UNB test set
+                # unb test set
                 print('\n-Step 3-2. train DT...')
                 train_DT(x_train_DT, y_train_DT, case)
 
@@ -803,7 +803,7 @@ def main(Epochs=2, optimal_thres_AE=5, find_optimal_thres_flg=False, cases=['uSc
                 print(f'x_train_DT.shape: {x_train_DT.shape}')
                 test_DT(x_train_DT, y_train_DT, case)
 
-                print('1) evaluate DT on UNB test set ')
+                print('1) evaluate DT on unb test set ')
                 x_test_UNB_DT = np.concatenate([x_norm_test_UNB_DT, x_attack_test_UNB_DT])
                 y_test_UNB_DT = np.concatenate([y_norm_test_UNB_DT, y_attack_test_UNB_DT])
                 print(f'x_test_UNB_DT.shape: {x_test_UNB_DT.shape}')
@@ -815,15 +815,15 @@ def main(Epochs=2, optimal_thres_AE=5, find_optimal_thres_flg=False, cases=['uSc
                 print(f'x_test_SYNT_DT.shape: {x_test_SYNT_DT.shape}')
                 test_DT(x_test_SYNT_DT, y_test_SYNT_DT, case)
 
-                print('3) evaluate DT on MAWI test set')
+                print('3) evaluate DT on mawi test set')
                 x_test_MAWI_DT = x_norm_test_MAWI_DT
                 y_test_MAWI_DT = y_norm_test_MAWI_DT
                 print(f'x_test_MAWI_DT.shape: {x_test_MAWI_DT.shape}')
                 test_DT(x_test_MAWI_DT, y_test_MAWI_DT, case)
 
 
-            else:  # train on MAWI
-                print('train on MAWI', case)
+            else:  # train on mawi
+                print('train on mawi', case)
                 pass
 
         else:  # Experiment 3
@@ -833,12 +833,12 @@ def main(Epochs=2, optimal_thres_AE=5, find_optimal_thres_flg=False, cases=['uSc
                 # SYNT_train_set_raw, SYNT_val_set_raw, SYNT_test_set_raw, SYNT_test_set_2_raw = load_data(case)
                 # train_set_raw, val_set_raw, test_set_raw, test_set_2_raw = SYNT_train_set_raw, SYNT_val_set_raw, SYNT_test_set_raw, SYNT_test_set_2_raw
             elif case[5] == '2':
-                print('\n@@@Experiment 3 on UNB:', case)
-                # UNB  because of UNB attack and normal exist huge difference, so DT can easily distingusih them on test set 1 and test set 2.
+                print('\n@@@Experiment 3 on unb:', case)
+                # unb  because of unb attack and normal exist huge difference, so DT can easily distingusih them on test set 1 and test set 2.
                 ### "x_norm, y_norm, x_attack_1, y_attack_1, x_attack_test_2, y_attack_test_2"
                 # UNB_train_set_raw, UNB_val_set_raw, UNB_test_set_raw, UNB_test_set_2_raw = load_data(case)
             elif case[5] == '3':
-                print('\n@@@Experiment 3 on MAWI:', case)
+                print('\n@@@Experiment 3 on mawi:', case)
                 ### "x_norm, y_norm, x_attack_1, y_attack_1, x_attack_test_2, y_attack_test_2"
                 # MAWI_train_set_raw, MAWI_val_set_raw, MAWI_test_set_raw, MAWI_test_set_2_raw = load_data(case)
             else:
@@ -926,7 +926,7 @@ def main(Epochs=2, optimal_thres_AE=5, find_optimal_thres_flg=False, cases=['uSc
                 res_metrics_dict['tnr'].append(tnr)
                 res_metrics_dict['acc'].append(acc)
                 thres_lst.append(thres)
-            out_file = f'Figures/{case}_thres_res_metrics_of_{str(num_features)}_features.txt'
+            out_file = f'figures/{case}_thres_res_metrics_of_{str(num_features)}_features.txt'
             save_thres_res_metrics(out_file, thres_lst, res_metrics_dict)
             title = os.path.split(out_file)[-1].split('.')[0]
             plot_AE_thresholds_metrics(out_file, title_flg=title_flg, title=title)
@@ -947,12 +947,12 @@ def main(Epochs=2, optimal_thres_AE=5, find_optimal_thres_flg=False, cases=['uSc
             if show_flg:
                 ### 1) Reconstruction error of normal and attack data
                 print('\n--save and show the reconstruction errors of normal and attack samples')
-                out_file = f'Figures/{case}_recon_err_test_1.txt'
+                out_file = f'figures/{case}_recon_err_test_1.txt'
                 out_file = save_reconstruction_errors(reconstr_errs_arr, case, x_test_1.shape[1], out_file)
                 title = os.path.split(out_file)[-1].split('.')[0]
                 plot_reconstruction_errors_from_txt(input_file=out_file, balance_data_flg=True, title_flg=title_flg,
                                                     title=title)
-                out_file_2 = f'Figures/{case}_recon_err_test2.txt'
+                out_file_2 = f'figures/{case}_recon_err_test2.txt'
                 out_file_2 = save_reconstruction_errors(reconstr_errs_arr_2, case, x_test_2.shape[1], out_file_2)
                 title_2 = os.path.split(out_file_2)[-1].split('.')[0]
                 plot_reconstruction_errors_from_txt(input_file=out_file_2, balance_data_flg=True, title_flg=title_flg,
@@ -997,7 +997,7 @@ def main(Epochs=2, optimal_thres_AE=5, find_optimal_thres_flg=False, cases=['uSc
             # ### without val set for DT
             # x_val = np.concatenate([x_norm_val, x_attack_val])
             # x_val_labels = np.concatenate([y_val, y_attack_val])
-            # UNB test set
+            # unb test set
             print('\n-Step 3-2. train DT...')
             train_DT(x_train_DT, y_train_DT, case)
 
