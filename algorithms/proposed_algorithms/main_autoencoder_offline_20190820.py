@@ -729,7 +729,7 @@ def conduct_experiment_of_feature_selection(Epochs, case, optimal_thres_AE, find
         plot_sub_features_metrics(out_file, title_flg=title_flg, title=title)
 
 
-def main(experiment_flg=0, case=[], random_state=random_state, norm_flg=norm_flg,
+def main(experiment_flg=0, case=[], random_state = random_state, norm_flg=norm_flg,
      optimal_thres_AE=optimal_thres_AE, find_optimal_thres_flg=find_optimal_thres_flg,
      factor_thres_AE=factor_thres_AE, sub_features_lst=sub_features_lst
      ):
@@ -747,16 +747,21 @@ def main(experiment_flg=0, case=[], random_state=random_state, norm_flg=norm_flg
         x_attack_1_raw, y_attack_1) = load_data_and_discretize_features(case, input_dir = input_dir, random_state=random_state)
     print("\n+Step 1-1. preprocessing data...")
 
+    # if norm_flg:
+    #     x_norm_train_raw, x_norm_train_min, x_norm_train_max = normalize_data_min_max(x_norm_train_raw, min_val='', max_val='', no_normalized_features_idx=no_normalized_features_idx)
+    #     x_norm_val_raw, _, _ = normalize_data_min_max(x_norm_val_raw, min_val=x_norm_train_min, max_val=x_norm_train_max, no_normalized_features_idx=no_normalized_features_idx)
+    #     x_norm_test_raw, _, _ = normalize_data_min_max(x_norm_test_raw, min_val=x_norm_train_min, max_val=x_norm_train_max, no_normalized_features_idx=no_normalized_features_idx)
+    #     if type(x_attack_1_raw) != type(None):
+    #         x_attack_1_raw, _, _ = normalize_data_min_max(x_attack_1_raw, min_val=x_norm_train_min, max_val=x_norm_train_max, no_normalized_features_idx=no_normalized_features_idx)
     if norm_flg:
-        x_norm_train_raw, x_norm_train_min, x_norm_train_max = normalize_data_min_max(x_norm_train_raw, min_val='', max_val='', no_normalized_features_idx=no_normalized_features_idx)
-        x_norm_val_raw, _, _ = normalize_data_min_max(x_norm_val_raw, min_val=x_norm_train_min, max_val=x_norm_train_max, no_normalized_features_idx=no_normalized_features_idx)
-        x_norm_test_raw, _, _ = normalize_data_min_max(x_norm_test_raw, min_val=x_norm_train_min, max_val=x_norm_train_max, no_normalized_features_idx=no_normalized_features_idx)
+        x_norm_train_raw, x_norm_train_mu, x_norm_train_std = z_score_np(x_norm_train_raw, mu='', d_std='')
+        x_norm_val_raw, _, _ = z_score_np(x_norm_val_raw, mu=x_norm_train_mu, d_std=x_norm_train_std)
+        x_norm_test_raw, _, _ = z_score_np(x_norm_test_raw, mu=x_norm_train_mu, d_std=x_norm_train_std)
         if type(x_attack_1_raw) != type(None):
-            x_attack_1_raw, _, _ = normalize_data_min_max(x_attack_1_raw, min_val=x_norm_train_min, max_val=x_norm_train_max, no_normalized_features_idx=no_normalized_features_idx)
-
+            x_attack_1_raw, _, _ = z_score_np(x_attack_1_raw, mu=x_norm_train_mu, d_std=x_norm_train_std)
         all_res_metrics_feat_list = []
 
-    if not feature_selection_experiment_flg:
+    if not feature_selection_experiment_flg:  # use all features to conduct experiment.
         if not analyize_features_flg:
             if sub_features_flg:
                 print(f'\n---num_sub_features:{len(sub_features_lst)}, they are {sub_features_lst}')
@@ -783,7 +788,7 @@ def main(experiment_flg=0, case=[], random_state=random_state, norm_flg=norm_flg
                                            x_attack_1_raw, y_attack_1, factor_thres_AE, show_flg, balance_train_data_flg,
                                            all_res_metrics_feat_list=[], sub_features_lst=[], title_flg=True,
                                            cnt_thres=3)
-    else:
+    else:  # use different features to conduct experiment
         conduct_experiment_of_feature_selection(Epochs, case, optimal_thres_AE, find_optimal_thres_flg, random_state,
                                             x_norm_train_raw, y_norm_train, x_norm_val_raw,
                                            y_norm_val, x_norm_test_raw, y_norm_test,

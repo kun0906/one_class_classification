@@ -1,0 +1,4 @@
+thres_AE, tpr, fnr, fpr, tnr, acc, num_features=10, sub_features are [2, 3, 4, 8, 9, 10, 11, 12, 13, 15]
+-1,1.0,0.0,1.0,0.0,0.009901618533798794
+thres_AE, tpr, fnr, fpr, tnr, acc, num_features=20, sub_features are [2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 20, 21, 23, 24, 25, 26, 27]
+-1,1.0,0.0,1.0,0.0,0.009901618533798794

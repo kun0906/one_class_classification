@@ -144,9 +144,9 @@ def get_min_max_in_matrix(data_n_n, max_val=0):
     return data_n_n, min_val, max_val
 
 
-def feature_selection_new(x_norm_train, num_features=2, corr_thres=0.01, show_flg=True):
-    data_df = pd.DataFrame(data=x_norm_train)
-    corr = data_df.corr(method='pearson')
+def conduct_feature_selection(x_train='', num_features=2, corr_thres=0.01, show_flg=True):
+    data_df = pd.DataFrame(data=x_train)
+    corr = data_df.corr(method='pearson')  #
     if show_flg:
         # Using Pearson Correlation
         plt.figure(figsize=(12, 10))
@@ -156,7 +156,7 @@ def feature_selection_new(x_norm_train, num_features=2, corr_thres=0.01, show_fl
 
     features_descended_dict = OrderedDict()
 
-    all_features = [i for i in range(x_norm_train.shape[1])]
+    all_features = [i for i in range(x_train.shape[1])]
     pre_key = 1.01  # the start value
     if len(features_descended_dict) == 0:
         features_descended_dict[pre_key] = all_features
@@ -191,25 +191,25 @@ def feature_selection_new(x_norm_train, num_features=2, corr_thres=0.01, show_fl
         #     pre_key = max_val
         # else:
         if features_descended_dict[pre_key] != selected_columns.values.tolist():
-            print(corr_thres, selected_columns.values.tolist())
+            # print(corr_thres, selected_columns.values.tolist())
             features_descended_dict[corr_thres] = selected_columns.values.tolist()
             pre_key = corr_thres
         else:
             val_tmp = features_descended_dict[pre_key]
             features_descended_dict.pop(pre_key, None)  # remove pre_key
-            print(f'remove key={pre_key}, its value={val_tmp} from the dict')
+            # print(f'remove key={pre_key}, its value={val_tmp} from the dict')
             features_descended_dict[corr_thres] = val_tmp
             pre_key = corr_thres
 
         cnt += 1
 
-    features_descended_dict = dict(sorted(features_descended_dict.items(), key=lambda x: len(x[1]), reverse=False))
+    sub_features_ascended_dict = dict(sorted(features_descended_dict.items(), key=lambda x: len(x[1]), reverse=False))
 
-    print('features_descended_dict')
-    for key, value in features_descended_dict.items():
+    print('sub_features_ascended_dict:')
+    for key, value in sub_features_ascended_dict.items():
         print(f'corr_thres={key}, num={len(value)}, features={value}')
 
-    return features_descended_dict
+    return sub_features_ascended_dict
 
 
 def feature_selection(x_norm_train, num_features=2, corr_thres=0.01, show_flg=True):

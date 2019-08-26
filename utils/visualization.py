@@ -146,7 +146,53 @@ def plot1(test_label, pred_label):
         plt.show()
 
 
-def plot_roc(input_file, y_test_pred_labels_dict={}, balance_data_flg=True, title_flg=True, title=''):
+
+
+def plot_roc(y_test_pred_proba_dict={}, balance_data_flg=True, title_flg=True, title=''):
+    """
+    :param y_test_pred_labels_lst: {'AE':(y_label, y_preds),'PCA':(), ...}
+    :return:
+    """
+    # with plt.style.context(('ggplot')):
+    fig, ax = plt.subplots()
+    colors = {'AE': 'r', 'DT': 'm', 'PCA': 'C1', 'IF': 'b', 'OCSVM': 'g'}
+    # for idx, (key, value) in enumerate(y_test_pred_labels_dict.items()):
+    for idx, (key, values) in enumerate(y_test_pred_labels_dict.items()):
+        if key == 'DT' or len(values) <= 0:
+            continue
+        (y_test, y_preds) = values
+        if key == 'PCA':
+            lw = 4
+        else:
+            lw = 2
+        fpr, tpr, thresholds = roc_curve(y_test, y_preds,
+                                         pos_label=1)  # pos_label = 1 (y_preds should be the probabilities of y = 1),
+        # IMPORTANT: first argument is true values, second argument is predicted probabilities
+        auc = "%.5f" % metrics.auc(fpr, tpr)
+        # title = 'ROC Curve, AUC = ' + str(auc)
+        print(f'key={key}, auc={auc}, fpr={fpr}, tpr={tpr}')
+        ax.plot(fpr, tpr, colors[key], label=key, lw=lw, alpha=1, linestyle='--')
+
+    ax.plot([0, 1], [0, 1], 'k--', label='Baseline', alpha=0.9)
+    plt.xlim([0.0, 1.0])
+    plt.ylim([0., 1.05])
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.legend(loc='lower right')
+
+    sub_dir = os.path.split(input_file)[0]
+    output_pre_path = os.path.split(input_file)[-1].split('.')[0]
+    out_file = os.path.join(sub_dir, output_pre_path + '_ROC.pdf')
+    print(f'ROC:out_file:{out_file}')
+    plt.savefig(out_file)  # should use before plt.show()
+
+    if title_flg:
+        plt.title(title)
+
+    plt.show()
+
+
+def plot_roc_backup(input_file, y_test_pred_labels_dict={}, balance_data_flg=True, title_flg=True, title=''):
     """
 
     :param y_test_pred_labels_lst: {'AE':(y_label, y_preds),'PCA':(), ...}
@@ -333,7 +379,7 @@ def plot_reconstruction_errors(dist_data, x_label='Reconstruction errors of norm
     # bins = np.linspace(0, max(dist_data), 100)
     if max_val == '':
         max_val = max(dist_data)
-    bins = np.linspace(0, max_val, 20)
+    bins = np.linspace(0, max_val, 10)
     fig, ax = plt.subplots()
     counts, bins, patches = ax.hist(dist_data, bins=bins, align='mid')  # facecolor='yellow', edgecolor='gray'
     # plt.hist(dist_data, bins=bins, range=[0, max_val], align='mid')  # facecolor='blue',
@@ -419,6 +465,11 @@ def plot_reconstruction_errors_from_txt(input_file, output_pre_path='', balance_
                 reconst_errors_dict['attack'].append(float(line_arr[0]))
             line = in_hdl.readline()
 
+    if len(reconst_errors_dict['normal']) ==0 or len(reconst_errors_dict['attack'])==0:
+        a= len(reconst_errors_dict['normal'])
+        b= len(reconst_errors_dict['attack'])
+        print(f'reconst_errors_dict[\'normal\']({a}) != reconst_errors_dict[\'attack\']({b})')
+        return -1
     output_pre_path = os.path.split(input_file)[-1].split('.')[0]
     print(f'output_pre_path:{output_pre_path}')
     if balance_data_flg:

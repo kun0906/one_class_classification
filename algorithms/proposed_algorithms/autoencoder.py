@@ -10,6 +10,7 @@ from tensorflow.python.keras.models import *
 from tensorflow.python.keras.layers import *
 import os
 import numpy as np
+from collections import Counter
 
 class Autoencoder():
 
@@ -18,19 +19,19 @@ class Autoencoder():
         pass
 
 
-def create_autoencoder(feat_size):
+def create_autoencoder(in_dim=''):
     """
 
     :param feat_size: input_size
     :return:
     """
     # declaring the schematic of the autoencoder
-    inp_dim = int(feat_size)
+    # inp_dim = int(in_dim)
     h1 = 24
     h2 = 16
 
     model = Sequential()
-    model.add(Dense(h1, input_dim=inp_dim))
+    model.add(Dense(h1, input_dim=in_dim))
     model.add(LeakyReLU())
     # model.add(Dropout(0.1))
     model.add(Dense(h2))  # latent layer
@@ -38,7 +39,7 @@ def create_autoencoder(feat_size):
     # model.add(Dropout(0.1))
     model.add(Dense(h1))
     model.add(LeakyReLU())
-    model.add(Dense(inp_dim))
+    model.add(Dense(in_dim))
     model.add(LeakyReLU())
 
     return model
@@ -74,66 +75,79 @@ def distance(predictions, labels, axis=1):
 
 
 # To train the autoencoder model
-def train_AE(train_data, val_data, case, feat_size, Epochs=2, batch_size=32, output_dir='output_data', verbose=1):
+def train_AE(train_set='', val_set= '', experiment='', Epochs=2, batch_size=32, output_dir='output_data', verbose=1):
     """
         only use normal samples to train AE.
     :param train_data:
     :param val_data:
-    :param case:
+    :param experiment:
     :param feat_size:
     :param Epochs:
     :return:
     """
-    model = create_autoencoder(feat_size)
+    x_train = train_set['x']
+    x_val = val_set['x']
+    num_features = x_train.shape[1]
+    model = create_autoencoder(in_dim = num_features)
     model.compile(loss=euclidean_distance_loss, optimizer='adam')
 
     st = time.time()
-    training_results = model.fit(train_data, train_data, validation_data=(val_data, val_data), epochs=Epochs,
+    training_results = model.fit(x_train, x_train, validation_data=(x_val, x_val), epochs=Epochs,
                                  batch_size=batch_size,
                                  verbose=0)
-    print('AE training for Case : ', case, ' = ', time.time() - st, 's')
+    print('AE training for experiment(', experiment, '), time: ', time.time() - st, 's')
 
-    score = model.evaluate(train_data, train_data, batch_size=batch_size, verbose=verbose)
-    print("Train Loss = ", score, 'model.metrics_names', model.metrics_names)
+    score = model.evaluate(x_train, x_train, batch_size=batch_size, verbose=0)
+    print("Train Loss = ", score, ', model.metrics_names', model.metrics_names)
 
-    score = model.evaluate(val_data, val_data, batch_size=batch_size, verbose=verbose)
+    score = model.evaluate(x_val, x_val, batch_size=batch_size, verbose=0)
     print("Validation Loss = ", score, 'model.metrics_names', model.metrics_names)
 
     # # To save the weights of the model
     # if feat_size < 25:
-    #     model.save_weights("models_dumping/corr_AE_" + str(feat_size) + case + ".hdf5")
+    #     model.save_weights("models_dumping/corr_AE_" + str(feat_size) + experiment + ".hdf5")
     # else:
-    #     model.save_weights("models_dumping/new_AE_" + case + ".hdf5")
-    output_file = os.path.join(output_dir, "models_dumping/AE_" + str(feat_size) + '_' + case + ".hdf5")
+    #     model.save_weights("models_dumping/new_AE_" + experiment + ".hdf5")
+    output_file = os.path.join(output_dir, "models_dumping/AE_" + str(num_features) + '_' + experiment + ".hdf5")
     model.save_weights(output_file)
+
+    print(f'training_results:{training_results}')
 
     return training_results.history
 
 # TO test the model
-def test_AE(data_test, data_test_labels, data_train, case, feat_size, thres_AE=1.5, model_dir='output_data'):
+def test_AE(test_set='', experiment='', thres_AE=1.5, output_dir='output_data'):
     """
 
     :param data_test:
     :param data_test_labels:
-    :param case:
+    :param experiment:
     :param feat_size:
     :param thres_AE:
     :return:
     """
-    model = create_autoencoder(feat_size)
+    x_test = test_set['x']
+    num_features = x_test.shape[1]
+    y_test = test_set['y']
+
+    model = create_autoencoder(in_dim=num_features)
     model.compile(loss=euclidean_distance_loss, optimizer='adam')
 
     # # Load weights
     # if feat_size < 25:
-    #     model.load_weights("models_dumping/corr_AE_" + str(feat_size) + case + ".hdf5")
+    #     model.load_weights("models_dumping/corr_AE_" + str(feat_size) + experiment + ".hdf5")
     # else:
-    #     model.load_weights("models_dumping/new_AE_" + case + ".hdf5")
-    output_file = os.path.join(model_dir,"models_dumping/AE_" + str(feat_size) + '_' + case + ".hdf5")
+    #     model.load_weights("models_dumping/new_AE_" + experiment + ".hdf5")
+    output_file = os.path.join(output_dir,"models_dumping/AE_" + str(num_features) + '_' + experiment + ".hdf5")
     model.load_weights(output_file)
 
+    print(f'x_test.shape: {x_test.shape}, {Counter(y_test.reshape(-1,))}, experiment: {experiment}')
+    # print(f'optimal_thres_AE {optimal_thres_AE} achieved from key={key}, factor = {factor}, key = {key}')
+    print(f'--test AE on test set for {experiment} with optimal_thres_AE={thres_AE}')
+
     st = time.time()
-    data_preds = model.predict(data_test)  # data_preds equals to input data
-    print("AE Test time for ", case, " = : ", time.time() - st)
+    data_preds = model.predict(x_test)  # data_preds equals to input data
+    print("AE Test time for ", experiment, " = : ", time.time() - st)
 
     #### for test different distance.
     # # import tensorflow as tf
@@ -152,7 +166,7 @@ def test_AE(data_test, data_test_labels, data_train, case, feat_size, thres_AE=1
     #     reconstr_errors_lst.append([distance(data_preds[i], data_test[i]), data_test_labels[i]])
     # pred_arr = np.array(pred_arr)
 
-    pred_arr = distance(data_preds, data_test, axis=1)
+    pred_arr = distance(data_preds, x_test, axis=1)
     y_pred_label_AE = np.zeros((pred_arr.shape))
     y_pred_label_AE[pred_arr < thres_AE] = 1
 
@@ -171,7 +185,7 @@ def test_AE(data_test, data_test_labels, data_train, case, feat_size, thres_AE=1
     #         return probs
 
     ### change the value to probability, use min-max method.
-    probs = np.zeros([data_test.shape[0], 2])
+    probs = np.zeros([x_test.shape[0], 2])
     # pred_arr_train = distance(model.predict(data_train) , data_train, axis=1)
     scaler = MinMaxScaler().fit(pred_arr.reshape(-1, 1))
     probs[:, 1] = 1 - scaler.transform(pred_arr.reshape(-1, 1)).ravel().clip(0, 1)  # normlize to [0,1]
@@ -179,7 +193,7 @@ def test_AE(data_test, data_test_labels, data_train, case, feat_size, thres_AE=1
     y_pred_probs_AE = probs[:, 1]
 
     pred_arr = np.reshape(pred_arr, (pred_arr.shape[0], 1))
-    reconstr_errors_lst = np.concatenate([pred_arr, data_test_labels], axis=1)  # concatenate by columns
+    reconstr_errors_lst = np.concatenate([pred_arr, y_test], axis=1)  # concatenate by columns
 
     # tp, tn, fp, fn = [], [], [], []
     # tpp, tnp, fpp, fnp = [], [], [], []
