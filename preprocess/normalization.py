@@ -5,90 +5,201 @@
     several standard data normalization techniques such as min-max, softmax, z-score, decimal scaling, box-cox and etc
 """
 import os
-import pickle
-from collections import Counter
-
-import matplotlib.pyplot as plt
-import numpy as np
-from sklearn.model_selection import train_test_split
-
-from utils.csv_dataloader import csv_dataloader, open_file
 
 
-
-def normalize_all_data(train_set_dict, val_set_dict, test_sets_dict, selected_features_lst=[], norm_flg=True,
-                       norm_method='z-score',
-                       not_normalized_features_idx=[], verbose=1):
+def normalize_all_data(datasets_dict, train_set_name='SYNT_train_set', params_dict={}):
     """
      :param selected_features_lst: if -1, use all features; otherwise, selected_features_lst = [5, 8, 10]
     :param norm_method: 'z-score' or 'min-max'
-    :param not_normalized_features_idx: if [], normalized all features; otherwise, not_normalized_features_idx = [1, 3, 5]
+    :param not_normalized_features_lst: if [], normalized all features; otherwise, not_normalized_features_lst = [1, 3, 5]
     :return:
     """
 
+    train_set_dict = datasets_dict['train_set_dict']
+    val_set_dict = datasets_dict['val_set_dict']
+    test_set_dict = datasets_dict['test_set_dict']
+
     new_train_set_dict = OrderedDict()
     new_val_set_dict = OrderedDict()
-    new_test_sets_dict = OrderedDict()
+    new_test_set_dict = OrderedDict()
 
+    norm_flg = params_dict['norm_flg']
+    norm_method = params_dict['norm_method']
+    not_normalized_features_lst = params_dict['not_normalized_features_lst']
     if norm_flg:
-        print(f'if data will be normalized ?: {norm_flg}, norm_method: {norm_method}')
+        print(f'normalized data: {norm_flg}, norm_method: {norm_method}')
         if norm_method == 'z-score':
-            key='train_set'
-            x_train = train_set_dict[key]['x']
+            key = train_set_name
+            x_train = train_set_dict[key]['X']
+            print(f'-- obtain mu and std from \'{key}\'')
             new_x_train, x_train_mu, x_train_std = normalize_data_with_z_score(x_train, mu='', d_std='',
-                                                                           not_normalized_features_idx=not_normalized_features_idx)
-            new_train_set_dict.update({key:{}})
-            new_train_set_dict[key].update({'x':new_x_train})
+                                                                               not_normalized_features_lst=not_normalized_features_lst)
+            new_train_set_dict.update({key: {}})
+            new_train_set_dict[key].update({'X': new_x_train})
             new_train_set_dict[key]['y'] = train_set_dict[key]['y']
 
+            min_val = np.min(new_x_train, axis=0)  # X
+            max_val = np.max(new_x_train, axis=0)
+            range_val = (max_val - min_val)
+            print(f'after z-score, range_val:{range_val}')
+
             for key, value_dict in val_set_dict.items():
-                x_val = value_dict['x']
+                print(f'--normalize {key} with {norm_method}')
+                x_val = value_dict['X']
                 new_x_val, _, _ = normalize_data_with_z_score(x_val, mu=x_train_mu, d_std=x_train_std,
-                                                              not_normalized_features_idx=not_normalized_features_idx)
-                new_val_set_dict[key]={}
-                new_val_set_dict[key]['x'] = new_x_val
+                                                              not_normalized_features_lst=not_normalized_features_lst)
+                new_val_set_dict[key] = {}
+                new_val_set_dict[key]['X'] = new_x_val
                 new_val_set_dict[key]['y'] = value_dict['y']
 
-            for key, value_dict in test_sets_dict.items():
-                x_test = value_dict['x']
+                min_val = np.min(new_x_val, axis=0)  # X
+                max_val = np.max(new_x_val, axis=0)
+                range_val = (max_val - min_val)
+                print(f'after z-score, range_val:{range_val}')
+
+            for key, value_dict in test_set_dict.items():
+                print(f'--normalize {key} with {norm_method}')
+                x_test = value_dict['X']
                 new_x_test, _, _ = normalize_data_with_z_score(x_test, mu=x_train_mu, d_std=x_train_std,
-                                                               not_normalized_features_idx=not_normalized_features_idx)
-                new_test_sets_dict[key] = {}
-                new_test_sets_dict[key]['x'] = new_x_test
-                new_test_sets_dict[key]['y'] = value_dict['y']
+                                                               not_normalized_features_lst=not_normalized_features_lst)
+                new_test_set_dict[key] = {}
+                new_test_set_dict[key]['X'] = new_x_test
+                new_test_set_dict[key]['y'] = value_dict['y']
+
+                min_val = np.min(new_x_test, axis=0)  # X
+                max_val = np.max(new_x_test, axis=0)
+                range_val = (max_val - min_val)
+                print(f'after z-score, range_val:{range_val}')
 
         elif norm_method == 'min-max':
-            key = 'train_set'
-            x_train = train_set_dict[key]['x']
+            key = train_set_name
+            print(f'-- obtain min and max from \'{key}\'')
+            x_train = train_set_dict[key]['X']
             new_x_train, x_train_min, x_train_max = normalize_data_with_min_max(x_train, min_val='',
-                                                                            max_val='',
-                                                                            not_normalized_features_idx=not_normalized_features_idx)
+                                                                                max_val='',
+                                                                                not_normalized_features_lst=not_normalized_features_lst)
             new_train_set_dict[key] = {}
-            new_train_set_dict[key]['x'] = new_x_train
+            new_train_set_dict[key]['X'] = new_x_train
             new_train_set_dict[key]['y'] = train_set_dict[key]['y']
 
+            min_val = np.min(new_x_train, axis=0)  # X
+            max_val = np.max(new_x_train, axis=0)
+            range_val = (max_val - min_val)
+            print(f'after z-score, range_val:{range_val}')
+
             for key, value_dict in val_set_dict.items():
-                x_val = value_dict['x']
+                print(f'--normalize {key} with {norm_method}')
+                x_val = value_dict['X']
                 new_x_val, _, _ = normalize_data_with_min_max(x_val, min_val=x_train_min,
                                                               max_val=x_train_max,
-                                                              not_normalized_features_idx=not_normalized_features_idx)
-                new_val_set_dict[key]={}
-                new_val_set_dict[key]['x'] = new_x_val
+                                                              not_normalized_features_lst=not_normalized_features_lst)
+                new_val_set_dict[key] = {}
+                new_val_set_dict[key]['X'] = new_x_val
                 new_val_set_dict[key]['y'] = value_dict['y']
 
-            for key, value_dict in test_sets_dict.items():
-                x_test = value_dict['x']
+                min_val = np.min(new_x_val, axis=0)  # X
+                max_val = np.max(new_x_val, axis=0)
+                range_val = (max_val - min_val)
+                print(f'after z-score, range_val:{range_val}')
+
+            for key, value_dict in test_set_dict.items():
+                print(f'--normalize {key} with {norm_method}')
+                x_test = value_dict['X']
                 new_x_test, _, _ = normalize_data_with_min_max(x_test, min_val=x_train_min,
                                                                max_val=x_train_max,
-                                                               not_normalized_features_idx=not_normalized_features_idx)
-                new_test_sets_dict[key] = {}
-                new_test_sets_dict[key]['x'] = new_x_test
-                new_test_sets_dict[key]['y'] = value_dict['y']
+                                                               not_normalized_features_lst=not_normalized_features_lst)
+                new_test_set_dict[key] = {}
+                new_test_set_dict[key]['X'] = new_x_test
+                new_test_set_dict[key]['y'] = value_dict['y']
+
+                min_val = np.min(new_x_test, axis=0)  # X
+                max_val = np.max(new_x_test, axis=0)
+                range_val = (max_val - min_val)
+                print(f'after z-score, range_val:{range_val}')
         else:
             print(f'norm_method {norm_method} is not correct.')
             return -1
 
-        return new_train_set_dict, new_val_set_dict, new_test_sets_dict
+        return {'train_set_dict': new_train_set_dict, 'val_set_dict': new_val_set_dict,
+                'test_set_dict': new_test_set_dict}
+
+
+def normalize_data_with_min_max(data_arr, eplison=10e-4, min_val=[], max_val=[], not_normalized_features_lst=[]):
+    """
+
+    :param np_arr:
+    :param eplison: handle with 0.
+    :return:
+    """
+    if len(min_val) == 0 or len(max_val) == 0:
+        print(f'len(min_val) = {len(min_val)}, len(max_val) = {len(max_val)}')
+        min_val = np.min(data_arr, axis=0)
+        max_val = np.max(data_arr, axis=0)
+
+    range_val = (max_val - min_val)
+
+    norm_data = []
+    for i in range(data_arr.shape[1]):
+        val = data_arr[:, i]
+        if i not in not_normalized_features_lst:
+            if range_val[i] == 0.0:
+                print(f'the range of the {i}-th feature is 0.')
+                range_val[i] += eplison
+            val = (val - min_val[i]) / range_val[i]
+        norm_data.append(val)
+
+    norm_data_arr = np.asarray(norm_data, dtype=float).transpose()
+
+    before_range = (np.max(data_arr, axis=0) - np.min(data_arr, axis=0))
+    value = list(map('{:.0f}'.format, before_range))  # limit the float to int print.
+    value = [float(v) for v in value]
+    print(f'before normalization, range_val: {value}')  # f'{value:{width}.{precision}}'
+
+    if len(not_normalized_features_lst) == 0:
+        print(f'normalize all features. (because not_normalized_features_lst is {not_normalized_features_lst})')
+    else:
+        print(f'normalize all features except for {not_normalized_features_lst}')
+
+    after_range = (np.max(norm_data_arr, axis=0) - np.min(norm_data_arr, axis=0))
+    value = list(map('{:.0f}'.format, after_range))  # limit the float to int print.
+    value = [float(v) for v in value]
+    print(f'after normalization,  range_val: {value}')  # f'{value:{width}.{precision}}'
+
+    return norm_data_arr, min_val, max_val
+
+
+def normalize_data_with_z_score(data_arr, mu=[], d_std=[], eplison=10e-4, not_normalized_features_lst=[]):
+    if len(mu) == 0 or len(d_std) == 0:
+        print(f'len(mu) = {len(mu)}, len(d_std) = {len(d_std)}')
+        mu = data_arr.mean(axis=0)
+        d_std = data_arr.std(axis=0)
+
+    norm_data = []
+    for i in range(data_arr.shape[1]):
+        val = data_arr[:, i]
+        if i not in not_normalized_features_lst:
+            if d_std[i] == 0:
+                print(f'the range of the {i}-th feature is 0.')
+                d_std[i] = d_std[i] + eplison
+            val = (val - mu[i]) / d_std[i]
+        else:
+            continue
+
+        norm_data.append(val)
+
+    norm_data_arr = np.asarray(norm_data, dtype=np.float64).transpose()
+
+    before_range = (np.max(data_arr, axis=0) - np.min(data_arr, axis=0))
+    value = list(map('{:.0f}'.format, before_range))  # limit the float to int print.
+    value = [float(v) for v in value]
+    print(f'before normalization, range_val: {value}')  # f'{value:{width}.{precision}}'
+
+    after_range = (np.max(norm_data_arr, axis=0) - np.min(norm_data_arr, axis=0))
+    value = list(map('{:.0f}'.format, after_range))  # limit the float to int print.
+    value = [float(v) for v in value]
+    print(f'after normalization,  range_val: {value}')  # f'{value:{width}.{precision}}'
+
+    return norm_data_arr, mu, d_std
 
 
 def normalize_data(np_arr, eplison=10e-4):
@@ -109,43 +220,6 @@ def normalize_data(np_arr, eplison=10e-4):
     norm_data = (np_arr - min_val) / range_val
 
     return norm_data
-
-
-
-def normalize_data_with_min_max(np_arr, eplison=10e-4, min_val=[], max_val=[], not_normalized_features_idx=[]):
-    """
-
-    :param np_arr:
-    :param eplison: handle with 0.
-    :return:
-    """
-    if len(min_val) == 0 or len(max_val) == 0:
-        print(f'len(min_val) = {len(min_val)}, len(max_val) = {len(max_val)}')
-        min_val = np.min(np_arr, axis=0)
-        max_val = np.max(np_arr, axis=0)
-
-    range_val = (max_val - min_val)
-
-    if len(not_normalized_features_idx) ==0:
-        if not range_val.all():  # Returns True if all elements evaluate to True.
-            for i in range(len(range_val)):
-                if range_val[i] == 0.0:
-                    range_val[i] += eplison
-        print('range_val is ', range_val)
-        norm_data = (np_arr - min_val) / range_val
-    else:
-        norm_data=[]
-        for i in range(np_arr.shape[1]):
-            val = np_arr[:, i]
-            if i not in not_normalized_features_idx:
-                if range_val[i] == 0.0:
-                    range_val[i] += eplison
-                val = (val - min_val[i] )/ range_val[i]
-            norm_data.append(val)
-
-        norm_data = np.asarray(norm_data, dtype=float).transpose()
-
-    return norm_data, min_val, max_val
 
 
 def normalizate_data_with_sigmoid(np_arr, eplison=10e-4):
@@ -171,6 +245,7 @@ def normalizate_data_with_sigmoid(np_arr, eplison=10e-4):
 
     return norm_data
 
+
 def normalizate_data_with_u_std(np_arr, u_std_dict={'u': 0.5, 'std': 1.0}):
     """
 
@@ -185,9 +260,11 @@ def normalizate_data_with_u_std(np_arr, u_std_dict={'u': 0.5, 'std': 1.0}):
 
     return norm_data
 
+
 def split_data():
     # train_tset_split()
     pass
+
 
 from collections import OrderedDict
 
@@ -195,41 +272,6 @@ from sklearn.metrics import confusion_matrix
 
 # from utils.load_data import z_score_np
 import numpy as np
-
-
-def normalize_data_with_z_score(data_np, mu=[], d_std=[], not_normalized_features_idx=[]):
-    if len(mu) == 0 or len(d_std) == 0:
-        print(f'len(mu) = {len(mu)}, len(d_std) = {len(d_std)}')
-        mu = data_np.mean(axis=0)
-        d_std = data_np.std(axis=0)
-
-    if len(not_normalized_features_idx) == 0:
-        # avoid d_std equals 0.
-        for idx in range(d_std.shape[0]):
-            if d_std[idx] == 0:
-                print(f'the variance (std) of the {idx}-th feature is 0.')
-                d_std[idx] = d_std[idx] + np.math.exp(-8)
-        norm_data = (data_np - mu) / d_std
-
-    else:
-        norm_data = []
-        for i in range(data_np.shape[1]):
-            val = data_np[:, i]
-            if i not in not_normalized_features_idx:
-                if d_std[i] == 0:
-                    d_std[i] = d_std[i] + np.math.exp(-8)
-                val[i] = (data_np[i] - mu[i]) / d_std[i]
-            norm_data.append(val)
-
-        norm_data = np.asarray(norm_data, dtype=float).transpose()
-    min_val = np.min(data_np, axis=0)  # X
-    max_val = np.max(data_np, axis=0)
-    range_val = (max_val - min_val)
-
-    value = list(map('{:.0f}'.format, range_val))  # limit the float to int print.
-    print(f'range_val is {value}')  # f'{value:{width}.{precision}}'
-
-    return norm_data, mu, d_std
 
 
 def z_score_np_1(data_np, mu=[], d_std=[]):
@@ -262,7 +304,7 @@ def calucalate_metrics(y_true='', y_pred=''):
     :return:
     """
     conf = confusion_matrix(y_true=y_true, y_pred=y_pred)
-    print(conf)
+    print('cm:', conf)
     if len(conf) == 1:
         print(f'tpr (recall): {-1}, fnr: {-1}, fpr: {-1}, tnr: {-1}, acc: {-1}')
         # return recall, fnr, fpr, tnr, acc
@@ -347,11 +389,11 @@ def get_optimal_thres(training_losses, factor_AE_thres=2, key='loss'):
     :return:
     """
 
-    if len(training_losses[key]) >= 10:
+    if len(training_losses[key]) >= 4:
         s_thres = 0.0
-        for v in training_losses[key][-10:]:
+        for v in training_losses[key][-4:]:
             s_thres += v
-        optimal_thres_AE = s_thres / 10 * factor_AE_thres
+        optimal_thres_AE = s_thres / 4 * factor_AE_thres
     else:
         optimal_thres_AE = training_losses[key][-1] * factor_AE_thres
 
@@ -470,11 +512,11 @@ def save_roc_to_txt(out_file, all_y_test_pred_labels_dict):
         for key_test_set, value_dict in all_y_test_pred_labels_dict.items():
 
             for idx, (key_algorithm, value) in enumerate(value_dict.items()):
-                line = key_test_set +'=>'+ str(key_algorithm) + '@'
+                line = key_test_set + '=>' + str(key_algorithm) + '@'
                 if len(value) == 0:
                     print(f'key:{key}, value:{value}')
                     continue
-                y_true, y_preds_labels = value
+                y_true, y_preds_labels, y_preds_proba = value
                 y_true = np.reshape(y_true, (y_true.shape[0],))
                 for i in range(y_true.shape[0] - 1):
                     line += str(y_true[i]) + ':' + str(y_preds_labels[i]) + ','

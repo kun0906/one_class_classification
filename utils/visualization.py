@@ -1,19 +1,23 @@
 import os
 
-import numpy as np
+# import numpy as np
 from matplotlib.ticker import FormatStrFormatter
 from sklearn.utils import shuffle
 from sklearn import metrics
 
-import matplotlib.pyplot as plt
-from matplotlib import style
+# import matplotlib.pyplot as plt
+# from matplotlib import style
 from matplotlib import rcParams
 from sklearn.manifold import TSNE
 from sklearn.metrics import roc_curve
 import scikitplot as skplt
-from joblib import dump, load
+# from joblib import dump, load
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
+# from mpl_toolkits.mplot3d import Axes3D
+
+import umap
+import numpy as np
+
 
 rcParams.update({'figure.autolayout': True})
 
@@ -70,7 +74,7 @@ def plot_3d_feature_selection(input_file):
     plt.show()
 
 
-def plot_loss(train_loss, val_loss, title_flg=True, title=f'case_loss'):
+def plot_loss(train_loss='', val_loss='', out_file='', title_flg=True, title=f'case_loss'):
     fig, ax = plt.subplots()
     ax.plot(train_loss, 'r*-', label='train_loss')
     ax.plot(val_loss, 'k*-', label='val_loss')
@@ -85,8 +89,8 @@ def plot_loss(train_loss, val_loss, title_flg=True, title=f'case_loss'):
 
     # output_pre_path = os.path.split(input_file)[-1].split('.')[0]
     # out_file = output_pre_path + '_ROC.pdf'
-    # print(f'out_file:{out_file}')
-    # plt.savefig(out_file)  # should use before plt.show()
+    print(f'out_file:{out_file}')
+    plt.savefig(out_file)  # should use before plt.show()
 
     plt.show()
 
@@ -146,9 +150,56 @@ def plot1(test_label, pred_label):
         plt.show()
 
 
+def plot_roc_curve(all_results_dict={}, out_file='roc.pdf', title_flg=True, title=''):
+    """
+
+    Args:
+       all_results_dict: {'AE':{'y_true':, 'y_pred':y_pred, 'y_proba':},'PCA':(), ...}
+       out_file:
+       balance_flg:
+       title_flg:
+       title:
+
+    Returns:
+        out_file
+    """
+    # with plt.style.context(('ggplot')):
+    fig, ax = plt.subplots()
+    colors = {'AE': 'r', 'DT': 'm', 'PCA': 'C1', 'IF': 'b', 'OCSVM': 'g'}
+    for idx, (key, value_dict) in enumerate(all_results_dict.items()):
+        if key == 'DT' or len(value_dict) <= 0:
+            continue
+        y_true = value_dict['y_true']
+        y_pred = value_dict['y_pred']
+        y_proba = value_dict['y_proba']
+        if key == 'PCA':
+            lw = 4
+        else:
+            lw = 2
+        fpr, tpr, thresholds = roc_curve(y_true=y_true, y_score=y_proba,
+                                         pos_label=1)  # pos_label = 1 (y_preds should be the probabilities of y = 1),
+        # IMPORTANT: first argument is true values, second argument is predicted probabilities
+        auc = "%.5f" % metrics.auc(fpr, tpr)
+        print(f'key={key}, auc={auc}, fpr={fpr}, tpr={tpr}')
+        ax.plot(fpr, tpr, colors[key], label=key, lw=lw, alpha=1, linestyle='--')
+
+    ax.plot([0, 1], [0, 1], 'k--', label='Baseline', alpha=0.9)
+    plt.xlim([0.0, 1.0])
+    plt.ylim([0., 1.05])
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.legend(loc='lower right')
+
+    print(f'ROC:out_file:{out_file}')
+    plt.savefig(out_file)  # should use before plt.show()
+
+    if title_flg:
+        plt.title(title)
+
+    plt.show()
 
 
-def plot_roc(y_test_pred_proba_dict={}, balance_data_flg=True, title_flg=True, title=''):
+def plot_roc(y_test_pred_proba_dict={}, out_file = 'roc.pdf', balance_data_flg=True, title_flg=True, title=''):
     """
     :param y_test_pred_labels_lst: {'AE':(y_label, y_preds),'PCA':(), ...}
     :return:
@@ -157,15 +208,15 @@ def plot_roc(y_test_pred_proba_dict={}, balance_data_flg=True, title_flg=True, t
     fig, ax = plt.subplots()
     colors = {'AE': 'r', 'DT': 'm', 'PCA': 'C1', 'IF': 'b', 'OCSVM': 'g'}
     # for idx, (key, value) in enumerate(y_test_pred_labels_dict.items()):
-    for idx, (key, values) in enumerate(y_test_pred_labels_dict.items()):
+    for idx, (key, values) in enumerate(y_test_pred_proba_dict.items()):
         if key == 'DT' or len(values) <= 0:
             continue
-        (y_test, y_preds) = values
+        (y_test, y_pred_label, y_pred_proba) = values
         if key == 'PCA':
             lw = 4
         else:
             lw = 2
-        fpr, tpr, thresholds = roc_curve(y_test, y_preds,
+        fpr, tpr, thresholds = roc_curve(y_true=y_test, y_score=y_pred_proba,
                                          pos_label=1)  # pos_label = 1 (y_preds should be the probabilities of y = 1),
         # IMPORTANT: first argument is true values, second argument is predicted probabilities
         auc = "%.5f" % metrics.auc(fpr, tpr)
@@ -180,9 +231,9 @@ def plot_roc(y_test_pred_proba_dict={}, balance_data_flg=True, title_flg=True, t
     plt.ylabel('True Positive Rate')
     plt.legend(loc='lower right')
 
-    sub_dir = os.path.split(input_file)[0]
-    output_pre_path = os.path.split(input_file)[-1].split('.')[0]
-    out_file = os.path.join(sub_dir, output_pre_path + '_ROC.pdf')
+    # sub_dir = os.path.split(input_file)[0]
+    # output_pre_path = os.path.split(input_file)[-1].split('.')[0]
+    # out_file = os.path.join(sub_dir, output_pre_path + '_ROC.pdf')
     print(f'ROC:out_file:{out_file}')
     plt.savefig(out_file)  # should use before plt.show()
 
@@ -379,10 +430,11 @@ def plot_reconstruction_errors(dist_data, x_label='Reconstruction errors of norm
     # bins = np.linspace(0, max(dist_data), 100)
     if max_val == '':
         max_val = max(dist_data)
-    bins = np.linspace(0, max_val, 10)
+    bins = np.linspace(0, max_val, 40)
     fig, ax = plt.subplots()
     counts, bins, patches = ax.hist(dist_data, bins=bins, align='mid')  # facecolor='yellow', edgecolor='gray'
     # plt.hist(dist_data, bins=bins, range=[0, max_val], align='mid')  # facecolor='blue',
+    print(f'counts:{counts},\nbins:{bins},\npatches:{patches}')
 
     # Set the ticks to be at the edges of the bins.
     ax.set_xticks(bins)
@@ -435,6 +487,7 @@ def plot_reconstruction_errors(dist_data, x_label='Reconstruction errors of norm
 
     print(f'*the maximize reconstrcution error is {max(dist_data)} for {x_label} in samples\' order')
     plt.plot(range(len(dist_data)), dist_data, 'b*')
+    # print(f'x:{range(len(dist_data))},\n y:{dist_data}')
     plt.xlabel(x_label)
     plt.ylabel('reconstruction error value.')
     # plt.savefig('figures/reconstruct_loss_attack.eps', format='eps', dpi=1500)
@@ -781,6 +834,137 @@ def get_features_from_idx(sub_features_idx_lst=[0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 1
     print('result_lst:', result_lst)
 
     return result_lst
+
+
+def vis_high_dims_data_umap(X, y, output_file ='umap_result.pdf',show_label_flg=False):
+    """
+    :param X:  features
+    :param y:  labels
+    :param show_label_flg :
+    :return:
+    """
+    # res_umap=umap.UMAP(n_neighbors=5,min_dist=0.3, metric='correlation').fit_transform(X,y)
+    res_umap = umap.UMAP(n_neighbors=40, min_dist=0.9, metric='correlation', random_state=42).fit_transform(X, y)
+
+    if not show_label_flg:
+        # plt.figure(figsize=(10, 5))
+        fig, ax = plt.subplots(figsize=(12, 7))
+        # plt.setp(ax, xticks=[], yticks=[])
+
+        cax = plt.scatter(res_umap[:, 0], res_umap[:, 1], c=y, cmap=plt.cm.get_cmap("jet", 5), alpha=0.4)
+        # cbar = fig.colorbar(mappable=cax, ax=ax, orientation='horizontal')
+        cbar = fig.colorbar(mappable=cax, ax=ax)
+        cbar.set_ticks([0, 1, 2, 3, 4 ])
+        # cbar.set_ticklabels(
+        #     ['Google', 'Twitter', 'Outlook', 'Youtube', 'Github', 'Facebook', 'Slack', 'Bing'])  # horizontal colorbar
+        cbar.set_ticklabels(
+            ['attack_1', 'attack_2', 'attack_3', 'attack_4', 'normal'])  # horizontal colorbar
+        # new8 = {0:'google',1:'twitter',2:'outlook',3:'youtube',4:'github',5:'facebook',6:'slack',7:'bing'}
+        plt.setp(ax, xticks=[], yticks=[])
+        # plt.title('umap results')
+        plt.savefig(output_file)
+        plt.show()
+    else:
+        # todo
+        pass
+        # plot_with_labels(X, y, res_umap, "UMAP", min_dist=2.0)
+
+#
+# np.random.seed(42)
+# from sklearn.preprocessing import StandardScaler
+#
+# input_file = '../input_data/newapp_10220_pt.npy'
+# X, Y = get_data_from_file(input_file)
+# ss = StandardScaler()
+# X = ss.fit_transform(X)
+# vis_high_dims_data_umap(X, Y)
+#
+
+
+def plot_umap(case='uSc1C1_20_14', input_dir="input_data/dataset", label_dict={'norm': 1, 'attack': 0}):
+    """Display the results obtained by umap
+
+    Args:
+        case: dataset needs need to be analyzed.
+        input_dir:
+        label_dict:
+
+    Returns:
+        figure that includes the result
+    """
+    if case[3] == '1':  # Experiment 1
+        if case[5] == '1':  # training and testing on SYNT (simulated data)
+            ### all norm data
+            input_file = os.path.join(input_dir, "synthetic_dataset/Sess_normal_0.txt")
+            norm_dict = load_data_from_txt(input_file=input_file, data_range=(0, 77989), label=label_dict['norm'])
+
+            ### all attack data
+            input_file = os.path.join(input_dir, "synthetic_dataset/Sess_DDoS_Excessive_GET_POST.txt")
+            attack_11_dict = load_data_from_txt(input_file=input_file, data_range=(0, 36000),
+                                                label=label_dict['attack'])
+
+            input_file = os.path.join(input_dir, "synthetic_dataset/Sess_DDoS_Recursive_GET.dms")
+            attack_12_dict = load_data_from_txt(input_file=input_file, data_range=(0, 37000),
+                                                label=label_dict['attack'])
+
+            input_file = os.path.join(input_dir, "synthetic_dataset/Sess_DDoS_Slow_POST_Two_Arm_HTTP_server_wait.dms")
+            attack_13_dict = load_data_from_txt(input_file=input_file, data_range=(0, 243), label=label_dict['attack'])
+
+            input_file = os.path.join(input_dir, "synthetic_dataset/Sess_DDoS_SlowLoris_Two_Arm_HTTP_server_wait.dms")
+            attack_14_dict = load_data_from_txt(input_file=input_file, data_range=(0, 1000), label=label_dict['attack'])
+
+            attack_dict_lst = [attack_11_dict, attack_12_dict, attack_13_dict, attack_14_dict]
+
+            name = 'SYNT'
+
+        elif case[5] == '2':  # training and testing on unb
+            ### all norm data
+            input_file = os.path.join(input_dir, "unb/Normal_UNB.txt")
+            norm_dict = load_data_from_txt(input_file=input_file, data_range=(0, 59832), label=label_dict['norm'])
+
+            ### all attack data
+            input_file = os.path.join(input_dir, "unb/DoSHulk_UNB.txt")
+            attack_21_dict = load_data_from_txt(input_file=input_file, data_range=(0, 11530),
+                                                label=label_dict['attack'])
+
+            input_file = input_file = os.path.join(input_dir, "unb/DOSSlowHttpTest_UNB.txt")
+            attack_22_dict = load_data_from_txt(input_file=input_file, data_range=(0, 6414), label=label_dict['attack'])
+
+            input_file = os.path.join(input_dir, "unb/UNB_DosGoldenEye_UNB_IDS2017.txt")
+            attack_23_dict = load_data_from_txt(input_file=input_file, data_range=(0, 1268), label=label_dict['attack'])
+
+            input_file = input_file = os.path.join(input_dir, "unb/UNB_DoSSlowloris_UNB_IDS2017.txt")
+            attack_24_dict = load_data_from_txt(input_file=input_file, data_range=(0, 16741),
+                                                label=label_dict['attack'])
+
+            attack_dict_lst = [attack_21_dict, attack_22_dict, attack_23_dict, attack_24_dict]
+            name = 'UNB'
+        else:
+            print(f'{case} is not implemented.')
+            return -1
+
+        # normal='1', attack = '2,3,4,5'
+        attack_dict_lst.append(norm_dict)
+        for idx, value_dict in enumerate(attack_dict_lst):
+            balance_size = 1000
+            if len(value_dict['y']) < balance_size:
+                balance_size = len(value_dict['y'])
+            if idx == 0:
+                x = value_dict['x'][:balance_size, :]
+                y = np.ones(balance_size) * (idx)
+            else:
+                x = np.concatenate((x, value_dict['x'][:balance_size, :]), axis=0)
+                y = np.concatenate((y, np.ones(balance_size) * (idx)), axis=0)
+
+        print('attack=[0,1,2,3], normal=[4]\n', OrderedDict(Counter(y)))
+        print('please do standardscaler before calling umap')
+        ss = StandardScaler()
+        x = ss.fit_transform(x)
+        output_file = f'output_data/figures/{case}_umap.pdf'
+        print(f'output_file:{output_file}')
+        vis_high_dims_data_umap(x, y, output_file=output_file)
+
+    return output_file
 
 
 if __name__ == '__main__':

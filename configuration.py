@@ -1,10 +1,61 @@
 """
-    includes all the configuration and some constants.
+    Purpose:
+        includes all the configuration and some constants.
+
+    python naming Conventions:   https://visualgit.readthedocs.io/en/latest/pages/naming_convention.html
+        1) Constant names must be fully capitalized
+        2) Class names should follow the UpperCaseCamelCase convention
+        3) Package names should be all lower case. It is usually preferable to stick to 1 word names
+        4) Module names should be all lower case. It is usually preferable to stick to 1 word names
+        5) Function names should be all lower case
+
+    Note:
+        1) Avoid using names that are too general or too wordy. Strike a good balance between the two
+        2) Use comments and doc strings for description of what is going on, not variable names
 
 """
-#
-# global random_state, norm_flg, test_size, Epochs, batch_size, h_dim, latent_dim, find_optimal_thres_flg, \
-#     optimal_thres_AE, factor_thres_AE,analyize_features_flg, sub_features_lst, feature_selection_experiment_flg
+
+### all the parameters used.
+
+params_dict = {
+    ### Unsupervised machine learning algorithms.
+    'AE': {'Epochs': 50,
+           'batch_size': 32,
+           'h_dim': 24,  # the number of neurons of each hidden layer
+           'latent_dim': 16,  # the number of neurons of latent layer.
+           'find_optimal_thres_flg': True,  # use the average training loss of the last 4 Epochs
+           # false: use the given optimal_thres_AE, otherwise, find the optimal one by using training loss.
+           'optimal_AE_thres': 0.8,  # the val will be changed from train, training_loss * factor: factor =10,
+           'factor_AE_thres': 5  # optimal_AE_thres= training_loss * factor: factor = 10,
+           },
+
+    'PCA': {},
+    'OCSVM': {},
+    'IF': {},
+
+    ### Supervised machine learning algorithms.
+    'DT': {},
+    'balance_data_flg': False,  # for DT training
+
+    ### common parameters for all algorithms.
+    'input_dir': "input_data/dataset",
+    'output_dir': "output_data",
+    'norm_flg': True,  # normlize the data.
+    'norm_method': 'z-score',  # 'z-score' or 'min-max'
+    'test_set_percent': 0.2,  # train and test ratio.
+    'random_state': 42,
+    'show_flg': True,
+
+    # 'sub_features_flg': False,  # if using the selected features to conduct experiments.
+    'selected_features_lst': [],  # the selected features:[6, 7, 8, 10]
+    'analyze_feature_flg': False,  # True: do feature selection.
+    'feature_experiment_flg': False,  # True, conduct experiment on different features.
+    'not_normalized_features_lst': [0,1],  # tcp and udp with one hot encoding, these features no need to normalize.
+
+    'verbose': True,  # print all the information.
+    'title_flg': True,  # if the figures have the title or not.
+
+}
 
 """
    Step 1.  random control in order to achieve reproductive results
@@ -14,7 +65,7 @@
 
 # Seed value
 # Apparently you may use different seed values at each stage
-random_state = 42
+random_state = params_dict['random_state']
 
 # 1. Set the `PYTHONHASHSEED` environment variable at a fixed value
 import os
@@ -68,86 +119,8 @@ sys.stdout.flush()
 #
 
 #
-# """
-#     Step 3.
-# """
-# input_dir = "input_data/dataset"
-# output_dir = "output_data"
-# norm_flg = True  # normlize the data.
-# norm_method = 'z-score'  # 'z-score' or 'min-max'
-# test_size = 0.2  # train and test ratio.
-# sub_features_flg = False  # if using the selected features to conduct experiments.
-# sub_features_lst = [6, 7, 8, 10]  # the selected features
-# analyize_features_flg = True  # True: do feature selection.
-# feature_selection_experiment_flg = False  # True, conduct experiment on different features.
-# not_normalized_features_idx = []  # tcp and udp with one hot encoding, these features no need to normalize.
-#
-# """
-#    Step 4.  neural network configuration
-# """
-#
-# Epochs = 1
-# batch_size = 32
-# h_dim = 16  # the number of neurons of each hidden layer
-# latent_dim = 8  # the number of neurons of latent layer.
-#
-# find_optimal_thres_flg = False  # false: use the given optimal_thres_AE, otherwise, find the optimal one by using training loss.
-# optimal_AE_thres = 0.95  # the val will be changed from train, training_loss * factor: factor =10,
-# factor_AE_thres = 35  # optimal_AE_thres= training_loss * factor: factor = 10,
-#
-# """
-#
-# """
-# verbose = True  # print all the information.
-# show_flg = True  # plot the results
-# title_flg = True  # if the figures have the title or not.
-# balance_train_set_flg = True  # for DT training
-#
-
-#
 # class Parameters():
 #
 #     def __init__(self):
 #        all the parameters ...
 #        ...
-
-
-params_dict = {
-    ### Unsupervised machine learning algorithms.
-    'AE': {'Epochs': 1,
-           'batch_size': 32,
-           'h_dim': 16,  # the number of neurons of each hidden layer
-           'latent_dim': 8,  # the number of neurons of latent layer.
-           'find_optimal_thres_flg': False,
-           # false: use the given optimal_thres_AE, otherwise, find the optimal one by using training loss.
-           'optimal_AE_thres': 0.95,  # the val will be changed from train, training_loss * factor: factor =10,
-           'factor_AE_thres': 35  # optimal_AE_thres= training_loss * factor: factor = 10,
-           },
-
-    'PCA': {},
-    'OCSVM': {},
-    'IF': {},
-
-    ### Supervised machine learning algorithms.
-    'DT': {},
-    'balance_data_flg':True,  # for DT training
-
-    ### common parameters for all algorithms.
-    'input_dir': "input_data/dataset",
-    'output_dir': "output_data",
-    'norm_flg': True,  # normlize the data.
-    'norm_method': 'z-score',  # 'z-score' or 'min-max'
-    'test_size_percent': 0.2,  # train and test ratio.
-    'random_state': 42,
-    'show_flg': True,
-
-    'sub_features_flg': False,  # if using the selected features to conduct experiments.
-    'sub_features_lst': [6, 7, 8, 10],  # the selected features
-    'analyize_features_flg': True,  # True: do feature selection.
-    'feature_selection_experiment_flg': False,  # True, conduct experiment on different features.
-    'not_normalized_features_idx': []  # tcp and udp with one hot encoding, these features no need to normalize.
-
-    'verbose':True,  # print all the information.
-    'title_flg':True,  # if the figures have the title or not.
-
-}
