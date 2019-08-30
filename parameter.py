@@ -40,7 +40,7 @@ class Configuration():
 
     def __init__(self):
         ### Unsupervised machine learning algorithms.
-        self.AE_params_dict = {'Epochs': 2,
+        self.AE_params_dict = {'Epochs': 50,
                                'batch_size': 32,
                                'h_dim': 24,  # the number of neurons of each hidden layer
                                'latent_dim': 16,  # the number of neurons of latent layer.
@@ -64,7 +64,7 @@ class Configuration():
         self.input_dir = 'input_data/dataset'
         self.output_dir = 'output_data'
         self.norm_flg = True  # normlize the data
-        self.norm_method = 'min-max'  # 'z-score' or 'min-max'
+        self.norm_method = 'z-score'  # 'z-score' or 'min-max'
         self.test_set_percent: 0.2  # train and test ratio
         self.random_state = 42
         self.show_flg = True  # show figure
@@ -73,7 +73,7 @@ class Configuration():
 
         # if features_lst ==[], using all features to conduct experiment.
         #  Otherwise, using the given features (such as features_lst = [6, 7, 8, 10]) to conduct experiment
-        self.features_lst = [2,3]
+        self.features_lst = []
 
         self.analyze_features_flg = False  # True: do feature selection
         # self.feature_experiment_flg = False  # True, conduct experiment on different features
@@ -130,7 +130,7 @@ params_dict = {
     'input_dir': "input_data/dataset",
     'output_dir': "output_data",
     'norm_flg': True,  # normlize the data.
-    'norm_method': 'min-max',  # 'z-score' or 'min-max'
+    'norm_method': 'z-score',  # 'z-score' or 'min-max'
     'test_set_percent': 0.2,  # train and test ratio.
     'random_state': 42,
     'show_flg': True,

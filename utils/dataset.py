@@ -502,7 +502,7 @@ def get_experiment_datasets(case='', norm_dict={}, attack_dict_lst={}):
         train_set_dict, val_set_dict, test_set_dict = get_each_dataset_for_experiment_1(norm_dict=norm_dict,
                                                                                         attack_dict_lst=attack_dict_lst,
                                                                                         name=name,
-                                                                                        insert_attack_percent=0.01,
+                                                                                        insert_attack_percent=0.00,
                                                                                         test_set_percent=0.2,
                                                                                         shuffle_flg=False,
                                                                                         random_state=42)
@@ -528,6 +528,24 @@ def data_print(X_train_mu):
     return [float(v) for v in X_train_mu]
 
 
+def data_stat(X='', y=None, check_idx=[1, 2, 3]):
+    X_stat = {}
+    for idx in range(X.shape[1]):
+        if idx not in X_stat.keys():
+            X_stat[idx] = {}
+        X_stat[idx] = Counter(X[:, idx])
+        if idx in check_idx:
+            print(f'{idx}:{Counter(X[:, idx])}')
+
+    try:
+        y_stat = Counter(y)
+        print(f'X_stat: {data_stat}, y_stat: {y_stat}')
+    except:
+        print(f'X_stat: {data_stat}, y_stat: {y}')
+
+    return X_stat
+
+
 class Dataset():
 
     def __init__(self, case='experiment_1', input_dir='',
@@ -543,6 +561,27 @@ class Dataset():
         self.datasets_dict = get_experiment_datasets(case=self.case, norm_dict=self.norm_dict,
                                                      attack_dict_lst=self.attack_dict_lst)
 
+    def datasets_stat(self):
+        if self.case[5] == '1':  # SYNT
+            name = 'SYNT'
+        elif self.case[5] == '2':  # UNB
+            name = 'UNB'
+        elif self.case[5] == '3':  # MAWI
+            name = 'MAWI'
+        else:
+            pass
+
+        for idx, (data_key, value_dict) in enumerate(self.datasets_dict.items()):
+            for i, (sub_key, value) in enumerate(value_dict.items()):
+                print(f'idx:{idx}, {data_key}:{sub_key}')
+                X = self.datasets_dict[data_key][sub_key]['X']
+                y = self.datasets_dict[data_key][sub_key]['y']
+                v_stat_dict = data_stat(X=X, y=y)
+
+                # for j, (i_th, v_th) in enumerate(v_stat_dict.items()):
+                #     print(f'{i_th}:{v_th}')
+
+
     def normalize_data(self, norm_method='z-score', train_set_key='SYNT', not_normalized_features_lst=[]):
 
         train_set_key = train_set_key + '_train_set'
@@ -552,14 +591,15 @@ class Dataset():
         val_set_dict = self.datasets_dict['val_set_dict']
         test_set_dict = self.datasets_dict['test_set_dict']
 
-        new_train_set_dict = OrderedDict()
-        new_val_set_dict = OrderedDict()
-        new_test_set_dict = OrderedDict()
+        new_train_set_dict = {}
+        new_val_set_dict = {}
+        new_test_set_dict = {}
 
         if norm_method == 'z-score':
             X_train = train_set_dict[train_set_key]['X']
-            new_X_train, X_train_mu, X_train_std = normalize_data_with_z_score(X_train, mu='', d_std='',
-                                                                               not_normalized_features_lst=not_normalized_features_lst)
+            new_X_train, scaler, X_train_mu, X_train_std = normalize_data_with_z_score(X_train, scaler='', mu='',
+                                                                                       d_std='',
+                                                                                       not_normalized_features_lst=not_normalized_features_lst)
             print(f'--mu and std obtained from \'{train_set_key}\', in which,\nX_train_mu:{data_print(X_train_mu)},\n'
                   f'X_train_std:{data_print(X_train_std)}')
             new_train_set_dict.update({train_set_key: {}})
@@ -571,8 +611,8 @@ class Dataset():
                     f'\n--normalize {key} with {norm_method} and parameters (mu and std) obtained from {train_set_key},'
                     f'in which,\nX_train_mu:{data_print(X_train_mu)},\nX_train_std:{data_print(X_train_std)}')
                 x_val = value_dict['X']
-                new_x_val, _, _ = normalize_data_with_z_score(x_val, mu=X_train_mu, d_std=X_train_std,
-                                                              not_normalized_features_lst=not_normalized_features_lst)
+                new_x_val, _, _, _ = normalize_data_with_z_score(x_val, scaler=scaler, mu=X_train_mu, d_std=X_train_std,
+                                                                 not_normalized_features_lst=not_normalized_features_lst)
                 new_val_set_dict[key] = {}
                 new_val_set_dict[key]['X'] = new_x_val
                 new_val_set_dict[key]['y'] = value_dict['y']
@@ -582,17 +622,18 @@ class Dataset():
                     f'\n--normalize {key} with {norm_method} and parameters (mu and std) obtained from {train_set_key}, '
                     f'in which,\nX_train_mu:{data_print(X_train_mu)},\nX_train_std:{data_print(X_train_std)}')
                 x_test = value_dict['X']
-                new_x_test, _, _ = normalize_data_with_z_score(x_test, mu=X_train_mu, d_std=X_train_std,
-                                                               not_normalized_features_lst=not_normalized_features_lst)
+                new_x_test, _, _, _ = normalize_data_with_z_score(x_test, scaler=scaler, mu=X_train_mu,
+                                                                  d_std=X_train_std,
+                                                                  not_normalized_features_lst=not_normalized_features_lst)
                 new_test_set_dict[key] = {}
                 new_test_set_dict[key]['X'] = new_x_test
                 new_test_set_dict[key]['y'] = value_dict['y']
 
         elif norm_method == 'min-max':
             X_train = train_set_dict[train_set_key]['X']
-            new_X_train, X_train_min, X_train_max = normalize_data_with_min_max(X_train, min_val='',
-                                                                                max_val='',
-                                                                                not_normalized_features_lst=not_normalized_features_lst)
+            new_X_train, scaler, X_train_min, X_train_max = normalize_data_with_min_max(X_train, scaler='', min_val='',
+                                                                                        max_val='',
+                                                                                        not_normalized_features_lst=not_normalized_features_lst)
             print(f'--min and max obtained from \'{train_set_key}\', '
                   f'in which,\nX_train_min:{data_print(X_train_min)},\nX_train_max:{data_print(X_train_max)}')
             new_train_set_dict[train_set_key] = {}
@@ -604,9 +645,9 @@ class Dataset():
                     f'\n--normalize {key} with {norm_method} and parameters (min and max) obtained from {train_set_key}, '
                     f'in which,\nX_train_min:{data_print(X_train_min)},\nX_train_max:{data_print(X_train_max)}')
                 x_val = value_dict['X']
-                new_x_val, _, _ = normalize_data_with_min_max(x_val, min_val=X_train_min,
-                                                              max_val=X_train_max,
-                                                              not_normalized_features_lst=not_normalized_features_lst)
+                new_x_val, _, _, _ = normalize_data_with_min_max(x_val, scaler=scaler, min_val=X_train_min,
+                                                                 max_val=X_train_max,
+                                                                 not_normalized_features_lst=not_normalized_features_lst)
                 new_val_set_dict[key] = {}
                 new_val_set_dict[key]['X'] = new_x_val
                 new_val_set_dict[key]['y'] = value_dict['y']
@@ -616,9 +657,9 @@ class Dataset():
                     f'\n--normalize {key} with {norm_method} and parameters (min and max) obtained from {train_set_key}, '
                     f'in which,\nX_train_min:{data_print(X_train_min)},\nX_train_max:{data_print(X_train_max)}')
                 x_test = value_dict['X']
-                new_x_test, _, _ = normalize_data_with_min_max(x_test, min_val=X_train_min,
-                                                               max_val=X_train_max,
-                                                               not_normalized_features_lst=not_normalized_features_lst)
+                new_x_test, _, _, _ = normalize_data_with_min_max(x_test, scaler=scaler, min_val=X_train_min,
+                                                                  max_val=X_train_max,
+                                                                  not_normalized_features_lst=not_normalized_features_lst)
                 new_test_set_dict[key] = {}
                 new_test_set_dict[key]['X'] = new_x_test
                 new_test_set_dict[key]['y'] = value_dict['y']
@@ -626,8 +667,11 @@ class Dataset():
             print(f'norm_method {norm_method} is not correct.')
             return -1
 
-        return {'train_set_dict': new_train_set_dict, 'val_set_dict': new_val_set_dict,
-                'test_set_dict': new_test_set_dict}
+        self.datasets_dict['train_set_dict'] = new_train_set_dict
+        self.datasets_dict['val_set_dict'] = new_val_set_dict
+        self.datasets_dict['test_set_dict'] = new_test_set_dict
+        # return {'train_set_dict': new_train_set_dict, 'val_set_dict': new_val_set_dict,
+        #         'test_set_dict': new_test_set_dict}
 
     def selected_sub_features(self, features_lst=[]):
 

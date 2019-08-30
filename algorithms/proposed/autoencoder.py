@@ -123,6 +123,49 @@ class AutoencoderClass(BaseDetector):
         #                                             random_state=self.random_state,
         #                                             title_flg=self.title_flg, title=title)
 
+    def test_different_thres(self, X, y=None, test_set_name='', thres_lst=[]):
+
+        X_test = X
+        y_test = y
+        print(f'X_test.shape:{X_test.shape}, y_test:{Counter(y_test.reshape(-1,))}')
+        res_metrics_lst = {'tpr': [], 'fnr': [], 'fpr': [], 'tnr': [], 'acc': []}
+        for i, thres in enumerate(thres_lst):
+            print(f'idx: {i} AE thres: {thres}')
+
+            # print(f'thres: {thres}')
+            X_pred = self.model.predict(x=X_test, batch_size=self.batch_size)  # data_preds equals to input data
+            # pred_arr_0 = distance(y_pred=X_pred, y_true=X_test, axis=1)   # euclidean_distance_loss.
+            pred_error_arr = K.eval(
+                euclidean_distance_loss(y_true=X_test, y_pred=X_pred, axis=1))  # calculated by columuns when asix = 1
+            # assert pred_arr == pred_arr_0  # a.all() or a.any()
+
+            y_pred = np.zeros(shape=(len(y_test),))
+            y_pred[pred_error_arr < thres] = 1  # predicted label.  1 means normal in our code.
+
+            # ### change the value to probability, use min-max method.
+            # probs = np.zeros([X_test.shape[0], 2])
+            # scaler = MinMaxScaler().fit(pred_error_arr.reshape(-1, 1))
+            # value = scaler.transform(pred_error_arr.reshape(-1, 1)).ravel().clip(0,
+            #                                                                      1)  # normlize to [0,1]. Smaller the value is, more probability the normal is
+            # probs[:, 1] = 1 - value  # the probability of the sample are predicted as normal
+            # probs[:, 0] = 1 - probs[:, 1]
+            # y_proba = probs[:, 1]  # the probability of the sample are predicted as normal
+            #
+            # ###  reconstr_erros_arr is used for plot figures of reconstr_errors of normal and attack sampels.
+            # reconstr_errors_arr = np.concatenate([y_test.reshape(-1, 1), pred_error_arr.reshape(-1, 1)],
+            #                                           axis=1)  # concatenate by columns
+
+            tpr, fnr, fpr, tnr, acc = calucalate_metrics(y_true=y_test,
+                                                         y_pred=y_pred)  # call confusion_matrix(y_true=y_test, y_pred=self.y_pred)
+
+            res_metrics_lst['tpr'].append(float(tpr))
+            res_metrics_lst['fnr'].append(float(fnr))
+            res_metrics_lst['fpr'].append(float(fpr))
+            res_metrics_lst['tnr'].append(float(tpr))
+            res_metrics_lst['acc'].append(float(acc))
+        plot_different_thres(thres_lst=thres_lst, res_metrics_lst=res_metrics_lst)
+
+
     def find_optimal_thres(self, X='', y=None, data_set_name=''):
 
         X_train = X
@@ -185,6 +228,51 @@ class AutoencoderClass(BaseDetector):
         print(f'load mode_file: {self.model_file}')
         # returns a compiled model identical to the previous one
         self.model = load_model(self.model_file)
+
+
+def plot_different_thres(thres_lst='', res_metrics_lst={}, output_file='_different_AE_thres.pdf', only_FPR_flg=False,
+                         title_flg=True, title=''):
+    import matplotlib.pyplot as plt
+    fig, ax = plt.subplots()
+
+    if only_FPR_flg:
+        ax.plot(thres_lst, res_metrics_lst['fpr'], 'r*-', label='FPR')
+        # plt.xlim([0.0, 1.0])
+        # plt.ylim([0.0, 1.05])
+        plt.xlabel('Reconstruction errors')
+        plt.ylabel('False Positive Rate')
+        # plt.legend(loc='upper right')
+        # plt.title(title)
+
+        # sub_dir = os.path.split(input_file)[0]
+        # output_pre_path = os.path.split(input_file)[-1].split('.')[0]
+        # out_file = os.path.join(sub_dir, output_pre_path + '_AE_thres_for_paper.pdf')
+        print(f'AE_thres: out_file:{output_file}')
+        plt.savefig(output_file)  # should use before plt.show()
+
+    else:
+        ax.plot(thres_lst, res_metrics_lst['fpr'], 'r*-', label='FPR')
+        ax.plot(thres_lst, res_metrics_lst['fnr'], 'b*-', label='FNR')
+        # ax.plot(thres_lst, res_metrics_lst['tpr'], 'g*-', label='TPR')
+        # ax.plot(thres_lst, res_metrics_lst['tnr'], 'c*-', label='TNR')
+        # plt.xlim([0.0, 1.0])
+        # plt.ylim([0.0, 1.05])
+        plt.xlabel('AE Thresholds')
+        plt.ylabel('Rate')
+        plt.legend(loc='upper right')
+        # plt.title(title)
+
+        # sub_dir = os.path.split(input_file)[0]
+        # output_pre_path = os.path.split(input_file)[-1].split('.')[0]
+        # out_file = os.path.join(sub_dir, output_pre_path + '_AE_thres.pdf')
+        print(f'AE_thres: out_file:{output_file}')
+        plt.savefig(output_file)  # should use before plt.show()
+
+    if title_flg:
+        plt.title(title)
+
+    plt.show()
+
 
 
 def create_autoencoder(in_dim='', AE_params_dict=''):

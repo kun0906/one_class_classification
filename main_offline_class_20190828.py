@@ -15,6 +15,7 @@ from preprocess.normalization import save_roc_to_txt
 from utils.balance import balance_dict, concat_path
 from utils.dataset import Dataset
 from utils.visualization import plot_roc_curve
+import numpy as np
 
 
 def conduct_experiment_with_feature_selection(sub_experiment='', datasets_dict='datasets_dict', params_dict=''):
@@ -97,10 +98,11 @@ def main():
     conf_inst = Configuration()  # return an instance or object of Configuration class.
     print(f'All parameters used: {conf_inst}')
 
-    dataset_key = 'SYNT'
+    dataset_key = 'UNB'
     case = conf_inst.experiments_dict['experiment_1'][dataset_key]
     datasets_inst = Dataset(case=case, input_dir=conf_inst.input_dir,
                             random_state=conf_inst.random_state)
+    datasets_inst.datasets_stat()
 
     datasets_inst.selected_sub_features(features_lst=conf_inst.features_lst)
     if conf_inst.norm_flg:
@@ -128,6 +130,12 @@ def main():
         print(f'test {AE_inst.alg_name} on {key} with AE_thres: {AE_inst.thres_AE}')
         X_test, y_test = value_dict['X'], value_dict['y']
         test_set_name= key
+
+        different_thres_fnr_fpr_flg = True
+        if different_thres_fnr_fpr_flg:
+            thres_lst = np.linspace(0, 3, 10)
+            AE_inst.test_different_thres(X=X_test, y=y_test, thres_lst=thres_lst)
+
         if conf_inst.balance_flg:
             print(f'--balance \'{test_set_name}\'')
             value_dict = {'X': X_test, 'y': y_test}
@@ -136,6 +144,7 @@ def main():
             y_test = value_dict['y']
 
         AE_inst.test(X=X_test, y=y_test)
+
         if key not in all_results_dict.keys():
             all_results_dict[key]={}
         all_results_dict[key]['AE'] = {'y_true':y_test, 'y_pred': AE_inst.y_pred, 'y_proba': AE_inst.y_proba,

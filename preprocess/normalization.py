@@ -6,6 +6,8 @@
 """
 import os
 
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+
 
 def normalize_all_data(datasets_dict, train_set_name='SYNT_train_set', params_dict={}):
     """
@@ -124,7 +126,8 @@ def normalize_all_data(datasets_dict, train_set_name='SYNT_train_set', params_di
                 'test_set_dict': new_test_set_dict}
 
 
-def normalize_data_with_min_max(data_arr, eplison=10e-4, min_val=[], max_val=[], not_normalized_features_lst=[]):
+def normalize_data_with_min_max(data_arr, scaler='', eplison=1e-4, min_val=[], max_val=[],
+                                not_normalized_features_lst=[]):
     """
 
     :param np_arr:
@@ -135,20 +138,23 @@ def normalize_data_with_min_max(data_arr, eplison=10e-4, min_val=[], max_val=[],
         print(f'len(min_val) = {len(min_val)}, len(max_val) = {len(max_val)}')
         min_val = np.min(data_arr, axis=0)
         max_val = np.max(data_arr, axis=0)
+        scaler = MinMaxScaler()
+        scaler.fit(data_arr)
 
-    range_val = (max_val - min_val)
+    norm_data_arr = scaler.transform(X=data_arr)
+    # range_val = (max_val - min_val)
 
-    norm_data = []
-    for i in range(data_arr.shape[1]):
-        val = data_arr[:, i]
-        if i not in not_normalized_features_lst:
-            if range_val[i] == 0.0:
-                print(f'the range of the {i}-th feature is 0.')
-                range_val[i] += eplison
-            val = (val - min_val[i]) / range_val[i]
-        norm_data.append(val)
-
-    norm_data_arr = np.asarray(norm_data, dtype=float).transpose()
+    # norm_data = []
+    # for i in range(data_arr.shape[1]):
+    #     val = data_arr[:, i]
+    #     if i not in not_normalized_features_lst:
+    #         if range_val[i] == 0.0:
+    #             print(f'the range of the {i}-th feature is 0.')
+    #             range_val[i] += eplison
+    #         val = (val - min_val[i]) / range_val[i]
+    #     norm_data.append(val)
+    #
+    # norm_data_arr = np.asarray(norm_data, dtype=float).transpose()
 
     before_range = (np.max(data_arr, axis=0) - np.min(data_arr, axis=0))
     value = list(map('{:.0f}'.format, before_range))  # limit the float to int print.
@@ -165,41 +171,45 @@ def normalize_data_with_min_max(data_arr, eplison=10e-4, min_val=[], max_val=[],
     value = [float(v) for v in value]
     print(f'after normalization,  range_val: {value}')  # f'{value:{width}.{precision}}'
 
-    return norm_data_arr, min_val, max_val
+    return norm_data_arr, scaler, min_val, max_val
 
 
-def normalize_data_with_z_score(data_arr, mu=[], d_std=[], eplison=10e-4, not_normalized_features_lst=[]):
+def normalize_data_with_z_score(data_arr, scaler='', mu=[], d_std=[], eplison=1e-4, not_normalized_features_lst=[]):
     if len(mu) == 0 or len(d_std) == 0:
         print(f'len(mu) = {len(mu)}, len(d_std) = {len(d_std)}')
-        mu = data_arr.mean(axis=0)
-        d_std = data_arr.std(axis=0)
+        # mu = data_arr.mean(axis=0)
+        # d_std = data_arr.std(axis=0)
+        scaler = StandardScaler()
+        scaler.fit(X=data_arr)
+        mu = scaler.mean_
+        d_std = np.sqrt(scaler.var_)
 
-    norm_data = []
-    for i in range(data_arr.shape[1]):
-        val = data_arr[:, i]
-        if i not in not_normalized_features_lst:
-            if d_std[i] == 0:
-                print(f'the range of the {i}-th feature is 0.')
-                d_std[i] = d_std[i] + eplison
-            val = (val - mu[i]) / d_std[i]
-        else:
-            continue
+    norm_data_arr = scaler.transform(X=data_arr)
 
-        norm_data.append(val)
-
-    norm_data_arr = np.asarray(norm_data, dtype=np.float64).transpose()
+    #
+    # norm_data = []
+    # for i in range(data_arr.shape[1]):
+    #     val = data_arr[:, i]
+    #     if i not in not_normalized_features_lst:
+    #         if d_std[i] == 0:
+    #             print(f'the range of the {i}-th feature is 0.')
+    #             d_std[i] = d_std[i] + eplison
+    #         val = (val - mu[i]) / d_std[i]
+    #     norm_data.append(val)
+    #
+    # norm_data_arr = np.asarray(norm_data, dtype=np.float64).transpose()
 
     before_range = (np.max(data_arr, axis=0) - np.min(data_arr, axis=0))
     value = list(map('{:.0f}'.format, before_range))  # limit the float to int print.
     value = [float(v) for v in value]
-    print(f'before normalization, range_val: {value}')  # f'{value:{width}.{precision}}'
+    print(f'before normalization, range_val ({len(value)}): {value}')  # f'{value:{width}.{precision}}'
 
     after_range = (np.max(norm_data_arr, axis=0) - np.min(norm_data_arr, axis=0))
     value = list(map('{:.0f}'.format, after_range))  # limit the float to int print.
     value = [float(v) for v in value]
-    print(f'after normalization,  range_val: {value}')  # f'{value:{width}.{precision}}'
+    print(f'after normalization,  range_val ({len(value)}): {value}')  # f'{value:{width}.{precision}}'
 
-    return norm_data_arr, mu, d_std
+    return norm_data_arr, scaler, mu, d_std
 
 
 def normalize_data(np_arr, eplison=10e-4):

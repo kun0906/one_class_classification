@@ -661,7 +661,7 @@ def plot_sub_features_metrics(input_file='output_data/figures/{case}_num_feature
 
 
 def plot_AE_thresholds_metrics(input_file='output_data/figures/{case}_thres_res_metrics.txt', title_flg=True, title='',
-                               only_FRP_flg=False):
+                               only_FPR_flg=False):
     res_metrics_lst = {'tpr': [], 'fnr': [], 'fpr': [], 'tnr': [], 'acc': []}
     thres_lst = []
 
@@ -683,45 +683,6 @@ def plot_AE_thresholds_metrics(input_file='output_data/figures/{case}_thres_res_
 
             line = in_hdl.readline()
 
-    fig, ax = plt.subplots()
-
-    if only_FRP_flg:
-        ax.plot(thres_lst, res_metrics_lst['fpr'], 'r*-', label='FPR')
-        # plt.xlim([0.0, 1.0])
-        # plt.ylim([0.0, 1.05])
-        plt.xlabel('Reconstruction errors')
-        plt.ylabel('False Positive Rate')
-        # plt.legend(loc='upper right')
-        # plt.title(title)
-
-        sub_dir = os.path.split(input_file)[0]
-        output_pre_path = os.path.split(input_file)[-1].split('.')[0]
-        out_file = os.path.join(sub_dir, output_pre_path + '_AE_thres_for_paper.pdf')
-        print(f'AE_thres: out_file:{out_file}')
-        plt.savefig(out_file)  # should use before plt.show()
-
-    else:
-        ax.plot(thres_lst, res_metrics_lst['fpr'], 'r*-', label='FPR')
-        ax.plot(thres_lst, res_metrics_lst['fnr'], 'b*-', label='FNR')
-        # ax.plot(thres_lst, res_metrics_lst['tpr'], 'g*-', label='TPR')
-        # ax.plot(thres_lst, res_metrics_lst['tnr'], 'c*-', label='TNR')
-        # plt.xlim([0.0, 1.0])
-        # plt.ylim([0.0, 1.05])
-        plt.xlabel('AE Thresholds')
-        plt.ylabel('Rate')
-        plt.legend(loc='upper right')
-        # plt.title(title)
-
-        sub_dir = os.path.split(input_file)[0]
-        output_pre_path = os.path.split(input_file)[-1].split('.')[0]
-        out_file = os.path.join(sub_dir, output_pre_path + '_AE_thres.pdf')
-        print(f'AE_thres: out_file:{out_file}')
-        plt.savefig(out_file)  # should use before plt.show()
-
-    if title_flg:
-        plt.title(title)
-
-    plt.show()
 
 
 def plot_point(tp, tn, fp, fn):

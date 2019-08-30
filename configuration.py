@@ -41,7 +41,7 @@ params_dict = {
     'input_dir': "input_data/dataset",
     'output_dir': "output_data",
     'norm_flg': True,  # normlize the data.
-    'norm_method': 'z-score',  # 'z-score' or 'min-max'
+    'norm_method': 'min-max',  # 'z-score' or 'min-max'
     'test_set_percent': 0.2,  # train and test ratio.
     'random_state': 42,
     'show_flg': True,
