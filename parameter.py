@@ -79,7 +79,7 @@ class Configuration():
         # self.feature_experiment_flg = False  # True, conduct experiment on different features
 
         # categorical features, which do not need to be normalized
-        self.not_normalized_features_lst = [0, 1]
+        self.not_normalized_features_lst = [0, 1, 5]
 
         self.experiments_dict = OrderedDict({
             'experiment_1': OrderedDict(

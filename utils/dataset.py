@@ -2,6 +2,8 @@ import os
 from collections import OrderedDict, Counter
 
 import numpy as np
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import RobustScaler, MinMaxScaler, StandardScaler
 
 from preprocess.feature_selection import select_sub_features_data
 from preprocess.normalization import normalize_data_with_z_score, normalize_data_with_min_max
@@ -546,6 +548,136 @@ def data_stat(X='', y=None, check_idx=[1, 2, 3]):
     return X_stat
 
 
+def data_stat_pandas(X='', y=None, check_idx=[1, 2, 3]):
+    import pandas as pd
+
+    cols = check_idx
+    data = pd.read_csv('loan.csv', nrows=30000,
+                       usecols=cols)  # the first 30000 rows in the data set (to reduce the computation time)
+    data.describe()
+
+
+def normalize_data_with_sklearn(X='', scaler='', norm_method='z-score', features_idx=[]):
+    """
+
+    Args:
+        X:
+        scaler:
+        norm_method:
+        features_idx: which features will be normalized. [1,2,3]
+
+    Returns:
+
+
+        the easiest way is to apply the StandardScaler to only the subset of features that need to be scaled, and then concatenate the result with the remaining features.
+        Alternatively, scikit-learn also offers (a still experimental, i.e. subject to change) ColumnTransformer API. It works similar to a pipline:
+
+        from sklearn.compose import ColumnTransformer
+        from sklearn.preprocessing import  StandarScaler
+        column_trans = ColumnTransformer(
+            [('scaler', StandardScaler(),2],
+            remainder='passthrough')
+        column_trans.fit_transform(X)
+
+        The third entry of the tuple (here : 2) can be a single or a list of column indices (or column names when working with a pandas DataFrame).
+
+    """
+    print(f'only normalize features_idx: {features_idx}, others do not normalize')
+    if scaler != '':
+        ct_scaler = scaler
+    else:
+        if norm_method == 'z-score':
+            scaler = StandardScaler()
+        elif norm_method == 'min-max':
+            scaler = MinMaxScaler()
+        else:  # default: Robust Scalar (Scaling to median and quantiles)
+            '''
+               Scaling using median and quantiles consists of subtracting the median to all the observations and 
+               then dividing by the interquartile difference. It Scales features using statistics that are robust 
+               to outliers.
+    
+                The interquartile difference is the difference between the 75th and 25th quantile:
+                    IQR = 75th quantile — 25th quantile
+                The equation to calculate scaled values:
+                    X_scaled = (X — X.median) / IQR
+            '''
+
+            scaler = RobustScaler()
+        '''
+            ColumnTransformer([('scaler', scaler, features_idx)],remainder='passthrough')  
+            will normalize features_idx, for the remainder features, they will append to last columns.
+            (i.e., ColumnTransformer will change featues' order.)
+            
+             By specifying ``remainder='passthrough'``, all remaining columns that
+             were not specified in `transformers` will be automatically passed
+             through. This subset of columns is concatenated with the output of
+              ColumnTransformer(
+            
+            ct = [("norm1", Normalizer(norm='l1'), [0, 1]), ("norm2", Normalizer(norm='l1'), slice(2, 4))])the transformers.
+        
+        '''
+        ct_scaler = ColumnTransformer([('scaler', scaler, features_idx)], remainder='passthrough')
+
+        ct_scaler.fit(X)
+    # range_val = col_trans_scaler.named_transformers_['scaler'].scale_
+    # print(f'after normalized, range_val: {range_val}')
+    trans_X = ct_scaler.transform(X)
+
+    return trans_X, ct_scaler
+
+
+def normalize_data_with_sklearn_all_features(X='', scaler='', norm_method='z-score', features_idx=[]):
+    """
+
+    Args:
+        X:
+        scaler:
+        norm_method:
+        features_idx: which features will be normalized. [1,2,3]
+
+    Returns:
+
+
+        the easiest way is to apply the StandardScaler to only the subset of features that need to be scaled, and then concatenate the result with the remaining features.
+        Alternatively, scikit-learn also offers (a still experimental, i.e. subject to change) ColumnTransformer API. It works similar to a pipline:
+
+        from sklearn.compose import ColumnTransformer
+        from sklearn.preprocessing import  StandarScaler
+        column_trans = ColumnTransformer(
+            [('scaler', StandardScaler(),2],
+            remainder='passthrough')
+        column_trans.fit_transform(X)
+
+        The third entry of the tuple (here : 2) can be a single or a list of column indices (or column names when working with a pandas DataFrame).
+
+    """
+
+    if norm_method == 'z-score':
+        scaler = StandardScaler()
+    elif norm_method == 'min-max':
+        scaler = MinMaxScaler()
+    else:  # default: Robust Scalar (Scaling to median and quantiles)
+        '''
+           Scaling using median and quantiles consists of subtracting the median to all the observations and 
+           then dividing by the interquartile difference. It Scales features using statistics that are robust 
+           to outliers.
+
+            The interquartile difference is the difference between the 75th and 25th quantile:
+                IQR = 75th quantile — 25th quantile
+            The equation to calculate scaled values:
+                X_scaled = (X — X.median) / IQR
+        '''
+
+        scaler = RobustScaler()
+
+    scaler.fit(X)
+    trans_X = scaler.transform(X)
+
+    return trans_X, scaler
+
+
+
+
 class Dataset():
 
     def __init__(self, case='experiment_1', input_dir='',
@@ -595,13 +727,35 @@ class Dataset():
         new_val_set_dict = {}
         new_test_set_dict = {}
 
+        features_idx = []
+        for idx in range(self.num_features):
+            if idx not in not_normalized_features_lst:
+                features_idx.append(idx)
+
         if norm_method == 'z-score':
             X_train = train_set_dict[train_set_key]['X']
-            new_X_train, scaler, X_train_mu, X_train_std = normalize_data_with_z_score(X_train, scaler='', mu='',
-                                                                                       d_std='',
-                                                                                       not_normalized_features_lst=not_normalized_features_lst)
+            new_X_train, self.scaler = normalize_data_with_sklearn(X_train, scaler='', norm_method=norm_method,
+                                                                   features_idx=features_idx)
+
+            # self.scaler.transformers = [('name', StandardScaler(), features_idx)]
+            X_train_mu = self.scaler.named_transformers_['scaler'].mean_
+            # d_std = np.sqrt(scaler.var_)   # do not use this form, because some var_ will be 0.
+            X_train_std = self.scaler.named_transformers_[
+                'scaler'].scale_  # recommend: self.scale_ = _handle_zeros_in_scale(np.sqrt(self.var_))
+
             print(f'--mu and std obtained from \'{train_set_key}\', in which,\nX_train_mu:{data_print(X_train_mu)},\n'
                   f'X_train_std:{data_print(X_train_std)}')
+
+            before_range = (np.max(X_train, axis=0) - np.min(X_train, axis=0))
+            value = list(map('{:.0f}'.format, before_range))  # limit the float to int print.
+            value = [float(v) for v in value]
+            print(f'before normalization, range_val ({len(value)}): {value}')  # f'{value:{width}.{precision}}'
+
+            after_range = (np.max(new_X_train, axis=0) - np.min(new_X_train, axis=0))
+            value = list(map('{:.0f}'.format, after_range))  # limit the float to int print.
+            value = [float(v) for v in value]
+            print(f'after normalization,  range_val ({len(value)}): {value}')  # f'{value:{width}.{precision}}'
+
             new_train_set_dict.update({train_set_key: {}})
             new_train_set_dict[train_set_key].update({'X': new_X_train})
             new_train_set_dict[train_set_key]['y'] = train_set_dict[train_set_key]['y']
@@ -610,32 +764,65 @@ class Dataset():
                 print(
                     f'\n--normalize {key} with {norm_method} and parameters (mu and std) obtained from {train_set_key},'
                     f'in which,\nX_train_mu:{data_print(X_train_mu)},\nX_train_std:{data_print(X_train_std)}')
-                x_val = value_dict['X']
-                new_x_val, _, _, _ = normalize_data_with_z_score(x_val, scaler=scaler, mu=X_train_mu, d_std=X_train_std,
-                                                                 not_normalized_features_lst=not_normalized_features_lst)
+                X_val = value_dict['X']
+                new_X_val = self.scaler.transform(X_val)
+
+                before_range = (np.max(X_val, axis=0) - np.min(X_val, axis=0))
+                value = list(map('{:.0f}'.format, before_range))  # limit the float to int print.
+                value = [float(v) for v in value]
+                print(f'before normalization, range_val ({len(value)}): {value}')  # f'{value:{width}.{precision}}'
+
+                after_range = (np.max(new_X_val, axis=0) - np.min(new_X_val, axis=0))
+                value = list(map('{:.0f}'.format, after_range))  # limit the float to int print.
+                value = [float(v) for v in value]
+                print(f'after normalization,  range_val ({len(value)}): {value}')  # f'{value:{width}.{precision}}'
+
                 new_val_set_dict[key] = {}
-                new_val_set_dict[key]['X'] = new_x_val
+                new_val_set_dict[key]['X'] = new_X_val
                 new_val_set_dict[key]['y'] = value_dict['y']
 
             for key, value_dict in test_set_dict.items():
                 print(
                     f'\n--normalize {key} with {norm_method} and parameters (mu and std) obtained from {train_set_key}, '
                     f'in which,\nX_train_mu:{data_print(X_train_mu)},\nX_train_std:{data_print(X_train_std)}')
-                x_test = value_dict['X']
-                new_x_test, _, _, _ = normalize_data_with_z_score(x_test, scaler=scaler, mu=X_train_mu,
-                                                                  d_std=X_train_std,
-                                                                  not_normalized_features_lst=not_normalized_features_lst)
+                X_test = value_dict['X']
+                new_X_test = self.scaler.transform(X_test)
+
+                before_range = (np.max(X_test, axis=0) - np.min(X_test, axis=0))
+                value = list(map('{:.0f}'.format, before_range))  # limit the float to int print.
+                value = [float(v) for v in value]
+                print(f'before normalization, range_val ({len(value)}): {value}')  # f'{value:{width}.{precision}}'
+
+                after_range = (np.max(new_X_test, axis=0) - np.min(new_X_test, axis=0))
+                value = list(map('{:.0f}'.format, after_range))  # limit the float to int print.
+                value = [float(v) for v in value]
+                print(f'after normalization,  range_val ({len(value)}): {value}')  # f'{value:{width}.{precision}}'
+
+
                 new_test_set_dict[key] = {}
-                new_test_set_dict[key]['X'] = new_x_test
+                new_test_set_dict[key]['X'] = new_X_test
                 new_test_set_dict[key]['y'] = value_dict['y']
 
         elif norm_method == 'min-max':
             X_train = train_set_dict[train_set_key]['X']
-            new_X_train, scaler, X_train_min, X_train_max = normalize_data_with_min_max(X_train, scaler='', min_val='',
-                                                                                        max_val='',
-                                                                                        not_normalized_features_lst=not_normalized_features_lst)
+            new_X_train, self.scaler = normalize_data_with_sklearn(X_train, scaler='', norm_method=norm_method,
+                                                                   features_idx=features_idx)
+            X_train_min = self.scaler.data_min_
+            X_train_max = self.scaler.data_max_
             print(f'--min and max obtained from \'{train_set_key}\', '
                   f'in which,\nX_train_min:{data_print(X_train_min)},\nX_train_max:{data_print(X_train_max)}')
+
+            before_range = (np.max(X_train, axis=0) - np.min(X_train, axis=0))
+            value = list(map('{:.0f}'.format, before_range))  # limit the float to int print.
+            value = [float(v) for v in value]
+            print(f'before normalization, range_val ({len(value)}): {value}')  # f'{value:{width}.{precision}}'
+
+            after_range = (np.max(new_X_train, axis=0) - np.min(new_X_train, axis=0))
+            value = list(map('{:.0f}'.format, after_range))  # limit the float to int print.
+            value = [float(v) for v in value]
+            print(f'after normalization,  range_val ({len(value)}): {value}')  # f'{value:{width}.{precision}}'
+
+
             new_train_set_dict[train_set_key] = {}
             new_train_set_dict[train_set_key]['X'] = new_X_train
             new_train_set_dict[train_set_key]['y'] = train_set_dict[train_set_key]['y']
@@ -644,24 +831,43 @@ class Dataset():
                 print(
                     f'\n--normalize {key} with {norm_method} and parameters (min and max) obtained from {train_set_key}, '
                     f'in which,\nX_train_min:{data_print(X_train_min)},\nX_train_max:{data_print(X_train_max)}')
-                x_val = value_dict['X']
-                new_x_val, _, _, _ = normalize_data_with_min_max(x_val, scaler=scaler, min_val=X_train_min,
-                                                                 max_val=X_train_max,
-                                                                 not_normalized_features_lst=not_normalized_features_lst)
+                X_val = value_dict['X']
+                new_X_val = self.scaler.transform(X_val)
+
+                before_range = (np.max(X_val, axis=0) - np.min(X_val, axis=0))
+                value = list(map('{:.0f}'.format, before_range))  # limit the float to int print.
+                value = [float(v) for v in value]
+                print(f'before normalization, range_val ({len(value)}): {value}')  # f'{value:{width}.{precision}}'
+
+                after_range = (np.max(new_X_val, axis=0) - np.min(new_X_val, axis=0))
+                value = list(map('{:.0f}'.format, after_range))  # limit the float to int print.
+                value = [float(v) for v in value]
+                print(f'after normalization,  range_val ({len(value)}): {value}')  # f'{value:{width}.{precision}}'
+
+
                 new_val_set_dict[key] = {}
-                new_val_set_dict[key]['X'] = new_x_val
+                new_val_set_dict[key]['X'] = new_X_val
                 new_val_set_dict[key]['y'] = value_dict['y']
 
             for key, value_dict in test_set_dict.items():
                 print(
                     f'\n--normalize {key} with {norm_method} and parameters (min and max) obtained from {train_set_key}, '
                     f'in which,\nX_train_min:{data_print(X_train_min)},\nX_train_max:{data_print(X_train_max)}')
-                x_test = value_dict['X']
-                new_x_test, _, _, _ = normalize_data_with_min_max(x_test, scaler=scaler, min_val=X_train_min,
-                                                                  max_val=X_train_max,
-                                                                  not_normalized_features_lst=not_normalized_features_lst)
+                X_test = value_dict['X']
+                new_X_test = self.scaler.transform(X_test)
+
+                before_range = (np.max(X_test, axis=0) - np.min(X_test, axis=0))
+                value = list(map('{:.0f}'.format, before_range))  # limit the float to int print.
+                value = [float(v) for v in value]
+                print(f'before normalization, range_val ({len(value)}): {value}')  # f'{value:{width}.{precision}}'
+
+                after_range = (np.max(new_X_test, axis=0) - np.min(new_X_test, axis=0))
+                value = list(map('{:.0f}'.format, after_range))  # limit the float to int print.
+                value = [float(v) for v in value]
+                print(f'after normalization,  range_val ({len(value)}): {value}')  # f'{value:{width}.{precision}}'
+
                 new_test_set_dict[key] = {}
-                new_test_set_dict[key]['X'] = new_x_test
+                new_test_set_dict[key]['X'] = new_X_test
                 new_test_set_dict[key]['y'] = value_dict['y']
         else:
             print(f'norm_method {norm_method} is not correct.')
