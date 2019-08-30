@@ -182,7 +182,8 @@ def normalize_data_with_z_score(data_arr, scaler='', mu=[], d_std=[], eplison=1e
         scaler = StandardScaler()
         scaler.fit(X=data_arr)
         mu = scaler.mean_
-        d_std = np.sqrt(scaler.var_)
+        # d_std = np.sqrt(scaler.var_)   # do not use this form, because some var_ will be 0.
+        d_std = scaler.scale_  # recommend: self.scale_ = _handle_zeros_in_scale(np.sqrt(self.var_))
 
     norm_data_arr = scaler.transform(X=data_arr)
 
