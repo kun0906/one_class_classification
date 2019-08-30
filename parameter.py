@@ -64,8 +64,8 @@ class Configuration():
         self.input_dir = 'input_data/dataset'
         self.output_dir = 'output_data'
         self.norm_flg = True  # normlize the data
-        self.norm_method = 'z-score'  # 'z-score' or 'min-max'
-        self.test_set_percent: 0.2  # train and test ratio
+        self.norm_method = 'z-score'  # 'robust' or 'z-score' or 'min-max'
+        self.test_set_percent = 0.2  # train and test ratio
         self.random_state = 42
         self.show_flg = True  # show figure
         self.verbose = True  # print all the information
@@ -79,7 +79,7 @@ class Configuration():
         # self.feature_experiment_flg = False  # True, conduct experiment on different features
 
         # categorical features, which do not need to be normalized
-        self.not_normalized_features_lst = [0, 1, 5]
+        self.not_normalized_features_lst = [0, 1]
 
         self.experiments_dict = OrderedDict({
             'experiment_1': OrderedDict(
@@ -101,7 +101,22 @@ class Configuration():
         return self.AE_params_dict, self.experiments_dict
 
     def __str__(self):
-        return f'{self.AE_params_dict},\n{self.experiments_dict}'
+        return f'AE_params_dict: {self.AE_params_dict},\n' \
+               f'experiments_dict: {self.experiments_dict},\n' \
+               f'norm_method: {self.norm_method},\nnorm_flg:{self.norm_flg},\n' \
+               f'not_normalized_features_lst: {self.not_normalized_features_lst},\n' \
+               f'features_lst: {self.features_lst},\n' \
+               f'analyze_features_flg: {self.analyze_features_flg},\n' \
+               f'input_dir: {self.input_dir},\n' \
+               f'output_dir: {self.output_dir},\n' \
+               f'test_set_percent: {self.test_set_percent},\n' \
+               f'show_flg: {self.show_flg}\n' \
+               f'verbose: {self.verbose}\n' \
+               f'random_state: {self.random_state}\n' \
+               f'balance_flg:{self.balance_flg}\n' \
+               f'tilte_flg: {self.title_flg}\n'
+
+
 
 
 ### all the parameters used.
